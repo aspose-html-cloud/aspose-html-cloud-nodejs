@@ -24,6 +24,18 @@
 * </summary>
 * --------------------------------------------------------------------------------------------------------------------
 */
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', '../src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require('../src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.Asposehtmlcloud);
+  }
+}(this, function(expect, Asposehtmlcloud) {
 
 'use strict'
 
@@ -32,15 +44,8 @@ var conf = JSON.parse(fs.readFileSync(__dirname + '/../setting/config.json', 'ut
 var local_dst_folder = __dirname + "/../"+ conf['testResult'];
 var local_src_folder = __dirname + "/../"+ conf['testData'];
 
-
-
-var StorageApi = require('asposestoragecloud');
-var storageApi = new StorageApi({
-  'baseURI':conf['basePath'],
-  'appSid': conf['appSID'],
-  'apiKey': conf['apiKey'] ,
-  'debug':  conf['debug']});
-
+// Get all api
+var api = new Asposehtmlcloud.StorageApi();
 
 exports.conf = conf;
 
@@ -54,13 +59,16 @@ exports.saveToTestFolder = function (filename, buffer){
 
 exports.uploadFile = function(filename, uploadFolder, callback){
     var folder = uploadFolder || conf['remoteFolder'];
-    var versionId = null;
-    var storage=null;
+    var opts = {
+        versionId: null,
+        storage: null
+    };
     var file = local_src_folder + "/" + filename;
-    storageApi.PutCreate(folder + "/" + filename, versionId, storage, file, callback);
+    api.putCreate(folder + "/" + filename, file, opts, callback);
 };
 
 exports.getFileSize = function(filename){
   var stats = fs.statSync(local_src_folder + "/" + filename);
   return stats.size;
 };
+}));

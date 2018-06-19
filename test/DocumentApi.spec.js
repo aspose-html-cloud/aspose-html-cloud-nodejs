@@ -51,10 +51,10 @@ var helper = require('./helper');
     var name1 = "test_doc_images.zip";
 
     // Upload test document to serverx`
-    helper.uploadFile(name, null, function(response){
-      expect(200).to.be(response.code);
-      helper.uploadFile(name1, null, function(response){
-        expect(200).to.be(response.code);
+    helper.uploadFile(name, null, function(err, data, res){
+      expect(200).to.be(res.status);
+      helper.uploadFile(name1, null, function(err, data, res){
+        expect(200).to.be(res.status);
         done();
       });
     });

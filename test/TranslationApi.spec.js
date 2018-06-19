@@ -50,8 +50,8 @@ var helper = require('./helper');
     var name = "test_en.html";
 
     // Upload test data to server
-    helper.uploadFile(name, null, function(res){
-      expect(200).to.be(res.code);
+    helper.uploadFile(name, null, function(err, data, res){
+      expect(200).to.be(res.status);
       done();
     });
   });

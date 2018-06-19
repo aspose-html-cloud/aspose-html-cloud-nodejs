@@ -28,12 +28,25 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'api/ConversionApi', 'api/DocumentApi', 'api/OcrApi', 'api/TranslationApi'], factory);
+    define(['ApiClient',
+        'api/ConversionApi',
+        'api/DocumentApi',
+        'api/OcrApi',
+        'api/TranslationApi',
+        'api/SummarizationApi',
+        'api/StorageApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./api/ConversionApi'), require('./api/DocumentApi'), require('./api/OcrApi'), require('./api/TranslationApi'));
+    module.exports = factory(require('./ApiClient'),
+        require('./api/ConversionApi'),
+        require('./api/DocumentApi'),
+        require('./api/OcrApi'),
+        require('./api/TranslationApi'),
+        require('./api/SummarizationApi'),
+        require('./api/StorageApi')
+    );
   }
-}(function(ApiClient, ConversionApi, DocumentApi, OcrApi, TranslationApi) {
+}(function(ApiClient, ConversionApi, DocumentApi, OcrApi, TranslationApi, SummarizationApi, StorageApi) {
   'use strict';
 
   /**
@@ -92,7 +105,20 @@
      * The TranslationApi service constructor.
      * @property {module:api/TranslationApi}
      */
-    TranslationApi: TranslationApi
+    TranslationApi: TranslationApi,
+
+    /**
+     * The SummarizationApi service constructor.
+     * @property {module:api/SummarizationApi}
+     */
+    SummarizationApi: SummarizationApi,
+
+    /**
+     * The StorageApi service constructor.
+     * @property {module:api/StorageApi}
+     */
+    StorageApi: StorageApi
+
   };
 
   return exports;

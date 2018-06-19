@@ -6,7 +6,5 @@
     "testResult":"testresult",
     "testData":"testdata",
 	"remoteFolder":"HtmlTestDoc",
-	"defaultUserAgent":"Webkit",
-	"debugFile":"debug.log",
-	"debug":false
+	"defaultUserAgent":"Webkit"
 }

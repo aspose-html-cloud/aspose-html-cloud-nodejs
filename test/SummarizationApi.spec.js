@@ -1,6 +1,6 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="OcrApi.spec.js">
+* <copyright company="Aspose" file="SummarizationApi.spec.js">
 *   Copyright (c) 2018 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
@@ -44,10 +44,10 @@ var helper = require('./helper');
   var instance;
 
   before(function(done) {
-    this.timeout(200000);
+    this.timeout(400000);
+    instance = new Asposehtmlcloud.SummarizationApi();
 
-    instance = new Asposehtmlcloud.OcrApi();
-    var name = "test_ocr.png";
+    var name = "test_en.html";
 
     // Upload test data to server
     helper.uploadFile(name, null, function(err, data, res){
@@ -72,44 +72,33 @@ var helper = require('./helper');
       object[property] = value;
   };
 
-  describe('OcrApi', function() {
-    this.timeout(200000);
-
-    describe('GetRecognizeAndImportToHtml', function() {
-      it('should call GetRecognizeAndImportToHtml successfully', function(done) {
-
-        var name = "test_ocr.png";
-
+  describe('SummarizationApi', function() {
+    this.timeout(400000);
+    describe('GetDetectHtmlKeywords', function() {
+      it('should call GetDetectHtmlKeywords successfully', function(done) {
+        var name = "test_en.html";
         var opts = {
-          'ocrEngineLang': "en",
           'folder': helper.conf['remoteFolder'],
           'storage': null
         };
 
-        instance.GetRecognizeAndImportToHtml(name, opts, function(err, data, res) {
+        instance.GetDetectHtmlKeywords(name, opts, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
-          helper.saveToTestFolder('GetRecognize.html', data);
+          helper.saveToTestFolder('KeywordsDoc.json', data);
           done();
         });
       });
     });
+    describe('GetDetectHtmlKeywordsByUrl', function() {
+      it('should call GetDetectHtmlKeywordsByUrl successfully', function(done) {
 
-    describe('GetRecognizeAndTranslateToHtml', function() {
-      it('should call GetRecognizeAndTranslateToHtml successfully', function(done) {
+        var sourceUrl = "https://www.le.ac.uk/oerresources/bdra/html/page_02.htm";
 
-        var name = "test_ocr.png";
-        var srcLang = "en";
-        var resLang = "fr";
-        var opts = {
-          'folder': helper.conf['remoteFolder'],
-          'storage': null
-        };
-
-        instance.GetRecognizeAndTranslateToHtml(name, srcLang, resLang, opts, function(err, data, res) {
+        instance.GetDetectHtmlKeywordsByUrl(sourceUrl, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
-          helper.saveToTestFolder('GetRecognize_en_fr.html', data);
+          helper.saveToTestFolder('KeywordsUrl.json', data);
           done();
         });
       });

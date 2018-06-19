@@ -1,6 +1,6 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="OcrApi.spec.js">
+* <copyright company="Aspose" file="FolderApi.spec.js">
 *   Copyright (c) 2018 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
@@ -25,8 +25,6 @@
 * --------------------------------------------------------------------------------------------------------------------
 */
 
-var helper = require('./helper');
-
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD.
@@ -44,16 +42,8 @@ var helper = require('./helper');
   var instance;
 
   before(function(done) {
-    this.timeout(200000);
-
-    instance = new Asposehtmlcloud.OcrApi();
-    var name = "test_ocr.png";
-
-    // Upload test data to server
-    helper.uploadFile(name, null, function(err, data, res){
-      expect(200).to.be(res.status);
-      done();
-    });
+    instance = new Asposehtmlcloud.StorageApi();
+    done();
   });
 
   var getProperty = function(object, getter, property) {
@@ -72,48 +62,80 @@ var helper = require('./helper');
       object[property] = value;
   };
 
-  describe('OcrApi', function() {
-    this.timeout(200000);
+  describe('FolderApi', function() {
+    this.timeout(400000);
 
-    describe('GetRecognizeAndImportToHtml', function() {
-      it('should call GetRecognizeAndImportToHtml successfully', function(done) {
-
-        var name = "test_ocr.png";
-
+    describe('putCreateFolder', function() {
+      it('should call putCreateFolder successfully', function(done) {
+        var path = "HtmlTestDoc/New_Folder";
         var opts = {
-          'ocrEngineLang': "en",
-          'folder': helper.conf['remoteFolder'],
-          'storage': null
+          'storage': null,
+          'destStorage': null
         };
-
-        instance.GetRecognizeAndImportToHtml(name, opts, function(err, data, res) {
+        //Create folder
+        instance.putCreateFolder(path, opts, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
-          helper.saveToTestFolder('GetRecognize.html', data);
+          console.log(data);
           done();
         });
       });
     });
 
-    describe('GetRecognizeAndTranslateToHtml', function() {
-      it('should call GetRecognizeAndTranslateToHtml successfully', function(done) {
-
-        var name = "test_ocr.png";
-        var srcLang = "en";
-        var resLang = "fr";
+    describe('deleteFolder', function() {
+      it('should call deleteFolder successfully', function(done) {
+        var path = "HtmlTestDoc/New_Folder";
         var opts = {
-          'folder': helper.conf['remoteFolder'],
-          'storage': null
+          'storage': null,
+          'destStorage': null
         };
-
-        instance.GetRecognizeAndTranslateToHtml(name, srcLang, resLang, opts, function(err, data, res) {
+       // Delete  folder which created above
+        instance.deleteFolder(path, opts, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
-          helper.saveToTestFolder('GetRecognize_en_fr.html', data);
+          console.log(data);
           done();
         });
       });
     });
-  });
+
+    describe('getListFiles', function() {
+      it('should call getListFiles successfully', function(done) {
+        var opts = {
+          'path': "HtmlTestDoc",
+          'storage': null
+        };
+        instance.getListFiles(opts, function(err, data, res) {
+          if (err) throw err;
+          expect(200).to.be(res.status);
+          console.log(data);
+          done();
+        });
+      });
+    });
+
+    describe('postMoveFolder', function() {
+      it('should call postMoveFolder successfully', function(done) {
+        var src = "HtmlTestDoc/New_Folder";
+        var dest = "HtmlTestDoc/Moved_Folder"
+        var opts = {
+          'storage': null,
+          'destStorage': null
+        };
+        //Create folder
+        instance.putCreateFolder(src, opts, function(err, data, res) {
+          if (err) throw err;
+          expect(200).to.be(res.status);
+          // Move folder
+          instance.postMoveFolder(src, dest, opts, function(err, data, res){
+            if(err) throw err;
+            expect(200).to.be(res.status);
+            console.log(data);
+            done();
+          });
+        });
+      });
+    });
+ });
 
 }));

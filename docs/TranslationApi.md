@@ -153,10 +153,6 @@ Name | Type | Description  | Notes
 
 **File**
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json

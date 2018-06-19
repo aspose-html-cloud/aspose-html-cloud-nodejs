@@ -116,9 +116,7 @@ Example:
     "testResult":"/testresult/",
     "testData":"/testdata/",
     "remoteFolder":"HtmlTestDoc/",
-    "defaultUserAgent":"Webkit",
-    "debugFile":"debug.log",
-    "debug":false
+    "defaultUserAgent":"Webkit"
 }
 ```
 
@@ -205,6 +203,8 @@ All URIs are relative to *https://api.aspose.cloud/v1.1*
 [Tests](./test/) contain various examples of using the Aspose.HTML SDK.
 
 
+### HTML SDK
+
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Asposehtmlcloud.ConversionApi* | [**GetConvertDocumentToImage**](docs/ConversionApi.md#GetConvertDocumentToImage) | **GET** /html/{name}/convert/image/{outFormat} | Convert the HTML document from the storage by its name to the specified image format.
@@ -220,6 +220,45 @@ Class | Method | HTTP request | Description
 *Asposehtmlcloud.OcrApi* | [**GetRecognizeAndTranslateToHtml**](docs/OcrApi.md#GetRecognizeAndTranslateToHtml) | **GET** /html/{name}/ocr/translate/{srcLang}/{resLang} | Recognize text from the image file in the storage, import it to HTML format and translate to specified language.
 *Asposehtmlcloud.TranslationApi* | [**GetTranslateDocument**](docs/TranslationApi.md#GetTranslateDocument) | **GET** /html/{name}/translate/{srcLang}/{resLang} | Translate the HTML document specified by the name from default or specified storage. 
 *Asposehtmlcloud.TranslationApi* | [**GetTranslateDocumentByUrl**](docs/TranslationApi.md#GetTranslateDocumentByUrl) | **GET** /html/translate/{srcLang}/{resLang} | Translate the HTML document from Web specified by its URL.
+*Asposehtmlcloud.SummarizationApi* | [**GetDetectHtmlKeywords**](docs/SummarizationApi.md#GetDetectHtmlKeywords) | **GET** /html/{name}/summ/keywords | Get the HTML document keywords using the keyword detection service.
+*Asposehtmlcloud.SummarizationApi* | [**GetDetectHtmlKeywordsByUrl**](docs/SummarizationApi.md#GetDetectHtmlKeywordsByUrl) | **GET** /html/summ/keywords | Get the keywords from HTML document from Web specified by its URL using the keyword detection service
+
+### STORAGE SDK   
+
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*Asposehtmlcloud.StorageApi* | [**deleteFile**](docs/FileApi.md#deleteFile) | **DELETE** /storage/file | Remove a specific file 
+*Asposehtmlcloud.StorageApi* | [**getDownload**](docs/FileApi.md#getDownload) | **GET** /storage/file | Download a specific file 
+*Asposehtmlcloud.StorageApi* | [**postMoveFile**](docs/FileApi.md#postMoveFile) | **POST** /storage/file | Move a specific file 
+*Asposehtmlcloud.StorageApi* | [**putCreate**](docs/FileApi.md#putCreate) | **PUT** /storage/file | Upload a specific file 
+*Asposehtmlcloud.StorageApi* | [**deleteFolder**](docs/FolderApi.md#deleteFolder) | **DELETE** /storage/folder | Remove a specific folder 
+*Asposehtmlcloud.StorageApi* | [**getListFiles**](docs/FolderApi.md#getListFiles) | **GET** /storage/folder | Get the file listing of a specific folder 
+*Asposehtmlcloud.StorageApi* | [**postMoveFolder**](docs/FolderApi.md#postMoveFolder) | **POST** /storage/folder | Move a specific folder 
+*Asposehtmlcloud.StorageApi* | [**putCreateFolder**](docs/FolderApi.md#putCreateFolder) | **PUT** /storage/folder | Create the folder 
+*Asposehtmlcloud.StorageApi* | [**getDiscUsage**](docs/StorageApi.md#getDiscUsage) | **GET** /storage/disc | Check the disk usage of the current account 
+*Asposehtmlcloud.StorageApi* | [**getIsExist**](docs/StorageApi.md#getIsExist) | **GET** /storage/exist | Check if a specific file or folder exists
+*Asposehtmlcloud.StorageApi* | [**getIsStorageExist**](docs/StorageApi.md#getIsStorageExist) | **GET** /storage/{name}/exist | Check if storage exists 
+*Asposehtmlcloud.StorageApi* | [**getListFileVersions**](docs/StorageApi.md#getListFileVersions) | **GET** /storage/version | Get the file&#39;s versions list 
+
+
+## Documentation for Models
+
+ - [Asposehtmlcloud.DiscUsage](docs/DiscUsage.md)
+ - [Asposehtmlcloud.FileDetail](docs/FileDetail.md)
+ - [Asposehtmlcloud.FileDetailsResponse](docs/FileDetailsResponse.md)
+ - [Asposehtmlcloud.FileExist](docs/FileExist.md)
+ - [Asposehtmlcloud.MessageResponse](docs/MessageResponse.md)
+ - [Asposehtmlcloud.DiscUsageResponse](docs/DiscUsageResponse.md)
+ - [Asposehtmlcloud.FileExistResponse](docs/FileExistResponse.md)
+ - [Asposehtmlcloud.FileVersion](docs/FileVersion.md)
+ - [Asposehtmlcloud.FileVersionsResponse](docs/FileVersionsResponse.md)
+ - [Asposehtmlcloud.MoveFileResponse](docs/MoveFileResponse.md)
+ - [Asposehtmlcloud.MoveFolderResponse](docs/MoveFolderResponse.md)
+ - [Asposehtmlcloud.RemoveFileResponse](docs/RemoveFileResponse.md)
+ - [Asposehtmlcloud.RemoveFolderResponse](docs/RemoveFolderResponse.md)
+ - [Asposehtmlcloud.StorageExistResponse](docs/StorageExistResponse.md)
+
+
 
 ## Run tests
 ```shell

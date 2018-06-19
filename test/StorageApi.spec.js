@@ -1,6 +1,6 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="OcrApi.spec.js">
+* <copyright company="Aspose" file="StorageApi.spec.js">
 *   Copyright (c) 2018 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
@@ -25,8 +25,6 @@
 * --------------------------------------------------------------------------------------------------------------------
 */
 
-var helper = require('./helper');
-
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD.
@@ -44,16 +42,8 @@ var helper = require('./helper');
   var instance;
 
   before(function(done) {
-    this.timeout(200000);
-
-    instance = new Asposehtmlcloud.OcrApi();
-    var name = "test_ocr.png";
-
-    // Upload test data to server
-    helper.uploadFile(name, null, function(err, data, res){
-      expect(200).to.be(res.status);
-      done();
-    });
+    instance = new Asposehtmlcloud.StorageApi();
+    done();
   });
 
   var getProperty = function(object, getter, property) {
@@ -62,7 +52,7 @@ var helper = require('./helper');
       return object[getter]();
     else
       return object[property];
-  };
+  }
 
   var setProperty = function(object, setter, property, value) {
     // Use setter method if present; otherwise, set the property directly.
@@ -70,46 +60,75 @@ var helper = require('./helper');
       object[setter](value);
     else
       object[property] = value;
-  };
+  }
 
-  describe('OcrApi', function() {
-    this.timeout(200000);
+  describe('StorageApi', function() {
+    this.timeout(400000);
 
-    describe('GetRecognizeAndImportToHtml', function() {
-      it('should call GetRecognizeAndImportToHtml successfully', function(done) {
-
-        var name = "test_ocr.png";
-
-        var opts = {
-          'ocrEngineLang': "en",
-          'folder': helper.conf['remoteFolder'],
-          'storage': null
-        };
-
-        instance.GetRecognizeAndImportToHtml(name, opts, function(err, data, res) {
+    describe('getDiscUsage', function() {
+      it('should call getDiscUsage successfully', function(done) {
+        var opts ={'storage': null};
+        instance.getDiscUsage(opts, function(err, data, res) {
           if (err) throw err;
-          expect(200).to.be(res.status);
-          helper.saveToTestFolder('GetRecognize.html', data);
-          done();
+        expect(200).to.be(res.status);
+        console.log(data);
+        done();
         });
       });
     });
 
-    describe('GetRecognizeAndTranslateToHtml', function() {
-      it('should call GetRecognizeAndTranslateToHtml successfully', function(done) {
-
-        var name = "test_ocr.png";
-        var srcLang = "en";
-        var resLang = "fr";
+    describe('getIsExist', function() {
+      it('should call getIsExist successfully', function(done) {
+        var path_exist = "HtmlTestDoc";
+        var path_non_exist = "NonExistFolder"
         var opts = {
-          'folder': helper.conf['remoteFolder'],
+          'versionId': null,
           'storage': null
         };
-
-        instance.GetRecognizeAndTranslateToHtml(name, srcLang, resLang, opts, function(err, data, res) {
+        instance.getIsExist(path_exist, opts, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
-          helper.saveToTestFolder('GetRecognize_en_fr.html', data);
+          console.log('Exist folder');
+          console.log(data);
+          instance.getIsExist(path_non_exist, opts, function(err, data, res){
+            expect(200).to.be(res.status);
+            console.log('Not exist folder');
+            console.log(data);
+            done();
+          });
+        });
+      });
+    });
+
+    describe('getIsStorageExist', function() {
+      it('should call getIsStorageExist successfully', function(done) {
+        var name_exist = "/";
+        var name_not_exist = "not_exist_storage";
+
+        instance.getIsStorageExist(name_exist, function(err, data, res) {
+          if (err) throw err;
+          expect(200).to.be(res.status);
+          console.log("Exist storage");
+          console.log(data);
+          instance.getIsStorageExist(name_not_exist, function(err, data, res){
+            if(err) throw err;
+            expect(200).to.be(res.status);
+            console.log("Not exist storage");
+            console.log(data);
+            done();
+          });
+        });
+      });
+    });
+
+    describe('getListFileVersions', function() {
+      it('should call getListFileVersions successfully', function(done) {
+        var path = "HtmlTestDoc/test_en.html";
+        var opts = {'storage': null};
+        instance.getListFileVersions(path, opts, function(err, data, res) {
+          if (err) throw err;
+          expect(200).to.be(res.status);
+          console.log(data);
           done();
         });
       });
