@@ -177,6 +177,67 @@
       );
     }
 
+    
+    /**
+     * Callback function to receive the result of the GetDocumentFragmentByXPathByUrl operation.
+     * @callback module:api/DocumentApi~GetDocumentFragmentByXPathByUrlCallback
+     * @param {String} error Error message, if any.
+     * @param {File} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Return list of HTML fragments matching the specified XPath query by the source page URL.
+     * @param {String} sourceUrl Source page URL.
+     * @param {String} xPath XPath query string.
+     * @param {String} outFormat Output format. Possible values: &#39;plain&#39; and &#39;json&#39;.
+     * @param {module:api/DocumentApi~GetDocumentFragmentByXPathByUrlCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link File}
+     */
+    this.GetDocumentFragmentByXPathByUrl = function(sourceUrl, xPath, outFormat, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'sourceUrl' is set
+      if (sourceUrl === undefined || sourceUrl === null) {
+        throw new Error("Missing the required parameter 'sourceUrl' when calling GetDocumentFragmentByXPathByUrl");
+      }
+
+      // verify the required parameter 'xPath' is set
+      if (xPath === undefined || xPath === null) {
+        throw new Error("Missing the required parameter 'xPath' when calling GetDocumentFragmentByXPathByUrl");
+      }
+
+      // verify the required parameter 'outFormat' is set
+      if (outFormat === undefined || outFormat === null) {
+        throw new Error("Missing the required parameter 'outFormat' when calling GetDocumentFragmentByXPathByUrl");
+      }
+
+
+      var pathParams = {
+        'outFormat': outFormat
+      };
+      var queryParams = {
+        'sourceUrl': sourceUrl,
+        'xPath': xPath,
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var contentTypes = ['application/json'];
+      var accepts = ['multipart/form-data'];
+      var returnType = 'Blob';
+
+      return this.apiClient.callApi(
+        '/html/fragments/{outFormat}', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        contentTypes, accepts, returnType, callback
+      );
+    };
+    
     /**
      * Callback function to receive the result of the GetDocumentImages operation.
      * @callback module:api/DocumentApi~GetDocumentImagesCallback
@@ -228,6 +289,53 @@
         contentTypes, accepts, returnType, callback
       );
     }
+    
+        /**
+     * Callback function to receive the result of the GetDocumentImagesByUrl operation.
+     * @callback module:api/DocumentApi~GetDocumentImagesByUrlCallback
+     * @param {String} error Error message, if any.
+     * @param {File} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Return all HTML page images packaged as a ZIP archive by the source page URL.
+     * @param {String} sourceUrl Source page URL.
+     * @param {module:api/DocumentApi~GetDocumentImagesByUrlCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link File}
+     */
+    this.GetDocumentImagesByUrl = function(sourceUrl, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'sourceUrl' is set
+      if (sourceUrl === undefined || sourceUrl === null) {
+        throw new Error("Missing the required parameter 'sourceUrl' when calling GetDocumentImagesByUrl");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'sourceUrl': sourceUrl,
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var contentTypes = ['application/json'];
+      var accepts = ['multipart/form-data'];
+      var returnType = 'Blob';
+
+      return this.apiClient.callApi(
+        '/html/images/all', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        contentTypes, accepts, returnType, callback
+      );
+    }
+    
   };
 
   return exports;

@@ -10,6 +10,12 @@ Method | HTTP request | Description
 [**GetConvertDocumentToPdfByUrl**](ConversionApi.md#GetConvertDocumentToPdfByUrl) | **GET** /html/convert/pdf | Convert the HTML page from the web by its URL to PDF.
 [**GetConvertDocumentToXps**](ConversionApi.md#GetConvertDocumentToXps) | **GET** /html/{name}/convert/xps | Convert the HTML document from the storage by its name to XPS.
 [**GetConvertDocumentToXpsByUrl**](ConversionApi.md#GetConvertDocumentToXpsByUrl) | **GET** /html/convert/xps | Convert the HTML page from the web by its URL to XPS.
+[**PutConvertDocumentInRequestToImage**](ConversionApi.md#PutConvertDocumentInRequestToImage) | **PUT** /html/convert/image/{outFormat} | Converts the HTML document (in request content) to the specified image format and uploads resulting file to storage.
+[**PutConvertDocumentInRequestToPdf**](ConversionApi.md#PutConvertDocumentInRequestToPdf) | **PUT** /html/convert/pdf | Converts the HTML document (in request content) to PDF and uploads resulting file to storage.
+[**PutConvertDocumentInRequestToXps**](ConversionApi.md#PutConvertDocumentInRequestToXps) | **PUT** /html/convert/xps | Converts the HTML document (in request content) to XPS and uploads resulting file to storage.
+[**PutConvertDocumentToImage**](ConversionApi.md#PutConvertDocumentToImage) | **PUT** /html/{name}/convert/image/{outFormat} | Converts the HTML document (located on storage) to the specified image format and uploads resulting file to storage.
+[**PutConvertDocumentToPdf**](ConversionApi.md#PutConvertDocumentToPdf) | **PUT** /html/{name}/convert/pdf | Converts the HTML document (located on storage) to PDF and uploads resulting file to storage.
+[**PutConvertDocumentToXps**](ConversionApi.md#PutConvertDocumentToXps) | **PUT** /html/{name}/convert/xps | Converts the HTML document (located on storage) to XPS and uploads resulting file to storage.
 
 
 <a name="GetConvertDocumentToImage"></a>
@@ -29,14 +35,14 @@ var name = "name_example"; // String | Document name.
 var outFormat = "outFormat_example"; // String | Resulting image format.
 
 var opts = { 
-  'width': 56, // Number | Resulting image width. 
-  'height': 56, // Number | Resulting image height. 
-  'leftMargin': 56, // Number | Left resulting image margin.
-  'rightMargin': 56, // Number | Right resulting image margin.
-  'topMargin': 56, // Number | Top resulting image margin.
-  'bottomMargin': 56, // Number | Bottom resulting image margin.
-  'xResolution': 56, // Number | Horizontal resolution of resulting image.
-  'yResolution': 56, // Number | Vertical resolution of resulting image.
+  'width': 800, // Number | Resulting image width. 
+  'height': 1000, // Number | Resulting image height. 
+  'leftMargin': 50, // Number | Left resulting image margin.
+  'rightMargin': 50, // Number | Right resulting image margin.
+  'topMargin': 50, // Number | Top resulting image margin.
+  'bottomMargin': 50, // Number | Bottom resulting image margin.
+  'xResolution': 300, // Number | Horizontal resolution of resulting image.
+  'yResolution': 300, // Number | Vertical resolution of resulting image.
   'folder': "folder_example", // String | The source document folder.
   'storage': "storage_example" // String | The source document storage.
 };
@@ -70,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Blob**
 
 ### HTTP request headers
 
@@ -94,14 +100,14 @@ var sourceUrl = "sourceUrl_example"; // String | Source page URL.
 var outFormat = "outFormat_example"; // String | Resulting image format.
 
 var opts = { 
-  'width': 56, // Number | Resulting image width. 
-  'height': 56, // Number | Resulting image height. 
-  'leftMargin': 56, // Number | Left resulting image margin.
-  'rightMargin': 56, // Number | Right resulting image margin.
-  'topMargin': 56, // Number | Top resulting image margin.
-  'bottomMargin': 56, // Number | Bottom resulting image margin.
-  'xResolution': 56, // Number | Horizontal resolution of resulting image.
-  'yResolution': 56, // Number | Vertical resolution of resulting image.
+  'width': 800, // Number | Resulting image width. 
+  'height': 1000, // Number | Resulting image height. 
+  'leftMargin': 50, // Number | Left resulting image margin.
+  'rightMargin': 50, // Number | Right resulting image margin.
+  'topMargin': 50, // Number | Top resulting image margin.
+  'bottomMargin': 50, // Number | Bottom resulting image margin.
+  'xResolution': 150, // Number | Horizontal resolution of resulting image.
+  'yResolution': 150, // Number | Vertical resolution of resulting image.
   'folder': "folder_example", // String | The document folder.
   'storage': "storage_example" // String | The document storage.
 };
@@ -135,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Blob**
 
 ### HTTP request headers
 
@@ -157,12 +163,12 @@ var apiInstance = new Asposehtmlcloud.ConversionApi();
 var name = "name_example"; // String | Document name.
 
 var opts = { 
-  'width': 56, // Number | Resulting image width. 
-  'height': 56, // Number | Resulting image height. 
-  'leftMargin': 56, // Number | Left resulting image margin.
-  'rightMargin': 56, // Number | Right resulting image margin.
-  'topMargin': 56, // Number | Top resulting image margin.
-  'bottomMargin': 56, // Number | Bottom resulting image margin.
+  'width': 800, // Number | Resulting image width. 
+  'height': 600, // Number | Resulting image height. 
+  'leftMargin': 50, // Number | Left resulting image margin.
+  'rightMargin': 50, // Number | Right resulting image margin.
+  'topMargin': 50, // Number | Top resulting image margin.
+  'bottomMargin': 50, // Number | Bottom resulting image margin.
   'folder': "folder_example", // String | The document folder.
   'storage': "storage_example" // String | The document storage.
 };
@@ -193,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Blob**
 
 ### HTTP request headers
 
@@ -215,12 +221,12 @@ var apiInstance = new Asposehtmlcloud.ConversionApi();
 var sourceUrl = "sourceUrl_example"; // String | Source page URL.
 
 var opts = { 
-  'width': 56, // Number | Resulting image width. 
-  'height': 56, // Number | Resulting image height. 
-  'leftMargin': 56, // Number | Left resulting image margin.
-  'rightMargin': 56, // Number | Right resulting image margin.
-  'topMargin': 56, // Number | Top resulting image margin.
-  'bottomMargin': 56, // Number | Bottom resulting image margin.
+  'width': 800, // Number | Resulting image width. 
+  'height': 1000, // Number | Resulting image height. 
+  'leftMargin': 50, // Number | Left resulting image margin.
+  'rightMargin': 50, // Number | Right resulting image margin.
+  'topMargin': 50, // Number | Top resulting image margin.
+  'bottomMargin': 50, // Number | Bottom resulting image margin.
   'folder': "folder_example", // String | The document folder.
   'storage': "storage_example" // String | The document storage.
 };
@@ -251,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Blob**
 
 ### HTTP request headers
 
@@ -273,12 +279,12 @@ var apiInstance = new Asposehtmlcloud.ConversionApi();
 var name = "name_example"; // String | Document name.
 
 var opts = { 
-  'width': 56, // Number | Resulting image width. 
-  'height': 56, // Number | Resulting image height. 
-  'leftMargin': 56, // Number | Left resulting image margin.
-  'rightMargin': 56, // Number | Right resulting image margin.
-  'topMargin': 56, // Number | Top resulting image margin.
-  'bottomMargin': 56, // Number | Bottom resulting image margin.
+  'width': 800, // Number | Resulting image width. 
+  'height': 1000, // Number | Resulting image height. 
+  'leftMargin': 50, // Number | Left resulting image margin.
+  'rightMargin': 50, // Number | Right resulting image margin.
+  'topMargin': 50, // Number | Top resulting image margin.
+  'bottomMargin': 50, // Number | Bottom resulting image margin.
   'folder': "folder_example", // String | The document folder.
   'storage': "storage_example" // String | The document storage.
 };
@@ -309,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Blob**
 
 ### HTTP request headers
 
@@ -331,12 +337,12 @@ var apiInstance = new Asposehtmlcloud.ConversionApi();
 var sourceUrl = "sourceUrl_example"; // String | Source page URL.
 
 var opts = { 
-  'width': 56, // Number | Resulting image width. 
-  'height': 56, // Number | Resulting image height. 
-  'leftMargin': 56, // Number | Left resulting image margin.
-  'rightMargin': 56, // Number | Right resulting image margin.
-  'topMargin': 56, // Number | Top resulting image margin.
-  'bottomMargin': 56, // Number | Bottom resulting image margin.
+  'width': 800, // Number | Resulting image width. 
+  'height': 600, // Number | Resulting image height. 
+  'leftMargin': 50, // Number | Left resulting image margin.
+  'rightMargin': 50, // Number | Right resulting image margin.
+  'topMargin': 50, // Number | Top resulting image margin.
+  'bottomMargin': 50, // Number | Bottom resulting image margin.
   'folder': "folder_example", // String | The document folder.
   'storage': "storage_example" // String | The document storage.
 };
@@ -367,9 +373,375 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Blob**
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
+ 
+ 
+<a name="PutConvertDocumentInRequestToImage"></a>
+# **PutConvertDocumentInRequestToImage**
+> File PutConvertDocumentInRequestToImage(outPath, outFormat, file, opts)
+
+Converts the HTML document (in request content) to the specified image format and uploads resulting file to storage.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.ConversionApi();
+
+var outPath = "outPath_example"; // String | Full resulting filename (ex. /folder1/folder2/result.jpg)
+
+var outFormat = "outFormat_example"; // String | 
+
+var file = "/path/to/file.txt"; // File | A file to be converted.
+
+var opts = { 
+  'width': 800, // Number | Resulting document page width in points (1/96 inch).
+  'height': 1000, // Number | Resulting document page height in points (1/96 inch).
+  'leftMargin': 50, // Number | Left resulting document page margin in points (1/96 inch).
+  'rightMargin': 50, // Number | Right resulting document page margin in points (1/96 inch).
+  'topMargin': 50, // Number | Top resulting document page margin in points (1/96 inch).
+  'bottomMargin': 50, // Number | Bottom resulting document page margin in points (1/96 inch).
+  'resolution': 50 // Number | Resolution of resulting image. Default is 96 dpi.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.PutConvertDocumentInRequestToImage(outPath, outFormat, file, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **String**| Full resulting filename (ex. /folder1/folder2/result.jpg) | 
+ **outFormat** | **String**|  | 
+ **file** | **String**| A file to be converted. | 
+ **width** | **Number**| Resulting document page width in points (1/96 inch). | [optional] 
+ **height** | **Number**| Resulting document page height in points (1/96 inch). | [optional] 
+ **leftMargin** | **Number**| Left resulting document page margin in points (1/96 inch). | [optional] 
+ **rightMargin** | **Number**| Right resulting document page margin in points (1/96 inch). | [optional] 
+ **topMargin** | **Number**| Top resulting document page margin in points (1/96 inch). | [optional] 
+ **bottomMargin** | **Number**| Bottom resulting document page margin in points (1/96 inch). | [optional] 
+ **resolution** | **Number**| Resolution of resulting image. Default is 96 dpi. | [optional] 
+
+### Return type
+
+**Empty**
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
+ - **Accept**: application/json
+
+<a name="PutConvertDocumentInRequestToPdf"></a>
+# **PutConvertDocumentInRequestToPdf**
+> File PutConvertDocumentInRequestToPdf(outPath, file, opts)
+
+Converts the HTML document (in request content) to PDF and uploads resulting file to storage.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.ConversionApi();
+
+var outPath = "outPath_example"; // String | Full resulting filename (ex. /folder1/folder2/result.pdf)
+
+var file = "/path/to/file.txt"; // File | A file to be converted.
+
+var opts = { 
+  'width': 800, // Number | Resulting document page width in points (1/96 inch).
+  'height': 1000, // Number | Resulting document page height in points (1/96 inch).
+  'leftMargin': 50, // Number | Left resulting document page margin in points (1/96 inch).
+  'rightMargin': 50, // Number | Right resulting document page margin in points (1/96 inch).
+  'topMargin': 50, // Number | Top resulting document page margin in points (1/96 inch).
+  'bottomMargin': 50 // Number | Bottom resulting document page margin in points (1/96 inch).
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.PutConvertDocumentInRequestToPdf(outPath, file, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **String**| Full resulting filename (ex. /folder1/folder2/result.pdf) | 
+ **file** | **String**| A file to be converted. | 
+ **width** | **Number**| Resulting document page width in points (1/96 inch). | [optional] 
+ **height** | **Number**| Resulting document page height in points (1/96 inch). | [optional] 
+ **leftMargin** | **Number**| Left resulting document page margin in points (1/96 inch). | [optional] 
+ **rightMargin** | **Number**| Right resulting document page margin in points (1/96 inch). | [optional] 
+ **topMargin** | **Number**| Top resulting document page margin in points (1/96 inch). | [optional] 
+ **bottomMargin** | **Number**| Bottom resulting document page margin in points (1/96 inch). | [optional] 
+
+### Return type
+
+**Empty**
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
+ - **Accept**: application/json
+
+<a name="PutConvertDocumentInRequestToXps"></a>
+# **PutConvertDocumentInRequestToXps**
+> File PutConvertDocumentInRequestToXps(outPath, file, opts)
+
+Converts the HTML document (in request content) to XPS and uploads resulting file to storage.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.ConversionApi();
+
+var outPath = "outPath_example"; // String | Full resulting filename (ex. /folder1/folder2/result.xps)
+
+var file = "/path/to/file.txt"; // File | A file to be converted.
+
+var opts = { 
+  'width': 800, // Number | Resulting document page width in points (1/96 inch).
+  'height': 1000, // Number | Resulting document page height in points (1/96 inch).
+  'leftMargin': 50, // Number | Left resulting document page margin in points (1/96 inch).
+  'rightMargin': 50, // Number | Right resulting document page margin in points (1/96 inch).
+  'topMargin': 50, // Number | Top resulting document page margin in points (1/96 inch).
+  'bottomMargin': 50 // Number | Bottom resulting document page margin in points (1/96 inch).
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.PutConvertDocumentInRequestToXps(outPath, file, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **String**| Full resulting filename (ex. /folder1/folder2/result.xps) | 
+ **file** | **String**| A file to be converted. | 
+ **width** | **Number**| Resulting document page width in points (1/96 inch). | [optional] 
+ **height** | **Number**| Resulting document page height in points (1/96 inch). | [optional] 
+ **leftMargin** | **Number**| Left resulting document page margin in points (1/96 inch). | [optional] 
+ **rightMargin** | **Number**| Right resulting document page margin in points (1/96 inch). | [optional] 
+ **topMargin** | **Number**| Top resulting document page margin in points (1/96 inch). | [optional] 
+ **bottomMargin** | **Number**| Bottom resulting document page margin in points (1/96 inch). | [optional] 
+
+### Return type
+
+**Empty**
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
+ - **Accept**: application/json
+
+<a name="PutConvertDocumentToImage"></a>
+# **PutConvertDocumentToImage**
+> File PutConvertDocumentToImage(name, outPath, outFormat, opts)
+
+Converts the HTML document (located on storage) to the specified image format and uploads resulting file to storage.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.ConversionApi();
+
+var name = "name_example"; // String | Document name.
+
+var outPath = "outPath_example"; // String | Full resulting filename (ex. /folder1/folder2/result.jpg)
+
+var outFormat = "outFormat_example"; // String | 
+
+var opts = { 
+  'width': 800, // Number | Resulting document page width in points (1/96 inch).
+  'height': 1000, // Number | Resulting document page height in points (1/96 inch).
+  'leftMargin': 50, // Number | Left resulting document page margin in points (1/96 inch).
+  'rightMargin': 50, // Number | Right resulting document page margin in points (1/96 inch).
+  'topMargin': 50, // Number | Top resulting document page margin in points (1/96 inch).
+  'bottomMargin': 50, // Number | Bottom resulting document page margin in points (1/96 inch).
+  'resolution': 50, // Number | Resolution of resulting image. Default is 96 dpi.
+  'folder': "folder_example", // String | The source document folder.
+  'storage': "storage_example" // String | The source and resulting document storage.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.PutConvertDocumentToImage(name, outPath, outFormat, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Document name. | 
+ **outPath** | **String**| Full resulting filename (ex. /folder1/folder2/result.jpg) | 
+ **outFormat** | **String**|  | 
+ **width** | **Number**| Resulting document page width in points (1/96 inch). | [optional] 
+ **height** | **Number**| Resulting document page height in points (1/96 inch). | [optional] 
+ **leftMargin** | **Number**| Left resulting document page margin in points (1/96 inch). | [optional] 
+ **rightMargin** | **Number**| Right resulting document page margin in points (1/96 inch). | [optional] 
+ **topMargin** | **Number**| Top resulting document page margin in points (1/96 inch). | [optional] 
+ **bottomMargin** | **Number**| Bottom resulting document page margin in points (1/96 inch). | [optional] 
+ **resolution** | **Number**| Resolution of resulting image. Default is 96 dpi. | [optional] 
+ **folder** | **String**| The source document folder. | [optional] 
+ **storage** | **String**| The source and resulting document storage. | [optional] 
+
+### Return type
+
+**Empty**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="PutConvertDocumentToPdf"></a>
+# **PutConvertDocumentToPdf**
+> File PutConvertDocumentToPdf(name, outPath, opts)
+
+Converts the HTML document (located on storage) to PDF and uploads resulting file to storage.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.ConversionApi();
+
+var name = "name_example"; // String | Document name.
+
+var outPath = "outPath_example"; // String | Full resulting filename (ex. /folder1/folder2/result.pdf)
+
+var opts = { 
+  'width': 800, // Number | Resulting document page width in points (1/96 inch).
+  'height': 1000, // Number | Resulting document page height in points (1/96 inch).
+  'leftMargin': 50, // Number | Left resulting document page margin in points (1/96 inch).
+  'rightMargin': 50, // Number | Right resulting document page margin in points (1/96 inch).
+  'topMargin': 50, // Number | Top resulting document page margin in points (1/96 inch).
+  'bottomMargin': 50, // Number | Bottom resulting document page margin in points (1/96 inch).
+  'folder': "folder_example", // String | The source document folder.
+  'storage': "storage_example" // String | The source and resulting document storage.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.PutConvertDocumentToPdf(name, outPath, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Document name. | 
+ **outPath** | **String**| Full resulting filename (ex. /folder1/folder2/result.pdf) | 
+ **width** | **Number**| Resulting document page width in points (1/96 inch). | [optional] 
+ **height** | **Number**| Resulting document page height in points (1/96 inch). | [optional] 
+ **leftMargin** | **Number**| Left resulting document page margin in points (1/96 inch). | [optional] 
+ **rightMargin** | **Number**| Right resulting document page margin in points (1/96 inch). | [optional] 
+ **topMargin** | **Number**| Top resulting document page margin in points (1/96 inch). | [optional] 
+ **bottomMargin** | **Number**| Bottom resulting document page margin in points (1/96 inch). | [optional] 
+ **folder** | **String**| The source document folder. | [optional] 
+ **storage** | **String**| The source and resulting document storage. | [optional] 
+
+### Return type
+
+**Empty**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="PutConvertDocumentToXps"></a>
+# **PutConvertDocumentToXps**
+> File PutConvertDocumentToXps(name, outPath, opts)
+
+Converts the HTML document (located on storage) to XPS and uploads resulting file to storage.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.ConversionApi();
+
+var name = "name_example"; // String | Document name.
+
+var outPath = "outPath_example"; // String | Full resulting filename (ex. /folder1/folder2/result.xps)
+
+var opts = { 
+  'width': 800, // Number | Resulting document page width in points (1/96 inch).
+  'height': 1000, // Number | Resulting document page height in points (1/96 inch).
+  'leftMargin': 50, // Number | Left resulting document page margin in points (1/96 inch).
+  'rightMargin': 50, // Number | Right resulting document page margin in points (1/96 inch).
+  'topMargin': 50, // Number | Top resulting document page margin in points (1/96 inch).
+  'bottomMargin': 50, // Number | Bottom resulting document page margin in points (1/96 inch).
+  'folder': "folder_example", // String | The source document folder.
+  'storage': "storage_example" // String | The source and resulting document storage.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.PutConvertDocumentToXps(name, outPath, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Document name. | 
+ **outPath** | **String**| Full resulting filename (ex. /folder1/folder2/result.xps) | 
+ **width** | **Number**| Resulting document page width in points (1/96 inch). | [optional] 
+ **height** | **Number**| Resulting document page height in points (1/96 inch). | [optional] 
+ **leftMargin** | **Number**| Left resulting document page margin in points (1/96 inch). | [optional] 
+ **rightMargin** | **Number**| Right resulting document page margin in points (1/96 inch). | [optional] 
+ **topMargin** | **Number**| Top resulting document page margin in points (1/96 inch). | [optional] 
+ **bottomMargin** | **Number**| Bottom resulting document page margin in points (1/96 inch). | [optional] 
+ **folder** | **String**| The source document folder. | [optional] 
+ **storage** | **String**| The source and resulting document storage. | [optional] 
+
+### Return type
+
+**Empty**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+

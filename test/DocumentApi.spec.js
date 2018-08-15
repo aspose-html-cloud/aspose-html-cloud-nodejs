@@ -117,6 +117,21 @@ var helper = require('./helper');
         });
       });
     });
+    describe('GetDocumentFragmentByXPathByUrl', function() {
+      it('should call GetDocumentFragmentByXPathByUrl successfully', function(done) {
+
+        var sourceUrl  = "https://stallman.org/articles/anonymous-payments-thru-phones.html";
+        var xPath = ".//p";
+        var outFormat = "plain";
+
+          instance.GetDocumentFragmentByXPathByUrl(sourceUrl, xPath, outFormat, function(err, data, res) {
+            if (err) throw err;
+            expect(200).to.be(res.status);
+            helper.saveToTestFolder('GetXPathDocByUrl.html', data);
+            done();
+        });
+      });
+    });
     describe('GetDocumentImages', function() {
       it('should call GetDocumentImages successfully', function(done) {
 
@@ -131,6 +146,19 @@ var helper = require('./helper');
           if (err) throw err;
           expect(200).to.be(res.status);
           helper.saveToTestFolder('GetDocImages.zip', data);
+          done();
+        });
+      });
+    });
+    describe('GetDocumentImagesByUrl', function() {
+      it('should call GetDocumentImagesByUrl successfully', function(done) {
+
+        var sourceUrl = "https://www.google.com/";
+
+        instance.GetDocumentImagesByUrl(sourceUrl, function(err, data, res) {
+          if (err) throw err;
+          expect(200).to.be(res.status);
+          helper.saveToTestFolder('GetDocImagesByUrl.zip', data);
           done();
         });
       });
