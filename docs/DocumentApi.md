@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**GetDocument**](DocumentApi.md#GetDocument) | **GET** /html/{name} | Return the HTML document by the name from default or specified storage.
 [**GetDocumentFragmentByXPath**](DocumentApi.md#GetDocumentFragmentByXPath) | **GET** /html/{name}/fragments/{outFormat} | Return list of HTML fragments matching the specified XPath query. 
 [**GetDocumentFragmentByXPathByUrl**](DocumentApi.md#GetDocumentFragmentByXPathByUrl) | **GET** /html/fragments/{outFormat} | Return list of HTML fragments matching the specified XPath query by the source page URL.
+[**GetDocumentFragmentsByCSSSelector**](DocumentApi.md#GetDocumentFragmentsByCSSSelector) | **GET** /html/{name}/fragments/css/{outFormat} | Return list of HTML fragments matching the specified CSS selector.
+[**GetDocumentFragmentsByCSSSelectorByUrl**](DocumentApi.md#GetDocumentFragmentsByCSSSelectorByUrl) | **GET** /html/fragments/css/{outFormat} | Return list of HTML fragments matching the specified CSS selector by the source page URL.
 [**GetDocumentImages**](DocumentApi.md#GetDocumentImages) | **GET** /html/{name}/images/all | Return all HTML document images packaged as a ZIP archive.
 [**GetDocumentImagesByUrl**](DocumentApi.md#GetDocumentImagesByUrl) | **GET** /html/images/all | Return all HTML page images packaged as a ZIP archive by the source page URL.
 
@@ -154,6 +156,107 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
+
+
+<a name="GetDocumentFragmentsByCSSSelector"></a>
+# **GetDocumentFragmentsByCSSSelector**
+> File GetDocumentFragmentsByCSSSelector(name, selector, outFormat, opts)
+
+Return list of HTML fragments matching the specified CSS selector.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.DocumentApi();
+
+var name = "name_example"; // String | The document name.
+
+var selector = "selector_example"; // String | CSS selector string.
+
+var outFormat = "outFormat_example"; // String | Output format. Possible values: 'plain' and 'json'.
+
+var opts = { 
+  'folder': "folder_example", // String | The document folder.
+  'storage': "storage_example" // String | The document storage.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.GetDocumentFragmentsByCSSSelector(name, selector, outFormat, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| The document name. | 
+ **selector** | **String**| CSS selector string. | 
+ **outFormat** | **String**| Output format. Possible values: &#39;plain&#39; and &#39;json&#39;. | 
+ **folder** | **String**| The document folder. | [optional] 
+ **storage** | **String**| The document storage. | [optional] 
+
+### Return type
+
+**File**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+
+<a name="GetDocumentFragmentsByCSSSelectorByUrl"></a>
+# **GetDocumentFragmentsByCSSSelectorByUrl**
+> File GetDocumentFragmentsByCSSSelectorByUrl(sourceUrl, selector, outFormat)
+
+Return list of HTML fragments matching the specified CSS selector by the source page URL.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.DocumentApi();
+
+var sourceUrl = "sourceUrl_example"; // String | Source page URL.
+
+var selector = "selector_example"; // String | CSS selector string.
+
+var outFormat = "outFormat_example"; // String | Output format. Possible values: 'plain' and 'json'.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.GetDocumentFragmentsByCSSSelectorByUrl(sourceUrl, selector, outFormat, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sourceUrl** | **String**| Source page URL. | 
+ **selector** | **String**| CSS selector string. | 
+ **outFormat** | **String**| Output format. Possible values: &#39;plain&#39; and &#39;json&#39;. | 
+
+### Return type
+
+**File**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
 
 <a name="GetDocumentImages"></a>
 # **GetDocumentImages**

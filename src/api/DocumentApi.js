@@ -175,7 +175,7 @@
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
-    }
+    };
 
     
     /**
@@ -237,8 +237,135 @@
         contentTypes, accepts, returnType, callback
       );
     };
-    
-    /**
+
+
+      /**
+       * Callback function to receive the result of the GetDocumentFragmentsByCSSSelector operation.
+       * @callback module:api/DocumentApi~GetDocumentFragmentsByCSSSelectorCallback
+       * @param {String} error Error message, if any.
+       * @param {File} data The data returned by the service call.
+       * @param {String} response The complete HTTP response.
+       */
+
+      /**
+       * Return list of HTML fragments matching the specified CSS selector.
+       * @param {String} name The document name.
+       * @param {String} selector CSS selector string.
+       * @param {String} outFormat Output format. Possible values: &#39;plain&#39; and &#39;json&#39;.
+       * @param {Object} opts Optional parameters
+       * @param {String} opts.folder The document folder.
+       * @param {String} opts.storage The document storage.
+       * @param {module:api/DocumentApi~GetDocumentFragmentsByCSSSelectorCallback} callback The callback function, accepting three arguments: error, data, response
+       * data is of type: {@link File}
+       */
+      this.GetDocumentFragmentsByCSSSelector = function(name, selector, outFormat, opts, callback) {
+          opts = opts || {};
+          var postBody = null;
+
+          // verify the required parameter 'name' is set
+          if (name === undefined || name === null) {
+              throw new Error("Missing the required parameter 'name' when calling GetDocumentFragmentsByCSSSelector");
+          }
+
+          // verify the required parameter 'selector' is set
+          if (selector === undefined || selector === null) {
+              throw new Error("Missing the required parameter 'selector' when calling GetDocumentFragmentsByCSSSelector");
+          }
+
+          // verify the required parameter 'outFormat' is set
+          if (outFormat === undefined || outFormat === null) {
+              throw new Error("Missing the required parameter 'outFormat' when calling GetDocumentFragmentsByCSSSelector");
+          }
+
+
+          var pathParams = {
+              'name': name,
+              'outFormat': outFormat
+          };
+          var queryParams = {
+              'selector': selector,
+              'folder': opts['folder'],
+              'storage': opts['storage'],
+          };
+          var collectionQueryParams = {
+          };
+          var headerParams = {
+          };
+          var formParams = {
+          };
+
+          var contentTypes = ['application/json'];
+          var accepts = ['multipart/form-data'];
+          var returnType = 'Blob';
+
+          return this.apiClient.callApi(
+              '/html/{name}/fragments/css/{outFormat}', 'GET',
+              pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+              contentTypes, accepts, returnType, callback
+          );
+      };
+
+      /**
+       * Callback function to receive the result of the GetDocumentFragmentsByCSSSelectorByUrl operation.
+       * @callback module:api/DocumentApi~GetDocumentFragmentsByCSSSelectorByUrlCallback
+       * @param {String} error Error message, if any.
+       * @param {File} data The data returned by the service call.
+       * @param {String} response The complete HTTP response.
+       */
+
+      /**
+       * Return list of HTML fragments matching the specified CSS selector by the source page URL.
+       * @param {String} sourceUrl Source page URL.
+       * @param {String} selector CSS selector string.
+       * @param {String} outFormat Output format. Possible values: &#39;plain&#39; and &#39;json&#39;.
+       * @param {module:api/DocumentApi~GetDocumentFragmentsByCSSSelectorByUrlCallback} callback The callback function, accepting three arguments: error, data, response
+       * data is of type: {@link File}
+       */
+      this.GetDocumentFragmentsByCSSSelectorByUrl = function(sourceUrl, selector, outFormat, callback) {
+          var postBody = null;
+
+          // verify the required parameter 'sourceUrl' is set
+          if (sourceUrl === undefined || sourceUrl === null) {
+              throw new Error("Missing the required parameter 'sourceUrl' when calling GetDocumentFragmentsByCSSSelectorByUrl");
+          }
+
+          // verify the required parameter 'selector' is set
+          if (selector === undefined || selector === null) {
+              throw new Error("Missing the required parameter 'selector' when calling GetDocumentFragmentsByCSSSelectorByUrl");
+          }
+
+          // verify the required parameter 'outFormat' is set
+          if (outFormat === undefined || outFormat === null) {
+              throw new Error("Missing the required parameter 'outFormat' when calling GetDocumentFragmentsByCSSSelectorByUrl");
+          }
+
+
+          var pathParams = {
+              'outFormat': outFormat
+          };
+          var queryParams = {
+              'sourceUrl': sourceUrl,
+              'selector': selector,
+          };
+          var collectionQueryParams = {
+          };
+          var headerParams = {
+          };
+          var formParams = {
+          };
+
+          var contentTypes = ['application/json'];
+          var accepts = ['multipart/form-data'];
+          var returnType = 'Blob';
+
+          return this.apiClient.callApi(
+              '/html/fragments/css/{outFormat}', 'GET',
+              pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+              contentTypes, accepts, returnType, callback
+          );
+      };
+
+      /**
      * Callback function to receive the result of the GetDocumentImages operation.
      * @callback module:api/DocumentApi~GetDocumentImagesCallback
      * @param {String} error Error message, if any.

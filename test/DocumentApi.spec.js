@@ -27,141 +27,177 @@
 
 var helper = require('./helper');
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.Asposehtmlcloud);
-  }
-}(this, function(expect, Asposehtmlcloud) {
-  'use strict';
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD.
+        define(['expect.js', '../src/index'], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        // CommonJS-like environments that support module.exports, like Node.
+        factory(require('expect.js'), require('../src/index'));
+    } else {
+        // Browser globals (root is window)
+        factory(root.expect, root.Asposehtmlcloud);
+    }
+}(this, function (expect, Asposehtmlcloud) {
+    'use strict';
 
-  var instance;
+    var instance;
 
-  before(function(done) {
-    this.timeout(200000);
-    instance = new Asposehtmlcloud.DocumentApi();
-
-    var name = "test_doc.zip";
-    var name1 = "test_doc_images.zip";
-
-    // Upload test document to serverx`
-    helper.uploadFile(name, null, function(err, data, res){
-      expect(200).to.be(res.status);
-      helper.uploadFile(name1, null, function(err, data, res){
-        expect(200).to.be(res.status);
-        done();
-      });
-    });
-  });
-
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  };
-
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  };
-
-
-  describe('DocumentApi', function() {
-    this.timeout(200000);
-
-    describe('GetDocument', function() {
-      it('should call GetDocument successfully', function(done) {
+    before(function (done) {
+        this.timeout(200000);
+        instance = new Asposehtmlcloud.DocumentApi();
 
         var name = "test_doc.zip";
+        var name1 = "test_doc_images.zip";
 
-        var opts = {
-          'storage': null,
-          'folder': helper.conf['remoteFolder']
-        };
-
-        instance.GetDocument(name, opts, function(err, data, res) {
-          if (err) throw err;
-          expect(200).to.be(res.status);
-          helper.saveToTestFolder('GetDoc.zip', data);
-          done();
-        });
-      });
-    });
-    describe('GetDocumentFragmentByXPath', function() {
-      it('should call GetDocumentFragmentByXPath successfully', function(done) {
-
-        var name = "test_doc.zip";
-        var xPath = ".//p";
-        var outFormat = "plain";
-        var opts = {
-          'storage': null,
-          'folder': helper.conf['remoteFolder']
-        };
-
-        instance.GetDocumentFragmentByXPath(name, xPath, outFormat, opts, function(err, data, res) {
-          if (err) throw err;
-          expect(200).to.be(res.status);
-          helper.saveToTestFolder('GetPathDoc.html', data);
-          done();
-        });
-      });
-    });
-    describe('GetDocumentFragmentByXPathByUrl', function() {
-      it('should call GetDocumentFragmentByXPathByUrl successfully', function(done) {
-
-        var sourceUrl  = "https://stallman.org/articles/anonymous-payments-thru-phones.html";
-        var xPath = ".//p";
-        var outFormat = "plain";
-
-          instance.GetDocumentFragmentByXPathByUrl(sourceUrl, xPath, outFormat, function(err, data, res) {
-            if (err) throw err;
+        // Upload test document to serverx`
+        helper.uploadFile(name, null, function (err, data, res) {
             expect(200).to.be(res.status);
-            helper.saveToTestFolder('GetXPathDocByUrl.html', data);
-            done();
+            helper.uploadFile(name1, null, function (err, data, res) {
+                expect(200).to.be(res.status);
+                done();
+            });
         });
-      });
     });
-    describe('GetDocumentImages', function() {
-      it('should call GetDocumentImages successfully', function(done) {
 
-        var name = "test_doc_images.zip";
+    var getProperty = function (object, getter, property) {
+        // Use getter method if present; otherwise, get the property directly.
+        if (typeof object[getter] === 'function')
+            return object[getter]();
+        else
+            return object[property];
+    };
 
-        var opts = {
-          'storage': null,
-          'folder': helper.conf['remoteFolder']
-        };
+    var setProperty = function (object, setter, property, value) {
+        // Use setter method if present; otherwise, set the property directly.
+        if (typeof object[setter] === 'function')
+            object[setter](value);
+        else
+            object[property] = value;
+    };
 
-        instance.GetDocumentImages(name, opts, function(err, data, res) {
-          if (err) throw err;
-          expect(200).to.be(res.status);
-          helper.saveToTestFolder('GetDocImages.zip', data);
-          done();
+
+    describe('DocumentApi', function () {
+        this.timeout(200000);
+
+        describe('GetDocument', function () {
+            it('should call GetDocument successfully', function (done) {
+
+                var name = "test_doc.zip";
+
+                var opts = {
+                    'storage': null,
+                    'folder': helper.conf['remoteFolder']
+                };
+
+                instance.GetDocument(name, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+                    helper.saveToTestFolder('GetDoc.zip', data);
+                    done();
+                });
+            });
         });
-      });
-    });
-    describe('GetDocumentImagesByUrl', function() {
-      it('should call GetDocumentImagesByUrl successfully', function(done) {
 
-        var sourceUrl = "https://www.google.com/";
 
-        instance.GetDocumentImagesByUrl(sourceUrl, function(err, data, res) {
-          if (err) throw err;
-          expect(200).to.be(res.status);
-          helper.saveToTestFolder('GetDocImagesByUrl.zip', data);
-          done();
+        describe('GetDocumentFragmentByXPath', function () {
+            it('should call GetDocumentFragmentByXPath successfully', function (done) {
+
+                var name = "test_doc.zip";
+                var xPath = ".//p";
+                var outFormat = "plain";
+                var opts = {
+                    'storage': null,
+                    'folder': helper.conf['remoteFolder']
+                };
+
+                instance.GetDocumentFragmentByXPath(name, xPath, outFormat, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+                    helper.saveToTestFolder('GetXPathDoc.html', data);
+                    done();
+                });
+            });
         });
-      });
+        describe('GetDocumentFragmentByXPathByUrl', function () {
+            it('should call GetDocumentFragmentByXPathByUrl successfully', function (done) {
+
+                var sourceUrl = "https://stallman.org/articles/anonymous-payments-thru-phones.html";
+                var xPath = ".//p";
+                var outFormat = "plain";
+
+                instance.GetDocumentFragmentByXPathByUrl(sourceUrl, xPath, outFormat, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+                    helper.saveToTestFolder('GetXPathDocByUrl.html', data);
+                    done();
+                });
+            });
+        });
+        describe('GetDocumentFragmentsByCSSSelector', function () {
+            it('should call GetDocumentFragmentsByCSSSelector successfully', function (done) {
+
+                var name = "test_doc.zip";
+                var selector = "div p";
+                var outFormat = "plain";
+                var opts = {
+                    'folder': helper.conf['remoteFolder'],
+                    'storage': null,
+                };
+
+                instance.GetDocumentFragmentsByCSSSelector(name, selector, outFormat, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+                    helper.saveToTestFolder('GetCSSDoc.html', data);
+                    done();
+                });
+            });
+        });
+        describe('GetDocumentFragmentsByCSSSelectorByUrl', function () {
+            it('should call GetDocumentFragmentsByCSSSelectorByUrl successfully', function (done) {
+
+                var sourceUrl = "https://www.w3schools.com/cssref/css_selectors.asp";
+                var selector = 'a[href$=".asp"]';
+                var outFormat = "plain";
+
+                instance.GetDocumentFragmentsByCSSSelectorByUrl(sourceUrl, selector, outFormat, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+                    helper.saveToTestFolder('GetCSSDocByUrl.html', data);
+                    done();
+                });
+            });
+        });
+        describe('GetDocumentImages', function () {
+            it('should call GetDocumentImages successfully', function (done) {
+
+                var name = "test_doc_images.zip";
+
+                var opts = {
+                    'storage': null,
+                    'folder': helper.conf['remoteFolder']
+                };
+
+                instance.GetDocumentImages(name, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+                    helper.saveToTestFolder('GetDocImages.zip', data);
+                    done();
+                });
+            });
+        });
+        describe('GetDocumentImagesByUrl', function () {
+            it('should call GetDocumentImagesByUrl successfully', function (done) {
+
+                var sourceUrl = "https://www.google.com/";
+
+                instance.GetDocumentImagesByUrl(sourceUrl, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+                    helper.saveToTestFolder('GetDocImagesByUrl.zip', data);
+                    done();
+                });
+            });
+        });
     });
-  });
 }));
