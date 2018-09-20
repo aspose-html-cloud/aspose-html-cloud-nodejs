@@ -46,8 +46,8 @@ apiInstance.GetTranslateDocument(name, srcLang, resLang, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Document name. | 
- **srcLang** | **String**| Source language. | 
- **resLang** | **String**| Result language. | 
+ **srcLang** | **String**| Source language. | Allowed values is "en" (alias "eng", "english"), "de" (alias "deu", "deutsch", "german"), "fr" (alias "fra", "french"), "ru" (alias "rus", "russian"), "zh", alias ("chinese").
+ **resLang** | **String**| Result language. | Allowed values is "en" (alias "eng", "english"), "de" (alias "deu", "deutsch", "german"), "fr" (alias "fra", "french"), "ru" (alias "rus", "russian"), "zh", alias ("chinese").
  **storage** | **String**| The source document storage. | [optional] 
  **folder** | **String**| The source document folder. | [optional] 
 
@@ -94,8 +94,8 @@ apiInstance.GetTranslateDocumentByUrl(sourceUrl, srcLang, resLang, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sourceUrl** | **String**| Source document URL. | 
- **srcLang** | **String**| Source language. | 
- **resLang** | **String**| Result language. | 
+ **srcLang** | **String**| Source language. | Allowed values is "en" (alias "eng", "english"), "de" (alias "deu", "deutsch", "german"), "fr" (alias "fra", "french"), "ru" (alias "rus", "russian"), "zh", alias ("chinese").
+ **resLang** | **String**| Result language. | Allowed values is "en" (alias "eng", "english"), "de" (alias "deu", "deutsch", "german"), "fr" (alias "fra", "french"), "ru" (alias "rus", "russian"), "zh", alias ("chinese").
 
 ### Return type
 
@@ -105,55 +105,3 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
-
-<a name="translationPutTranslateDocument"></a>
-# **translationPutTranslateDocument**
-> File translationPutTranslateDocument(name, srcLang, resLang, opts)
-
-Translate the HTML document specified by the name from default or specified storage. Result document will be saved into the default or specified storage; result path will be like /{folder}/{name}_{lang_pair}.{extension}.
-
-### Example
-```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
-
-var apiInstance = new Asposehtmlcloud.TranslationApi();
-
-var name = "name_example"; // String | Document name.
-
-var srcLang = "srcLang_example"; // String | Source language.
-
-var resLang = "resLang_example"; // String | Result language.
-
-var opts = { 
-  'folder': "folder_example", // String | The source & result document folder.
-  'storage': "storage_example" // String | The source & result document storage.
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.translationPutTranslateDocument(name, srcLang, resLang, opts, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| Document name. | 
- **srcLang** | **String**| Source language. | 
- **resLang** | **String**| Result language. | 
- **folder** | **String**| The source &amp; result document folder. | [optional] 
- **storage** | **String**| The source &amp; result document storage. | [optional] 
-
-### Return type
-
-**File**
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json

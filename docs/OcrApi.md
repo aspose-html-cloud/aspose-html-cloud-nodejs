@@ -43,7 +43,7 @@ apiInstance.GetRecognizeAndImportToHtml(name, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| The image file name. | 
- **ocrEngineLang** | **String**| OCR engine language - language  | [optional] [default to en]
+ **ocrEngineLang** | **String**| OCR engine language - language  | [optional] [default to en] Allowed values is "en", "de", "fr", "ru".
  **folder** | **String**| The source image folder. | [optional] 
  **storage** | **String**| The source image storage. | [optional] 
 
@@ -94,7 +94,7 @@ apiInstance.GetRecognizeAndTranslateToHtml(name, srcLang, resLang, opts, callbac
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| The image file name. | 
- **srcLang** | **String**| Source language - also supposed as the OCR engine language. | 
+ **srcLang** | **String**| Source language - also supposed as the OCR engine language. | Allowed values is "en", "de", "fr", "ru".
  **resLang** | **String**| Result language. | 
  **folder** | **String**| The source image folder. | [optional] 
  **storage** | **String**| The source image storage. | [optional] 
