@@ -58,59 +58,6 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
-
-    /**
-     * Callback function to receive the result of the GetDocument operation.
-     * @callback module:api/DocumentApi~GetDocumentCallback
-     * @param {String} error Error message, if any.
-     * @param {File} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Return the HTML document by the name from default or specified storage.
-     * @param {String} name The document name.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.storage The document folder
-     * @param {String} opts.folder The document folder.
-     * @param {module:api/DocumentApi~GetDocumentCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link File}
-     */
-    this.GetDocument = function(name, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'name' is set
-      if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling GetDocument");
-      }
-
-
-      var pathParams = {
-        'name': name
-      };
-      var queryParams = {
-        'storage': opts['storage'],
-        'folder': opts['folder'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var contentTypes = ['application/json'];
-      var accepts = ['multipart/form-data', 'application/zip'];
-      var returnType = 'Blob';
-
-      return this.apiClient.callApi(
-        '/html/{name}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        contentTypes, accepts, returnType, callback
-      );
-    }
-
     /**
      * Callback function to receive the result of the GetDocumentFragmentByXPath operation.
      * @callback module:api/DocumentApi~GetDocumentFragmentByXPathCallback

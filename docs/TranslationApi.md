@@ -12,7 +12,8 @@ Method | HTTP request | Description
 # **GetTranslateDocument**
 > File GetTranslateDocument(name, srcLang, resLang, opts)
 
-Translate the HTML document specified by the name from default or specified storage. 
+Translate the HTML document specified by the name from default or specified storage.     
+Allowed values for language pairs is en-de, en-fr, en-ru, de-en, ru-en, en-zh, zh-en. 
 
 ### Example
 ```javascript
@@ -45,7 +46,7 @@ apiInstance.GetTranslateDocument(name, srcLang, resLang, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Document name. | 
+ **name** | **String**| Document name. | Html file in the storage.
  **srcLang** | **String**| Source language. | Allowed values is "en" (alias "eng", "english"), "de" (alias "deu", "deutsch", "german"), "fr" (alias "fra", "french"), "ru" (alias "rus", "russian"), "zh", alias ("chinese").
  **resLang** | **String**| Result language. | Allowed values is "en" (alias "eng", "english"), "de" (alias "deu", "deutsch", "german"), "fr" (alias "fra", "french"), "ru" (alias "rus", "russian"), "zh", alias ("chinese").
  **storage** | **String**| The source document storage. | [optional] 
@@ -64,7 +65,8 @@ Name | Type | Description  | Notes
 # **GetTranslateDocumentByUrl**
 > File GetTranslateDocumentByUrl(sourceUrl, srcLang, resLang)
 
-Translate the HTML document from Web specified by its URL.
+Translate the HTML document from Web specified by its URL.     
+Allowed values for language pairs is en-de, en-fr, en-ru, de-en, ru-en, en-zh, zh-en.
 
 ### Example
 ```javascript

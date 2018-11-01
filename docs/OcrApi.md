@@ -12,7 +12,8 @@ Method | HTTP request | Description
 # **GetRecognizeAndImportToHtml**
 > File GetRecognizeAndImportToHtml(name, opts)
 
-Recognize text from the image file in the storage and import it to HTML format.
+Recognize text from the image file in the storage and import it to HTML format.    
+Acceptable image formats is jpg, gif, png, bmp, tiff.
 
 ### Example
 ```javascript
@@ -48,7 +49,7 @@ Name | Type | Description  | Notes
  **storage** | **String**| The source image storage. | [optional] 
 
 ### Return type
-
+     
 **File**
 
 ### HTTP request headers
@@ -60,7 +61,8 @@ Name | Type | Description  | Notes
 # **GetRecognizeAndTranslateToHtml**
 > File GetRecognizeAndTranslateToHtml(name, srcLang, resLang, opts)
 
-Recognize text from the image file in the storage, import it to HTML format and translate to specified language.
+Recognize text from the image file in the storage, import it to HTML format and translate to specified language.   
+Acceptable image formats is jpg, gif, png, bmp, tiff.     
 
 ### Example
 ```javascript

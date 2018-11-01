@@ -80,26 +80,6 @@ var helper = require('./helper');
     describe('DocumentApi', function () {
         this.timeout(200000);
 
-        describe('GetDocument', function () {
-            it('should call GetDocument successfully', function (done) {
-
-                var name = "test_doc.zip";
-
-                var opts = {
-                    'storage': null,
-                    'folder': helper.conf['remoteFolder']
-                };
-
-                instance.GetDocument(name, opts, function (err, data, res) {
-                    if (err) throw err;
-                    expect(200).to.be(res.status);
-                    helper.saveToTestFolder('GetDoc.zip', data);
-                    done();
-                });
-            });
-        });
-
-
         describe('GetDocumentFragmentByXPath', function () {
             it('should call GetDocumentFragmentByXPath successfully', function (done) {
 
