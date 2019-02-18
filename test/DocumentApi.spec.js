@@ -78,8 +78,20 @@ var helper = require('./helper');
 
 
     describe('DocumentApi', function () {
-        this.timeout(200000);
+        this.timeout(1200000);
+        describe('GetDocumentByUrl', function () {
+            it('should call GetDocumentByUrl successfully', function (done) {
 
+                var sourceUrl = "https://lenta.ru/";
+
+                instance.GetDocumentByUrl(sourceUrl, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+                    helper.saveToTestFolder('GetDocByUrl.zip', data);
+                    done();
+                });
+            });
+        });
         describe('GetDocumentFragmentByXPath', function () {
             it('should call GetDocumentFragmentByXPath successfully', function (done) {
 

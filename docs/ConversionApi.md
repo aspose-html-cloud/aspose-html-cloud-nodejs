@@ -16,6 +16,10 @@ Method | HTTP request | Description
 [**PutConvertDocumentToImage**](ConversionApi.md#PutConvertDocumentToImage) | **PUT** /html/{name}/convert/image/{outFormat} | Converts the HTML document (located on storage) to the specified image format and uploads resulting file to storage.
 [**PutConvertDocumentToPdf**](ConversionApi.md#PutConvertDocumentToPdf) | **PUT** /html/{name}/convert/pdf | Converts the HTML document (located on storage) to PDF and uploads resulting file to storage.
 [**PutConvertDocumentToXps**](ConversionApi.md#PutConvertDocumentToXps) | **PUT** /html/{name}/convert/xps | Converts the HTML document (located on storage) to XPS and uploads resulting file to storage.
+[**GetConvertDocumentToMHTMLByUrl**](ConversionApi.md#GetConvertDocumentToMHTMLByUrl) | **GET** /html/convert/mhtml | Converts the HTML page from Web by its URL to MHTML returns resulting file in response content.
+[**GetConvertDocumentToMarkdown**](ConversionApi.md#GetConvertDocumentToMarkdown) | **GET** /html/{name}/convert/md | Converts the HTML document (located on storage) to Markdown and returns resulting file in response content.
+[**PutConvertDocumentInRequestToMarkdown**](ConversionApi.md#PutConvertDocumentInRequestToMarkdown) | **PUT** /html/convert/md | Converts the HTML document (in request content) to Markdown and uploads resulting file to storage by specified path.
+[**PutConvertDocumentToMarkdown**](ConversionApi.md#PutConvertDocumentToMarkdown) | **PUT** /html/{name}/convert/md | Converts the HTML document (located on storage) to Markdown and uploads resulting file to storage by specified path.
 
 
 <a name="GetConvertDocumentToImage"></a>
@@ -745,3 +749,193 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
+ 
+<a name="GetConvertDocumentToMHTMLByUrl"></a>
+# **GetConvertDocumentToMHTMLByUrl**
+> File GetConvertDocumentToMHTMLByUrl(sourceUrl)
+
+Converts the HTML page from Web by its URL to MHTML returns resulting file in response content.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.ConversionApi();
+
+var sourceUrl = "sourceUrl_example"; // String | Source page URL.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.GetConvertDocumentToMHTMLByUrl(sourceUrl, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sourceUrl** | **String**| Source page URL. | 
+
+### Return type
+
+**File**
+
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+ 
+<a name="GetConvertDocumentToMarkdown"></a>
+# **GetConvertDocumentToMarkdown**
+> File GetConvertDocumentToMarkdown(name, opts)
+
+Converts the HTML document (located on storage) to Markdown and returns resulting file in response content.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.ConversionApi();
+
+var name = "name_example"; // String | Document name.
+
+
+var opts = { 
+  'useGit': false, // Boolean | Use Git Markdown flavor to save.
+  'folder': "folder_example", // String | Source document folder.
+  'storage': "storage_example" // String | Source document storage.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.GetConvertDocumentToMarkdown(name, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Document name. | 
+ **useGit** | **Boolean**| Use Git Markdown flavor to save. | [optional] [default to false]
+ **folder** | **String**| Source document folder. | [optional] 
+ **storage** | **String**| Source document storage. | [optional] 
+
+### Return type
+
+**Blob**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+ 
+<a name="PutConvertDocumentInRequestToMarkdown"></a>
+# **PutConvertDocumentInRequestToMarkdown**
+> File PutConvertDocumentInRequestToMarkdown(outPath, file, opts)
+
+Converts the HTML document (in request content) to Markdown and uploads resulting file to storage by specified path.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.ConversionApi();
+
+var outPath = "outPath_example"; // String | Full resulting file path in the storage (ex. /folder1/folder2/result.md)
+
+var file = "/path/to/file.txt"; // File | A file to be converted.
+
+var opts = { 
+  'useGit': false // Boolean | Use Git Markdown flavor to save.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.PutConvertDocumentInRequestToMarkdown(outPath, file, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **String**| Full resulting file path in the storage (ex. /folder1/folder2/result.md) | 
+ **file** | **File**| A file to be converted. | 
+ **useGit** | **Boolean**| Use Git Markdown flavor to save. | [optional] [default to false]
+
+### Return type
+
+**Blob**
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+<a name="PutConvertDocumentToMarkdown"></a>
+# **PutConvertDocumentToMarkdown**
+> File PutConvertDocumentToMarkdown(name, outPath, opts)
+
+Converts the HTML document (located on storage) to Markdown and uploads resulting file to storage by specified path.
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var apiInstance = new Asposehtmlcloud.ConversionApi();
+
+var name = "name_example"; // String | Document name.
+
+var outPath = "outPath_example"; // String | Full resulting file path in the storage (ex. /folder1/folder2/result.md)
+
+var opts = { 
+  'useGit': false, // Boolean | Use Git Markdown flavor to save.
+  'folder': "folder_example", // String | The source document folder.
+  'storage': "storage_example" // String | The source and resulting document storage.
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.PutConvertDocumentToMarkdown(name, outPath, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Document name. | 
+ **outPath** | **String**| Full resulting file path in the storage (ex. /folder1/folder2/result.md) | 
+ **useGit** | **Boolean**| Use Git Markdown flavor to save. | [optional] [default to false]
+ **folder** | **String**| The source document folder. | [optional] 
+ **storage** | **String**| The source and resulting document storage. | [optional] 
+
+### Return type
+
+**Blob**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json

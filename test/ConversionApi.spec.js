@@ -54,12 +54,17 @@ var helper = require('./helper');
         local_dst_folder = __dirname + "/../testresult/";
 
         var name = "test_data.html";
+        var name_md = "test_md.html";
 
         // Upload test data to server
         helper.uploadFile(name, null, function (err, data, res) {
             expect(200).to.be(res.status);
             console.log(data);
-            done();
+            helper.uploadFile(name_md, null, function (err, data, res) {
+                expect(200).to.be(res.status);
+                console.log(data);
+                done();
+            });
         });
     });
 
@@ -80,7 +85,7 @@ var helper = require('./helper');
     };
 
     describe('ConversionApi', function () {
-        this.timeout(200000);
+        this.timeout(1200000);
 
         describe('GetConvertDocumentToImage', function () {
             it('should call GetConvertDocumentToImage successfully', function (done) {
@@ -403,6 +408,7 @@ var helper = require('./helper');
                 });
             });
         });
+
         describe('PutConvertDocumentToXps', function () {
             it('should call PutConvertDocumentToXps successfully', function (done) {
 
@@ -436,6 +442,203 @@ var helper = require('./helper');
                         expect(200).to.be(res.status);
 
                         var dst = local_dst_folder + "putConvertDocToXpsJS.xps";
+                        var fd = fs.openSync(dst, 'w');
+                        fs.writeSync(fd, data);
+                        done();
+                    });
+                });
+            });
+        });
+        describe('GetConvertDocumentToMhtmlByUrl', function () {
+            it('should call GetConvertDocumentToMHTMLByUrl successfully', function (done) {
+
+                var source_url = "https://www.yahoo.com";
+                var opts = {};
+
+                instance.GetConvertDocumentToMHTMLByUrl(source_url, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+
+                    //Save file to test directory, return file size
+                    var len = helper.saveToTestFolder('ConvToMhtmlFromUrl.mht', data);
+                    expect(data.length).to.equal(len);
+                    done();
+                });
+            });
+        });
+        describe('GetConvertDocumentToMarkdownGitTrue', function () {
+            it('should call GetConvertDocumentToMarkdownGitTrue successfully', function (done) {
+
+                //Already in storage
+                var name = "test_md.html";
+
+                var outPath = "HtmlTestDoc/getConvertDocToMarkdownJSGitTrue.md";
+                var opts = {
+                    'useGit': true,
+                    'folder': "HtmlTestDoc",
+                    'storage': null
+                };
+
+                instance.GetConvertDocumentToMarkdown(name, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+
+                    //Save file to test directory, return file size
+                    var len = helper.saveToTestFolder('getConvertDocToMarkdownJSGitTrue.md', data);
+                    expect(data.length).to.equal(len);
+                    done();
+                });
+            });
+        });
+        describe('GetConvertDocumentToMarkdownGitFalse', function () {
+            it('should call GetConvertDocumentToMarkdownGitFalse successfully', function (done) {
+
+                //Already in storage
+                var name = "test_md.html";
+
+                var outPath = "HtmlTestDoc/getConvertDocToMarkdownGitFalseJS.md";
+                var opts = {
+                    'useGit': false,
+                    'folder': "HtmlTestDoc",
+                    'storage': null
+                };
+
+                instance.GetConvertDocumentToMarkdown(name, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+
+                    //Save file to test directory, return file size
+                    var len = helper.saveToTestFolder('getConvertDocToMarkdownJSGitFalse.md', data);
+                    expect(data.length).to.equal(len);
+                    done();
+                });
+            });
+        });
+        describe('PutHtmlToMarkdownTestGitTrue', function () {
+            it('should call PutHtmlToMarkdownTestGitTrue successfully', function (done) {
+
+                //Already in storage
+                var name = "test_md.html";
+
+                var outPath = "HtmlTestDoc/PutHtmlToMarkdownJSGitTrue.md";
+                var opts = {
+                    'useGit': true,
+                    'folder': "HtmlTestDoc",
+                    'storage': null
+                };
+
+                instance.PutConvertDocumentToMarkdown(name, outPath, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+
+                    var opts = {
+                        'versionId': null,
+                        'storage': null
+                    };
+
+                    //Download result from storage
+                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                        if (err) throw err;
+                        expect(200).to.be(res.status);
+
+                        var dst = local_dst_folder + "PutHtmlToMarkdownJSGitTrue.md";
+                        var fd = fs.openSync(dst, 'w');
+                        fs.writeSync(fd, data);
+                        done();
+                    });
+                });
+            });
+        });
+        describe('PutHtmlToMarkdownTestGITFalse', function () {
+            it('should call PutHtmlToMarkdownTestGitFalse successfully', function (done) {
+
+                //Already in storage
+                var name = "test_md.html";
+
+                    var outPath = "HtmlTestDoc/PutHtmlToMarkdownJSGitFalse.md";
+                var opts = {
+                    'useGit': false,
+                    'folder': "HtmlTestDoc",
+                    'storage': null
+                };
+
+                instance.PutConvertDocumentToMarkdown(name, outPath, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+
+                    var opts = {
+                        'versionId': null,
+                        'storage': null
+                    };
+
+                    //Download result from storage
+                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                        if (err) throw err;
+                        expect(200).to.be(res.status);
+
+                        var dst = local_dst_folder + "PutHtmlToMarkdownJSGitFalse.md";
+                        var fd = fs.openSync(dst, 'w');
+                        fs.writeSync(fd, data);
+                        done();
+                    });
+                });
+            });
+        });
+        describe('PutConvertDocumentInRequestToMarkdownGitTrue', function () {
+            it('should call PutConvertDocumentInRequestToMarkdownGitTrue successfully', function (done) {
+
+                var outPath = "HtmlTestDoc/PutConvertDocumentInRequestToMarkdownGitTrue.md";
+                var file = local_src_folder + "test_md.html";
+                var opts = {
+                    'useGit': true
+                };
+
+                instance.PutConvertDocumentInRequestToMarkdown(outPath, file, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+
+                    var opts = {
+                        'versionId': null,
+                        'storage': null
+                    };
+
+                    //Download result from storage
+                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                        if (err) throw err;
+                        expect(200).to.be(res.status);
+
+                        var dst = local_dst_folder + "PutConvertDocumentInRequestToMarkdownGitTrue.md";
+                        var fd = fs.openSync(dst, 'w');
+                        fs.writeSync(fd, data);
+                        done();
+                    });
+                });
+            });
+        });
+        describe('PutConvertDocumentInRequestToMarkdownGitFalse', function () {
+            it('should call PutConvertDocumentInRequestToMarkdownGitFalse successfully', function (done) {
+
+                var outPath = "HtmlTestDoc/PutConvertDocumentInRequestToMarkdownGitFalse.md";
+                var file = local_src_folder + "test_md.html";
+                var opts = {
+                    'useGit': false
+                };
+
+                instance.PutConvertDocumentInRequestToMarkdown(outPath, file, opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+
+                    var opts = {
+                        'versionId': null,
+                        'storage': null
+                    };
+
+                    //Download result from storage
+                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                        if (err) throw err;
+                        expect(200).to.be(res.status);
+
+                        var dst = local_dst_folder + "PutConvertDocumentInRequestToMarkdownGitFalse.md";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();

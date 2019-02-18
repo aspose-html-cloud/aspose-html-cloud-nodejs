@@ -117,7 +117,7 @@ var conf = JSON.parse(fs.readFileSync(__dirname + '/../setting/config.json', 'ut
        * @type {Number}
        * @default 60000
        */
-      this.timeout = 600000;
+      this.timeout = 1200000;
 
 
       /*

@@ -109,7 +109,7 @@
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
-    }
+    };
 
     /**
      * Callback function to receive the result of the GetDetectHtmlKeywordsByUrl operation.
@@ -155,7 +155,7 @@
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
-    }
+    };
   };
 
   return exports;

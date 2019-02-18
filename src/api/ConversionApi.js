@@ -858,7 +858,222 @@
                 pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
-        }
+        };
+
+
+        /**
+         * Callback function to receive the result of the GetConvertDocumentToMHTMLByUrl operation.
+         * @callback module:api/ConversionApi~GetConvertDocumentToMHTMLByUrlCallback
+         * @param {String} error Error message, if any.
+         * @param {File} data The data returned by the service call.
+         * @param {String} response The complete HTTP response.
+         */
+
+        /**
+         * Converts the HTML page from Web by its URL to MHTML returns resulting file in response content.
+         * @param {String} sourceUrl Source page URL.
+         * @param {module:api/ConversionApi~GetConvertDocumentToMHTMLByUrlCallback} callback The callback function, accepting three arguments: error, data, response
+         * data is of type: {@link File}
+         */
+        this.GetConvertDocumentToMHTMLByUrl = function(sourceUrl, callback) {
+            var postBody = null;
+
+            // verify the required parameter 'sourceUrl' is set
+            if (sourceUrl == undefined || sourceUrl == null) {
+                throw "Missing the required parameter 'sourceUrl' when calling GetConvertDocumentToMHTMLByUrl";
+            }
+
+
+            var pathParams = {
+            };
+            var queryParams = {
+                'sourceUrl': sourceUrl
+            };
+            var collectionQueryParams = {};
+            var headerParams = {
+            };
+            var formParams = {
+            };
+
+            var contentTypes = ['application/json'];
+            var accepts = ['multipart/form-data'];
+            var returnType = 'Blob';
+
+            return this.apiClient.callApi(
+                '/html/convert/mhtml', 'GET',
+                pathParams, queryParams, headerParams, formParams, postBody,
+                contentTypes, accepts, returnType, callback
+            );
+        };
+
+        /**
+         * Callback function to receive the result of the GetConvertDocumentToMarkdown operation.
+         * @callback module:api/ConversionApi~GetConvertDocumentToMarkdownCallback
+         * @param {String} error Error message, if any.
+         * @param {File} data The data returned by the service call.
+         * @param {String} response The complete HTTP response.
+         */
+
+        /**
+         * Converts the HTML document (located on storage) to Markdown and returns resulting file in response content.
+         * @param {String} name Document name.
+         * @param {Object} opts Optional parameters
+         * @param {Boolean} opts.useGit Use Git Markdown flavor to save. (default to false)
+         * @param {String} opts.folder Source document folder.
+         * @param {String} opts.storage Source document storage.
+         * @param {module:api/ConversionApi~GetConvertDocumentToMarkdownCallback} callback The callback function, accepting three arguments: error, data, response
+         * data is of type: {@link File}
+         */
+        this.GetConvertDocumentToMarkdown = function(name, opts, callback) {
+            opts = opts || {};
+            var postBody = null;
+
+            // verify the required parameter 'name' is set
+            if (name == undefined || name == null) {
+                throw "Missing the required parameter 'name' when calling GetConvertDocumentToMarkdown";
+            }
+
+            var pathParams = {
+                'name': name
+            };
+            var queryParams = {
+                'useGit': opts['useGit'],
+                'folder': opts['folder'],
+                'storage': opts['storage']
+            };
+            var collectionQueryParams = {};
+            var headerParams = {
+            };
+            var formParams = {
+            };
+
+            var contentTypes = ['application/json'];
+            var accepts = ['multipart/form-data'];
+            var returnType = 'Blob';
+
+            return this.apiClient.callApi(
+                '/html/{name}/convert/md', 'GET',
+                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                contentTypes, accepts, returnType, callback
+            );
+        };
+
+
+        /**
+         * Callback function to receive the result of the PutConvertDocumentInRequestToMarkdown operation.
+         * @callback module:api/ConversionApi~PutConvertDocumentInRequestToMarkdownCallback
+         * @param {String} error Error message, if any.
+         * @param {File} data The data returned by the service call.
+         * @param {String} response The complete HTTP response.
+         */
+
+        /**
+         * Converts the HTML document (in request content) to Markdown and uploads resulting file to storage by specified path.
+         * @param {String} outPath Full resulting file path in the storage (ex. /folder1/folder2/result.md)
+         * @param {File} file A file to be converted.
+         * @param {Object} opts Optional parameters
+         * @param {Boolean} opts.useGit Use Git Markdown flavor to save. (default to false)
+         * @param {module:api/ConversionApi~PutConvertDocumentInRequestToMarkdownCallback} callback The callback function, accepting three arguments: error, data, response
+         * data is of type: {@link File}
+         */
+        this.PutConvertDocumentInRequestToMarkdown = function(outPath, file, opts, callback) {
+            opts = opts || {};
+            var postBody = require('fs').readFileSync(file);
+
+            // verify the required parameter 'outPath' is set
+            if (outPath == undefined || outPath == null) {
+                throw "Missing the required parameter 'outPath' when calling PutConvertDocumentInRequestToMarkdown";
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == undefined || file == null) {
+                throw "Missing the required parameter 'file' when calling PutConvertDocumentInRequestToMarkdown";
+            }
+
+
+            var pathParams = {
+            };
+            var queryParams = {
+                'outPath': outPath,
+                'useGit': opts['useGit']
+            };
+            var collectionQueryParams = {};
+            var headerParams = {
+            };
+            var formParams = {
+            //    'file': file
+            };
+
+            var contentTypes = ['application/octet-stream'];
+            var accepts = ['application/json'];
+            var returnType = 'Blob';
+
+            return this.apiClient.callApi(
+                '/html/convert/md', 'PUT',
+                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                contentTypes, accepts, returnType, callback
+            );
+        };
+
+        /**
+         * Callback function to receive the result of the PutConvertDocumentToMarkdown operation.
+         * @callback module:api/ConversionApi~PutConvertDocumentToMarkdownCallback
+         * @param {String} error Error message, if any.
+         * @param {File} data The data returned by the service call.
+         * @param {String} response The complete HTTP response.
+         */
+
+        /**
+         * Converts the HTML document (located on storage) to Markdown and uploads resulting file to storage by specified path.
+         * @param {String} name Document name.
+         * @param {String} outPath Full resulting file path in the storage (ex. /folder1/folder2/result.md)
+         * @param {Object} opts Optional parameters
+         * @param {Boolean} opts.useGit Use Git Markdown flavor to save. (default to false)
+         * @param {String} opts.folder The source document folder.
+         * @param {String} opts.storage The source and resulting document storage.
+         * @param {module:api/ConversionApi~PutConvertDocumentToMarkdownCallback} callback The callback function, accepting three arguments: error, data, response
+         * data is of type: {@link File}
+         */
+        this.PutConvertDocumentToMarkdown = function(name, outPath, opts, callback) {
+            opts = opts || {};
+            var postBody = null;
+
+            // verify the required parameter 'name' is set
+            if (name == undefined || name == null) {
+                throw "Missing the required parameter 'name' when calling PutConvertDocumentToMarkdown";
+            }
+
+            // verify the required parameter 'outPath' is set
+            if (outPath == undefined || outPath == null) {
+                throw "Missing the required parameter 'outPath' when calling PutConvertDocumentToMarkdown";
+            }
+
+
+            var pathParams = {
+                'name': name
+            };
+            var queryParams = {
+                'outPath': outPath,
+                'useGit': opts['useGit'],
+                'folder': opts['folder'],
+                'storage': opts['storage']
+            };
+            var collectionQueryParams = {};
+            var headerParams = {
+            };
+            var formParams = {
+            };
+
+            var contentTypes = ['application/json'];
+            var accepts = ['application/json'];
+            var returnType = 'Blob';
+
+            return this.apiClient.callApi(
+                '/html/{name}/convert/md', 'PUT',
+                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                contentTypes, accepts, returnType, callback
+            );
+        };
     };
 
     return exports;

@@ -123,7 +123,7 @@
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
-    }
+    };
 
     /**
      * Callback function to receive the result of the GetTranslateDocumentByUrl operation.
@@ -183,139 +183,7 @@
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
-    }
-
-    /**
-     * Callback function to receive the result of the translationPutTranslateDocument operation.
-     * @callback module:api/TranslationApi~translationPutTranslateDocumentCallback
-     * @param {String} error Error message, if any.
-     * @param {File} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Translate the HTML document specified by the name from default or specified storage. Result document will be saved into the default or specified storage; result path will be like /{folder}/{name}_{lang_pair}.{extension}.
-     * @param {String} name Document name.
-     * @param {String} srcLang Source language.
-     * @param {String} resLang Result language.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.folder The source &amp; result document folder.
-     * @param {String} opts.storage The source &amp; result document storage.
-     * @param {module:api/TranslationApi~translationPutTranslateDocumentCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link File}
-     */
-    this.translationPutTranslateDocument = function(name, srcLang, resLang, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'name' is set
-      if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling translationPutTranslateDocument");
-      }
-
-      // verify the required parameter 'srcLang' is set
-      if (srcLang === undefined || srcLang === null) {
-        throw new Error("Missing the required parameter 'srcLang' when calling translationPutTranslateDocument");
-      }
-
-      // verify the required parameter 'resLang' is set
-      if (resLang === undefined || resLang === null) {
-        throw new Error("Missing the required parameter 'resLang' when calling translationPutTranslateDocument");
-      }
-
-
-      var pathParams = {
-        'name': name,
-        'srcLang': srcLang,
-        'resLang': resLang
-      };
-      var queryParams = {
-        'folder': opts['folder'],
-        'storage': opts['storage'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = 'Blob';
-
-      return this.apiClient.callApi(
-        '/html/{name}/translate/{srcLang}/{resLang}', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the translationPutTranslateDocumentByUrl operation.
-     * @callback module:api/TranslationApi~translationPutTranslateDocumentByUrlCallback
-     * @param {String} error Error message, if any.
-     * @param {File} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Translate the HTML document from Web specified by its URL.  Result document will be saved into the default or specified storage; result path will be like /{folder}/{name}_{lang_pair}.{extension}.
-     * @param {String} sourceUrl Source document URL.
-     * @param {String} srcLang Source language.
-     * @param {String} resLang Result language.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.folder The result document folder
-     * @param {String} opts.storage The result document storage
-     * @param {module:api/TranslationApi~translationPutTranslateDocumentByUrlCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link File}
-     */
-    this.translationPutTranslateDocumentByUrl = function(sourceUrl, srcLang, resLang, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'sourceUrl' is set
-      if (sourceUrl === undefined || sourceUrl === null) {
-        throw new Error("Missing the required parameter 'sourceUrl' when calling translationPutTranslateDocumentByUrl");
-      }
-
-      // verify the required parameter 'srcLang' is set
-      if (srcLang === undefined || srcLang === null) {
-        throw new Error("Missing the required parameter 'srcLang' when calling translationPutTranslateDocumentByUrl");
-      }
-
-      // verify the required parameter 'resLang' is set
-      if (resLang === undefined || resLang === null) {
-        throw new Error("Missing the required parameter 'resLang' when calling translationPutTranslateDocumentByUrl");
-      }
-
-
-      var pathParams = {
-        'srcLang': srcLang,
-        'resLang': resLang
-      };
-      var queryParams = {
-        'sourceUrl': sourceUrl,
-        'folder': opts['folder'],
-        'storage': opts['storage'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = 'Blob';
-
-      return this.apiClient.callApi(
-        '/html/translate/{srcLang}/{resLang}', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        contentTypes, accepts, returnType, callback
-      );
-    }
+    };
   };
 
   return exports;

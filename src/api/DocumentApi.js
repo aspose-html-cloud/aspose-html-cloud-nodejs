@@ -58,7 +58,54 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
-    /**
+
+      /**
+       * Callback function to receive the result of the GetDocumentByUrl operation.
+       * @callback module:api/DocumentApi~GetDocumentByUrlCallback
+       * @param {String} error Error message, if any.
+       * @param {File} data The data returned by the service call.
+       * @param {String} response The complete HTTP response.
+       */
+
+      /**
+       * Return all HTML page with linked resources packaged as a ZIP archive by the source page URL.
+       * @param {String} sourceUrl Source page URL.
+       * @param {module:api/DocumentApi~GetDocumentByUrlCallback} callback The callback function, accepting three arguments: error, data, response
+       * data is of type: {@link File}
+       */
+      this.GetDocumentByUrl = function(sourceUrl, callback) {
+          var postBody = null;
+
+          // verify the required parameter 'sourceUrl' is set
+          if (sourceUrl == undefined || sourceUrl == null) {
+              throw "Missing the required parameter 'sourceUrl' when calling GetDocumentByUrl";
+          }
+
+
+          var pathParams = {
+          };
+          var queryParams = {
+              'sourceUrl': sourceUrl
+          };
+          var collectionQueryParams = {
+          };
+          var headerParams = {
+          };
+          var formParams = {
+          };
+
+          var contentTypes = ['application/json'];
+          var accepts = ['application/zip'];
+          var returnType = 'Blob';
+
+          return this.apiClient.callApi(
+              '/html/download', 'GET',
+              pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+              contentTypes, accepts, returnType, callback
+          );
+      };
+
+      /**
      * Callback function to receive the result of the GetDocumentFragmentByXPath operation.
      * @callback module:api/DocumentApi~GetDocumentFragmentByXPathCallback
      * @param {String} error Error message, if any.
@@ -362,7 +409,7 @@
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
-    }
+    };
     
         /**
      * Callback function to receive the result of the GetDocumentImagesByUrl operation.
@@ -408,8 +455,7 @@
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
-    }
-    
+    };
   };
 
   return exports;
