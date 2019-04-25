@@ -204,6 +204,8 @@ All URIs are relative to *https://api.aspose.cloud/v1.1*
 
 ### HTML SDK
 
+- For conversion to images allowed formats is jpeg, png, bmp, tiff. Input formats are html, epub, svg.
+
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Asposehtmlcloud.ConversionApi* | [**GetConvertDocumentToImage**](docs/ConversionApi.md#GetConvertDocumentToImage) | **GET** /html/{name}/convert/image/{outFormat} | Convert the HTML document from the storage by its name to the specified image format.
