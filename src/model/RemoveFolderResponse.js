@@ -48,7 +48,7 @@
   /**
    * The RemoveFolderResponse model module.
    * @module model/RemoveFolderResponse
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**

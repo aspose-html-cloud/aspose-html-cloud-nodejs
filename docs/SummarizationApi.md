@@ -18,7 +18,18 @@ Get the HTML document keywords using the keyword detection service.
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.SummarizationApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.SummarizationApi(conf);
 
 var name = "name_example"; // String | Document name.
 
@@ -64,7 +75,18 @@ Get the keywords from HTML document from Web specified by its URL using the keyw
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.SummarizationApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.SummarizationApi(conf);
 
 var sourceUrl = "sourceUrl_example"; // String | Source document URL.
 

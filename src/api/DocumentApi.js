@@ -45,18 +45,18 @@
   /**
    * Document service.
    * @module api/DocumentApi
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**
    * Constructs a new DocumentApi. 
    * @alias module:api/DocumentApi
    * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
+   * @param {conf}  API client configuration implementation to use,
    */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
+  var exports = function(conf) {
+      this.apiClient = ApiClient.instance;
+      this.apiClient.setConfig(conf);
 
 
       /**

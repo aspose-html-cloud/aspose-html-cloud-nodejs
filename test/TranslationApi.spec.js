@@ -46,7 +46,7 @@ var helper = require('./helper');
   before(function(done) {
     this.timeout(400000);
 
-    instance = new Asposehtmlcloud.TranslationApi();
+    instance = new Asposehtmlcloud.TranslationApi(helper.conf);
     var name = "test_en.html";
 
     // Upload test data to server

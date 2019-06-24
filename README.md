@@ -2,8 +2,8 @@
 
 Asposehtmlcloud - JavaScript client for asposehtmlcloud
 
-- API version: 1.0.1
-- Package version: 1.0.1
+- API version: 1.0.3
+- Package version: 1.0.3
 
 ## Installation
 
@@ -104,11 +104,11 @@ module: {
 
 ### Sample usage
 
-Before fill all fields in /setting/config.json   
+Before fill all fields in configuration object (see tests)   
 
 Example:   
 ```json
-{
+var conf = {
     "basePath":"https://api.aspose.cloud/v1.1",
     "authPath":"https://api.aspose.cloud/oauth2/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
@@ -129,27 +129,29 @@ Please follow the [installation](#installation) instruction and execute the foll
 NOTE: Use the helper from /test/helper.js for upload and save data.
 
 ```javascript
-// Load configurations data
-var fs = require('fs');
-var conf = JSON.parse(fs.readFileSync(__dirname + '/../setting/config.json', 'utf8'));
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
 
 //Create storage api for upload to server
-var StorageApi = require('asposestoragecloud');
-var storageApi = new StorageApi({
-  'baseURI':conf['basePath'],
-  'appSid': conf['appSID'],
-  'apiKey': conf['apiKey']});
+var api = require('asposehtmlcloud');
+var fs = require('fs');
+var storageApi = new api.StorageApi(conf);
 
 
 // Setup local folder for source and result
 var local_dst_folder = __dirname + "/../"+ conf['testResult'];
 var local_src_folder = __dirname + "/../"+ conf['testData'];
 
-
-var Asposehtmlcloud = require('../src/index');
-
 // Create Conversion Api object
-var api = new Asposehtmlcloud.ConversionApi();
+var conversionApi = new api.ConversionApi(conf);
 
 
 var filename = "test_data.html"; // {String} Document name.
@@ -162,11 +164,12 @@ var storage=null;
 var file = local_src_folder + "/" + filename;
 
 //Upload file to storage
-storageApi.PutCreate(folder + "/" + filename, versionId, storage, file, callback);
+var opts = {versionId:versionId, storage:null};
+
+storageApi.putCreate(folder + "/" + filename, file, opts, callback);
 
 //Setup output format
 var outFormat = "png"; // {String} Resulting image format.
-
 
 //Setup various option for result image
 var opts = {
@@ -176,8 +179,7 @@ var opts = {
   'rightMargin': 10, // {Number} Right resulting image margin.
   'topMargin': 20, // {Number} Top resulting image margin.
   'bottomMargin': 20, // {Number} Bottom resulting image margin.
-  'xResolution': 300, // {Number} Horizontal resolution of resulting image.
-  'yResolution': 300, // {Number} Vertical resolution of resulting image.
+  'resolution': 300, // {Number} Resolution of resulting image.
   'folder': folder, // {String} The source document folder.
   'storage': storage // {String} The source document storage.
 };
@@ -191,7 +193,7 @@ var callback = function(error, data, response) {
     var len = fs.writeSync(fd, data);
   }
 };
-api.GetConvertDocumentToImage(filename, outFormat, opts, callback);
+conversionApi.GetConvertDocumentToImage(filename, outFormat, opts, callback);
 
 ```
 
@@ -286,5 +288,3 @@ node.exe ./node_modules/mocha/bin/_mocha --ui bdd ./test
 ## Documentation for Authorization
 
 Please follow the [installation](#installation) instruction for write config file:
-
-[Authorization](https://docs.aspose.cloud/display/totalcloud/Authenticating+API+Requests)

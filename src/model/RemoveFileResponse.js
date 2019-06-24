@@ -48,7 +48,7 @@
   /**
    * The RemoveFileResponse model module.
    * @module model/RemoveFileResponse
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**

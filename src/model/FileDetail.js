@@ -48,7 +48,7 @@
   /**
    * The FileDetail model module.
    * @module model/FileDetail
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**

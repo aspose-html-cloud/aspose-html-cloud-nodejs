@@ -46,7 +46,7 @@ var helper = require('./helper');
   before(function(done) {
     this.timeout(200000);
 
-    instance = new Asposehtmlcloud.OcrApi();
+    instance = new Asposehtmlcloud.OcrApi(helper.conf);
     var name = "test_ocr.png";
 
     // Upload test data to server

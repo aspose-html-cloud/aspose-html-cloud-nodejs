@@ -19,7 +19,18 @@ Acceptable image formats is jpg, gif, png, bmp, tiff.
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.OcrApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.OcrApi(conf);
 
 var name = "name_example"; // String | The image file name.
 
@@ -68,7 +79,18 @@ Acceptable image formats is jpg, gif, png, bmp, tiff.
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.OcrApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.OcrApi(conf);
 
 var name = "name_example"; // String | The image file name.
 

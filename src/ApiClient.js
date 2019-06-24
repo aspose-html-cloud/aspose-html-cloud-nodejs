@@ -25,9 +25,6 @@
 * --------------------------------------------------------------------------------------------------------------------
 */
 
-var fs = require('fs');
-var conf = JSON.parse(fs.readFileSync(__dirname + '/../setting/config.json', 'utf8'));
-
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -47,7 +44,7 @@ var conf = JSON.parse(fs.readFileSync(__dirname + '/../setting/config.json', 'ut
 
   /**
    * @module ApiClient
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**
@@ -58,13 +55,6 @@ var conf = JSON.parse(fs.readFileSync(__dirname + '/../setting/config.json', 'ut
    * @class
    */
   var exports = function() {
-    /**
-     * The base URL against which to resolve every API call's (relative) path.
-     * @type {String}
-     * @default https://api-qa.aspose.cloud/v1.1
-     */
-    this.basePath = conf.basePath.replace(/\/+$/, '');
-    this.authPath = conf.authPath.replace(/\/+$/, '');
 
     /**
      * If set to false an additional timestamp parameter is added to all API GET calls to
@@ -81,7 +71,7 @@ var conf = JSON.parse(fs.readFileSync(__dirname + '/../setting/config.json', 'ut
      */
     this.enableCookies = false;
 
-    /*
+    /**
      * Used to save and return cookies in a node.js (non-browser) setting,
      * if this.enableCookies is set to true.
      */
@@ -89,41 +79,50 @@ var conf = JSON.parse(fs.readFileSync(__dirname + '/../setting/config.json', 'ut
       this.agent = new superagent.agent();
     }
 
-//    Get access token
-      var req = require('sync-request');
-      var res = req('POST', this.authPath, {
-        headers:
-          {   "Accept":"application/json",
-              "Content-Type": "application/x-www-form-urlencoded"
-          },
-        body:"client_id=" + conf['appSID'] + "&client_secret=" + conf['apiKey'] + "&grant_type=client_credentials"
-        });
+    /**
+     * The default HTTP timeout for all API calls.
+     * @type {Number}
+     * @default 60000
+     */
+    this.timeout = 1200000;
 
-      var json = JSON.parse(res.getBody('utf-8'));
-      this.accessToken = json.access_token;
-
-      /**
-       * The default HTTP headers to be included for all API calls.
-       * @type {Array.<String>}
-       * @default {}
-       */
-      this.defaultHeaders = {
-        "User-Agent":conf['defaultUserAgent'],
-        "Authorization":"Bearer " + this.accessToken
-      };
-
-      /**
-       * The default HTTP timeout for all API calls.
-       * @type {Number}
-       * @default 60000
-       */
-      this.timeout = 1200000;
-
-
-      /*
-       * Allow user to override superagent agent
-       */
+    /**
+     * Allow user to override superagent agent
+     */
     this.requestAgent = null;
+  };
+
+  exports.prototype.setConfig = function(conf){
+    /**
+     * The base URL against which to resolve every API call's (relative) path.
+     * @type {String}
+     * @default https://api-qa.aspose.cloud/v1.1
+     */
+    this.basePath = conf.basePath.replace(/\/+$/, '');
+    this.authPath = conf.authPath.replace(/\/+$/, '');
+
+    /**
+     * The default HTTP headers to be included for all API calls.
+     * @type {Array.<String>}
+     * @default {}
+     */
+    this.defaultHeaders = {
+      "User-Agent":conf['defaultUserAgent'],
+      "Authorization":"Bearer " + this.accessToken
+    };
+
+    /**    Get access token    */
+    var req = require('sync-request');
+    var res = req('POST', this.authPath, {
+      headers:
+          {   "Accept":"application/json",
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+      body:"client_id=" + conf['appSID'] + "&client_secret=" + conf['apiKey'] + "&grant_type=client_credentials"
+    });
+
+    var json = JSON.parse(res.getBody('utf-8'));
+    this.accessToken = json.access_token;
   };
 
   /**

@@ -45,7 +45,7 @@ var helper = require('./helper');
 
   before(function(done) {
     this.timeout(400000);
-    instance = new Asposehtmlcloud.SummarizationApi();
+    instance = new Asposehtmlcloud.SummarizationApi(helper.conf);
 
     var name = "test_en.html";
 

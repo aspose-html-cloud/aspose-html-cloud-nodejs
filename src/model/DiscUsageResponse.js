@@ -48,7 +48,7 @@
   /**
    * The DiscUsageResponse model module.
    * @module model/DiscUsageResponse
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**

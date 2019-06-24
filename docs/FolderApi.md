@@ -20,7 +20,18 @@ Remove a specific folder
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.FolderApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var path = "path_example"; // String | Folder path e.g. /Folder1
 
@@ -67,7 +78,18 @@ Get the file listing of a specific folder
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.FolderApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var opts = { 
   'path': "/", // String | Start with name of storage e.g. root folder '/'or some folder '/folder1/..'
@@ -110,7 +132,18 @@ Move a specific folder
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.FolderApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var src = "src_example"; // String | Source folder path e.g. /Folder1
 
@@ -159,7 +192,18 @@ Create the folder
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.FolderApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var path = "path_example"; // String | Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
 

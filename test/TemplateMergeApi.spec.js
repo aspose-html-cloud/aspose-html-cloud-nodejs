@@ -48,8 +48,8 @@ var helper = require('./helper');
 
     before(function (done) {
         this.timeout(200000);
-        instance = new Asposehtmlcloud.TemplateMergeApi();
-        storage_api = new Asposehtmlcloud.StorageApi();
+        instance = new Asposehtmlcloud.TemplateMergeApi(helper.conf);
+        storage_api = new Asposehtmlcloud.StorageApi(helper.conf);
         fs = require('fs');
         local_src_folder = __dirname + "/../testdata/";
         local_dst_folder = __dirname + "/../testresult/";

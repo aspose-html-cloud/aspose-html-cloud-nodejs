@@ -48,7 +48,7 @@
   /**
    * The MoveFileResponse model module.
    * @module model/MoveFileResponse
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**

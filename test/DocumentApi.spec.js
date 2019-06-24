@@ -45,7 +45,7 @@ var helper = require('./helper');
 
     before(function (done) {
         this.timeout(200000);
-        instance = new Asposehtmlcloud.DocumentApi();
+        instance = new Asposehtmlcloud.DocumentApi(helper.conf);
 
         var name = "test_doc.zip";
         var name1 = "test_doc_images.zip";

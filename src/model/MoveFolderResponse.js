@@ -48,7 +48,7 @@
   /**
    * The MoveFolderResponse model module.
    * @module model/MoveFolderResponse
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**

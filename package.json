@@ -1,6 +1,6 @@
 {
   "name": "asposehtmlcloud",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Aspose.HTML Cloud SDK for Javascript source code.",
   "license": "MIT",
   "main": "./src/index.js",
@@ -11,7 +11,10 @@
   "keywords": [
     "Aspose",
     "Cloud",
-    "HTML"
+    "HTML",
+	"Conversion",
+	"Translate",
+	"Recognize"
   ],
   "browser": {
     "fs": false
@@ -34,7 +37,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github/aspose/html-cloud"
+    "url": "https://github.com/aspose-html-cloud/aspose-html-cloud-nodejs"
   },
-  "author": "Alexander Makogon"
+  "author": {
+    "name": "Alexander Makogon",
+    "email": "aleksander.makogon@aspose.com",
+    "url": "https://apireference.aspose.cloud/html/"
+  }
 }

@@ -48,7 +48,7 @@
   /**
    * The FileVersionsResponse model module.
    * @module model/FileVersionsResponse
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**

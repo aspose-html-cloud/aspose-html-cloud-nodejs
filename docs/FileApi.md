@@ -20,7 +20,18 @@ Remove a specific file
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.FileApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var path = "path_example"; // String | Path of the file including file name and extension e.g. /Folder1/file.ext
 
@@ -66,7 +77,18 @@ Download a specific file
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.FileApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var path = "path_example"; // String | Path of the file including the file name and extension e.g. /file.ext
 
@@ -112,7 +134,18 @@ Move a specific file
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.FileApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var src = "src_example"; // String | Source file path e.g. /fileSource.ext
 
@@ -163,7 +196,18 @@ Upload a specific file
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.FileApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi();
 
 var path = "path_example"; // String | Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext
 

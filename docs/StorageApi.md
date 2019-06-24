@@ -20,7 +20,18 @@ Check the disk usage of the current account
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.StorageApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var opts = { 
   'storage': "storage_example" // String | User's storage name
@@ -62,7 +73,18 @@ Check if a specific file or folder exists
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.StorageApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var path = "path_example"; // String | File or folder path e.g. /file.ext or /Folder1
 
@@ -109,7 +131,18 @@ Check if storage exists
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.StorageApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var name = "name_example"; // String | Storage name
 
@@ -150,7 +183,18 @@ Get the file&#39;s versions list
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
-var apiInstance = new Asposehtmlcloud.StorageApi();
+var conf = {
+    "basePath":"https://api.aspose.cloud/v1.1",
+    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var path = "path_example"; // String | File path e.g. /file.ext or /Folder1/file.ext
 

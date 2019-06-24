@@ -24,6 +24,7 @@
 * </summary>
 * --------------------------------------------------------------------------------------------------------------------
 */
+
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD.
@@ -37,15 +38,25 @@
   }
 }(this, function(expect, Asposehtmlcloud) {
 
-'use strict'
+'use strict';
+
+var conf = {
+    "basePath":"https://api-qa.aspose.cloud/v1.1",
+    "authPath":"https://api-qa.aspose.cloud/oauth2/token",
+    "apiKey":"60487a72d6325241191177e37ae52146",
+    "appSID":"80e32ca5-a828-46a4-9d54-7199dfd3764a",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+    };
 
 var fs = require('fs');
-var conf = JSON.parse(fs.readFileSync(__dirname + '/../setting/config.json', 'utf8'));
 var local_dst_folder = __dirname + "/../"+ conf['testResult'];
 var local_src_folder = __dirname + "/../"+ conf['testData'];
 
 // Get all api
-var api = new Asposehtmlcloud.StorageApi();
+var api = new Asposehtmlcloud.StorageApi(conf);
 
 exports.conf = conf;
 

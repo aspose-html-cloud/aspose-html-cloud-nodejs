@@ -25,6 +25,8 @@
 * --------------------------------------------------------------------------------------------------------------------
 */
 
+var helper = require('./helper');
+
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD.
@@ -42,7 +44,7 @@
   var instance;
 
   before(function(done) {
-    instance = new Asposehtmlcloud.StorageApi();
+    instance = new Asposehtmlcloud.StorageApi(helper.conf);
     done();
   });
 

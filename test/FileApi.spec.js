@@ -25,6 +25,7 @@
 * --------------------------------------------------------------------------------------------------------------------
 */
 
+var helper = require('./helper');
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -45,7 +46,7 @@
   var local_src_folder, local_dst_folder;
 
   before(function(done) {
-    instance = new Asposehtmlcloud.StorageApi();
+    instance = new Asposehtmlcloud.StorageApi(helper.conf);
     fs = require('fs');
     local_src_folder = __dirname + "/../testdata/";
     local_dst_folder = __dirname + "/../testresult/";

@@ -48,7 +48,7 @@
   /**
    * The StorageExistResponse model module.
    * @module model/StorageExistResponse
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**

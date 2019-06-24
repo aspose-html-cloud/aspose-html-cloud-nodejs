@@ -48,7 +48,7 @@
   /**
    * The FileDetailsResponse model module.
    * @module model/FileDetailsResponse
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**

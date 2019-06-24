@@ -48,7 +48,7 @@
   /**
    * The FileExistResponse model module.
    * @module model/FileExistResponse
-   * @version 1.0.1
+   * @version 1.0.3
    */
 
   /**

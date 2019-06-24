@@ -64,8 +64,9 @@
      * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
      * default to {@link module:ApiClient#instance} if unspecified.
      */
-    var exports = function (apiClient) {
-        this.apiClient = apiClient || ApiClient.instance;
+    var exports = function (conf) {
+        this.apiClient = ApiClient.instance;
+        this.apiClient.setConfig(conf);
 
 
         /**

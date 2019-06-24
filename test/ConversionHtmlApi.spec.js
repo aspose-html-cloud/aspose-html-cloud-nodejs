@@ -47,8 +47,8 @@ var helper = require('./helper');
 
     before(function (done) {
         this.timeout(200000);
-        instance = new Asposehtmlcloud.ConversionApi();
-        storage_api = new Asposehtmlcloud.StorageApi();
+        instance = new Asposehtmlcloud.ConversionApi(helper.conf);
+        storage_api = new Asposehtmlcloud.StorageApi(helper.conf);
         fs = require('fs');
         local_src_folder = __dirname + "/../testdata/";
         local_dst_folder = __dirname + "/../testresult/";
@@ -85,7 +85,7 @@ var helper = require('./helper');
     };
 
     describe('ConversionHtmlApi', function () {
-        this.timeout(1200000);
+        this.timeout(1800000);
 
         describe('GetConvertHtmlToImage', function () {
             it('should call GetConvertDocumentToImage successfully (html)', function (done) {
