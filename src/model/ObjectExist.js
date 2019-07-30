@@ -1,6 +1,6 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="DiscUsage.js">
+* <copyright company="Aspose" file="ObjectExist.js">
 *   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
@@ -37,62 +37,63 @@
     if (!root.Asposehtmlcloud) {
       root.Asposehtmlcloud = {};
     }
-    root.Asposehtmlcloud.DiscUsage = factory(root.Asposehtmlcloud.ApiClient);
+    root.Asposehtmlcloud.ObjectExist = factory(root.Asposehtmlcloud.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
 
   /**
-   * The DiscUsage model module.
-   * @module model/DiscUsage
+   * The ObjectExist model module.
+   * @module model/ObjectExist
    * @version 19.6.0
    */
 
   /**
-   * Constructs a new <code>DiscUsage</code>.
-   * @alias module:model/DiscUsage
+   * Constructs a new <code>ObjectExist</code>.
+   * Object exists
+   * @alias module:model/ObjectExist
    * @class
-   * @param usedSize {Number} 
-   * @param totalSize {Number} 
+   * @param exists {Boolean} Indicates that the file or folder exists.
+   * @param isFolder {Boolean} True if it is a folder, false if it is a file.
    */
-  var exports = function(usedSize, totalSize) {
+  var exports = function(exists, isFolder) {
     var _this = this;
 
-    _this['usedSize'] = usedSize;
-    _this['totalSize'] = totalSize;
+    _this['exists'] = exists;
+    _this['isFolder'] = isFolder;
   };
 
   /**
-   * Constructs a <code>DiscUsage</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ObjectExist</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/DiscUsage} obj Optional instance to populate.
-   * @return {module:model/DiscUsage} The populated <code>DiscUsage</code> instance.
+   * @param {module:model/ObjectExist} obj Optional instance to populate.
+   * @return {module:model/ObjectExist} The populated <code>ObjectExist</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('usedSize')) {
-        obj['usedSize'] = ApiClient.convertToType(data['usedSize'], 'Number');
+      if (data.hasOwnProperty('exists')) {
+        obj['exists'] = ApiClient.convertToType(data['exists'], 'Boolean');
       }
-      if (data.hasOwnProperty('totalSize')) {
-        obj['totalSize'] = ApiClient.convertToType(data['totalSize'], 'Number');
+      if (data.hasOwnProperty('isFolder')) {
+        obj['isFolder'] = ApiClient.convertToType(data['isFolder'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} usedSize
+   * Indicates that the file or folder exists.
+   * @member {Boolean} exists
    */
-  exports.prototype['usedSize'] = undefined;
+  exports.prototype['exists'] = undefined;
   /**
-   * @member {Number} totalSize
+   * True if it is a folder, false if it is a file.
+   * @member {Boolean} isFolder
    */
-  exports.prototype['totalSize'] = undefined;
+  exports.prototype['isFolder'] = undefined;
 
   return exports;
 }));
-
-

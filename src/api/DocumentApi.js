@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="DocumentApi.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,18 +45,18 @@
   /**
    * Document service.
    * @module api/DocumentApi
-   * @version 1.0.3
+   * @version 19.6.0
    */
 
-  /**
-   * Constructs a new DocumentApi. 
-   * @alias module:api/DocumentApi
-   * @class
-   * @param {conf}  API client configuration implementation to use,
-   */
-  var exports = function(conf) {
-      this.apiClient = ApiClient.instance;
-      this.apiClient.setConfig(conf);
+    /**
+     * Constructs a new StorageApi.
+     * @alias module:api/StorageApi
+     * @class
+     * @param {conf}  API client configuration implementation to use,
+     */
+    var exports = function(conf) {
+        this.apiClient = ApiClient.instance;
+        this.apiClient.setConfig(conf);
 
 
       /**
@@ -82,17 +82,12 @@
           }
 
 
-          var pathParams = {
-          };
+          var pathParams = {};
           var queryParams = {
               'sourceUrl': sourceUrl
           };
-          var collectionQueryParams = {
-          };
-          var headerParams = {
-          };
-          var formParams = {
-          };
+          var headerParams = {};
+          var formParams = {};
 
           var contentTypes = ['application/json'];
           var accepts = ['application/zip'];
@@ -100,7 +95,7 @@
 
           return this.apiClient.callApi(
               '/html/download', 'GET',
-              pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+              pathParams, queryParams, headerParams, formParams, postBody,
               contentTypes, accepts, returnType, callback
           );
       };
@@ -143,7 +138,6 @@
         throw new Error("Missing the required parameter 'outFormat' when calling GetDocumentFragmentByXPath");
       }
 
-
       var pathParams = {
         'name': name,
         'outFormat': outFormat
@@ -153,12 +147,8 @@
         'storage': opts['storage'],
         'folder': opts['folder'],
       };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var contentTypes = ['application/json'];
       var accepts = ['multipart/form-data'];
@@ -166,7 +156,7 @@
 
       return this.apiClient.callApi(
         '/html/{name}/fragments/{outFormat}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
     };
@@ -214,12 +204,8 @@
         'sourceUrl': sourceUrl,
         'xPath': xPath,
       };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var contentTypes = ['application/json'];
       var accepts = ['multipart/form-data'];
@@ -227,7 +213,7 @@
 
       return this.apiClient.callApi(
         '/html/fragments/{outFormat}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
     };
@@ -281,12 +267,8 @@
               'folder': opts['folder'],
               'storage': opts['storage'],
           };
-          var collectionQueryParams = {
-          };
-          var headerParams = {
-          };
-          var formParams = {
-          };
+          var headerParams = {};
+          var formParams = {};
 
           var contentTypes = ['application/json'];
           var accepts = ['multipart/form-data'];
@@ -294,7 +276,7 @@
 
           return this.apiClient.callApi(
               '/html/{name}/fragments/css/{outFormat}', 'GET',
-              pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+              pathParams, queryParams, headerParams, formParams, postBody,
               contentTypes, accepts, returnType, callback
           );
       };
@@ -333,7 +315,6 @@
               throw new Error("Missing the required parameter 'outFormat' when calling GetDocumentFragmentsByCSSSelectorByUrl");
           }
 
-
           var pathParams = {
               'outFormat': outFormat
           };
@@ -341,12 +322,8 @@
               'sourceUrl': sourceUrl,
               'selector': selector,
           };
-          var collectionQueryParams = {
-          };
-          var headerParams = {
-          };
-          var formParams = {
-          };
+          var headerParams = {};
+          var formParams = {};
 
           var contentTypes = ['application/json'];
           var accepts = ['multipart/form-data'];
@@ -354,7 +331,7 @@
 
           return this.apiClient.callApi(
               '/html/fragments/css/{outFormat}', 'GET',
-              pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+              pathParams, queryParams, headerParams, formParams, postBody,
               contentTypes, accepts, returnType, callback
           );
       };
@@ -385,7 +362,6 @@
         throw new Error("Missing the required parameter 'name' when calling GetDocumentImages");
       }
 
-
       var pathParams = {
         'name': name
       };
@@ -393,12 +369,8 @@
         'folder': opts['folder'],
         'storage': opts['storage'],
       };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var contentTypes = ['application/json'];
       var accepts = ['application/zip'];
@@ -406,7 +378,7 @@
 
       return this.apiClient.callApi(
         '/html/{name}/images/all', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
     };
@@ -434,17 +406,12 @@
       }
 
 
-      var pathParams = {
-      };
+      var pathParams = {};
       var queryParams = {
         'sourceUrl': sourceUrl,
       };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var contentTypes = ['application/json'];
       var accepts = ['multipart/form-data'];
@@ -452,7 +419,7 @@
 
       return this.apiClient.callApi(
         '/html/images/all', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
     };

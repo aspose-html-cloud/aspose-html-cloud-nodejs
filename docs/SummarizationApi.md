@@ -1,6 +1,6 @@
 # Asposehtmlcloud.SummarizationApi
 
-All URIs are relative to *https://api.aspose.cloud/v1.1*
+All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,8 +19,8 @@ Get the HTML document keywords using the keyword detection service.
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -76,8 +76,8 @@ Get the keywords from HTML document from Web specified by its URL using the keyw
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -85,11 +85,15 @@ var conf = {
     "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
+<<<<<<< HEAD
+
+var apiInstance = new Asposehtmlcloud.SummarizationApi(conf);
+=======
+>>>>>>> multipart
 
 var apiInstance = new Asposehtmlcloud.SummarizationApi(conf);
 
 var sourceUrl = "sourceUrl_example"; // String | Source document URL.
-
 
 var callback = function(error, data, response) {
   if (error) {

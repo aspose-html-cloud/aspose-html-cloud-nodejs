@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="ConversionApi.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,19 +45,18 @@
     /**
      * Conversion service.
      * @module api/ConversionApi
-     * @version 1.0.3
+     * @version 19.6.0
      */
 
     /**
-     * Constructs a new ConversionApi.
-     * @alias module:api/ConversionApi
+     * Constructs a new StorageApi.
+     * @alias module:api/StorageApi
      * @class
      * @param {conf}  API client configuration implementation to use,
      */
     var exports = function(conf) {
         this.apiClient = ApiClient.instance;
         this.apiClient.setConfig(conf);
-
 
         /**
          * Callback function to receive the result of the GetConvertDocumentToImage operation.
@@ -78,8 +77,7 @@
          * @param {Number} opts.rightMargin Right resulting image margin.
          * @param {Number} opts.topMargin Top resulting image margin.
          * @param {Number} opts.bottomMargin Bottom resulting image margin.
-         * @param {Number} opts.xResolution Horizontal resolution of resulting image.
-         * @param {Number} opts.yResolution Vertical resolution of resulting image.
+         * @param {Number} opts.resolution Resolution of resulting image.
          * @param {String} opts.folder The source document folder.
          * @param {String} opts.storage The source document storage.
          * @param {module:api/ConversionApi~GetConvertDocumentToImageCallback} callback The callback function, accepting three arguments: error, data, response
@@ -88,18 +86,14 @@
         this.GetConvertDocumentToImage = function (name, outFormat, opts, callback) {
             opts = opts || {};
             var postBody = null;
-
             // verify the required parameter 'name' is set
             if (name === undefined || name === null) {
                 throw new Error("Missing the required parameter 'name' when calling GetConvertDocumentToImage");
             }
-
             // verify the required parameter 'outFormat' is set
             if (outFormat === undefined || outFormat === null) {
                 throw new Error("Missing the required parameter 'outFormat' when calling GetConvertDocumentToImage");
             }
-
-
             var pathParams = {
                 'name': name,
                 'outFormat': outFormat
@@ -111,22 +105,19 @@
                 'rightMargin': opts['rightMargin'],
                 'topMargin': opts['topMargin'],
                 'bottomMargin': opts['bottomMargin'],
-                'xResolution': opts['xResolution'],
-                'yResolution': opts['yResolution'],
+                'resolution': opts['resolution'],
                 'folder': opts['folder'],
                 'storage': opts['storage'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {};
-
             var contentTypes = ['application/json'];
             var accepts = ['multipart/form-data'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/{name}/convert/image/{outFormat}', 'GET',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
@@ -150,8 +141,7 @@
          * @param {Number} opts.rightMargin Right resulting image margin.
          * @param {Number} opts.topMargin Top resulting image margin.
          * @param {Number} opts.bottomMargin Bottom resulting image margin.
-         * @param {Number} opts.xResolution Horizontal resolution of resulting image.
-         * @param {Number} opts.yResolution Vertical resolution of resulting image.
+         * @param {Number} opts.resolution Resolution of resulting image.
          * @param {String} opts.folder The document folder.
          * @param {String} opts.storage The document storage.
          * @param {module:api/ConversionApi~GetConvertDocumentToImageByUrlCallback} callback The callback function, accepting three arguments: error, data, response
@@ -160,18 +150,14 @@
         this.GetConvertDocumentToImageByUrl = function (sourceUrl, outFormat, opts, callback) {
             opts = opts || {};
             var postBody = null;
-
             // verify the required parameter 'sourceUrl' is set
             if (sourceUrl === undefined || sourceUrl === null) {
                 throw new Error("Missing the required parameter 'sourceUrl' when calling GetConvertDocumentToImageByUrl");
             }
-
             // verify the required parameter 'outFormat' is set
             if (outFormat === undefined || outFormat === null) {
                 throw new Error("Missing the required parameter 'outFormat' when calling GetConvertDocumentToImageByUrl");
             }
-
-
             var pathParams = {
                 'outFormat': outFormat
             };
@@ -183,22 +169,19 @@
                 'rightMargin': opts['rightMargin'],
                 'topMargin': opts['topMargin'],
                 'bottomMargin': opts['bottomMargin'],
-                'xResolution': opts['xResolution'],
-                'yResolution': opts['yResolution'],
+                'resolution': opts['resolution'],
                 'folder': opts['folder'],
                 'storage': opts['storage'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {};
-
             var contentTypes = ['application/json'];
             var accepts = ['multipart/form-data'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/convert/image/{outFormat}', 'GET',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
@@ -229,13 +212,10 @@
         this.GetConvertDocumentToPdf = function (name, opts, callback) {
             opts = opts || {};
             var postBody = null;
-
             // verify the required parameter 'name' is set
             if (name === undefined || name === null) {
                 throw new Error("Missing the required parameter 'name' when calling GetConvertDocumentToPdf");
             }
-
-
             var pathParams = {
                 'name': name
             };
@@ -249,17 +229,15 @@
                 'folder': opts['folder'],
                 'storage': opts['storage'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {};
-
             var contentTypes = ['application/json'];
             var accepts = ['multipart/form-data'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/{name}/convert/pdf', 'GET',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
@@ -290,13 +268,10 @@
         this.GetConvertDocumentToPdfByUrl = function (sourceUrl, opts, callback) {
             opts = opts || {};
             var postBody = null;
-
             // verify the required parameter 'sourceUrl' is set
             if (sourceUrl === undefined || sourceUrl === null) {
                 throw new Error("Missing the required parameter 'sourceUrl' when calling GetConvertDocumentToPdfByUrl");
             }
-
-
             var pathParams = {};
             var queryParams = {
                 'sourceUrl': sourceUrl,
@@ -309,17 +284,15 @@
                 'folder': opts['folder'],
                 'storage': opts['storage']
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {};
-
             var contentTypes = ['application/json'];
             var accepts = ['multipart/form-data'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/convert/pdf', 'GET',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
@@ -355,8 +328,6 @@
             if (name === undefined || name === null) {
                 throw new Error("Missing the required parameter 'name' when calling GetConvertDocumentToXps");
             }
-
-
             var pathParams = {
                 'name': name
             };
@@ -370,17 +341,15 @@
                 'folder': opts['folder'],
                 'storage': opts['storage'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {};
-
             var contentTypes = ['application/json'];
             var accepts = ['multipart/form-data'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/{name}/convert/xps', 'GET',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
@@ -416,8 +385,6 @@
             if (sourceUrl === undefined || sourceUrl === null) {
                 throw new Error("Missing the required parameter 'sourceUrl' when calling GetConvertDocumentToXpsByUrl");
             }
-
-
             var pathParams = {};
             var queryParams = {
                 'sourceUrl': sourceUrl,
@@ -430,24 +397,22 @@
                 'folder': opts['folder'],
                 'storage': opts['storage'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {};
-
             var contentTypes = ['application/json'];
             var accepts = ['multipart/form-data'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/convert/xps', 'GET',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
 
         /**
-         * Callback function to receive the result of the PutConvertDocumentInRequestToImage operation.
-         * @callback module:api/ConversionApi~PutConvertDocumentInRequestToImageCallback
+         * Callback function to receive the result of the PostConvertDocumentInRequestToImage operation.
+         * @callback module:api/ConversionApi~PostConvertDocumentInRequestToImageCallback
          * @param {String} error Error message, if any.
          * @param {File} data The data returned by the service call.
          * @param {String} response The complete HTTP response.
@@ -466,29 +431,25 @@
          * @param {Number} opts.topMargin Top resulting document page margin in points (1/96 inch).
          * @param {Number} opts.bottomMargin Bottom resulting document page margin in points (1/96 inch).
          * @param {Number} opts.resolution Resolution of resulting image. Default is 96 dpi.
-         * @param {module:api/ConversionApi~PutConvertDocumentInRequestToImageCallback} callback The callback function, accepting three arguments: error, data, response
+         * @param {module:api/ConversionApi~PostConvertDocumentInRequestToImageCallback} callback The callback function, accepting three arguments: error, data, response
          * data is of type: {@link File}
          */
-        this.PutConvertDocumentInRequestToImage = function (outPath, outFormat, file, opts, callback) {
+        this.PostConvertDocumentInRequestToImage = function (outPath, outFormat, file, opts, callback) {
             opts = opts || {};
-            var postBody = require('fs').readFileSync(file);
+            var postBody = null;
 
             // verify the required parameter 'outPath' is set
             if (outPath === undefined || outPath === null) {
-                throw new Error("Missing the required parameter 'outPath' when calling PutConvertDocumentInRequestToImage");
+                throw new Error("Missing the required parameter 'outPath' when calling PostConvertDocumentInRequestToImage");
             }
-
             // verify the required parameter 'outFormat' is set
             if (outFormat === undefined || outFormat === null) {
-                throw new Error("Missing the required parameter 'outFormat' when calling PutConvertDocumentInRequestToImage");
+                throw new Error("Missing the required parameter 'outFormat' when calling PostConvertDocumentInRequestToImage");
             }
-
             // verify the required parameter 'file' is set
             if (file === undefined || file === null) {
-                throw new Error("Missing the required parameter 'file' when calling PutConvertDocumentInRequestToImage");
+                throw new Error("Missing the required parameter 'file' when calling PostConvertDocumentInRequestToImage");
             }
-
-
             var pathParams = {
                 'outFormat': outFormat
             };
@@ -502,26 +463,24 @@
                 'bottomMargin': opts['bottomMargin'],
                 'resolution': opts['resolution'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {
-            //    'file': file
+                'file': file
             };
-
-            var contentTypes = ['application/octet-stream'];
+            var contentTypes = ['multipart/form-data'];
             var accepts = ['application/json'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
-                '/html/convert/image/{outFormat}', 'PUT',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                '/html/convert/image/{outFormat}', 'POST',
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
 
         /**
-         * Callback function to receive the result of the PutConvertDocumentInRequestToPdf operation.
-         * @callback module:api/ConversionApi~PutConvertDocumentInRequestToPdfCallback
+         * Callback function to receive the result of the PostConvertDocumentInRequestToPdf operation.
+         * @callback module:api/ConversionApi~PostConvertDocumentInRequestToPdfCallback
          * @param {String} error Error message, if any.
          * @param {File} data The data returned by the service call.
          * @param {String} response The complete HTTP response.
@@ -538,24 +497,20 @@
          * @param {Number} opts.rightMargin Right resulting document page margin in points (1/96 inch).
          * @param {Number} opts.topMargin Top resulting document page margin in points (1/96 inch).
          * @param {Number} opts.bottomMargin Bottom resulting document page margin in points (1/96 inch).
-         * @param {module:api/ConversionApi~PutConvertDocumentInRequestToPdfCallback} callback The callback function, accepting three arguments: error, data, response
+         * @param {module:api/ConversionApi~PostConvertDocumentInRequestToPdfCallback} callback The callback function, accepting three arguments: error, data, response
          * data is of type: {@link File}
          */
-        this.PutConvertDocumentInRequestToPdf = function (outPath, file, opts, callback) {
+        this.PostConvertDocumentInRequestToPdf = function (outPath, file, opts, callback) {
             opts = opts || {};
-            var postBody = require('fs').readFileSync(file);
-
+            var postBody = null;
             // verify the required parameter 'outPath' is set
             if (outPath === undefined || outPath === null) {
-                throw new Error("Missing the required parameter 'outPath' when calling PutConvertDocumentInRequestToPdf");
+                throw new Error("Missing the required parameter 'outPath' when calling PostConvertDocumentInRequestToPdf");
             }
-
             // verify the required parameter 'file' is set
             if (file === undefined || file === null) {
-                throw new Error("Missing the required parameter 'file' when calling PutConvertDocumentInRequestToPdf");
+                throw new Error("Missing the required parameter 'file' when calling PostConvertDocumentInRequestToPdf");
             }
-
-
             var pathParams = {};
             var queryParams = {
                 'outPath': outPath,
@@ -566,26 +521,24 @@
                 'topMargin': opts['topMargin'],
                 'bottomMargin': opts['bottomMargin'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {
-            //    'file': file
+                'file': file
             };
-
-            var contentTypes = ['application/octet-stream'];
+            var contentTypes = ['multipart/form-data'];
             var accepts = ['application/json'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
-                '/html/convert/pdf', 'PUT',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                '/html/convert/pdf', 'POST',
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
 
         /**
-         * Callback function to receive the result of the PutConvertDocumentInRequestToXps operation.
-         * @callback module:api/ConversionApi~PutConvertDocumentInRequestToXpsCallback
+         * Callback function to receive the result of the PostConvertDocumentInRequestToXps operation.
+         * @callback module:api/ConversionApi~PostConvertDocumentInRequestToXpsCallback
          * @param {String} error Error message, if any.
          * @param {File} data The data returned by the service call.
          * @param {String} response The complete HTTP response.
@@ -602,24 +555,22 @@
          * @param {Number} opts.rightMargin Right resulting document page margin in points (1/96 inch).
          * @param {Number} opts.topMargin Top resulting document page margin in points (1/96 inch).
          * @param {Number} opts.bottomMargin Bottom resulting document page margin in points (1/96 inch).
-         * @param {module:api/ConversionApi~PutConvertDocumentInRequestToXpsCallback} callback The callback function, accepting three arguments: error, data, response
+         * @param {module:api/ConversionApi~PostConvertDocumentInRequestToXpsCallback} callback The callback function, accepting three arguments: error, data, response
          * data is of type: {@link File}
          */
-        this.PutConvertDocumentInRequestToXps = function (outPath, file, opts, callback) {
+        this.PostConvertDocumentInRequestToXps = function (outPath, file, opts, callback) {
             opts = opts || {};
-            var postBody = require('fs').readFileSync(file);
+            var postBody = null;
 
             // verify the required parameter 'outPath' is set
             if (outPath === undefined || outPath === null) {
-                throw new Error("Missing the required parameter 'outPath' when calling PutConvertDocumentInRequestToXps");
+                throw new Error("Missing the required parameter 'outPath' when calling PostConvertDocumentInRequestToXps");
             }
 
             // verify the required parameter 'file' is set
             if (file === undefined || file === null) {
-                throw new Error("Missing the required parameter 'file' when calling PutConvertDocumentInRequestToXps");
+                throw new Error("Missing the required parameter 'file' when calling PostConvertDocumentInRequestToXps");
             }
-
-
             var pathParams = {};
             var queryParams = {
                 'outPath': outPath,
@@ -630,19 +581,17 @@
                 'topMargin': opts['topMargin'],
                 'bottomMargin': opts['bottomMargin'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {
-           //     'file': file
+                'file': file
             };
-
-            var contentTypes = ['application/octet-stream'];
+            var contentTypes = ['multipart/form-data'];
             var accepts = ['application/json'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
-                '/html/convert/xps', 'PUT',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                '/html/convert/xps', 'POST',
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
@@ -691,8 +640,6 @@
             if (outFormat === undefined || outFormat === null) {
                 throw new Error("Missing the required parameter 'outFormat' when calling PutConvertDocumentToImage");
             }
-
-
             var pathParams = {
                 'name': name,
                 'outFormat': outFormat
@@ -709,7 +656,6 @@
                 'folder': opts['folder'],
                 'storage': opts['storage'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {};
 
@@ -719,7 +665,7 @@
 
             return this.apiClient.callApi(
                 '/html/{name}/convert/image/{outFormat}', 'PUT',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
@@ -751,7 +697,6 @@
         this.PutConvertDocumentToPdf = function (name, outPath, opts, callback) {
             opts = opts || {};
             var postBody = null;
-
             // verify the required parameter 'name' is set
             if (name === undefined || name === null) {
                 throw new Error("Missing the required parameter 'name' when calling PutConvertDocumentToPdf");
@@ -761,8 +706,6 @@
             if (outPath === undefined || outPath === null) {
                 throw new Error("Missing the required parameter 'outPath' when calling PutConvertDocumentToPdf");
             }
-
-
             var pathParams = {
                 'name': name
             };
@@ -777,17 +720,15 @@
                 'folder': opts['folder'],
                 'storage': opts['storage'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {};
-
             var contentTypes = ['application/json'];
             var accepts = ['application/json'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/{name}/convert/pdf', 'PUT',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
@@ -819,18 +760,14 @@
         this.PutConvertDocumentToXps = function (name, outPath, opts, callback) {
             opts = opts || {};
             var postBody = null;
-
             // verify the required parameter 'name' is set
             if (name === undefined || name === null) {
                 throw new Error("Missing the required parameter 'name' when calling PutConvertDocumentToXps");
             }
-
             // verify the required parameter 'outPath' is set
             if (outPath === undefined || outPath === null) {
                 throw new Error("Missing the required parameter 'outPath' when calling PutConvertDocumentToXps");
             }
-
-
             var pathParams = {
                 'name': name
             };
@@ -845,17 +782,15 @@
                 'folder': opts['folder'],
                 'storage': opts['storage'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {};
-
             var contentTypes = ['application/json'];
             var accepts = ['application/json'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/{name}/convert/xps', 'PUT',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
@@ -877,24 +812,16 @@
          */
         this.GetConvertDocumentToMHTMLByUrl = function(sourceUrl, callback) {
             var postBody = null;
-
             // verify the required parameter 'sourceUrl' is set
             if (sourceUrl == undefined || sourceUrl == null) {
                 throw "Missing the required parameter 'sourceUrl' when calling GetConvertDocumentToMHTMLByUrl";
             }
-
-
-            var pathParams = {
-            };
+            var pathParams = {};
             var queryParams = {
                 'sourceUrl': sourceUrl
             };
-            var collectionQueryParams = {};
-            var headerParams = {
-            };
-            var formParams = {
-            };
-
+            var headerParams = {};
+            var formParams = {};
             var contentTypes = ['application/json'];
             var accepts = ['multipart/form-data'];
             var returnType = 'Blob';
@@ -927,12 +854,10 @@
         this.GetConvertDocumentToMarkdown = function(name, opts, callback) {
             opts = opts || {};
             var postBody = null;
-
             // verify the required parameter 'name' is set
             if (name == undefined || name == null) {
                 throw "Missing the required parameter 'name' when calling GetConvertDocumentToMarkdown";
             }
-
             var pathParams = {
                 'name': name
             };
@@ -941,27 +866,22 @@
                 'folder': opts['folder'],
                 'storage': opts['storage']
             };
-            var collectionQueryParams = {};
-            var headerParams = {
-            };
-            var formParams = {
-            };
-
+            var headerParams = {};
+            var formParams = {};
             var contentTypes = ['application/json'];
             var accepts = ['multipart/form-data'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/{name}/convert/md', 'GET',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
 
-
         /**
-         * Callback function to receive the result of the PutConvertDocumentInRequestToMarkdown operation.
-         * @callback module:api/ConversionApi~PutConvertDocumentInRequestToMarkdownCallback
+         * Callback function to receive the result of the PostConvertDocumentInRequestToMarkdown operation.
+         * @callback module:api/ConversionApi~PostConvertDocumentInRequestToMarkdownCallback
          * @param {String} error Error message, if any.
          * @param {File} data The data returned by the service call.
          * @param {String} response The complete HTTP response.
@@ -973,44 +893,36 @@
          * @param {File} file A file to be converted.
          * @param {Object} opts Optional parameters
          * @param {Boolean} opts.useGit Use Git Markdown flavor to save. (default to false)
-         * @param {module:api/ConversionApi~PutConvertDocumentInRequestToMarkdownCallback} callback The callback function, accepting three arguments: error, data, response
+         * @param {module:api/ConversionApi~PostConvertDocumentInRequestToMarkdownCallback} callback The callback function, accepting three arguments: error, data, response
          * data is of type: {@link File}
          */
-        this.PutConvertDocumentInRequestToMarkdown = function(outPath, file, opts, callback) {
+        this.PostConvertDocumentInRequestToMarkdown = function(outPath, file, opts, callback) {
             opts = opts || {};
-            var postBody = require('fs').readFileSync(file);
-
+            var postBody = null;
             // verify the required parameter 'outPath' is set
             if (outPath == undefined || outPath == null) {
-                throw "Missing the required parameter 'outPath' when calling PutConvertDocumentInRequestToMarkdown";
+                throw "Missing the required parameter 'outPath' when calling PostConvertDocumentInRequestToMarkdown";
             }
-
             // verify the required parameter 'file' is set
             if (file == undefined || file == null) {
-                throw "Missing the required parameter 'file' when calling PutConvertDocumentInRequestToMarkdown";
+                throw "Missing the required parameter 'file' when calling PostConvertDocumentInRequestToMarkdown";
             }
-
-
-            var pathParams = {
-            };
+            var pathParams = {};
             var queryParams = {
                 'outPath': outPath,
                 'useGit': opts['useGit']
             };
-            var collectionQueryParams = {};
-            var headerParams = {
-            };
+            var headerParams = {};
             var formParams = {
-            //    'file': file
+                'file': file
             };
-
-            var contentTypes = ['application/octet-stream'];
+            var contentTypes = ['multipart/form-data'];
             var accepts = ['application/json'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
-                '/html/convert/md', 'PUT',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                '/html/convert/md', 'POST',
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
@@ -1037,18 +949,14 @@
         this.PutConvertDocumentToMarkdown = function(name, outPath, opts, callback) {
             opts = opts || {};
             var postBody = null;
-
             // verify the required parameter 'name' is set
             if (name == undefined || name == null) {
                 throw "Missing the required parameter 'name' when calling PutConvertDocumentToMarkdown";
             }
-
             // verify the required parameter 'outPath' is set
             if (outPath == undefined || outPath == null) {
                 throw "Missing the required parameter 'outPath' when calling PutConvertDocumentToMarkdown";
             }
-
-
             var pathParams = {
                 'name': name
             };
@@ -1058,19 +966,15 @@
                 'folder': opts['folder'],
                 'storage': opts['storage']
             };
-            var collectionQueryParams = {};
-            var headerParams = {
-            };
-            var formParams = {
-            };
-
+            var headerParams = {};
+            var formParams = {};
             var contentTypes = ['application/json'];
             var accepts = ['application/json'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/{name}/convert/md', 'PUT',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };

@@ -1,6 +1,6 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="DiscUsage.js">
+* <copyright company="Aspose" file="Error.js">
 *   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
@@ -28,69 +28,83 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/ErrorDetails'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./ErrorDetails'));
   } else {
     // Browser globals (root is window)
     if (!root.Asposehtmlcloud) {
       root.Asposehtmlcloud = {};
     }
-    root.Asposehtmlcloud.DiscUsage = factory(root.Asposehtmlcloud.ApiClient);
+    root.Asposehtmlcloud.Error = factory(root.Asposehtmlcloud.ApiClient, root.Asposehtmlcloud.ErrorDetails);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, ErrorDetails) {
   'use strict';
 
   /**
-   * The DiscUsage model module.
-   * @module model/DiscUsage
+   * The Error model module.
+   * @module model/Error
    * @version 19.6.0
    */
 
   /**
-   * Constructs a new <code>DiscUsage</code>.
-   * @alias module:model/DiscUsage
+   * Constructs a new <code>Error</code>.
+   * Error
+   * @alias module:model/Error
    * @class
-   * @param usedSize {Number} 
-   * @param totalSize {Number} 
    */
-  var exports = function(usedSize, totalSize) {
+  var exports = function() {
     var _this = this;
-
-    _this['usedSize'] = usedSize;
-    _this['totalSize'] = totalSize;
   };
 
   /**
-   * Constructs a <code>DiscUsage</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Error</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/DiscUsage} obj Optional instance to populate.
-   * @return {module:model/DiscUsage} The populated <code>DiscUsage</code> instance.
+   * @param {module:model/Error} obj Optional instance to populate.
+   * @return {module:model/Error} The populated <code>Error</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('usedSize')) {
-        obj['usedSize'] = ApiClient.convertToType(data['usedSize'], 'Number');
+      if (data.hasOwnProperty('Code')) {
+        obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
       }
-      if (data.hasOwnProperty('totalSize')) {
-        obj['totalSize'] = ApiClient.convertToType(data['totalSize'], 'Number');
+      if (data.hasOwnProperty('Message')) {
+        obj['Message'] = ApiClient.convertToType(data['Message'], 'String');
+      }
+      if (data.hasOwnProperty('Description')) {
+        obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
+      }
+      if (data.hasOwnProperty('InnerError')) {
+        obj['InnerError'] = ErrorDetails.constructFromObject(data['InnerError']);
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} usedSize
+   * Code             
+   * @member {String} Code
    */
-  exports.prototype['usedSize'] = undefined;
+  exports.prototype['Code'] = undefined;
   /**
-   * @member {Number} totalSize
+   * Message             
+   * @member {String} Message
    */
-  exports.prototype['totalSize'] = undefined;
+  exports.prototype['Message'] = undefined;
+  /**
+   * Description             
+   * @member {String} Description
+   */
+  exports.prototype['Description'] = undefined;
+  /**
+   * Inner Error             
+   * @member {module:model/ErrorDetails} InnerError
+   */
+  exports.prototype['InnerError'] = undefined;
 
   return exports;
 }));

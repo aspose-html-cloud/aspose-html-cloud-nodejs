@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="StorageApi.spec.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,7 +54,7 @@ var helper = require('./helper');
       return object[getter]();
     else
       return object[property];
-  }
+  };
 
   var setProperty = function(object, setter, property, value) {
     // Use setter method if present; otherwise, set the property directly.
@@ -62,59 +62,66 @@ var helper = require('./helper');
       object[setter](value);
     else
       object[property] = value;
-  }
+  };
 
   describe('StorageApi', function() {
     this.timeout(400000);
 
     describe('getDiscUsage', function() {
       it('should call getDiscUsage successfully', function(done) {
-        var opts ={'storage': null};
+        var opts ={'storageName': null};
         instance.getDiscUsage(opts, function(err, data, res) {
           if (err) throw err;
-        expect(200).to.be(res.status);
-        console.log(data);
-        done();
+
+          expect(200).to.be(res.status);
+          expect(res.body.totalSize > 0).to.be.ok();
+          expect(res.body.usedSize > 0).be.ok();
+          console.log(data);
+          done();
         });
       });
     });
 
-    describe('getIsExist', function() {
-      it('should call getIsExist successfully', function(done) {
+    describe('objectExists', function() {
+      it('should call objectExists successfully', function(done) {
         var path_exist = "HtmlTestDoc";
         var path_non_exist = "NonExistFolder"
         var opts = {
           'versionId': null,
-          'storage': null
+          'storageName': null
         };
-        instance.getIsExist(path_exist, opts, function(err, data, res) {
+        instance.objectExists(path_exist, opts, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
-          console.log('Exist folder');
-          console.log(data);
-          instance.getIsExist(path_non_exist, opts, function(err, data, res){
+          expect(res.body.exists).to.be.ok();
+          expect(res.body.isFolder).to.be.ok();
+
+          instance.objectExists(path_non_exist, opts, function(err, data, res){
             expect(200).to.be(res.status);
-            console.log('Not exist folder');
-            console.log(data);
+            expect(res.body.exists).to.not.be.ok();
+            expect(res.body.isFolder).to.not.be.ok();
             done();
           });
         });
       });
     });
 
-    describe('getIsStorageExist', function() {
-      it('should call getIsStorageExist successfully', function(done) {
+    describe('storageExists', function() {
+      it('should call storageExists successfully', function(done) {
         var name_exist = "/";
         var name_not_exist = "not_exist_storage";
 
-        instance.getIsStorageExist(name_exist, function(err, data, res) {
+        instance.storageExists(name_not_exist, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
+
           console.log("Exist storage");
           console.log(data);
-          instance.getIsStorageExist(name_not_exist, function(err, data, res){
+
+          instance.storageExists(name_not_exist, function(err, data, res){
             if(err) throw err;
             expect(200).to.be(res.status);
+
             console.log("Not exist storage");
             console.log(data);
             done();
@@ -123,11 +130,12 @@ var helper = require('./helper');
       });
     });
 
-    describe('getListFileVersions', function() {
-      it('should call getListFileVersions successfully', function(done) {
+    describe('getFileVersions', function() {
+      it('should call getFileVersions successfully', function(done) {
         var path = "HtmlTestDoc/test_en.html";
-        var opts = {'storage': null};
-        instance.getListFileVersions(path, opts, function(err, data, res) {
+        var opts = {'storageName': null };
+
+        instance.getFileVersions(path, opts, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
           console.log(data);

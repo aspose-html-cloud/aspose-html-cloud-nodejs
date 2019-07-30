@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="OcrApi.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,12 +45,12 @@
   /**
    * Ocr service.
    * @module api/OcrApi
-   * @version 1.0.3
+   * @version 19.6.0
    */
 
   /**
-   * Constructs a new OcrApi. 
-   * @alias module:api/OcrApi
+   * Constructs a new StorageApi.
+   * @alias module:api/StorageApi
    * @class
    * @param {conf}  API client configuration implementation to use,
    */
@@ -95,12 +95,8 @@
         'folder': opts['folder'],
         'storage': opts['storage'],
       };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var contentTypes = ['application/json'];
       var accepts = ['multipart/form-data'];
@@ -108,7 +104,7 @@
 
       return this.apiClient.callApi(
         '/html/{name}/ocr/import', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
     };
@@ -161,12 +157,8 @@
         'folder': opts['folder'],
         'storage': opts['storage'],
       };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var contentTypes = ['application/json'];
       var accepts = ['multipart/form-data'];
@@ -174,7 +166,7 @@
 
       return this.apiClient.callApi(
         '/html/{name}/ocr/translate/{srcLang}/{resLang}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
     };

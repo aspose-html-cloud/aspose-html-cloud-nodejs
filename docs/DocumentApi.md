@@ -1,6 +1,6 @@
 # Asposehtmlcloud.DocumentApi
 
-All URIs are relative to *https://api.aspose.cloud/v1.1*
+All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,8 +24,8 @@ Return all HTML page with linked resources packaged as a ZIP archive by the sour
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -37,7 +37,6 @@ var conf = {
 var apiInstance = new Asposehtmlcloud.DocumentApi(conf);
 
 var sourceUrl = "sourceUrl_example"; // String | Source page URL.
-
 
 var callback = function(error, data, response) {
   if (error) {
@@ -76,8 +75,8 @@ Return list of HTML fragments matching the specified XPath query.
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -139,8 +138,8 @@ Return list of HTML fragments matching the specified XPath query by the source p
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -156,7 +155,6 @@ var sourceUrl = "sourceUrl_example"; // String | Source page URL.
 var xPath = "xPath_example"; // String | XPath query string.
 
 var outFormat = "outFormat_example"; // String | Output format. Possible values: 'plain' and 'json'.
-
 
 var callback = function(error, data, response) {
   if (error) {
@@ -197,8 +195,8 @@ Return list of HTML fragments matching the specified CSS selector.
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -261,8 +259,8 @@ Return list of HTML fragments matching the specified CSS selector by the source 
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -278,7 +276,6 @@ var sourceUrl = "sourceUrl_example"; // String | Source page URL.
 var selector = "selector_example"; // String | CSS selector string.
 
 var outFormat = "outFormat_example"; // String | Output format. Possible values: 'plain' and 'json'.
-
 
 var callback = function(error, data, response) {
   if (error) {
@@ -319,8 +316,8 @@ Return all HTML document images packaged as a ZIP archive.
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -376,8 +373,8 @@ Return all HTML page images packaged as a ZIP archive by the source page URL.
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",

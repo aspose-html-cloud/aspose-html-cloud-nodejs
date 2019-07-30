@@ -1,6 +1,6 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="DiscUsage.js">
+* <copyright company="Aspose" file="StorageFile.js">
 *   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
@@ -37,62 +37,86 @@
     if (!root.Asposehtmlcloud) {
       root.Asposehtmlcloud = {};
     }
-    root.Asposehtmlcloud.DiscUsage = factory(root.Asposehtmlcloud.ApiClient);
+    root.Asposehtmlcloud.StorageFile = factory(root.Asposehtmlcloud.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
 
   /**
-   * The DiscUsage model module.
-   * @module model/DiscUsage
+   * The StorageFile model module.
+   * @module model/StorageFile
    * @version 19.6.0
    */
 
   /**
-   * Constructs a new <code>DiscUsage</code>.
-   * @alias module:model/DiscUsage
+   * Constructs a new <code>StorageFile</code>.
+   * File or folder information
+   * @alias module:model/StorageFile
    * @class
-   * @param usedSize {Number} 
-   * @param totalSize {Number} 
+   * @param isFolder {Boolean} True if it is a folder.
+   * @param size {Integer} File or folder size.
    */
-  var exports = function(usedSize, totalSize) {
+  var exports = function(isFolder, size) {
     var _this = this;
-
-    _this['usedSize'] = usedSize;
-    _this['totalSize'] = totalSize;
+    _this['isFolder'] = isFolder;
+    _this['size'] = size;
   };
 
   /**
-   * Constructs a <code>DiscUsage</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>StorageFile</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/DiscUsage} obj Optional instance to populate.
-   * @return {module:model/DiscUsage} The populated <code>DiscUsage</code> instance.
+   * @param {module:model/StorageFile} obj Optional instance to populate.
+   * @return {module:model/StorageFile} The populated <code>StorageFile</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('usedSize')) {
-        obj['usedSize'] = ApiClient.convertToType(data['usedSize'], 'Number');
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('totalSize')) {
-        obj['totalSize'] = ApiClient.convertToType(data['totalSize'], 'Number');
+      if (data.hasOwnProperty('isFolder')) {
+        obj['isFolder'] = ApiClient.convertToType(data['isFolder'], 'Boolean');
+      }
+      if (data.hasOwnProperty('modifiedDate')) {
+        obj['modifiedDate'] = ApiClient.convertToType(data['modifiedDate'], 'Date');
+      }
+      if (data.hasOwnProperty('size')) {
+        obj['size'] = ApiClient.convertToType(data['size'], 'Integer');
+      }
+      if (data.hasOwnProperty('path')) {
+        obj['path'] = ApiClient.convertToType(data['path'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} usedSize
+   * File or folder name.
+   * @member {String} name
    */
-  exports.prototype['usedSize'] = undefined;
+  exports.prototype['name'] = undefined;
   /**
-   * @member {Number} totalSize
+   * True if it is a folder.
+   * @member {Boolean} isFolder
    */
-  exports.prototype['totalSize'] = undefined;
+  exports.prototype['isFolder'] = undefined;
+  /**
+   * File or folder last modified DateTime.
+   * @member {Date} modifiedDate
+   */
+  exports.prototype['modifiedDate'] = undefined;
+  /**
+   * File or folder size.
+   * @member {Integer} size
+   */
+  exports.prototype['size'] = undefined;
+  /**
+   * File or folder path.
+   * @member {String} path
+   */
+  exports.prototype['path'] = undefined;
 
   return exports;
 }));
-
-

@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="DocumentApi.spec.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -51,9 +51,9 @@ var helper = require('./helper');
         var name1 = "test_doc_images.zip";
 
         // Upload test document to serverx`
-        helper.uploadFile(name, null, function (err, data, res) {
+        helper.uploadFileToStorage(name, null, function (err, data, res) {
             expect(200).to.be(res.status);
-            helper.uploadFile(name1, null, function (err, data, res) {
+            helper.uploadFileToStorage(name1, null, function (err, data, res) {
                 expect(200).to.be(res.status);
                 done();
             });

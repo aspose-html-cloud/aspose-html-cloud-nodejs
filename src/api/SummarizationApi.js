@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="SummarizationApi.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,12 +45,12 @@
   /**
    * Summarization service.
    * @module api/SummarizationApi
-   * @version 1.0.3
+   * @version 19.6.0
    */
 
   /**
-   * Constructs a new SummarizationApi. 
-   * @alias module:api/SummarizationApi
+   * Constructs a new StorageApi.
+   * @alias module:api/StorageApi
    * @class
    * @param {conf}  API client configuration implementation to use,
    */
@@ -79,34 +79,24 @@
     this.GetDetectHtmlKeywords = function(name, opts, callback) {
       opts = opts || {};
       var postBody = null;
-
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
         throw new Error("Missing the required parameter 'name' when calling GetDetectHtmlKeywords");
       }
-
-
-      var pathParams = {
-        'name': name
-      };
+      var pathParams = {'name': name};
       var queryParams = {
         'folder': opts['folder'],
         'storage': opts['storage'],
       };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
+      var headerParams = {};
+      var formParams = {};
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = 'Blob';
 
       return this.apiClient.callApi(
         '/html/{name}/summ/keywords', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
     };
@@ -127,32 +117,23 @@
      */
     this.GetDetectHtmlKeywordsByUrl = function(sourceUrl, callback) {
       var postBody = null;
-
       // verify the required parameter 'sourceUrl' is set
       if (sourceUrl === undefined || sourceUrl === null) {
         throw new Error("Missing the required parameter 'sourceUrl' when calling GetDetectHtmlKeywordsByUrl");
       }
-
-
-      var pathParams = {
-      };
+      var pathParams = {};
       var queryParams = {
         'sourceUrl': sourceUrl,
       };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
+      var headerParams = {};
+      var formParams = {};
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = 'Blob';
 
       return this.apiClient.callApi(
         '/html/summ/keywords', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         contentTypes, accepts, returnType, callback
       );
     };

@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="FolderApi.spec.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -67,18 +67,15 @@ var helper = require('./helper');
   describe('FolderApi', function() {
     this.timeout(400000);
 
-    describe('putCreateFolder', function() {
-      it('should call putCreateFolder successfully', function(done) {
+    describe('createFolder', function() {
+      it('should call createFolder successfully', function(done) {
         var path = "HtmlTestDoc/New_Folder";
-        var opts = {
-          'storage': null,
-          'destStorage': null
-        };
+        var opts = { 'storageName': null };
+
         //Create folder
-        instance.putCreateFolder(path, opts, function(err, data, res) {
+        instance.createFolder(path, opts, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
-          console.log(data);
           done();
         });
       });
@@ -87,27 +84,22 @@ var helper = require('./helper');
     describe('deleteFolder', function() {
       it('should call deleteFolder successfully', function(done) {
         var path = "HtmlTestDoc/New_Folder";
-        var opts = {
-          'storage': null,
-          'destStorage': null
-        };
+        var opts = { 'storageName': null };
+
        // Delete  folder which created above
         instance.deleteFolder(path, opts, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
-          console.log(data);
           done();
         });
       });
     });
 
-    describe('getListFiles', function() {
-      it('should call getListFiles successfully', function(done) {
-        var opts = {
-          'path': "HtmlTestDoc",
-          'storage': null
-        };
-        instance.getListFiles(opts, function(err, data, res) {
+    describe('getFilesList', function() {
+      it('should call getFilesList successfully', function(done) {
+        var path = "HtmlTestDoc";
+        var opts = { 'storageName': null };
+        instance.getFilesList(path, opts, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
           console.log(data);
@@ -116,23 +108,50 @@ var helper = require('./helper');
       });
     });
 
-    describe('postMoveFolder', function() {
-      it('should call postMoveFolder successfully', function(done) {
-        var src = "HtmlTestDoc/New_Folder";
-        var dest = "HtmlTestDoc/Moved_Folder"
-        var opts = {
-          'storage': null,
-          'destStorage': null
-        };
+    describe('copyFolder', function() {
+      it('should call copyFolder successfully', function(done) {
+        var srcPath = "HtmlTestDoc/Copy_Folder";
+        var destPath = "HtmlTestDoc/Copied_Folder"
+        var opts = { 'storageName': null };
+
         //Create folder
-        instance.putCreateFolder(src, opts, function(err, data, res) {
+        instance.createFolder( srcPath, opts, function(err, data, res) {
           if (err) throw err;
           expect(200).to.be(res.status);
-          // Move folder
-          instance.postMoveFolder(src, dest, opts, function(err, data, res){
+
+          // Copy folder
+          var opts_copy = {
+            'srcStorageName': null,
+            'destStorageName': null
+          };
+          instance.copyFolder(srcPath, destPath, opts_copy, function(err, data, res){
             if(err) throw err;
             expect(200).to.be(res.status);
-            console.log(data);
+            done();
+          });
+        });
+      });
+    });
+
+    describe('moveFolder', function() {
+      it('should call moveFolder successfully', function(done) {
+        var srcPath = "HtmlTestDoc/New_Folder";
+        var destPath = "HtmlTestDoc/Moved_Folder"
+        var opts = { 'storageName': null };
+
+        //Create folder
+        instance.createFolder( srcPath, opts, function(err, data, res) {
+          if (err) throw err;
+          expect(200).to.be(res.status);
+
+          // Move folder
+          var opts_move = {
+            'srcStorageName': null,
+            'destStorageName': null
+          };
+          instance.moveFolder(srcPath, destPath, opts_move, function(err, data, res){
+            if(err) throw err;
+            expect(200).to.be(res.status);
             done();
           });
         });

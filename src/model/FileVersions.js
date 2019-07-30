@@ -1,6 +1,6 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="DiscUsage.js">
+* <copyright company="Aspose" file="FileVersionResponse.js">
 *   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
@@ -28,71 +28,57 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/FileVersion', 'model/MessageResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./FileVersion'));
   } else {
     // Browser globals (root is window)
     if (!root.Asposehtmlcloud) {
       root.Asposehtmlcloud = {};
     }
-    root.Asposehtmlcloud.DiscUsage = factory(root.Asposehtmlcloud.ApiClient);
+    root.Asposehtmlcloud.FileVersions = factory(root.Asposehtmlcloud.ApiClient, root.Asposehtmlcloud.FileVersion);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, FileVersion) {
   'use strict';
 
   /**
-   * The DiscUsage model module.
-   * @module model/DiscUsage
+   * The FileVersions model module.
+   * @module model/FileVersions
    * @version 19.6.0
    */
-
   /**
-   * Constructs a new <code>DiscUsage</code>.
-   * @alias module:model/DiscUsage
+   * Constructs a new <code>FileVersions</code>.
+   * File versions FileVersion.
+   * @alias module:model/FileVersions
    * @class
-   * @param usedSize {Number} 
-   * @param totalSize {Number} 
    */
-  var exports = function(usedSize, totalSize) {
+  var exports = function() {
     var _this = this;
-
-    _this['usedSize'] = usedSize;
-    _this['totalSize'] = totalSize;
   };
-
   /**
-   * Constructs a <code>DiscUsage</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>FileVersions</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/DiscUsage} obj Optional instance to populate.
-   * @return {module:model/DiscUsage} The populated <code>DiscUsage</code> instance.
+   * @param {module:model/FileVersions} obj Optional instance to populate.
+   * @return {module:model/FileVersions} The populated <code>FileVersions</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('usedSize')) {
-        obj['usedSize'] = ApiClient.convertToType(data['usedSize'], 'Number');
-      }
-      if (data.hasOwnProperty('totalSize')) {
-        obj['totalSize'] = ApiClient.convertToType(data['totalSize'], 'Number');
+      if (data.hasOwnProperty('value')) {
+        obj['value'] = ApiClient.convertToType(data['value'], [FileVersion]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} usedSize
+   * File versions FileVersion.
+   * @member {Array.<module:model/FileVersion>} Value
    */
-  exports.prototype['usedSize'] = undefined;
-  /**
-   * @member {Number} totalSize
-   */
-  exports.prototype['totalSize'] = undefined;
+  exports.prototype['Value'] = undefined;
 
   return exports;
 }));
-
-

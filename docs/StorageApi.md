@@ -1,28 +1,28 @@
 # Asposehtmlcloud.StorageApi
 
-All URIs are relative to *https://api.aspose.cloud/v1.1*
+All URIs are relative to *https://localhost:5000/v3.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getDiscUsage**](StorageApi.md#getDiscUsage) | **GET** /storage/disc | Check the disk usage of the current account 
-[**getIsExist**](StorageApi.md#getIsExist) | **GET** /storage/exist | Check if a specific file or folder exists
-[**getIsStorageExist**](StorageApi.md#getIsStorageExist) | **GET** /storage/{name}/exist | Check if storage exists 
-[**getListFileVersions**](StorageApi.md#getListFileVersions) | **GET** /storage/version | Get the file&#39;s versions list 
+[**getDiscUsage**](StorageApi.md#getDiscUsage) | **GET** /html/storage/disc | Get disc usage
+[**getFileVersions**](StorageApi.md#getFileVersions) | **GET** /html/storage/version/{path} | Get file versions
+[**objectExists**](StorageApi.md#objectExists) | **GET** /html/storage/exist/{path} | Check if file or folder exists
+[**storageExists**](StorageApi.md#storageExists) | **GET** /html/storage/{storageName}/exist | Check if storage exists
 
 
 <a name="getDiscUsage"></a>
 # **getDiscUsage**
-> DiscUsageResponse getDiscUsage(opts)
+> DiscUsage getDiscUsage(opts)
 
-Check the disk usage of the current account 
+Get disc usage
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -34,7 +34,7 @@ var conf = {
 var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
 var opts = { 
-  'storage': "storage_example" // String | User's storage name
+  'storageName': "storageName_example" // String | Storage name
 };
 
 var callback = function(error, data, response) {
@@ -51,31 +51,30 @@ apiInstance.getDiscUsage(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storage** | **String**| User&#39;s storage name | [optional] 
+ **storageName** | **String**| Storage name | [optional] 
 
 ### Return type
 
-[**DiscUsageResponse**](DiscUsageResponse.md)
-
+[**DiscUsage**](DiscUsage.md)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getIsExist"></a>
-# **getIsExist**
-> FileExistResponse getIsExist(path, opts)
+<a name="getFileVersions"></a>
+# **getFileVersions**
+> FileVersions getFileVersions(path, opts)
 
-Check if a specific file or folder exists
+Get file versions
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -86,11 +85,10 @@ var conf = {
 
 var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
-var path = "path_example"; // String | File or folder path e.g. /file.ext or /Folder1
+var path = "path_example"; // String | File path e.g. '/file.ext'
 
 var opts = { 
-  'versionId': "versionId_example", // String | File's version
-  'storage': "storage_example" // String | User's storage name
+  'storageName': "storageName_example" // String | Storage name
 };
 
 var callback = function(error, data, response) {
@@ -100,40 +98,38 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getIsExist(path, opts, callback);
+apiInstance.getFileVersions(path, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| File or folder path e.g. /file.ext or /Folder1 | 
- **versionId** | **String**| File&#39;s version | [optional] 
- **storage** | **String**| User&#39;s storage name | [optional] 
+ **path** | **String**| File path e.g. &#39;/file.ext&#39; | 
+ **storageName** | **String**| Storage name | [optional] 
 
 ### Return type
 
-[**FileExistResponse**](FileExistResponse.md)
-
+[**FileVersions**](FileVersions.md)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getIsStorageExist"></a>
-# **getIsStorageExist**
-> StorageExistResponse getIsStorageExist(name)
+<a name="objectExists"></a>
+# **objectExists**
+> ObjectExist objectExists(path, opts)
 
-Check if storage exists 
+Check if file or folder exists
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -141,65 +137,19 @@ var conf = {
     "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
+<<<<<<< HEAD
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
+=======
+>>>>>>> multipart
 
 var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
-var name = "name_example"; // String | Storage name
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.getIsStorageExist(name, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| Storage name | 
-
-### Return type
-
-[**StorageExistResponse**](StorageExistResponse.md)
-
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getListFileVersions"></a>
-# **getListFileVersions**
-> FileVersionsResponse getListFileVersions(path, opts)
-
-Get the file&#39;s versions list 
-
-### Example
-```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
-
-var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
-    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
-    "defaultUserAgent":"Webkit"
-};
-
-var apiInstance = new Asposehtmlcloud.StorageApi(conf);
-
-var path = "path_example"; // String | File path e.g. /file.ext or /Folder1/file.ext
+var path = "path_example"; // String | File or folder path e.g. '/file.ext' or '/folder'
 
 var opts = { 
-  'storage': "storage_example" // String | User's storage name
+  'storageName': "storageName_example", // String | Storage name
+  'versionId': "versionId_example" // String | File version ID
 };
 
 var callback = function(error, data, response) {
@@ -209,23 +159,78 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getListFileVersions(path, opts, callback);
+apiInstance.objectExists(path, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| File path e.g. /file.ext or /Folder1/file.ext | 
- **storage** | **String**| User&#39;s storage name | [optional] 
+ **path** | **String**| File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39; | 
+ **storageName** | **String**| Storage name | [optional] 
+ **versionId** | **String**| File version ID | [optional] 
 
 ### Return type
 
-[**FileVersionsResponse**](FileVersionsResponse.md)
-
+[**ObjectExist**](ObjectExist.md)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="storageExists"></a>
+# **storageExists**
+> StorageExist storageExists(storageName)
+
+Check if storage exists
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var conf = {
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+<<<<<<< HEAD
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
+=======
+>>>>>>> multipart
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
+
+var storageName = "storageName_example"; // String | Storage name
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.storageExists(storageName, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storageName** | **String**| Storage name | 
+
+### Return type
+
+[**StorageExist**](StorageExist.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json

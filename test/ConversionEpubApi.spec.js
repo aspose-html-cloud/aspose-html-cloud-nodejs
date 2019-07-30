@@ -42,21 +42,21 @@ var helper = require('./helper');
     'use strict';
 
     var instance, storage_api;
-    var fs;
-    var local_src_folder, local_dst_folder;
+    var fs, path;
+    var local_src_folder, local_dst_folder, name, folder;
 
     before(function (done) {
         this.timeout(200000);
         instance = new Asposehtmlcloud.ConversionApi(helper.conf);
         storage_api = new Asposehtmlcloud.StorageApi(helper.conf);
         fs = require('fs');
+        path = require('path');
         local_src_folder = __dirname + "/../testdata/";
         local_dst_folder = __dirname + "/../testresult/";
-
-        var name = "georgia.epub";
+        name = "georgia.epub";
 
         // Upload test data to server
-        helper.uploadFile(name, null, function (err, data, res) {
+        helper.uploadFileToStorage(name, null, function (err, data, res) {
             expect(200).to.be(res.status);
             done();
         });
@@ -84,7 +84,6 @@ var helper = require('./helper');
         describe('GetConvertEpubToImage', function () {
             it('should call GetConvertDocumentToImage successfully (epub)', function (done) {
 
-                var name = "georgia.epub";
                 var outFormat = "bmp";
                 var opts = {
                     'width': null,
@@ -93,17 +92,15 @@ var helper = require('./helper');
                     'rightMargin': null,
                     'topMargin': null,
                     'bottomMargin': null,
-                    'xResolution': null,
-                    'yResolution': null,
+                    'resolution': null,
                     'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
                 instance.GetConvertDocumentToImage(name, outFormat, opts, function (err, data, res) {
-                    // err - error, data - Buffer, res - {"ok":true, "status":200, "type":"image/bmp...}
                     if (err) throw err;
                     expect(200).to.be(res.status);
-                    var len = helper.saveToTestFolder('EpubToBmp.bmp', data);
+                    var len = helper.saveToTestFolder('EpubToBmp.zip', data);
                     expect(data.length).to.equal(len);
                     done();
                 });
@@ -112,7 +109,6 @@ var helper = require('./helper');
         describe('GetConvertEpubToPdf', function () {
             it('should call GetConvertDocumentToPdf successfully (epub)', function (done) {
 
-                var name = "georgia.epub";
                 var opts = {
                     'width': null,
                     'height': null,
@@ -138,7 +134,6 @@ var helper = require('./helper');
         describe('GetConvertEpubToXps', function () {
             it('should call GetConvertDocumentToXps successfully (epub)', function (done) {
 
-                var name = "georgia.epub";
                 var opts = {
                     'width': null,
                     'height': null,
@@ -161,12 +156,13 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertEpubInRequestToImage', function () {
-            it('should call PutConvertDocumentInRequestToImage successfully (epub)', function (done) {
+        describe('PostConvertEpubInRequestToImage', function () {
+            it('should call PostConvertDocumentInRequestToImage successfully (epub)', function (done) {
 
-                var outPath = "HtmlTestDoc/putEpubToImgInReqJS.bmp";
+                var outPath = helper.conf['remoteFolder'] + "/" + "postEpubToImgInReqJS.bmp";
                 var outFormat = "bmp";
-                var file = local_src_folder + "georgia.epub";
+                var local_path = local_src_folder + name;
+                var file = fs.createReadStream(path.normalize(local_path));
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -177,21 +173,18 @@ var helper = require('./helper');
                     'resolution': 300
                 };
 
-                instance.PutConvertDocumentInRequestToImage(outPath, outFormat, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToImage(outPath, outFormat, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
-                    var opts = {
-                        'versionId': null,
-                        'storage': null
-                    };
+                    var opts = { 'storageName': null };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putEpubToImgInReqJS.bmp";
+                        var dst = local_dst_folder + "postEpubToImgInReqJS.zip";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -199,10 +192,11 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertEpubInRequestToPdf', function () {
-            it('should call PutConvertDocumentInRequestToPdf successfully (epub)', function (done) {
-                var outPath = "HtmlTestDoc/putEpubToPdfInReqJS.pdf";
-                var file = local_src_folder + "georgia.epub";
+        describe('PostConvertEpubInRequestToPdf', function () {
+            it('should call PostConvertDocumentInRequestToPdf successfully (epub)', function (done) {
+                var outPath = helper.conf['remoteFolder'] + "/" + "postEpubToPdfInReqJS.pdf";
+                var local_path = local_src_folder + name;
+                var file = fs.createReadStream(path.normalize(local_path));
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -212,21 +206,20 @@ var helper = require('./helper');
                     'bottomMargin': 80
                 };
 
-                instance.PutConvertDocumentInRequestToPdf(outPath, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToPdf(outPath, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putEpubToPdfInReqJS.pdf";
+                        var dst = local_dst_folder + "postEpubToPdfInReqJS.pdf";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -234,10 +227,11 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertEpubInRequestToXps', function () {
-            it('should call PutConvertDocumentInRequestToXps successfully (epub)', function (done) {
-                var outPath = "HtmlTestDoc/putEpubToXpsInReqJS.xps";
-                var file = local_src_folder + "georgia.epub";
+        describe('PostConvertEpubInRequestToXps', function () {
+            it('should call PostConvertDocumentInRequestToXps successfully (epub)', function (done) {
+                var outPath = helper.conf['remoteFolder'] + "/" + "postEpubToXpsInReqJS.xps";
+                var local_path = local_src_folder + name;
+                var file = fs.createReadStream(path.normalize(local_path));
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -247,21 +241,20 @@ var helper = require('./helper');
                     'bottomMargin': 80
                 };
 
-                instance.PutConvertDocumentInRequestToXps(outPath, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToXps(outPath, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putEpubToXpsInReqJS.xps";
+                        var dst = local_dst_folder + "postEpubToXpsInReqJS.xps";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -272,10 +265,7 @@ var helper = require('./helper');
         describe('PutConvertEpubToImage', function () {
             it('should call PutConvertDocumentToImage successfully (epub)', function (done) {
 
-                //Already in storage
-                var name = "georgia.epub";
-
-                var outPath = "HtmlTestDoc/putEpubToImgJS.tiff";
+                var outPath = helper.conf['remoteFolder'] + "/" + "putEpubToImgJS.tiff";
                 var outFormat = "tiff";
                 var opts = {
                     'width': 800,
@@ -285,7 +275,7 @@ var helper = require('./helper');
                     'topMargin': 40,
                     'bottomMargin': 80,
                     'resolution': 300,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -294,16 +284,15 @@ var helper = require('./helper');
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putEpubToImgJS.tiff";
+                        var dst = local_dst_folder + "putEpubToImgJSTiff.zip";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -314,10 +303,7 @@ var helper = require('./helper');
         describe('PutEpubToPdf', function () {
             it('should call PutConvertDocumentToPdf successfully (epub)', function (done) {
 
-                //Already in storage
-                var name = "georgia.epub";
-
-                var outPath = "HtmlTestDoc/putEpubToPdfJS.pdf";
+                var outPath = helper.conf['remoteFolder'] + "/" + "putEpubToPdfJS.pdf";
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -325,7 +311,7 @@ var helper = require('./helper');
                     'rightMargin': 100,
                     'topMargin': 40,
                     'bottomMargin': 80,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -334,12 +320,11 @@ var helper = require('./helper');
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
@@ -355,10 +340,7 @@ var helper = require('./helper');
         describe('PutEpubToXps', function () {
             it('should call PutConvertDocumentToXps successfully (epub)', function (done) {
 
-                //Already in storage
-                var name = "georgia.epub";
-
-                var outPath = "HtmlTestDoc/putEpubToXpsJS.xps";
+                var outPath = helper.conf['remoteFolder'] + "/" + "putEpubToXpsJS.xps";
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -366,7 +348,7 @@ var helper = require('./helper');
                     'rightMargin': 100,
                     'topMargin': 40,
                     'bottomMargin': 80,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -375,12 +357,11 @@ var helper = require('./helper');
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 

@@ -1,6 +1,6 @@
 {
   "name": "asposehtmlcloud",
-  "version": "1.0.3",
+  "version": "19.6.0",
   "description": "Aspose.HTML Cloud SDK for Javascript source code.",
   "license": "MIT",
   "main": "./src/index.js",
@@ -12,23 +12,23 @@
     "Aspose",
     "Cloud",
     "HTML",
-	"Conversion",
-	"Translate",
-	"Recognize"
+    "Conversion",
+    "Translate",
+    "Recognize"
   ],
   "browser": {
     "fs": false
   },
   "dependencies": {
     "chai": "^4.1.2",
-    "nodeunit": "^0.11.2",
-    "superagent": "3.5.2",
+    "nodeunit": "^0.11.3",
+    "superagent": "5.1.0",
     "sync-request": "^6.0.0"
   },
   "devDependencies": {
-    "mocha": "~2.3.4",
-    "sinon": "1.17.3",
-    "expect.js": "~0.3.1"
+    "expect.js": "~0.3.1",
+    "mocha": "^6.2.0",
+    "sinon": "1.17.3"
   },
   "directories": {
     "doc": "docs",

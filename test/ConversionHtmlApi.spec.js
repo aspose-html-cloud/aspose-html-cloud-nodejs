@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="ConversionHtmlApi.spec.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +42,7 @@ var helper = require('./helper');
     'use strict';
 
     var instance, storage_api;
-    var fs;
+    var fs, path;
     var local_src_folder, local_dst_folder;
 
     before(function (done) {
@@ -50,6 +50,7 @@ var helper = require('./helper');
         instance = new Asposehtmlcloud.ConversionApi(helper.conf);
         storage_api = new Asposehtmlcloud.StorageApi(helper.conf);
         fs = require('fs');
+        path = require('path');
         local_src_folder = __dirname + "/../testdata/";
         local_dst_folder = __dirname + "/../testresult/";
 
@@ -57,10 +58,10 @@ var helper = require('./helper');
         var name_md = "test_md.html";
 
         // Upload test data to server
-        helper.uploadFile(name, null, function (err, data, res) {
+        helper.uploadFileToStorage(name, null, function (err, data, res) {
             expect(200).to.be(res.status);
             console.log(data);
-            helper.uploadFile(name_md, null, function (err, data, res) {
+            helper.uploadFileToStorage(name_md, null, function (err, data, res) {
                 expect(200).to.be(res.status);
                 console.log(data);
                 done();
@@ -99,8 +100,7 @@ var helper = require('./helper');
                     'rightMargin': null,
                     'topMargin': null,
                     'bottomMargin': null,
-                    'xResolution': null,
-                    'yResolution': null,
+                    'resolution': null,
                     'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
@@ -132,6 +132,25 @@ var helper = require('./helper');
                 });
             });
         });
+
+        describe('GetConvertHtmlToGifByUrl', function () {
+            it('should call GetConvertDocumentToGifByUrl successfully (html)', function (done) {
+
+                var source_url = "https://stallman.org/articles/anonymous-payments-thru-phones.html"
+                var opts = {};
+
+                instance.GetConvertDocumentToImageByUrl(source_url, 'gif', opts, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+
+                    //Save file to test directory, return file size
+                    var len = helper.saveToTestFolder('HtmlToGifFromUrl.gif', data);
+                    expect(data.length).to.equal(len);
+                    done();
+                });
+            });
+        });
+
         describe('GetConvertHtmlToPdf', function () {
             it('should call GetConvertDocumentToPdf successfully (html)', function (done) {
 
@@ -218,12 +237,12 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertHtmlInRequestToImage', function () {
-            it('should call PutConvertDocumentInRequestToImage successfully (html)', function (done) {
+        describe('PostConvertHtmlInRequestToImage', function () {
+            it('should call PostConvertDocumentInRequestToImage successfully (html)', function (done) {
 
-                var outPath = "HtmlTestDoc/putConvertHtmlToImgJS.bmp";
+                var outPath = "HtmlTestDoc/postConvertHtmlToImgJS.bmp";
                 var outFormat = "bmp";
-                var file = local_src_folder + "test_data.html";
+                var file = fs.createReadStream(path.normalize(local_src_folder + "test_data.html"));
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -234,21 +253,20 @@ var helper = require('./helper');
                     'resolution': 300
                 };
 
-                instance.PutConvertDocumentInRequestToImage(outPath, outFormat, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToImage(outPath, outFormat, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
-                    var opts = {
-                        'versionId': null,
-                        'storage': null
+                    var options = {
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, options, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putConvertHtmlToImgJS.bmp";
+                        var dst = local_dst_folder + "postConvertHtmlToImgJS.bmp";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -256,10 +274,10 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertHtmlInRequestToPdf', function () {
-            it('should call PutConvertDocumentInRequestToPdf successfully (html)', function (done) {
-                var outPath = "HtmlTestDoc/putConvertHtmlToPdfJS.pdf";
-                var file = local_src_folder + "test_data.html";
+        describe('PostConvertHtmlInRequestToPdf', function () {
+            it('should call PostConvertDocumentInRequestToPdf successfully (html)', function (done) {
+                var outPath = "HtmlTestDoc/postConvertHtmlToPdfJS.pdf";
+                var file = fs.createReadStream(path.normalize(local_src_folder + "test_data.html"));
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -269,21 +287,20 @@ var helper = require('./helper');
                     'bottomMargin': 80
                 };
 
-                instance.PutConvertDocumentInRequestToPdf(outPath, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToPdf(outPath, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putConvertHtmlToPdfJS.pdf";
+                        var dst = local_dst_folder + "postConvertHtmlToPdfJS.pdf";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -291,10 +308,10 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertHtmlInRequestToXps', function () {
-            it('should call PutConvertDocumentInRequestToXps successfully (html)', function (done) {
-                var outPath = "HtmlTestDoc/putConvertHtmlToXpsJS.xps";
-                var file = local_src_folder + "test_data.html";
+        describe('PostConvertHtmlInRequestToXps', function () {
+            it('should call PostConvertDocumentInRequestToXps successfully (html)', function (done) {
+                var outPath = "HtmlTestDoc/postConvertHtmlToXpsJS.xps";
+                var file = fs.createReadStream(path.normalize(local_src_folder + "test_data.html"));
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -304,21 +321,20 @@ var helper = require('./helper');
                     'bottomMargin': 80
                 };
 
-                instance.PutConvertDocumentInRequestToXps(outPath, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToXps(outPath, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
-                    var opts = {
-                        'versionId': null,
-                        'storage': null
+                    var options = {
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, options, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putConvertHtmlToXpsJS.xps";
+                        var dst = local_dst_folder + "postConvertHtmlToXpsJS.xps";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -342,7 +358,7 @@ var helper = require('./helper');
                     'topMargin': 40,
                     'bottomMargin': 80,
                     'resolution': 300,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -350,13 +366,12 @@ var helper = require('./helper');
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
-                    var opts = {
-                        'versionId': null,
-                        'storage': null
+                    var options = {
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, options, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
@@ -382,7 +397,7 @@ var helper = require('./helper');
                     'rightMargin': 100,
                     'topMargin': 40,
                     'bottomMargin': 80,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -390,13 +405,12 @@ var helper = require('./helper');
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
-                    var opts = {
-                        'versionId': null,
-                        'storage': null
+                    var options = {
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, options, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
@@ -423,7 +437,7 @@ var helper = require('./helper');
                     'rightMargin': 100,
                     'topMargin': 40,
                     'bottomMargin': 80,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -431,13 +445,12 @@ var helper = require('./helper');
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
-                    var opts = {
-                        'versionId': null,
-                        'storage': null
+                    var options = {
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, options, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
@@ -453,9 +466,8 @@ var helper = require('./helper');
             it('should call GetConvertDocumentToMHTMLByUrl successfully (html)', function (done) {
 
                 var source_url = "https://www.yahoo.com";
-                var opts = {};
 
-                instance.GetConvertDocumentToMHTMLByUrl(source_url, opts, function (err, data, res) {
+                instance.GetConvertDocumentToMHTMLByUrl(source_url, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
@@ -471,11 +483,9 @@ var helper = require('./helper');
 
                 //Already in storage
                 var name = "test_md.html";
-
-                var outPath = "HtmlTestDoc/getConvertDocToMarkdownJSGitTrue.md";
                 var opts = {
                     'useGit': true,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -495,11 +505,9 @@ var helper = require('./helper');
 
                 //Already in storage
                 var name = "test_md.html";
-
-                var outPath = "HtmlTestDoc/getConvertDocToMarkdownGitFalseJS.md";
                 var opts = {
                     'useGit': false,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -519,11 +527,10 @@ var helper = require('./helper');
 
                 //Already in storage
                 var name = "test_md.html";
-
                 var outPath = "HtmlTestDoc/PutHtmlToMarkdownJSGitTrue.md";
                 var opts = {
                     'useGit': true,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -532,12 +539,11 @@ var helper = require('./helper');
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
@@ -554,11 +560,10 @@ var helper = require('./helper');
 
                 //Already in storage
                 var name = "test_md.html";
-
-                    var outPath = "HtmlTestDoc/PutHtmlToMarkdownJSGitFalse.md";
+                var outPath = "HtmlTestDoc/PutHtmlToMarkdownJSGitFalse.md";
                 var opts = {
                     'useGit': false,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -567,12 +572,11 @@ var helper = require('./helper');
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
@@ -584,30 +588,29 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertDocumentInRequestToMarkdownGitTrue', function () {
-            it('should call PutConvertDocumentInRequestToMarkdownGitTrue successfully', function (done) {
+        describe('PostConvertDocumentInRequestToMarkdownGitTrue', function () {
+            it('should call PostConvertDocumentInRequestToMarkdownGitTrue successfully', function (done) {
 
-                var outPath = "HtmlTestDoc/PutConvertDocumentInRequestToMarkdownGitTrue.md";
-                var file = local_src_folder + "test_md.html";
+                var outPath = "HtmlTestDoc/PostConvertDocumentInRequestToMarkdownGitTrue.md";
+                var file = fs.createReadStream(path.normalize(local_src_folder + "test_md.html"));
                 var opts = {
                     'useGit': true
                 };
 
-                instance.PutConvertDocumentInRequestToMarkdown(outPath, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToMarkdown(outPath, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "PutConvertDocumentInRequestToMarkdownGitTrue.md";
+                        var dst = local_dst_folder + "PostConvertDocumentInRequestToMarkdownGitTrue.md";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -615,30 +618,29 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertDocumentInRequestToMarkdownGitFalse', function () {
-            it('should call PutConvertDocumentInRequestToMarkdownGitFalse successfully', function (done) {
+        describe('PostConvertDocumentInRequestToMarkdownGitFalse', function () {
+            it('should call PostConvertDocumentInRequestToMarkdownGitFalse successfully', function (done) {
 
-                var outPath = "HtmlTestDoc/PutConvertDocumentInRequestToMarkdownGitFalse.md";
-                var file = local_src_folder + "test_md.html";
+                var outPath = "HtmlTestDoc/PostConvertDocumentInRequestToMarkdownGitFalse.md";
+                var file = fs.createReadStream(path.normalize(local_src_folder + "test_md.html"));
                 var opts = {
                     'useGit': false
                 };
 
-                instance.PutConvertDocumentInRequestToMarkdown(outPath, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToMarkdown(outPath, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "PutConvertDocumentInRequestToMarkdownGitFalse.md";
+                        var dst = local_dst_folder + "PostConvertDocumentInRequestToMarkdownGitFalse.md";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();

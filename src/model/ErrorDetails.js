@@ -1,6 +1,6 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="DiscUsage.js">
+* <copyright company="Aspose" file="ErrorDetails.js">
 *   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
@@ -37,60 +37,60 @@
     if (!root.Asposehtmlcloud) {
       root.Asposehtmlcloud = {};
     }
-    root.Asposehtmlcloud.DiscUsage = factory(root.Asposehtmlcloud.ApiClient);
+    root.Asposehtmlcloud.ErrorDetails = factory(root.Asposehtmlcloud.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
 
   /**
-   * The DiscUsage model module.
-   * @module model/DiscUsage
+   * The ErrorDetails model module.
+   * @module model/ErrorDetails
    * @version 19.6.0
    */
 
   /**
-   * Constructs a new <code>DiscUsage</code>.
-   * @alias module:model/DiscUsage
+   * Constructs a new <code>ErrorDetails</code>.
+   * The error details
+   * @alias module:model/ErrorDetails
    * @class
-   * @param usedSize {Number} 
-   * @param totalSize {Number} 
+   * @param _date {Date} Date
    */
-  var exports = function(usedSize, totalSize) {
+  var exports = function(_date) {
     var _this = this;
-
-    _this['usedSize'] = usedSize;
-    _this['totalSize'] = totalSize;
+    _this['Date'] = _date;
   };
 
   /**
-   * Constructs a <code>DiscUsage</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ErrorDetails</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/DiscUsage} obj Optional instance to populate.
-   * @return {module:model/DiscUsage} The populated <code>DiscUsage</code> instance.
+   * @param {module:model/ErrorDetails} obj Optional instance to populate.
+   * @return {module:model/ErrorDetails} The populated <code>ErrorDetails</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('usedSize')) {
-        obj['usedSize'] = ApiClient.convertToType(data['usedSize'], 'Number');
+      if (data.hasOwnProperty('RequestId')) {
+        obj['RequestId'] = ApiClient.convertToType(data['RequestId'], 'String');
       }
-      if (data.hasOwnProperty('totalSize')) {
-        obj['totalSize'] = ApiClient.convertToType(data['totalSize'], 'Number');
+      if (data.hasOwnProperty('Date')) {
+        obj['Date'] = ApiClient.convertToType(data['Date'], 'Date');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} usedSize
+   * The request id
+   * @member {String} RequestId
    */
-  exports.prototype['usedSize'] = undefined;
+  exports.prototype['RequestId'] = undefined;
   /**
-   * @member {Number} totalSize
+   * Date
+   * @member {Date} Date
    */
-  exports.prototype['totalSize'] = undefined;
+  exports.prototype['Date'] = undefined;
 
   return exports;
 }));

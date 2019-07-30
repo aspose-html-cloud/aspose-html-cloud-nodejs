@@ -42,7 +42,7 @@ var helper = require('./helper');
     'use strict';
 
     var instance, storage_api;
-    var fs;
+    var fs, path;
     var local_src_folder, local_dst_folder;
 
     before(function (done) {
@@ -50,13 +50,14 @@ var helper = require('./helper');
         instance = new Asposehtmlcloud.ConversionApi(helper.conf);
         storage_api = new Asposehtmlcloud.StorageApi(helper.conf);
         fs = require('fs');
+        path = require('path');
         local_src_folder = __dirname + "/../testdata/";
         local_dst_folder = __dirname + "/../testresult/";
 
         var name = "Map-World.svg";
 
         // Upload test data to server
-        helper.uploadFile(name, null, function (err, data, res) {
+        helper.uploadFileToStorage(name, null, function (err, data, res) {
             expect(200).to.be(res.status);
             done();
         });
@@ -93,8 +94,7 @@ var helper = require('./helper');
                     'rightMargin': null,
                     'topMargin': null,
                     'bottomMargin': null,
-                    'xResolution': null,
-                    'yResolution': null,
+                    'resolution': null,
                     'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
@@ -161,12 +161,12 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertSvgInRequestToImage', function () {
-            it('should call PutConvertDocumentInRequestToImage successfully (svg)', function (done) {
+        describe('PostConvertSvgInRequestToImage', function () {
+            it('should call PostConvertDocumentInRequestToImage successfully (svg)', function (done) {
 
-                var outPath = "HtmlTestDoc/putSvgToImgInReqJS.bmp";
+                var outPath = "HtmlTestDoc/postSvgToImgInReqJS.bmp";
                 var outFormat = "bmp";
-                var file = local_src_folder + "Map-World.svg";
+                var file = fs.createReadStream(path.normalize(local_src_folder + "Map-World.svg"));
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -177,21 +177,20 @@ var helper = require('./helper');
                     'resolution': 300
                 };
 
-                instance.PutConvertDocumentInRequestToImage(outPath, outFormat, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToImage(outPath, outFormat, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
-                    var opts = {
-                        'versionId': null,
-                        'storage': null
+                    var options = {
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, options, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putSvgToImgInReqJS.bmp";
+                        var dst = local_dst_folder + "postSvgToImgInReqJS.bmp";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -199,10 +198,10 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertSvgInRequestToPdf', function () {
-            it('should call PutConvertDocumentInRequestToPdf successfully (svg)', function (done) {
-                var outPath = "HtmlTestDoc/putSvgToPdfInReqJS.pdf";
-                var file = local_src_folder + "Map-World.svg";
+        describe('PostConvertSvgInRequestToPdf', function () {
+            it('should call PostConvertDocumentInRequestToPdf successfully (svg)', function (done) {
+                var outPath = "HtmlTestDoc/postSvgToPdfInReqJS.pdf";
+                var file = fs.createReadStream(path.normalize(local_src_folder + "Map-World.svg"));
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -212,21 +211,20 @@ var helper = require('./helper');
                     'bottomMargin': 80
                 };
 
-                instance.PutConvertDocumentInRequestToPdf(outPath, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToPdf(outPath, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
-                    var opts = {
-                        'versionId': null,
-                        'storage': null
+                    var options = {
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, options, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putSvgToPdfInReqJS.pdf";
+                        var dst = local_dst_folder + "postSvgToPdfInReqJS.pdf";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -234,10 +232,10 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutConvertSvgInRequestToXps', function () {
-            it('should call PutConvertDocumentInRequestToXps successfully (svg)', function (done) {
-                var outPath = "HtmlTestDoc/putSvgToXpsInReqJS.xps";
-                var file = local_src_folder + "Map-World.svg";
+        describe('PostConvertSvgInRequestToXps', function () {
+            it('should call PostConvertDocumentInRequestToXps successfully (svg)', function (done) {
+                var outPath = "HtmlTestDoc/postSvgToXpsInReqJS.xps";
+                var file = fs.createReadStream(path.normalize(local_src_folder + "Map-World.svg"));
                 var opts = {
                     'width': 800,
                     'height': 1000,
@@ -247,21 +245,20 @@ var helper = require('./helper');
                     'bottomMargin': 80
                 };
 
-                instance.PutConvertDocumentInRequestToXps(outPath, file, opts, function (err, data, res) {
+                instance.PostConvertDocumentInRequestToXps(outPath, file, opts, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
-                    var opts = {
-                        'versionId': null,
-                        'storage': null
+                    var options = {
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, options, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putSvgToXpsInReqJS.xps";
+                        var dst = local_dst_folder + "postSvgToXpsInReqJS.xps";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -285,7 +282,7 @@ var helper = require('./helper');
                     'topMargin': 40,
                     'bottomMargin': 80,
                     'resolution': 300,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -294,12 +291,11 @@ var helper = require('./helper');
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
@@ -325,7 +321,7 @@ var helper = require('./helper');
                     'rightMargin': 100,
                     'topMargin': 40,
                     'bottomMargin': 80,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -334,12 +330,11 @@ var helper = require('./helper');
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
@@ -366,7 +361,7 @@ var helper = require('./helper');
                     'rightMargin': 100,
                     'topMargin': 40,
                     'bottomMargin': 80,
-                    'folder': "HtmlTestDoc",
+                    'folder': helper.conf['remoteFolder'],
                     'storage': null
                 };
 
@@ -375,12 +370,11 @@ var helper = require('./helper');
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function(err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function(err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 

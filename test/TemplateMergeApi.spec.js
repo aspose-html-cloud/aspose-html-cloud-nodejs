@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="TemplateMergeApi.spec.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +42,7 @@ var helper = require('./helper');
     'use strict';
 
     var instance, storage_api;
-    var fs;
+    var fs, path;
     var local_src_folder, local_dst_folder, folder;
     var templateName, dataName;
 
@@ -51,6 +51,7 @@ var helper = require('./helper');
         instance = new Asposehtmlcloud.TemplateMergeApi(helper.conf);
         storage_api = new Asposehtmlcloud.StorageApi(helper.conf);
         fs = require('fs');
+        path = require('path');
         local_src_folder = __dirname + "/../testdata/";
         local_dst_folder = __dirname + "/../testresult/";
 
@@ -59,9 +60,9 @@ var helper = require('./helper');
         dataName = "XmlSourceData.xml";
 
         // Upload test data to server
-        helper.uploadFile(templateName, null, function (err, data, res) {
+        helper.uploadFileToStorage(templateName, null, function (err, data, res) {
             expect(200).to.be(res.status);
-            helper.uploadFile(dataName, null, function (err, data, res) {
+            helper.uploadFileToStorage(dataName, null, function (err, data, res) {
                 expect(200).to.be(res.status);
                 done();
             });
@@ -74,7 +75,7 @@ var helper = require('./helper');
             return object[getter]();
         else
             return object[property];
-    }
+    };
 
     var setProperty = function (object, setter, property, value) {
         // Use setter method if present; otherwise, set the property directly.
@@ -82,7 +83,7 @@ var helper = require('./helper');
             object[setter](value);
         else
             object[property] = value;
-    }
+    };
 
     describe('TemplateMergeApi', function () {
         this.timeout(200000);
@@ -105,29 +106,28 @@ var helper = require('./helper');
                 });
             });
         });
-        describe('PutMergeHtmlTemplate', function () {
-            it('should call PutMergeHtmlTemplate successfully', function (done) {
+        describe('PostMergeHtmlTemplate', function () {
+            it('should call PostMergeHtmlTemplate successfully', function (done) {
 
-                var resultName = "PutMergeHtmlTemplate.html";
+                var resultName = "PostMergeHtmlTemplate.html";
                 var outPath = folder + "/" + resultName;
-                var file = local_src_folder + dataName;
+                var file = fs.createReadStream(path.normalize(local_src_folder + dataName));
                 var opts = {
                     options: "",
                     folder: folder,
                     storage: null
                 };
 
-                instance.PutMergeHtmlTemplate(templateName, outPath, file, opts, function(err, data, res) {
+                instance.PostMergeHtmlTemplate(templateName, outPath, file, opts, function(err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 
                     var opts = {
-                        'versionId': null,
-                        'storage': null
+                        'storageName': null
                     };
 
                     //Download result from storage
-                    storage_api.getDownload(outPath, opts, function (err, data, res) {
+                    storage_api.downloadFile(outPath, opts, function (err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
 

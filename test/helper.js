@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="helper.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,26 +39,26 @@
 }(this, function(expect, Asposehtmlcloud) {
 
 'use strict';
-
-var conf = {
-    "basePath":"https://api-qa.aspose.cloud/v1.1",
-    "authPath":"https://api-qa.aspose.cloud/oauth2/token",
-    "apiKey":"60487a72d6325241191177e37ae52146",
-    "appSID":"80e32ca5-a828-46a4-9d54-7199dfd3764a",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
-    "defaultUserAgent":"Webkit"
+    var conf = {
+        "basePath":"https://api-qa.aspose.cloud/v3.0",
+        "authPath":"https://api-qa.aspose.cloud/connect/token",
+        "apiKey":"60487a72d6325241191177e37ae52146",
+        "appSID":"80e32ca5-a828-46a4-9d54-7199dfd3764a",
+        "testResult":"/testresult/",
+        "testData":"/testdata/",
+        "remoteFolder":"HtmlTestDoc/",
+        "defaultUserAgent":"Webkit"
     };
 
-var fs = require('fs');
-var local_dst_folder = __dirname + "/../"+ conf['testResult'];
-var local_src_folder = __dirname + "/../"+ conf['testData'];
+    var fs = require('fs');
+    var path = require('path');
+    var local_dst_folder = __dirname + "/../"+ conf['testResult'];
+    var local_src_folder = __dirname + "/../"+ conf['testData'];
 
-// Get all api
-var api = new Asposehtmlcloud.StorageApi(conf);
+// Get  api
+    var api = new Asposehtmlcloud.StorageApi(conf);
 
-exports.conf = conf;
+    exports.conf = conf;
 
 exports.saveToTestFolder = function (filename, buffer){
 
@@ -68,14 +68,11 @@ exports.saveToTestFolder = function (filename, buffer){
     return len;
 };
 
-exports.uploadFile = function(filename, uploadFolder, callback){
+exports.uploadFileToStorage = function(filename, uploadFolder, callback){
     var folder = uploadFolder || conf['remoteFolder'];
-    var opts = {
-        versionId: null,
-        storage: null
-    };
-    var file = local_src_folder + "/" + filename;
-    api.putCreate(folder + "/" + filename, file, opts, callback);
+    var opts = { 'storageName': null };
+    var file = fs.createReadStream(path.normalize(local_src_folder + "/" + filename));
+    api.uploadFile(folder + "/" + filename, file, opts, callback);
 };
 
 exports.getFileSize = function(filename){

@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="FileVersion.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,32 +28,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'module/FileDetail'], factory);
+    define(['ApiClient', 'module/StorageFile'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./FileDetail'));
+    module.exports = factory(require('../ApiClient'), require('./StorageFile'));
   } else {
     // Browser globals (root is window)
     if (!root.Asposehtmlcloud) {
       root.Asposehtmlcloud = {};
     }
-    root.Asposehtmlcloud.FileVersion = factory(root.Asposehtmlcloud.ApiClient, root.Asposehtmlcloud.FileDetail);
+    root.Asposehtmlcloud.FileVersion = factory(root.Asposehtmlcloud.ApiClient, root.Asposehtmlcloud.StorageFile);
   }
-}(this, function(ApiClient, FileDetail) {
+}(this, function(ApiClient, StorageFile) {
   'use strict';
 
 
   /**
    * The FileVersion model module.
    * @module model/FileVersion
-   * @version 1.0.3
+   * @version 19.6.0
    */
 
   /**
    * Constructs a new <code>FileVersion</code>.
    * @alias module:model/FileVersion
    * @class
-   * @extends module:model/FileDetail
+   * @extends module:model/StorageFile
    * @param isFolder {Boolean} 
    * @param modifiedDate {Date} 
    * @param size {Number} 
@@ -61,9 +61,7 @@
    */
   var exports = function(isFolder, modifiedDate, size, isDirectory) {
     var _this = this;
-    FileDetail.call(_this, isFolder, modifiedDate, size, isDirectory);
-
-
+    StorageFile.call(_this, isFolder, modifiedDate, size, isDirectory);
   };
 
   /**
@@ -76,30 +74,28 @@
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      FileDetail.constructFromObject(data, obj);
-      if (data.hasOwnProperty('VersionId')) {
-        obj['VersionId'] = ApiClient.convertToType(data['VersionId'], 'String');
+      StorageFile.constructFromObject(data, obj);
+      if (data.hasOwnProperty('versionId')) {
+        obj['versionId'] = ApiClient.convertToType(data['versionId'], 'String');
       }
-      if (data.hasOwnProperty('IsLatest')) {
-        obj['IsLatest'] = ApiClient.convertToType(data['IsLatest'], 'Boolean');
+      if (data.hasOwnProperty('isLatest')) {
+        obj['isLatest'] = ApiClient.convertToType(data['isLatest'], 'Boolean');
       }
     }
     return obj;
-  }
+  };
 
 //  exports.prototype = Object.create(File.prototype);
   exports.prototype.constructor = exports;
 
   /**
-   * @member {String} VersionId
+   * @member {String} versionId
    */
-  exports.prototype['VersionId'] = undefined;
+  exports.prototype['versionId'] = undefined;
   /**
-   * @member {Boolean} IsLatest
+   * @member {Boolean} isLatest
    */
-  exports.prototype['IsLatest'] = undefined;
+  exports.prototype['isLatest'] = undefined;
 
   return exports;
 }));
-
-

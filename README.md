@@ -2,8 +2,8 @@
 
 Asposehtmlcloud - JavaScript client for asposehtmlcloud
 
-- API version: 1.0.3
-- Package version: 1.0.3
+- API version: 19.6.0
+- Package version: 19.6.0
 
 ## Installation
 
@@ -109,8 +109,8 @@ Before fill all fields in configuration object (see tests)
 Example:   
 ```json
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -120,8 +120,6 @@ var conf = {
 }
 ```
 
-
-
 ## Getting Started
 
 Please follow the [installation](#installation) instruction and execute the following JS code:   
@@ -130,8 +128,8 @@ NOTE: Use the helper from /test/helper.js for upload and save data.
 
 ```javascript
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -166,7 +164,7 @@ var file = local_src_folder + "/" + filename;
 //Upload file to storage
 var opts = {versionId:versionId, storage:null};
 
-storageApi.putCreate(folder + "/" + filename, file, opts, callback);
+storageApi.uploadFile(folder + "/" + filename, file, opts, callback);
 
 //Setup output format
 var outFormat = "png"; // {String} Resulting image format.
@@ -199,14 +197,14 @@ conversionApi.GetConvertDocumentToImage(filename, outFormat, opts, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.aspose.cloud/v1.1*
+All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 [Tests](./test/) contain various examples of using the Aspose.HTML SDK.
 
+<a name="html_api"></a>
+### HTML API
 
-### HTML SDK
-
-- For conversion to images allowed formats is jpeg, png, bmp, tiff. Input formats are html, epub, svg.
+- For conversion to images allowed formats is jpeg, png, bmp, tiff, gif. Input formats are html, epub, svg.
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -216,15 +214,15 @@ Class | Method | HTTP request | Description
 *Asposehtmlcloud.ConversionApi* | [**GetConvertDocumentToPdfByUrl**](docs/ConversionApi.md#GetConvertDocumentToPdfByUrl) | **GET** /html/convert/pdf | Convert the HTML page from the web by its URL to PDF.
 *Asposehtmlcloud.ConversionApi* | [**GetConvertDocumentToXps**](docs/ConversionApi.md#GetConvertDocumentToXps) | **GET** /html/{name}/convert/xps | Convert the HTML document from the storage by its name to XPS.
 *Asposehtmlcloud.ConversionApi* | [**GetConvertDocumentToXpsByUrl**](docs/ConversionApi.md#GetConvertDocumentToXpsByUrl) | **GET** /html/convert/xps | Convert the HTML page from the web by its URL to XPS.
-*Asposehtmlcloud.ConversionApi* | [**PutConvertDocumentInRequestToImage**](docs/ConversionApi.md#PutConvertDocumentInRequestToImage) | **PUT** /html/convert/image/{outFormat} | Converts the HTML document (in request content) to the specified image format and uploads resulting file to storage.
-*Asposehtmlcloud.ConversionApi* | [**PutConvertDocumentInRequestToPdf**](docs/ConversionApi.md#PutConvertDocumentInRequestToPdf) | **PUT** /html/convert/pdf | Converts the HTML document (in request content) to PDF and uploads resulting file to storage.
-*Asposehtmlcloud.ConversionApi* | [**PutConvertDocumentInRequestToXps**](docs/ConversionApi.md#PutConvertDocumentInRequestToXps) | **PUT** /html/convert/xps | Converts the HTML document (in request content) to XPS and uploads resulting file to storage.
+*Asposehtmlcloud.ConversionApi* | [**PostConvertDocumentInRequestToImage**](docs/ConversionApi.md#PostConvertDocumentInRequestToImage) | **POST** /html/convert/image/{outFormat} | Converts the HTML document (in request content) to the specified image format and uploads resulting file to storage.
+*Asposehtmlcloud.ConversionApi* | [**PostConvertDocumentInRequestToPdf**](docs/ConversionApi.md#PostConvertDocumentInRequestToPdf) | **POST** /html/convert/pdf | Converts the HTML document (in request content) to PDF and uploads resulting file to storage.
+*Asposehtmlcloud.ConversionApi* | [**PostConvertDocumentInRequestToXps**](docs/ConversionApi.md#PostConvertDocumentInRequestToXps) | **POST** /html/convert/xps | Converts the HTML document (in request content) to XPS and uploads resulting file to storage.
 *Asposehtmlcloud.ConversionApi* | [**PutConvertDocumentToImage**](docs/ConversionApi.md#PutConvertDocumentToImage) | **PUT** /html/{name}/convert/image/{outFormat} | Converts the HTML document (located on storage) to the specified image format and uploads resulting file to storage.
 *Asposehtmlcloud.ConversionApi* | [**PutConvertDocumentToPdf**](docs/ConversionApi.md#PutConvertDocumentToPdf) | **PUT** /html/{name}/convert/pdf | Converts the HTML document (located on storage) to PDF and uploads resulting file to storage.
 *Asposehtmlcloud.ConversionApi* | [**PutConvertDocumentToXps**](docs/ConversionApi.md#PutConvertDocumentToXps) | **PUT** /html/{name}/convert/xps | Converts the HTML document (located on storage) to XPS and uploads resulting file to storage.
 *Asposehtmlcloud.ConversionApi* | [**GetConvertDocumentToMHTMLByUrl**](docs/ConversionApi.md#GetConvertDocumentToMHTMLByUrl) | **GET** /html/convert/mhtml | Converts the HTML page from Web by its URL to MHTML returns resulting file in response content.
 *Asposehtmlcloud.ConversionApi* | [**GetConvertDocumentToMarkdown**](docs/ConversionApi.md#GetConvertDocumentToMarkdown) | **GET** /html/{name}/convert/md | Converts the HTML document (located on storage) to Markdown and returns resulting file in response content.
-*Asposehtmlcloud.ConversionApi* | [**PutConvertDocumentInRequestToMarkdown**](docs/ConversionApi.md#PutConvertDocumentInRequestToMarkdown) | **PUT** /html/convert/md | Converts the HTML document (in request content) to Markdown and uploads resulting file to storage by specified path.
+*Asposehtmlcloud.ConversionApi* | [**PostConvertDocumentInRequestToMarkdown**](docs/ConversionApi.md#PostConvertDocumentInRequestToMarkdown) | **POST** /html/convert/md | Converts the HTML document (in request content) to Markdown and uploads resulting file to storage by specified path.
 *Asposehtmlcloud.ConversionApi* | [**PutConvertDocumentToMarkdown**](docs/ConversionApi.md#PutConvertDocumentToMarkdown) | **PUT** /html/{name}/convert/md | Converts the HTML document (located on storage) to Markdown and uploads resulting file to storage by specified path.
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentByUrl**](docs/DocumentApi.md#GetDocumentByUrl) | **GET** /html/download | Return all HTML page with linked resources packaged as a ZIP archive by the source page URL.
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentFragmentByXPath**](docs/DocumentApi.md#GetDocumentFragmentByXPath) | **GET** /html/{name}/fragments/{outFormat} | Return list of HTML fragments matching the specified XPath query. 
@@ -240,44 +238,40 @@ Class | Method | HTTP request | Description
 *Asposehtmlcloud.SummarizationApi* | [**GetDetectHtmlKeywords**](docs/SummarizationApi.md#GetDetectHtmlKeywords) | **GET** /html/{name}/summ/keywords | Get the HTML document keywords using the keyword detection service.
 *Asposehtmlcloud.SummarizationApi* | [**GetDetectHtmlKeywordsByUrl**](docs/SummarizationApi.md#GetDetectHtmlKeywordsByUrl) | **GET** /html/summ/keywords | Get the keywords from HTML document from Web specified by its URL using the keyword detection service
 *Asposehtmlcloud.TemplateMergeApi* | [**GetMergeHtmlTemplate**](docs/TemplateMergeApi.md#GetMergeHtmlTemplate) | **GET** /html/{templateName}/merge | Populate HTML document template with data located as a file in the storage.
-*Asposehtmlcloud.TemplateMergeApi* | [**PutMergeHtmlTemplate**](docs/TemplateMergeApi.md#PutMergeHtmlTemplate) | **PUT** /html/{templateName}/merge | Populate HTML document template with data from the request body. Result document will be saved to storage.
+*Asposehtmlcloud.TemplateMergeApi* | [**PostMergeHtmlTemplate**](docs/TemplateMergeApi.md#PostMergeHtmlTemplate) | **POST** /html/{templateName}/merge | Populate HTML document template with data from the request body. Result document will be saved to storage.
 
-### STORAGE SDK   
+<a name="storage_api"></a>
+### STORAGE API   
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Asposehtmlcloud.StorageApi* | [**deleteFile**](docs/FileApi.md#deleteFile) | **DELETE** /storage/file | Remove a specific file 
-*Asposehtmlcloud.StorageApi* | [**getDownload**](docs/FileApi.md#getDownload) | **GET** /storage/file | Download a specific file 
-*Asposehtmlcloud.StorageApi* | [**postMoveFile**](docs/FileApi.md#postMoveFile) | **POST** /storage/file | Move a specific file 
-*Asposehtmlcloud.StorageApi* | [**putCreate**](docs/FileApi.md#putCreate) | **PUT** /storage/file | Upload a specific file 
-*Asposehtmlcloud.StorageApi* | [**deleteFolder**](docs/FolderApi.md#deleteFolder) | **DELETE** /storage/folder | Remove a specific folder 
-*Asposehtmlcloud.StorageApi* | [**getListFiles**](docs/FolderApi.md#getListFiles) | **GET** /storage/folder | Get the file listing of a specific folder 
-*Asposehtmlcloud.StorageApi* | [**postMoveFolder**](docs/FolderApi.md#postMoveFolder) | **POST** /storage/folder | Move a specific folder 
-*Asposehtmlcloud.StorageApi* | [**putCreateFolder**](docs/FolderApi.md#putCreateFolder) | **PUT** /storage/folder | Create the folder 
-*Asposehtmlcloud.StorageApi* | [**getDiscUsage**](docs/StorageApi.md#getDiscUsage) | **GET** /storage/disc | Check the disk usage of the current account 
-*Asposehtmlcloud.StorageApi* | [**getIsExist**](docs/StorageApi.md#getIsExist) | **GET** /storage/exist | Check if a specific file or folder exists
-*Asposehtmlcloud.StorageApi* | [**getIsStorageExist**](docs/StorageApi.md#getIsStorageExist) | **GET** /storage/{name}/exist | Check if storage exists 
-*Asposehtmlcloud.StorageApi* | [**getListFileVersions**](docs/StorageApi.md#getListFileVersions) | **GET** /storage/version | Get the file&#39;s versions list 
-
+*Asposehtmlcloud.StorageApi* | [**copyFile**](docs/FileApi.md#copyFile) | **PUT** /html/storage/file/copy/{srcPath} | Copy file
+*Asposehtmlcloud.StorageApi* | [**deleteFile**](docs/FileApi.md#deleteFile) | **DELETE** /html/storage/file/{path} | Delete file
+*Asposehtmlcloud.StorageApi* | [**downloadFile**](docs/FileApi.md#downloadFile) | **GET** /html/storage/file/{path} | Download file
+*Asposehtmlcloud.StorageApi* | [**moveFile**](docs/FileApi.md#moveFile) | **PUT** /html/storage/file/move/{srcPath} | Move file
+*Asposehtmlcloud.StorageApi* | [**uploadFile**](docs/FileApi.md#uploadFile) | **PUT** /html/storage/file/{path} | Upload file
+*Asposehtmlcloud.StorageApi* | [**copyFolder**](docs/FolderApi.md#copyFolder) | **PUT** /html/storage/folder/copy/{srcPath} | Copy folder
+*Asposehtmlcloud.StorageApi* | [**createFolder**](docs/FolderApi.md#createFolder) | **PUT** /html/storage/folder/{path} | Create the folder
+*Asposehtmlcloud.StorageApi* | [**deleteFolder**](docs/FolderApi.md#deleteFolder) | **DELETE** /html/storage/folder/{path} | Delete folder
+*Asposehtmlcloud.StorageApi* | [**getFilesList**](docs/FolderApi.md#getFilesList) | **GET** /html/storage/folder/{path} | Get all files and folders within a folder
+*Asposehtmlcloud.StorageApi* | [**moveFolder**](docs/FolderApi.md#moveFolder) | **PUT** /html/storage/folder/move/{srcPath} | Move folder
+*Asposehtmlcloud.StorageApi* | [**getDiscUsage**](docs/StorageApi.md#getDiscUsage) | **GET** /html/storage/disc | Get disc usage
+*Asposehtmlcloud.StorageApi* | [**getFileVersions**](docs/StorageApi.md#getFileVersions) | **GET** /html/storage/version/{path} | Get file versions
+*Asposehtmlcloud.StorageApi* | [**objectExists**](docs/StorageApi.md#objectExists) | **GET** /html/storage/exist/{path} | Check if file or folder exists
+*Asposehtmlcloud.StorageApi* | [**storageExists**](docs/StorageApi.md#storageExists) | **GET** /html/storage/{storageName}/exist | Check if storage exists
 
 ## Documentation for Models
 
  - [Asposehtmlcloud.DiscUsage](docs/DiscUsage.md)
- - [Asposehtmlcloud.FileDetail](docs/FileDetail.md)
- - [Asposehtmlcloud.FileDetailsResponse](docs/FileDetailsResponse.md)
- - [Asposehtmlcloud.FileExist](docs/FileExist.md)
- - [Asposehtmlcloud.MessageResponse](docs/MessageResponse.md)
- - [Asposehtmlcloud.DiscUsageResponse](docs/DiscUsageResponse.md)
- - [Asposehtmlcloud.FileExistResponse](docs/FileExistResponse.md)
+ - [Asposehtmlcloud.Error](docs/Error.md)
+ - [Asposehtmlcloud.ErrorDetails](docs/ErrorDetails.md)
  - [Asposehtmlcloud.FileVersion](docs/FileVersion.md)
- - [Asposehtmlcloud.FileVersionsResponse](docs/FileVersionsResponse.md)
- - [Asposehtmlcloud.MoveFileResponse](docs/MoveFileResponse.md)
- - [Asposehtmlcloud.MoveFolderResponse](docs/MoveFolderResponse.md)
- - [Asposehtmlcloud.RemoveFileResponse](docs/RemoveFileResponse.md)
- - [Asposehtmlcloud.RemoveFolderResponse](docs/RemoveFolderResponse.md)
- - [Asposehtmlcloud.StorageExistResponse](docs/StorageExistResponse.md)
-
-
+ - [Asposehtmlcloud.FileVersions](docs/FileVersions.md)
+ - [Asposehtmlcloud.FilesList](docs/FilesList.md)
+ - [Asposehtmlcloud.FilesUploadResult](docs/FilesUploadResult.md)
+ - [Asposehtmlcloud.ObjectExist](docs/ObjectExist.md)
+ - [Asposehtmlcloud.StorageExist](docs/StorageExist.md)
+ - [Asposehtmlcloud.StorageFile](docs/StorageFile.md)
 
 ## Run tests
 ```shell

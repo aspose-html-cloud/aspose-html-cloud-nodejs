@@ -1,6 +1,6 @@
 # Asposehtmlcloud.ConversionApi
 
-All URIs are relative to *https://api.aspose.cloud/v1.1*
+All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,15 +10,15 @@ Method | HTTP request | Description
 [**GetConvertDocumentToPdfByUrl**](ConversionApi.md#GetConvertDocumentToPdfByUrl) | **GET** /html/convert/pdf | Convert the HTML page from the web by its URL to PDF.
 [**GetConvertDocumentToXps**](ConversionApi.md#GetConvertDocumentToXps) | **GET** /html/{name}/convert/xps | Convert the HTML document from the storage by its name to XPS.
 [**GetConvertDocumentToXpsByUrl**](ConversionApi.md#GetConvertDocumentToXpsByUrl) | **GET** /html/convert/xps | Convert the HTML page from the web by its URL to XPS.
-[**PutConvertDocumentInRequestToImage**](ConversionApi.md#PutConvertDocumentInRequestToImage) | **PUT** /html/convert/image/{outFormat} | Converts the HTML document (in request content) to the specified image format and uploads resulting file to storage.
-[**PutConvertDocumentInRequestToPdf**](ConversionApi.md#PutConvertDocumentInRequestToPdf) | **PUT** /html/convert/pdf | Converts the HTML document (in request content) to PDF and uploads resulting file to storage.
-[**PutConvertDocumentInRequestToXps**](ConversionApi.md#PutConvertDocumentInRequestToXps) | **PUT** /html/convert/xps | Converts the HTML document (in request content) to XPS and uploads resulting file to storage.
+[**PostConvertDocumentInRequestToImage**](ConversionApi.md#PostConvertDocumentInRequestToImage) | **POST** /html/convert/image/{outFormat} | Converts the HTML document (in request content) to the specified image format and uploads resulting file to storage.
+[**PostConvertDocumentInRequestToPdf**](ConversionApi.md#PostConvertDocumentInRequestToPdf) | **POST** /html/convert/pdf | Converts the HTML document (in request content) to PDF and uploads resulting file to storage.
+[**PostConvertDocumentInRequestToXps**](ConversionApi.md#PostConvertDocumentInRequestToXps) | **POST** /html/convert/xps | Converts the HTML document (in request content) to XPS and uploads resulting file to storage.
 [**PutConvertDocumentToImage**](ConversionApi.md#PutConvertDocumentToImage) | **PUT** /html/{name}/convert/image/{outFormat} | Converts the HTML document (located on storage) to the specified image format and uploads resulting file to storage.
 [**PutConvertDocumentToPdf**](ConversionApi.md#PutConvertDocumentToPdf) | **PUT** /html/{name}/convert/pdf | Converts the HTML document (located on storage) to PDF and uploads resulting file to storage.
 [**PutConvertDocumentToXps**](ConversionApi.md#PutConvertDocumentToXps) | **PUT** /html/{name}/convert/xps | Converts the HTML document (located on storage) to XPS and uploads resulting file to storage.
 [**GetConvertDocumentToMHTMLByUrl**](ConversionApi.md#GetConvertDocumentToMHTMLByUrl) | **GET** /html/convert/mhtml | Converts the HTML page from Web by its URL to MHTML returns resulting file in response content.
 [**GetConvertDocumentToMarkdown**](ConversionApi.md#GetConvertDocumentToMarkdown) | **GET** /html/{name}/convert/md | Converts the HTML document (located on storage) to Markdown and returns resulting file in response content.
-[**PutConvertDocumentInRequestToMarkdown**](ConversionApi.md#PutConvertDocumentInRequestToMarkdown) | **PUT** /html/convert/md | Converts the HTML document (in request content) to Markdown and uploads resulting file to storage by specified path.
+[**PostConvertDocumentInRequestToMarkdown**](ConversionApi.md#PostConvertDocumentInRequestToMarkdown) | **POST** /html/convert/md | Converts the HTML document (in request content) to Markdown and uploads resulting file to storage by specified path.
 [**PutConvertDocumentToMarkdown**](ConversionApi.md#PutConvertDocumentToMarkdown) | **PUT** /html/{name}/convert/md | Converts the HTML document (located on storage) to Markdown and uploads resulting file to storage by specified path.
 
 
@@ -33,8 +33,8 @@ Convert the HTML document from the storage by its name to the specified image fo
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -56,8 +56,7 @@ var opts = {
   'rightMargin': 50, // Number | Right resulting image margin.
   'topMargin': 50, // Number | Top resulting image margin.
   'bottomMargin': 50, // Number | Bottom resulting image margin.
-  'xResolution': 300, // Number | Horizontal resolution of resulting image.
-  'yResolution': 300, // Number | Vertical resolution of resulting image.
+  'resolution': 300, // Number | Resolution of resulting image.
   'folder': "folder_example", // String | The source document folder.
   'storage': "storage_example" // String | The source document storage.
 };
@@ -84,8 +83,7 @@ Name | Type | Description  | Notes
  **rightMargin** | **Number**| Right resulting image margin. | [optional] 
  **topMargin** | **Number**| Top resulting image margin. | [optional] 
  **bottomMargin** | **Number**| Bottom resulting image margin. | [optional] 
- **xResolution** | **Number**| Horizontal resolution of resulting image. | [optional] 
- **yResolution** | **Number**| Vertical resolution of resulting image. | [optional] 
+ **resolution** | **Number**| Resolution of resulting image. | [optional] 
  **folder** | **String**| The source document folder. | [optional] 
  **storage** | **String**| The source document storage. | [optional] 
 
@@ -109,8 +107,8 @@ Convert the HTML page from the web by its URL to the specified image format.
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -132,8 +130,7 @@ var opts = {
   'rightMargin': 50, // Number | Right resulting image margin.
   'topMargin': 50, // Number | Top resulting image margin.
   'bottomMargin': 50, // Number | Bottom resulting image margin.
-  'xResolution': 150, // Number | Horizontal resolution of resulting image.
-  'yResolution': 150, // Number | Vertical resolution of resulting image.
+  'resolution': 150, // Number | Resolution of resulting image.
   'folder': "folder_example", // String | The document folder.
   'storage': "storage_example" // String | The document storage.
 };
@@ -160,8 +157,7 @@ Name | Type | Description  | Notes
  **rightMargin** | **Number**| Right resulting image margin. | [optional] 
  **topMargin** | **Number**| Top resulting image margin. | [optional] 
  **bottomMargin** | **Number**| Bottom resulting image margin. | [optional] 
- **xResolution** | **Number**| Horizontal resolution of resulting image. | [optional] 
- **yResolution** | **Number**| Vertical resolution of resulting image. | [optional] 
+ **resolution** | **Number**| Resolution of resulting image. | [optional] 
  **folder** | **String**| The document folder. | [optional] 
  **storage** | **String**| The document storage. | [optional] 
 
@@ -185,8 +181,8 @@ Convert the HTML document from the storage by its name to PDF.
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -254,8 +250,8 @@ Convert the HTML page from the web by its URL to PDF.
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -323,8 +319,8 @@ Convert the HTML document from the storage by its name to XPS.
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -392,8 +388,8 @@ Convert the HTML page from the web by its URL to XPS.
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -451,19 +447,20 @@ Name | Type | Description  | Notes
  - **Accept**: multipart/form-data
  
  
-<a name="PutConvertDocumentInRequestToImage"></a>
-# **PutConvertDocumentInRequestToImage**
-> File PutConvertDocumentInRequestToImage(outPath, outFormat, file, opts)
+<a name="PostConvertDocumentInRequestToImage"></a>
+# **PostConvertDocumentInRequestToImage**
+> File PostConvertDocumentInRequestToImage(outPath, outFormat, file, opts)
 
 Converts the HTML document (in request content) to the specified image format and uploads resulting file to storage.
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
+var path = require('path');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -474,11 +471,11 @@ var conf = {
 
 var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
-var outPath = "outPath_example"; // String | Full resulting filename (ex. /folder1/folder2/result.jpg)
+var outPath = "outPath_example"; // String | Full resulting filename in the storage (ex. /folder1/folder2/result.jpg)
 
 var outFormat = "outFormat_example"; // String | 
 
-var file = "/path/to/file.txt"; // File | A file to be converted.
+var file = fs.createReadStream(path.normalize(/path/to/file.txt)); // File | A file to be converted.
 
 var opts = { 
   'width': 800, // Number | Resulting document page width in points (1/96 inch).
@@ -497,7 +494,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.PutConvertDocumentInRequestToImage(outPath, outFormat, file, opts, callback);
+apiInstance.PostConvertDocumentInRequestToImage(outPath, outFormat, file, opts, callback);
 ```
 
 ### Parameters
@@ -521,22 +518,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/octet-stream
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
-<a name="PutConvertDocumentInRequestToPdf"></a>
-# **PutConvertDocumentInRequestToPdf**
-> File PutConvertDocumentInRequestToPdf(outPath, file, opts)
+<a name="PostConvertDocumentInRequestToPdf"></a>
+# **PostConvertDocumentInRequestToPdf**
+> File PostConvertDocumentInRequestToPdf(outPath, file, opts)
 
 Converts the HTML document (in request content) to PDF and uploads resulting file to storage.
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
+var path = require('path');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -547,9 +545,11 @@ var conf = {
 
 var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
-var outPath = "outPath_example"; // String | Full resulting filename (ex. /folder1/folder2/result.pdf)
+var outPath = "outPath_example"; // String | Full resulting filename in the storage (ex. /folder1/folder2/result.jpg)
 
-var file = "/path/to/file.txt"; // File | A file to be converted.
+var outFormat = "outFormat_example"; // String | 
+
+var file = fs.createReadStream(path.normalize(/path/to/file.txt)); // File | A file to be converted.
 
 var opts = { 
   'width': 800, // Number | Resulting document page width in points (1/96 inch).
@@ -567,7 +567,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.PutConvertDocumentInRequestToPdf(outPath, file, opts, callback);
+apiInstance.PostConvertDocumentInRequestToPdf(outPath, file, opts, callback);
 ```
 
 ### Parameters
@@ -589,22 +589,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/octet-stream
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
-<a name="PutConvertDocumentInRequestToXps"></a>
-# **PutConvertDocumentInRequestToXps**
-> File PutConvertDocumentInRequestToXps(outPath, file, opts)
+<a name="PostConvertDocumentInRequestToXps"></a>
+# **PostConvertDocumentInRequestToXps**
+> File PostConvertDocumentInRequestToXps(outPath, file, opts)
 
 Converts the HTML document (in request content) to XPS and uploads resulting file to storage.
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
+var path = require('path');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -615,9 +616,11 @@ var conf = {
 
 var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
-var outPath = "outPath_example"; // String | Full resulting filename (ex. /folder1/folder2/result.xps)
+var outPath = "outPath_example"; // String | Full resulting filename in the storage (ex. /folder1/folder2/result.jpg)
 
-var file = "/path/to/file.txt"; // File | A file to be converted.
+var outFormat = "outFormat_example"; // String | 
+
+var file = fs.createReadStream(path.normalize(/path/to/file.txt)); // File | A file to be converted.
 
 var opts = { 
   'width': 800, // Number | Resulting document page width in points (1/96 inch).
@@ -635,7 +638,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.PutConvertDocumentInRequestToXps(outPath, file, opts, callback);
+apiInstance.PostConvertDocumentInRequestToXps(outPath, file, opts, callback);
 ```
 
 ### Parameters
@@ -657,7 +660,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/octet-stream
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 <a name="PutConvertDocumentToImage"></a>
@@ -671,8 +674,8 @@ Converts the HTML document (located on storage) to the specified image format an
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -748,8 +751,8 @@ Converts the HTML document (located on storage) to PDF and uploads resulting fil
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -820,8 +823,8 @@ Converts the HTML document (located on storage) to XPS and uploads resulting fil
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -894,8 +897,8 @@ Converts the HTML page from Web by its URL to MHTML returns resulting file in re
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -907,7 +910,6 @@ var conf = {
 var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
 var sourceUrl = "sourceUrl_example"; // String | Source page URL.
-
 
 var callback = function(error, data, response) {
   if (error) {
@@ -946,8 +948,8 @@ Converts the HTML document (located on storage) to Markdown and returns resultin
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -995,19 +997,20 @@ Name | Type | Description  | Notes
  - **Accept**: multipart/form-data
 
  
-<a name="PutConvertDocumentInRequestToMarkdown"></a>
-# **PutConvertDocumentInRequestToMarkdown**
-> File PutConvertDocumentInRequestToMarkdown(outPath, file, opts)
+<a name="PostConvertDocumentInRequestToMarkdown"></a>
+# **PostConvertDocumentInRequestToMarkdown**
+> File PostConvertDocumentInRequestToMarkdown(outPath, file, opts)
 
 Converts the HTML document (in request content) to Markdown and uploads resulting file to storage by specified path.
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
+var path = require('path');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -1018,9 +1021,9 @@ var conf = {
 
 var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
-var outPath = "outPath_example"; // String | Full resulting file path in the storage (ex. /folder1/folder2/result.md)
+var outPath = "outPath_example"; // String | Full resulting filename in the storage (ex. /folder1/folder2/result.jpg)
 
-var file = "/path/to/file.txt"; // File | A file to be converted.
+var file = fs.createReadStream(path.normalize(/path/to/file.txt)); // File | A file to be converted.
 
 var opts = { 
   'useGit': false // Boolean | Use Git Markdown flavor to save.
@@ -1033,7 +1036,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.PutConvertDocumentInRequestToMarkdown(outPath, file, opts, callback);
+apiInstance.PostConvertDocumentInRequestToMarkdown(outPath, file, opts, callback);
 ```
 
 ### Parameters
@@ -1064,8 +1067,8 @@ Converts the HTML document (located on storage) to Markdown and uploads resultin
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",

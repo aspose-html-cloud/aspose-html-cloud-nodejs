@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="ApiClient.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,7 +44,7 @@
 
   /**
    * @module ApiClient
-   * @version 1.0.3
+   * @version 19.6.0
    */
 
   /**
@@ -92,11 +92,12 @@
     this.requestAgent = null;
   };
 
+
   exports.prototype.setConfig = function(conf){
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default https://api-qa.aspose.cloud/v1.1
+     * @default https://api-qa.aspose.cloud/v3.0
      */
     this.basePath = conf.basePath.replace(/\/+$/, '');
     this.authPath = conf.authPath.replace(/\/+$/, '');
@@ -348,7 +349,6 @@
    * @param {String} httpMethod The HTTP method to use.
    * @param {Object.<String, String>} pathParams A map of path parameters and their values.
    * @param {Object.<String, Object>} queryParams A map of query parameters and their values.
-   * @param {Object.<String, Object>} collectionQueryParams A map of collection query parameters and their values.
    * @param {Object.<String, Object>} headerParams A map of header parameters and their values.
    * @param {Object.<String, Object>} formParams A map of form parameters and their values.
    * @param {Object} bodyParam The value to pass as the request body.
@@ -360,31 +360,18 @@
    * @returns {Object} The SuperAgent request object.
    */
   exports.prototype.callApi = function callApi(path, httpMethod, pathParams,
-      queryParams, collectionQueryParams, headerParams, formParams, bodyParam, contentTypes, accepts,
+      queryParams, headerParams, formParams, bodyParam, contentTypes, accepts,
       returnType, callback) {
 
     var _this = this;
     var url = this.buildUrl(path, pathParams);
+
+    //ToDo: bug Kestrel replace %2f - > /
+    url = url.replace(/%2f/gi, '/');
     var request = superagent(httpMethod, url);
 
-    // set collection query parameters
-    for (var key in collectionQueryParams) {
-      if (collectionQueryParams.hasOwnProperty(key)) {
-        var param = collectionQueryParams[key];
-        if (param.collectionFormat === 'csv') {
-          // SuperAgent normally percent-encodes all reserved characters in a query parameter. However,
-          // commas are used as delimiters for the 'csv' collectionFormat so they must not be encoded. We
-          // must therefore construct and encode 'csv' collection query parameters manually.
-          if (param.value != null) {
-            var value = param.value.map(this.paramToString).map(encodeURIComponent).join(',');
-            request.query(encodeURIComponent(key) + "=" + value);
-          }
-        } else {
-          // All other collection query parameters should be treated as ordinary query parameters.
-          queryParams[key] = this.buildCollectionParam(param.value, param.collectionFormat);
-        }
-      }
-    }
+    //ToDo: for local test
+    queryParams['AppSid'] = 'html.cloud';
 
     // set query parameters
     if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
@@ -494,7 +481,7 @@
    */
   exports.convertToType = function(data, type) {
     if (data === null || data === undefined)
-      return data
+      return data;
 
     switch (type) {
       case 'Boolean':

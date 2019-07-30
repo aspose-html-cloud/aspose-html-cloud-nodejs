@@ -1,28 +1,29 @@
 # Asposehtmlcloud.FileApi
 
-All URIs are relative to *https://api.aspose.cloud/v1.1*
+All URIs are relative to *https://localhost:5000/v3.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteFile**](FileApi.md#deleteFile) | **DELETE** /storage/file | Remove a specific file 
-[**getDownload**](FileApi.md#getDownload) | **GET** /storage/file | Download a specific file 
-[**postMoveFile**](FileApi.md#postMoveFile) | **POST** /storage/file | Move a specific file 
-[**putCreate**](FileApi.md#putCreate) | **PUT** /storage/file | Upload a specific file 
+[**copyFile**](FileApi.md#copyFile) | **PUT** /html/storage/file/copy/{srcPath} | Copy file
+[**deleteFile**](FileApi.md#deleteFile) | **DELETE** /html/storage/file/{path} | Delete file
+[**downloadFile**](FileApi.md#downloadFile) | **GET** /html/storage/file/{path} | Download file
+[**moveFile**](FileApi.md#moveFile) | **PUT** /html/storage/file/move/{srcPath} | Move file
+[**uploadFile**](FileApi.md#uploadFile) | **PUT** /html/storage/file/{path} | Upload file
 
 
-<a name="deleteFile"></a>
-# **deleteFile**
-> RemoveFileResponse deleteFile(path, opts)
+<a name="copyFile"></a>
+# **copyFile**
+> copyFile(srcPath, destPath, opts)
 
-Remove a specific file 
+Copy file
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -33,18 +34,80 @@ var conf = {
 
 var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
-var path = "path_example"; // String | Path of the file including file name and extension e.g. /Folder1/file.ext
+var srcPath = "srcPath_example"; // String | Source file path e.g. '/folder/file.ext'
+
+var destPath = "destPath_example"; // String | Destination file path
 
 var opts = { 
-  'versionId': "versionId_example", // String | File's version
-  'storage': "storage_example" // String | User's storage name
+  'srcStorageName': "srcStorageName_example", // String | Source storage name
+  'destStorageName': "destStorageName_example", // String | Destination storage name
+  'versionId': "versionId_example" // String | File version ID to copy
 };
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
+  }
+};
+apiInstance.copyFile(srcPath, destPath, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **String**| Source file path e.g. &#39;/folder/file.ext&#39; | 
+ **destPath** | **String**| Destination file path | 
+ **srcStorageName** | **String**| Source storage name | [optional] 
+ **destStorageName** | **String**| Destination storage name | [optional] 
+ **versionId** | **String**| File version ID to copy | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteFile"></a>
+# **deleteFile**
+> deleteFile(path, opts)
+
+Delete file
+
+### Example
+```javascript
+var Asposehtmlcloud = require('asposehtmlcloud');
+
+var conf = {
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc/",
+    "defaultUserAgent":"Webkit"
+};
+
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
+
+var path = "path_example"; // String | File path e.g. '/folder/file.ext'
+
+var opts = { 
+  'storageName': "storageName_example", // String | Storage name
+  'versionId': "versionId_example" // String | File version ID to delete
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
   }
 };
 apiInstance.deleteFile(path, opts, callback);
@@ -54,32 +117,32 @@ apiInstance.deleteFile(path, opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| Path of the file including file name and extension e.g. /Folder1/file.ext | 
- **versionId** | **String**| File&#39;s version | [optional] 
- **storage** | **String**| User&#39;s storage name | [optional] 
+ **path** | **String**| File path e.g. &#39;/folder/file.ext&#39; | 
+ **storageName** | **String**| Storage name | [optional] 
+ **versionId** | **String**| File version ID to delete | [optional] 
 
 ### Return type
 
-[**RemoveFileResponse**](RemoveFileResponse.md)
+null (empty response body)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getDownload"></a>
-# **getDownload**
-> File getDownload(path, opts)
+<a name="downloadFile"></a>
+# **downloadFile**
+> File downloadFile(path, opts)
 
-Download a specific file 
+Download file
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -90,11 +153,11 @@ var conf = {
 
 var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
-var path = "path_example"; // String | Path of the file including the file name and extension e.g. /file.ext
+var path = "path_example"; // String | File path e.g. '/folder/file.ext'
 
 var opts = { 
-  'versionId': "versionId_example", // String | File's version
-  'storage': "storage_example" // String | User's storage name
+  'storageName': "storageName_example", // String | Storage name
+  'versionId': "versionId_example" // String | File version ID to download
 };
 
 var callback = function(error, data, response) {
@@ -104,39 +167,39 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getDownload(path, opts, callback);
+apiInstance.downloadFile(path, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| Path of the file including the file name and extension e.g. /file.ext | 
- **versionId** | **String**| File&#39;s version | [optional] 
- **storage** | **String**| User&#39;s storage name | [optional] 
+ **path** | **String**| File path e.g. &#39;/folder/file.ext&#39; | 
+ **storageName** | **String**| Storage name | [optional] 
+ **versionId** | **String**| File version ID to download | [optional] 
 
 ### Return type
 
-**Blob** See test in [../test/StorageApi.spec.js](../test/StorageApi.spec.js)
+**File**
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
 
-<a name="postMoveFile"></a>
-# **postMoveFile**
-> MoveFileResponse postMoveFile(src, dest, opts)
+<a name="moveFile"></a>
+# **moveFile**
+> moveFile(srcPath, destPath, opts)
 
-Move a specific file 
+Move file
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -147,58 +210,58 @@ var conf = {
 
 var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
-var src = "src_example"; // String | Source file path e.g. /fileSource.ext
+var srcPath = "srcPath_example"; // String | Source file path e.g. '/src.ext'
 
-var dest = "dest_example"; // String | Destination file path e.g. /fileDestination.ext
+var destPath = "destPath_example"; // String | Destination file path e.g. '/dest.ext'
 
 var opts = { 
-  'versionId': "versionId_example", // String | Source file's version,
-  'storage': "storage_example", // String | User's source storage name
-  'destStorage': "destStorage_example" // String | User's destination storage name
+  'srcStorageName': "srcStorageName_example", // String | Source storage name
+  'destStorageName': "destStorageName_example", // String | Destination storage name
+  'versionId': "versionId_example" // String | File version ID to move
 };
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 };
-apiInstance.postMoveFile(src, dest, opts, callback);
+apiInstance.moveFile(srcPath, destPath, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **src** | **String**| Source file path e.g. /fileSource.ext | 
- **dest** | **String**| Destination file path e.g. /fileDestination.ext | 
- **versionId** | **String**| Source file&#39;s version, | [optional] 
- **storage** | **String**| User&#39;s source storage name | [optional] 
- **destStorage** | **String**| User&#39;s destination storage name | [optional] 
+ **srcPath** | **String**| Source file path e.g. &#39;/src.ext&#39; | 
+ **destPath** | **String**| Destination file path e.g. &#39;/dest.ext&#39; | 
+ **srcStorageName** | **String**| Source storage name | [optional] 
+ **destStorageName** | **String**| Destination storage name | [optional] 
+ **versionId** | **String**| File version ID to move | [optional] 
 
 ### Return type
 
-[**MoveFileResponse**](MoveFileResponse.md)
+null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="putCreate"></a>
-# **putCreate**
-> File putCreate(path, file, opts)
+<a name="uploadFile"></a>
+# **uploadFile**
+> FilesUploadResult uploadFile(path, file, opts)
 
-Upload a specific file 
+Upload file
 
 ### Example
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
 var conf = {
-    "basePath":"https://api.aspose.cloud/v1.1",
-    "authPath":"https://api.aspose.cloud/oauth2/token",
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
@@ -207,15 +270,18 @@ var conf = {
     "defaultUserAgent":"Webkit"
 };
 
+<<<<<<< HEAD
 var apiInstance = new Asposehtmlcloud.StorageApi();
+=======
+var apiInstance = new Asposehtmlcloud.StorageApi(conf);
+>>>>>>> multipart
 
-var path = "path_example"; // String | Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext
+var path = "path_example"; // String | Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.             
 
 var file = "/path/to/file.txt"; // File | File to upload
 
 var opts = { 
-  'versionId': "versionId_example", // String | Source file's version
-  'storage': "storage_example" // String | User's storage name
+  'storageName': "storageName_example" // String | Storage name
 };
 
 var callback = function(error, data, response) {
@@ -225,24 +291,22 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.putCreate(path, file, opts, callback);
+apiInstance.uploadFile(path, file, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext | 
- **file** | **String**| Upload file path| 
- **versionId** | **String**| Source file&#39;s version | [optional] 
- **storage** | **String**| User&#39;s storage name | [optional] 
+ **path** | **String**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext If the content is multipart and path does not contains the file name it tries to get them from filename parameter from Content-Disposition header. | 
+ **file** | **File**| File to upload | 
+ **storageName** | **String**| Storage name | [optional] 
 
 ### Return type
 
-[**MessageResponse**](MessageResponse.md)
+[**FilesUploadResult**](FilesUploadResult.md)
 
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
-

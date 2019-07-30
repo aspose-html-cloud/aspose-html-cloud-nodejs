@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="TemplateMergeApi.js">
-*   Copyright (c) 2018 Aspose.HTML for Cloud
+*   Copyright (c) 2019 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,8 +35,7 @@
     } else if (typeof module === 'object' && module.exports) {
         // CommonJS-like environments that support module.exports, like Node.
         module.exports = factory(
-            require('../ApiClient'),
-            require('../model/MessageResponse')
+            require('../ApiClient')
         );
     } else {
         // Browser globals (root is window)
@@ -44,8 +43,7 @@
             root.Asposehtmlcloud = {};
         }
         root.Asposehtmlcloud.TemplateMergeApi = factory(
-            root.Asposehtmlcloud.ApiClient,
-            root.Asposehtmlcloud.MessageResponse
+            root.Asposehtmlcloud.ApiClient
         );
     }
 }(this, function (ApiClient, MessageResponse) {
@@ -54,20 +52,18 @@
     /**
      * TemplateMerge service.
      * @module api/TemplateMergeApi
-     * @version 1.0.4
+     * @version 19.6.0
      */
 
     /**
-     * Constructs a new TemplateMergeApi.
-     * @alias module:api/TemplateMergeApi
+     * Constructs a new StorageApi.
+     * @alias module:api/StorageApi
      * @class
-     * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-     * default to {@link module:ApiClient#instance} if unspecified.
+     * @param {conf}  API client configuration implementation to use,
      */
-    var exports = function (conf) {
+    var exports = function(conf) {
         this.apiClient = ApiClient.instance;
         this.apiClient.setConfig(conf);
-
 
         /**
          * Callback function to receive the result of the GetMergeHtmlTemplate operation.
@@ -91,18 +87,14 @@
         this.GetMergeHtmlTemplate = function (templateName, dataPath, opts, callback) {
             opts = opts || {};
             var postBody = null;
-
             // verify the required parameter 'templateName' is set
             if (templateName === undefined || templateName === null) {
                 throw new Error("Missing the required parameter 'templateName' when calling GetMergeHtmlTemplate");
             }
-
             // verify the required parameter 'dataPath' is set
             if (dataPath === undefined || dataPath === null) {
                 throw new Error("Missing the required parameter 'dataPath' when calling GetMergeHtmlTemplate");
             }
-
-
             var pathParams = {
                 'templateName': templateName
             };
@@ -112,24 +104,22 @@
                 'folder': opts['folder'],
                 'storage': opts['storage'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {};
-
-            var contentTypes = ['application/octet-stream'];
+            var contentTypes = ['multipart/form-data'];
             var accepts = ['application/json'];
             var returnType = 'Blob';
 
             return this.apiClient.callApi(
                 '/html/{templateName}/merge', 'GET',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
 
         /**
-         * Callback function to receive the result of the PutMergeHtmlTemplate operation.
-         * @callback module:api/TemplateMergeApi~PutMergeHtmlTemplateCallback
+         * Callback function to receive the result of the PostMergeHtmlTemplate operation.
+         * @callback module:api/TemplateMergeApi~PostMergeHtmlTemplateCallback
          * @param {String} error Error message, if any.
          * @param {File} data The data returned by the service call.
          * @param {String} response The complete HTTP response.
@@ -144,29 +134,24 @@
          * @param {String} opts.options Template merge options: reserved for further implementation.
          * @param {String} opts.folder The template document folder.
          * @param {String} opts.storage The template document and data source storage.
-         * @param {module:api/TemplateMergeApi~PutMergeHtmlTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+         * @param {module:api/TemplateMergeApi~PostMergeHtmlTemplateCallback} callback The callback function, accepting three arguments: error, data, response
          * data is of type: {@link File}
          */
-        this.PutMergeHtmlTemplate = function (templateName, outPath, file, opts, callback) {
+        this.PostMergeHtmlTemplate = function (templateName, outPath, file, opts, callback) {
             opts = opts || {};
-            var postBody = require('fs').readFileSync(file);
-
+            var postBody = null;
             // verify the required parameter 'templateName' is set
             if (templateName === undefined || templateName === null) {
-                throw new Error("Missing the required parameter 'templateName' when calling PutMergeHtmlTemplate");
+                throw new Error("Missing the required parameter 'templateName' when calling PostMergeHtmlTemplate");
             }
-
             // verify the required parameter 'outPath' is set
             if (outPath === undefined || outPath === null) {
-                throw new Error("Missing the required parameter 'outPath' when calling PutMergeHtmlTemplate");
+                throw new Error("Missing the required parameter 'outPath' when calling PostMergeHtmlTemplate");
             }
-
             // verify the required parameter 'file' is set
             if (file === undefined || file === null) {
-                throw new Error("Missing the required parameter 'file' when calling PutMergeHtmlTemplate");
+                throw new Error("Missing the required parameter 'file' when calling PostMergeHtmlTemplate");
             }
-
-
             var pathParams = {
                 'templateName': templateName
             };
@@ -176,19 +161,18 @@
                 'folder': opts['folder'],
                 'storage': opts['storage'],
             };
-            var collectionQueryParams = {};
             var headerParams = {};
             var formParams = {
-//                'file': file
+                'file': file
             };
 
-            var contentTypes = ['application/octet-stream'];
+            var contentTypes = ['multipart/form-data'];
             var accepts = ['application/json'];
             var returnType = MessageResponse;
 
             return this.apiClient.callApi(
-                '/html/{templateName}/merge', 'PUT',
-                pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+                '/html/{templateName}/merge', 'POST',
+                pathParams, queryParams, headerParams, formParams, postBody,
                 contentTypes, accepts, returnType, callback
             );
         };
