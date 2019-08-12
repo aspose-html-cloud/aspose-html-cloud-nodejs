@@ -45,7 +45,7 @@
   /**
    * Translation service.
    * @module api/TranslationApi
-   * @version 19.6.0
+   * @version 19.6.1
    */
 
   /**

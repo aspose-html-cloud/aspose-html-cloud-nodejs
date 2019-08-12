@@ -2,8 +2,8 @@
 
 Asposehtmlcloud - JavaScript client for asposehtmlcloud
 
-- API version: 19.6.0
-- Package version: 19.6.0
+- API version: 19.6.1
+- Package version: 19.6.1
 
 ## Installation
 
@@ -224,6 +224,9 @@ Class | Method | HTTP request | Description
 *Asposehtmlcloud.ConversionApi* | [**GetConvertDocumentToMarkdown**](docs/ConversionApi.md#GetConvertDocumentToMarkdown) | **GET** /html/{name}/convert/md | Converts the HTML document (located on storage) to Markdown and returns resulting file in response content.
 *Asposehtmlcloud.ConversionApi* | [**PostConvertDocumentInRequestToMarkdown**](docs/ConversionApi.md#PostConvertDocumentInRequestToMarkdown) | **POST** /html/convert/md | Converts the HTML document (in request content) to Markdown and uploads resulting file to storage by specified path.
 *Asposehtmlcloud.ConversionApi* | [**PutConvertDocumentToMarkdown**](docs/ConversionApi.md#PutConvertDocumentToMarkdown) | **PUT** /html/{name}/convert/md | Converts the HTML document (located on storage) to Markdown and uploads resulting file to storage by specified path.
+*Asposehtmlcloud.ImportApi* | [**GetConvertMarkdownToHtml**](docs/ImportApi.md#GetConvertMarkdownToHtml) | **GET** /html/{name}/import/md | Converts the Markdown document (located on storage) to HTML and returns resulting file in response content.
+*Asposehtmlcloud.ImportApi* | [**PostConvertMarkdownInRequestToHtml**](docs/ImportApi.md#PostConvertMarkdownInRequestToHtml) | **POST** /html/import/md | Converts the Markdown document (in request content) to HTML and uploads resulting file to storage by specified path.
+*Asposehtmlcloud.ImportApi* | [**PutConvertMarkdownToHtml**](docs/ImportApi.md#PutConvertMarkdownToHtml) | **PUT** /html/{name}/import/md | Converts the Markdown document (located on storage) to HTML and uploads resulting file to storage by specified path.
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentByUrl**](docs/DocumentApi.md#GetDocumentByUrl) | **GET** /html/download | Return all HTML page with linked resources packaged as a ZIP archive by the source page URL.
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentFragmentByXPath**](docs/DocumentApi.md#GetDocumentFragmentByXPath) | **GET** /html/{name}/fragments/{outFormat} | Return list of HTML fragments matching the specified XPath query. 
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentFragmentByXPathByUrl**](docs/DocumentApi.md#GetDocumentFragmentByXPathByUrl) | **GET** /html/fragments/{outFormat} | Return list of HTML fragments matching the specified XPath query by the source page URL.

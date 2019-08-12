@@ -21,7 +21,6 @@ Method | HTTP request | Description
 [**PostConvertDocumentInRequestToMarkdown**](ConversionApi.md#PostConvertDocumentInRequestToMarkdown) | **POST** /html/convert/md | Converts the HTML document (in request content) to Markdown and uploads resulting file to storage by specified path.
 [**PutConvertDocumentToMarkdown**](ConversionApi.md#PutConvertDocumentToMarkdown) | **PUT** /html/{name}/convert/md | Converts the HTML document (located on storage) to Markdown and uploads resulting file to storage by specified path.
 
-
 <a name="GetConvertDocumentToImage"></a>
 # **GetConvertDocumentToImage**
 > File GetConvertDocumentToImage(name, outFormat, opts)
@@ -929,7 +928,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Blob**
 
 
 ### HTTP request headers
@@ -1026,7 +1025,9 @@ var outPath = "outPath_example"; // String | Full resulting filename in the stor
 var file = fs.createReadStream(path.normalize(/path/to/file.txt)); // File | A file to be converted.
 
 var opts = { 
-  'useGit': false // Boolean | Use Git Markdown flavor to save.
+  'useGit': false, // Boolean | Use Git Markdown flavor to save.
+  'folder': "folder_example", // String | The source document folder.
+  'storage': "storage_example" // String | The source and resulting document storage.
 };
 
 var callback = function(error, data, response) {
@@ -1046,10 +1047,12 @@ Name | Type | Description  | Notes
  **outPath** | **String**| Full resulting file path in the storage (ex. /folder1/folder2/result.md) | 
  **file** | **File**| A file to be converted. | 
  **useGit** | **Boolean**| Use Git Markdown flavor to save. | [optional] [default to false]
+ **folder** | **String**| The source document folder. | [optional] 
+ **storage** | **String**| The source and resulting document storage. | [optional] 
 
 ### Return type
 
-**Blob**
+**Empty**
 
 ### HTTP request headers
 
@@ -1111,7 +1114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Blob**
+**Empty**
 
 ### HTTP request headers
 

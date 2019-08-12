@@ -30,6 +30,7 @@
         // AMD. Register as an anonymous module.
         define(['ApiClient',
             'api/ConversionApi',
+			'api/ImportApi',
             'api/DocumentApi',
             'api/OcrApi',
             'api/TranslationApi',
@@ -40,6 +41,7 @@
         // CommonJS-like environments that support module.exports, like Node.
         module.exports = factory(require('./ApiClient'),
             require('./api/ConversionApi'),
+            require('./api/ImportApi'),
             require('./api/DocumentApi'),
             require('./api/OcrApi'),
             require('./api/TranslationApi'),
@@ -48,7 +50,7 @@
             require('./api/StorageApi')
         );
     }
-}(function (ApiClient, ConversionApi, DocumentApi, OcrApi, TranslationApi, SummarizationApi, TemplateMergeApi, StorageApi) {
+}(function (ApiClient, ConversionApi, ImportApi, DocumentApi, OcrApi, TranslationApi, SummarizationApi, TemplateMergeApi, StorageApi) {
     'use strict';
 
     /**
@@ -80,7 +82,7 @@
      * </pre>
      * </p>
      * @module index
-     * @version 19.6.0
+     * @version 19.6.1
      */
     var exports = {
         /**
@@ -88,21 +90,31 @@
          * @property {module:ApiClient}
          */
         ApiClient: ApiClient,
+
         /**
          * The ConversionApi service constructor.
          * @property {module:api/ConversionApi}
          */
         ConversionApi: ConversionApi,
+
+        /**
+         * The ImportApi service constructor.
+         * @property {module:api/ImportApi}
+         */
+        ImportApi: ImportApi,
+
         /**
          * The DocumentApi service constructor.
          * @property {module:api/DocumentApi}
          */
         DocumentApi: DocumentApi,
+
         /**
          * The OcrApi service constructor.
          * @property {module:api/OcrApi}
          */
         OcrApi: OcrApi,
+
         /**
          * The TranslationApi service constructor.
          * @property {module:api/TranslationApi}
@@ -113,7 +125,6 @@
          * The SummarizationApi service constructor.
          * @property {module:api/SummarizationApi}
          */
-
         SummarizationApi: SummarizationApi,
 
         /**

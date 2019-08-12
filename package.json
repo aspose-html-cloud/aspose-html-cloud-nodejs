@@ -1,6 +1,6 @@
 {
   "name": "asposehtmlcloud",
-  "version": "19.6.0",
+  "version": "19.6.1",
   "description": "Aspose.HTML Cloud SDK for Javascript source code.",
   "license": "MIT",
   "main": "./src/index.js",
