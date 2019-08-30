@@ -2,8 +2,8 @@
 
 Asposehtmlcloud - JavaScript client for asposehtmlcloud
 
-- API version: 19.6.1
-- Package version: 19.6.1
+- API version: 19.6.2
+- Package version: 19.6.2
 
 ## Installation
 

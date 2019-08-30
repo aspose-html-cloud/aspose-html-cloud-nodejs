@@ -41,6 +41,7 @@
 'use strict';
     var conf = {
         "basePath":"https://api-qa.aspose.cloud/v3.0",
+        //"basePath":"http://localhost:5000/v3.0",
         "authPath":"https://api-qa.aspose.cloud/connect/token",
         "apiKey":"60487a72d6325241191177e37ae52146",
         "appSID":"80e32ca5-a828-46a4-9d54-7199dfd3764a",

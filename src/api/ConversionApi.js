@@ -45,7 +45,7 @@
     /**
      * Conversion service.
      * @module api/ConversionApi
-     * @version 19.6.1
+     * @version 19.6.2
      */
 
     /**

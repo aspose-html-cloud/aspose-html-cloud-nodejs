@@ -44,7 +44,7 @@
 
   /**
    * @module ApiClient
-   * @version 19.6.1
+   * @version 19.6.2
    */
 
   /**
@@ -102,16 +102,6 @@
     this.basePath = conf.basePath.replace(/\/+$/, '');
     this.authPath = conf.authPath.replace(/\/+$/, '');
 
-    /**
-     * The default HTTP headers to be included for all API calls.
-     * @type {Array.<String>}
-     * @default {}
-     */
-    this.defaultHeaders = {
-      "User-Agent":conf['defaultUserAgent'],
-      "Authorization":"Bearer " + this.accessToken
-    };
-
     /**    Get access token    */
     var req = require('sync-request');
     var res = req('POST', this.authPath, {
@@ -124,6 +114,16 @@
 
     var json = JSON.parse(res.getBody('utf-8'));
     this.accessToken = json.access_token;
+
+      /**
+       * The default HTTP headers to be included for all API calls.
+       * @type {Array.<String>}
+       * @default {}
+       */
+      this.defaultHeaders = {
+          "User-Agent":conf['defaultUserAgent'],
+          "Authorization":"Bearer " + this.accessToken
+      };
   };
 
   /**

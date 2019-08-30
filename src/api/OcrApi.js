@@ -45,7 +45,7 @@
   /**
    * Ocr service.
    * @module api/OcrApi
-   * @version 19.6.1
+   * @version 19.6.2
    */
 
   /**

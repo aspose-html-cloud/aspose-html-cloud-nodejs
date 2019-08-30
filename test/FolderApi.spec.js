@@ -44,6 +44,8 @@ var helper = require('./helper');
   var instance;
 
   before(function(done) {
+    this.timeout(200000);
+
     instance = new Asposehtmlcloud.StorageApi(helper.conf);
     done();
   });

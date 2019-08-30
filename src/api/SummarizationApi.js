@@ -45,7 +45,7 @@
   /**
    * Summarization service.
    * @module api/SummarizationApi
-   * @version 19.6.1
+   * @version 19.6.2
    */
 
   /**

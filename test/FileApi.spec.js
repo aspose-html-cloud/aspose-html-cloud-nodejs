@@ -46,6 +46,7 @@ var helper = require('./helper');
   var local_src_folder, local_dst_folder;
 
   before(function(done) {
+    this.timeout(200000);
     instance = new Asposehtmlcloud.StorageApi(helper.conf);
     fs = require('fs');
     path = require('path');
