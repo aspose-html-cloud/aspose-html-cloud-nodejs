@@ -370,9 +370,6 @@
     url = url.replace(/%2f/gi, '/');
     var request = superagent(httpMethod, url);
 
-    //ToDo: for local test
-    queryParams['AppSid'] = 'html.cloud';
-
     // set query parameters
     if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
         queryParams['_'] = new Date().getTime();

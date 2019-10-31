@@ -32,9 +32,6 @@
             'api/ConversionApi',
 			'api/ImportApi',
             'api/DocumentApi',
-            'api/OcrApi',
-            'api/TranslationApi',
-            'api/SummarizationApi',
             'api/TemplateMergeApi',
             'api/StorageApi'], factory);
     } else if (typeof module === 'object' && module.exports) {
@@ -43,14 +40,11 @@
             require('./api/ConversionApi'),
             require('./api/ImportApi'),
             require('./api/DocumentApi'),
-            require('./api/OcrApi'),
-            require('./api/TranslationApi'),
-            require('./api/SummarizationApi'),
             require('./api/TemplateMergeApi'),
             require('./api/StorageApi')
         );
     }
-}(function (ApiClient, ConversionApi, ImportApi, DocumentApi, OcrApi, TranslationApi, SummarizationApi, TemplateMergeApi, StorageApi) {
+}(function (ApiClient, ConversionApi, ImportApi, DocumentApi, TemplateMergeApi, StorageApi) {
     'use strict';
 
     /**
@@ -108,24 +102,6 @@
          * @property {module:api/DocumentApi}
          */
         DocumentApi: DocumentApi,
-
-        /**
-         * The OcrApi service constructor.
-         * @property {module:api/OcrApi}
-         */
-        OcrApi: OcrApi,
-
-        /**
-         * The TranslationApi service constructor.
-         * @property {module:api/TranslationApi}
-         */
-        TranslationApi: TranslationApi,
-
-        /**
-         * The SummarizationApi service constructor.
-         * @property {module:api/SummarizationApi}
-         */
-        SummarizationApi: SummarizationApi,
 
         /**
          * The TemplateMergeApi service constructor.

@@ -1,9 +1,9 @@
-# asposehtmlcloud
+# Asposehtmlcloud
 
 Asposehtmlcloud - JavaScript client for asposehtmlcloud
 
-- API version: 19.6.2
-- Package version: 19.6.2
+- API version: 19.7.0
+- Package version: 19.7.0
 
 ## Installation
 
@@ -18,7 +18,6 @@ The complete source code is available in this repository folder, you can either 
 it in your project via npm package manager.
 
 ### Prerequisites
-
 To use Aspose HTML for Cloud Node.js SDK you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
 ### Installation
@@ -27,7 +26,6 @@ To use Aspose HTML for Cloud Node.js SDK you need to register an account with [A
 ### For [Node.js](https://nodejs.org/)
 
 #### npm
-
 To publish the library as a [npm](https://www.npmjs.com/),
 please follow the procedure in ["Publishing npm packages"](https://docs.npmjs.com/getting-started/publishing-npm-packages).
 
@@ -62,7 +60,6 @@ You should now be able to `require('asposehtmlcloud')` in javascript files from 
 command above from.
 
 #### git
-#
 If the library is hosted at a git repository, e.g.
 https://github.com/GIT_USER_ID/GIT_REPO_ID
 then install it via:
@@ -72,7 +69,6 @@ then install it via:
 ```
 
 ### For browser
-
 The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
 the above steps with Node.js and installing browserify with `npm install -g browserify`,
 perform the following (assuming *main.js* is your entry file, that's to say your javascript file where you actually 
@@ -85,7 +81,6 @@ browserify main.js > bundle.js
 Then include *bundle.js* in the HTML pages.
 
 ### Webpack Configuration
-
 Using Webpack you may encounter the following error: "Module not found: Error:
 Cannot resolve module", most certainly you should disable AMD loader. Add/merge
 the following section to your webpack config:
@@ -103,7 +98,6 @@ module: {
 ```
 
 ### Sample usage
-
 Before fill all fields in configuration object (see tests)   
 
 Example:   
@@ -121,7 +115,6 @@ var conf = {
 ```
 
 ## Getting Started
-
 Please follow the [installation](#installation) instruction and execute the following JS code:   
 
 NOTE: Use the helper from /test/helper.js for upload and save data.
@@ -196,14 +189,12 @@ conversionApi.GetConvertDocumentToImage(filename, outFormat, opts, callback);
 ```
 
 ## Documentation for API Endpoints
-
 All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 [Tests](./test/) contain various examples of using the Aspose.HTML SDK.
 
 <a name="html_api"></a>
 ### HTML API
-
 - For conversion to images allowed formats is jpeg, png, bmp, tiff, gif. Input formats are html, epub, svg.
 
 Class | Method | HTTP request | Description
@@ -234,12 +225,6 @@ Class | Method | HTTP request | Description
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentFragmentsByCSSSelectorByUrl**](docs/DocumentApi.md#GetDocumentFragmentsByCSSSelectorByUrl) | **GET** /html/fragments/css/{outFormat} | Return list of HTML fragments matching the specified CSS selector by the source page URL.
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentImages**](docs/DocumentApi.md#GetDocumentImages) | **GET** /html/{name}/images/all | Return all HTML document images packaged as a ZIP archive.
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentImagesByUrl**](docs/DocumentApi.md#GetDocumentImagesByUrl) | **GET** /html/images/all | Return all HTML page images packaged as a ZIP archive by the source page URL.
-*Asposehtmlcloud.OcrApi* | [**GetRecognizeAndImportToHtml**](docs/OcrApi.md#GetRecognizeAndImportToHtml) | **GET** /html/{name}/ocr/import | Recognize text from the image file in the storage and import it to HTML format.
-*Asposehtmlcloud.OcrApi* | [**GetRecognizeAndTranslateToHtml**](docs/OcrApi.md#GetRecognizeAndTranslateToHtml) | **GET** /html/{name}/ocr/translate/{srcLang}/{resLang} | Recognize text from the image file in the storage, import it to HTML format and translate to specified language.
-*Asposehtmlcloud.TranslationApi* | [**GetTranslateDocument**](docs/TranslationApi.md#GetTranslateDocument) | **GET** /html/{name}/translate/{srcLang}/{resLang} | Translate the HTML document specified by the name from default or specified storage. 
-*Asposehtmlcloud.TranslationApi* | [**GetTranslateDocumentByUrl**](docs/TranslationApi.md#GetTranslateDocumentByUrl) | **GET** /html/translate/{srcLang}/{resLang} | Translate the HTML document from Web specified by its URL.
-*Asposehtmlcloud.SummarizationApi* | [**GetDetectHtmlKeywords**](docs/SummarizationApi.md#GetDetectHtmlKeywords) | **GET** /html/{name}/summ/keywords | Get the HTML document keywords using the keyword detection service.
-*Asposehtmlcloud.SummarizationApi* | [**GetDetectHtmlKeywordsByUrl**](docs/SummarizationApi.md#GetDetectHtmlKeywordsByUrl) | **GET** /html/summ/keywords | Get the keywords from HTML document from Web specified by its URL using the keyword detection service
 *Asposehtmlcloud.TemplateMergeApi* | [**GetMergeHtmlTemplate**](docs/TemplateMergeApi.md#GetMergeHtmlTemplate) | **GET** /html/{templateName}/merge | Populate HTML document template with data located as a file in the storage.
 *Asposehtmlcloud.TemplateMergeApi* | [**PostMergeHtmlTemplate**](docs/TemplateMergeApi.md#PostMergeHtmlTemplate) | **POST** /html/{templateName}/merge | Populate HTML document template with data from the request body. Result document will be saved to storage.
 

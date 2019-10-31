@@ -1,6 +1,6 @@
 {
   "name": "asposehtmlcloud",
-  "version": "19.6.2",
+  "version": "19.7.0",
   "description": "Aspose.HTML Cloud SDK for Javascript source code.",
   "license": "MIT",
   "main": "./src/index.js",
@@ -13,8 +13,8 @@
     "Cloud",
     "HTML",
     "Conversion",
-    "Translate",
-    "Recognize"
+    "Css",
+    "xPath"
   ],
   "browser": {
     "fs": false
