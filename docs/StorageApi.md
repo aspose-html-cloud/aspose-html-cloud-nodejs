@@ -19,7 +19,7 @@ Get disc usage
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -74,7 +74,7 @@ Get file versions
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -132,7 +132,7 @@ Check if file or folder exists
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -192,7 +192,7 @@ Check if storage exists
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 

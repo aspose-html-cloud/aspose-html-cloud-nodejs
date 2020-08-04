@@ -71,7 +71,7 @@ Populate HTML document template with data located as a file in the storage.
 [&#8593;UP&#8593;](TemplateMergeApi.md#TemplateMergeApi)
 
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -136,7 +136,7 @@ Populate HTML document template with data from the request body. Result document
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 var path = require('path');
 
     // Get keys from aspose site.

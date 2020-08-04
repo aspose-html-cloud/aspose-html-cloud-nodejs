@@ -20,7 +20,7 @@ Copy file
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -85,7 +85,7 @@ Delete file
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -145,7 +145,7 @@ Download file
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -205,7 +205,7 @@ Move file
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -270,7 +270,7 @@ Upload file
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 

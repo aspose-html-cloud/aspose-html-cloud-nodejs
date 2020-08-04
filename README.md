@@ -1,6 +1,5 @@
-# Asposehtmlcloud
-
-Asposehtmlcloud - JavaScript client for asposehtmlcloud
+# Aspose.Html Cloud Node.js SDK
+[Aspose.Html Cloud](https://products.aspose.cloud/html) is a true [REST API](https://apireference.aspose.cloud/html/) that enables you to perform a wide range of html processing operations including manipulation and conversion in the cloud, with zero initial costs. Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process html pages in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights. 
 
 - API version: 20.8.0
 - Package version: 20.8.0
@@ -27,10 +26,24 @@ To use Aspose HTML for Cloud Node.js SDK you need to register an account with [A
 
 #### npm
 ```shell
-npm install asposehtmlcloud --save
+npm install @asposecloud/aspose-html-cloud --save
 ```
 
 ## Getting Started
+
+1. **Sign Up**. Before you begin, you need to sign up for an account on our [Dashboard](https://dashboard.aspose.cloud/) and retrieve your [credentials](https://dashboard.aspose.cloud/#/apps).
+2. **Minimum requirements**. This SDK requires [Node.js 6.x and higher](https://nodejs.org/download/release/).
+3. **Install Aspose.Html Cloud Node.js SDK**.
+
+Please, add the following [nmp package](https://www.npmjs.com/package/@asposecloud/aspose-html-cloud) to your project.json as a dependency.
+```json
+{
+  "dependencies": {
+    "@asposecloud/aspose-html-cloud":"^20.8.0"
+  }
+}
+```
+
 Please follow the [installation](#installation) instruction and execute the following JS code:   
 
 NOTE: Use the helper from /test/helper.js for an upload and save data.
@@ -53,7 +66,7 @@ var conf = {
 };
 
 //Create storage api for upload to server
-var api = require('asposehtmlcloud');
+var api = require('@asposecloud/aspose-html-cloud');
 var fs = require('fs');
 var storageApi = new api.StorageApi(conf);
 
@@ -124,13 +137,13 @@ Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the follow
 npm link
 ```
 
-Finally, switch to the directory you want to use your asposehtmlcloud from, and run:
+Finally, switch to the directory you want to use your package from, and run:
 
 ```shell
 npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 ```
 
-You should now be able to `require('asposehtmlcloud')` in javascript files from the directory you ran the last 
+You should now be able to `require('@asposecloud/aspose-html-cloud')` in javascript files from the directory you ran the last 
 command above from.
 
 #### git

@@ -30,7 +30,7 @@ Convert the HTML document from the storage by its name to the specified image fo
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -107,7 +107,7 @@ Convert the HTML page from the web by its URL to the specified image format.
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -184,7 +184,7 @@ Convert the HTML document from the storage by its name to PDF.
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -256,7 +256,7 @@ Convert the HTML page from the web by its URL to PDF.
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -328,7 +328,7 @@ Convert the HTML document from the storage by its name to XPS.
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -400,7 +400,7 @@ Convert the HTML page from the web by its URL to XPS.
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -472,7 +472,7 @@ Converts the HTML document (in request content) to the specified image format an
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 var path = require('path');
 
     // Get keys from aspose site.
@@ -549,7 +549,7 @@ Converts the HTML document (in request content) to PDF and uploads resulting fil
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 var path = require('path');
 
     // Get keys from aspose site.
@@ -623,7 +623,7 @@ Converts the HTML document (in request content) to XPS and uploads resulting fil
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 var path = require('path');
 
     // Get keys from aspose site.
@@ -697,7 +697,7 @@ Converts the HTML document (located on storage) to the specified image format an
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -777,7 +777,7 @@ Converts the HTML document (located on storage) to PDF and uploads resulting fil
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -852,7 +852,7 @@ Converts the HTML document (located on storage) to XPS and uploads resulting fil
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -927,7 +927,7 @@ Converts the HTML page from Web by its URL to MHTML returns resulting file in re
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -981,7 +981,7 @@ Converts the HTML document (located on storage) to Markdown and returns resultin
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -1043,7 +1043,7 @@ Converts the HTML document (in request content) to Markdown and uploads resultin
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 var path = require('path');
 
     // Get keys from aspose site.
@@ -1109,7 +1109,7 @@ Converts the HTML document (located on storage) to Markdown and uploads resultin
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 

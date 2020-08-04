@@ -17,7 +17,7 @@ Converts the Markdown document (located on storage) to HTML and returns resultin
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
@@ -77,7 +77,7 @@ Converts the Markdown document (in request content) to HTML and uploads resultin
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 var path = require('path');
 
     // Get keys from aspose site.
@@ -141,7 +141,7 @@ Converts the Markdown document (located on storage) to HTML and uploads resultin
 
 ### Example
 ```javascript
-var Asposehtmlcloud = require('asposehtmlcloud');
+var Asposehtmlcloud = require('@asposecloud/aspose-html-cloud');
 
     // Get keys from aspose site.
     // There is free quota available. 
