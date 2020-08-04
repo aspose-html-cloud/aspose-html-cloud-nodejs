@@ -76,7 +76,7 @@
   /**
    * Storage service.
    * @module api/StorageApi
-   * @version 20.8.0
+   * @version 20.8.1
    */
 
   /**

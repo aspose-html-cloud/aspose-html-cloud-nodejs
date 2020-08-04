@@ -45,7 +45,7 @@
   /**
    * The ErrorDetails model module.
    * @module model/ErrorDetails
-   * @version 20.8.0
+   * @version 20.8.1
    */
 
   /**

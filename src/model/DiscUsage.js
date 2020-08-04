@@ -45,7 +45,7 @@
   /**
    * The DiscUsage model module.
    * @module model/DiscUsage
-   * @version 20.8.0
+   * @version 20.8.1
    */
 
   /**

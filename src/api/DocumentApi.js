@@ -45,7 +45,7 @@
   /**
    * Document service.
    * @module api/DocumentApi
-   * @version 20.8.0
+   * @version 20.8.1
    */
 
     /**

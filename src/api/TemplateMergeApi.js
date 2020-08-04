@@ -52,7 +52,7 @@
     /**
      * TemplateMerge service.
      * @module api/TemplateMergeApi
-     * @version 20.8.0
+     * @version 20.8.1
      */
 
     /**

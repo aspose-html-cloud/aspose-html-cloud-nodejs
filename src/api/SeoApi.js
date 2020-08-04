@@ -45,7 +45,7 @@
     /**
      * Conversion service.
      * @module api/SeoApi
-     * @version 20.8.0
+     * @version 20.8.1
      */
 
     /**

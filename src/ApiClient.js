@@ -44,7 +44,7 @@
 
   /**
    * @module ApiClient
-   * @version 20.8.0
+   * @version 20.8.1
    */
 
   /**
@@ -124,7 +124,7 @@
           "User-Agent":conf['defaultUserAgent'],
           "Authorization":"Bearer " + this.accessToken,
           "x-aspose-client":"aspose.html-cloud nodejs sdk",
-          "x-aspose-client-version":"20.8.0"
+          "x-aspose-client-version":"20.8.1"
       };
   };
 
