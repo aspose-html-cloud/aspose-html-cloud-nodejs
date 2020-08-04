@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="StorageApi.js">
-*   Copyright (c) 2019 Aspose.HTML for Cloud
+*   Copyright (c) 2020 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -76,14 +76,14 @@
   /**
    * Storage service.
    * @module api/StorageApi
-   * @version 19.6.2
+   * @version 20.8.0
    */
 
   /**
    * Constructs a new StorageApi.
    * @alias module:api/StorageApi
    * @class
-   * @param {conf}  API client configuration implementation to use,
+   * @param {Object} conf API client configuration implementation to use,
    */
   var exports = function(conf) {
     this.apiClient = ApiClient.instance;
@@ -149,7 +149,7 @@
       var postBody = null;
 
       // verify the required parameter 'path' is set
-      if (path == undefined || path == null) {
+      if (path === undefined || path === null) {
         throw "Missing the required parameter 'path' when calling getFileVersions";
       }
 
@@ -195,7 +195,7 @@
       var postBody = null;
 
       // verify the required parameter 'path' is set
-      if (path == undefined || path == null) {
+      if (path === undefined || path === null) {
         throw "Missing the required parameter 'path' when calling objectExists";
       }
 
@@ -238,10 +238,9 @@
       var postBody = null;
 
       // verify the required parameter 'storageName' is set
-      if (storageName == undefined || storageName == null) {
+      if (storageName === undefined || storageName === null) {
         throw "Missing the required parameter 'storageName' when calling storageExists";
       }
-
 
       var pathParams = {
         'storageName': storageName
@@ -285,12 +284,12 @@
       var postBody = null;
 
       // verify the required parameter 'srcPath' is set
-      if (srcPath == undefined || srcPath == null) {
+      if (srcPath === undefined || srcPath === null) {
         throw "Missing the required parameter 'srcPath' when calling copyFile";
       }
 
       // verify the required parameter 'destPath' is set
-      if (destPath == undefined || destPath == null) {
+      if (destPath === undefined || destPath === null) {
         throw "Missing the required parameter 'destPath' when calling copyFile";
       }
 
@@ -338,7 +337,7 @@
       var postBody = null;
 
       // verify the required parameter 'path' is set
-      if (path == undefined || path == null) {
+      if (path === undefined || path === null) {
         throw "Missing the required parameter 'path' when calling deleteFile";
       }
 
@@ -385,7 +384,7 @@
       var postBody = null;
 
       // verify the required parameter 'path' is set
-      if (path == undefined || path == null) {
+      if (path === undefined || path === null) {
         throw "Missing the required parameter 'path' when calling downloadFile";
       }
 
@@ -433,12 +432,12 @@
       var postBody = null;
 
       // verify the required parameter 'srcPath' is set
-      if (srcPath == undefined || srcPath == null) {
+      if (srcPath === undefined || srcPath === null) {
         throw "Missing the required parameter 'srcPath' when calling moveFile";
       }
 
       // verify the required parameter 'destPath' is set
-      if (destPath == undefined || destPath == null) {
+      if (destPath === undefined || destPath === null) {
         throw "Missing the required parameter 'destPath' when calling moveFile";
       }
 
@@ -487,12 +486,12 @@
       var postBody = null;
 
       // verify the required parameter 'path' is set
-      if (path == undefined || path == null) {
+      if (path === undefined || path === null) {
         throw "Missing the required parameter 'path' when calling uploadFile";
       }
 
       // verify the required parameter 'file' is set
-      if (file == undefined || file == null) {
+      if (file === undefined || file === null) {
         throw "Missing the required parameter 'file' when calling uploadFile";
       }
 
@@ -541,12 +540,12 @@
       var postBody = null;
 
       // verify the required parameter 'srcPath' is set
-      if (srcPath == undefined || srcPath == null) {
+      if (srcPath === undefined || srcPath === null) {
         throw "Missing the required parameter 'srcPath' when calling copyFolder";
       }
 
       // verify the required parameter 'destPath' is set
-      if (destPath == undefined || destPath == null) {
+      if (destPath === undefined || destPath === null) {
         throw "Missing the required parameter 'destPath' when calling copyFolder";
       }
 
@@ -592,7 +591,7 @@
       var postBody = null;
 
       // verify the required parameter 'path' is set
-      if (path == undefined || path == null) {
+      if (path === undefined || path === null) {
         throw "Missing the required parameter 'path' when calling createFolder";
       }
 
@@ -637,7 +636,7 @@
       var postBody = null;
 
       // verify the required parameter 'path' is set
-      if (path == undefined || path == null) {
+      if (path === undefined || path === null) {
         throw "Missing the required parameter 'path' when calling deleteFolder";
       }
 
@@ -683,7 +682,7 @@
       var postBody = null;
 
       // verify the required parameter 'path' is set
-      if (path == undefined || path == null) {
+      if (path === undefined || path === null) {
         throw "Missing the required parameter 'path' when calling getFilesList";
       }
 
@@ -729,12 +728,12 @@
       var postBody = null;
 
       // verify the required parameter 'srcPath' is set
-      if (srcPath == undefined || srcPath == null) {
+      if (srcPath === undefined || srcPath === null) {
         throw "Missing the required parameter 'srcPath' when calling moveFolder";
       }
 
       // verify the required parameter 'destPath' is set
-      if (destPath == undefined || destPath == null) {
+      if (destPath === undefined || destPath === null) {
         throw "Missing the required parameter 'destPath' when calling moveFolder";
       }
 

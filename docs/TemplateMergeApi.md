@@ -1,3 +1,4 @@
+<a name="TemplateMergeApi"></a>
 # Asposehtmlcloud.TemplateMergeApi
 
 All URIs are relative to *https://api.aspose.cloud/v3.0*
@@ -67,18 +68,20 @@ Populate HTML document template with data located as a file in the storage.
 	</Person>
 </Data>
 ```
+[&#8593;UP&#8593;](TemplateMergeApi.md#TemplateMergeApi)
 
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
+
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
 
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -123,6 +126,8 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](TemplateMergeApi.md#TemplateMergeApi)
+
 <a name="PostMergeHtmlTemplate"></a>
 # **PostMergeHtmlTemplate**
 > File PostMergeHtmlTemplate(templateName, outPath, file, opts)
@@ -134,38 +139,25 @@ Populate HTML document template with data from the request body. Result document
 var Asposehtmlcloud = require('asposehtmlcloud');
 var path = require('path');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
-<<<<<<< HEAD
-var conf = {
-    "basePath":"https://api.aspose.cloud/v3.0",
-    "authPath":"https://api.aspose.cloud/connect/token",
-    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
-    "defaultUserAgent":"Webkit"
-};
-
-=======
->>>>>>> multipart
 var apiInstance = new Asposehtmlcloud.TemplateMergeApi(conf);
 
 var templateName = "templateName_example"; // String | Template document name. Template document is HTML or zipped HTML.
 
 var outPath = "outPath_example"; // String | Result document path.
 
-var file = fs.createReadStream(path.normalize(/path/to/file.txt)); // File | A file to be converted.
+var file = fs.createReadStream(path.normalize('/path/to/file.txt')); // File | A file to be converted.
 
 var opts = { 
   'options': "options_example", // String | Template merge options: reserved for further implementation.
@@ -203,3 +195,4 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](TemplateMergeApi.md#TemplateMergeApi)

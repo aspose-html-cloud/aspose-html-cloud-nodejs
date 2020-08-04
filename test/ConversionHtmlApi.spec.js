@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="ConversionHtmlApi.spec.js">
-*   Copyright (c) 2019 Aspose.HTML for Cloud
+*   Copyright (c) 2020 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -109,7 +109,7 @@ var helper = require('./helper');
                     // err - error, data - Buffer, res - {"ok":true, "status":200, "type":"image/bmp...}
                     if (err) throw err;
                     expect(200).to.be(res.status);
-                    var len = helper.saveToTestFolder('HtmlToBmp.bmp', data);
+                    var len = helper.saveToTestFolder('HtmlToBmp.zip', data);
                     expect(data.length).to.equal(len);
                     done();
                 });
@@ -126,7 +126,7 @@ var helper = require('./helper');
                     expect(200).to.be(res.status);
 
                     //Save file to test directory, return file size
-                    var len = helper.saveToTestFolder('HtmlToJpgFromUrl.jpg', data);
+                    var len = helper.saveToTestFolder('HtmlToJpgFromUrl.zip', data);
                     expect(data.length).to.equal(len);
                     done();
                 });
@@ -144,7 +144,7 @@ var helper = require('./helper');
                     expect(200).to.be(res.status);
 
                     //Save file to test directory, return file size
-                    var len = helper.saveToTestFolder('HtmlToGifFromUrl.gif', data);
+                    var len = helper.saveToTestFolder('HtmlToGifFromUrl.zip', data);
                     expect(data.length).to.equal(len);
                     done();
                 });
@@ -240,7 +240,7 @@ var helper = require('./helper');
         describe('PostConvertHtmlInRequestToImage', function () {
             it('should call PostConvertDocumentInRequestToImage successfully (html)', function (done) {
 
-                var outPath = "HtmlTestDoc/postConvertHtmlToImgJS.bmp";
+                var outPath = "HtmlTestDoc/postConvertHtmlToImgJS.zip";
                 var outFormat = "bmp";
                 var file = fs.createReadStream(path.normalize(local_src_folder + "test_data.html"));
                 var opts = {
@@ -266,7 +266,7 @@ var helper = require('./helper');
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "postConvertHtmlToImgJS.bmp";
+                        var dst = local_dst_folder + "postConvertHtmlToImgJS.zip";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();
@@ -348,7 +348,7 @@ var helper = require('./helper');
                 //Already in storage
                 var name = "test_data.html";
 
-                var outPath = "HtmlTestDoc/putConvertHtmlToImgJS.tiff";
+                var outPath = "HtmlTestDoc/putConvertHtmlToImgJS.zip";
                 var outFormat = "tiff";
                 var opts = {
                     'width': 800,
@@ -375,7 +375,7 @@ var helper = require('./helper');
                         if (err) throw err;
                         expect(200).to.be(res.status);
 
-                        var dst = local_dst_folder + "putConvertHtmlToImgJS.tiff";
+                        var dst = local_dst_folder + "putConvertHtmlToImgJS.zip";
                         var fd = fs.openSync(dst, 'w');
                         fs.writeSync(fd, data);
                         done();

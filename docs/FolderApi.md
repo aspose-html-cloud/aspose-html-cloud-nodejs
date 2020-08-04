@@ -1,6 +1,7 @@
+<a name="FolderApi"></a>
 # Asposehtmlcloud.FolderApi
 
-All URIs are relative to *https://localhost:5000/v3.0*
+All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,14 +22,15 @@ Copy folder
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -71,6 +73,8 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](FolderApi.md#FolderApi)
+
 <a name="createFolder"></a>
 # **createFolder**
 > createFolder(path, opts)
@@ -81,6 +85,10 @@ Create the folder
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
@@ -88,7 +96,7 @@ var conf = {
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
     "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
+    "remoteFolder":"HtmlTestDoc",
     "defaultUserAgent":"Webkit"
 };
 
@@ -126,6 +134,8 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](FolderApi.md#FolderApi)
+
 <a name="deleteFolder"></a>
 # **deleteFolder**
 > deleteFolder(path, opts)
@@ -136,14 +146,15 @@ Delete folder
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -183,6 +194,8 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](FolderApi.md#FolderApi)
+
 <a name="getFilesList"></a>
 # **getFilesList**
 > FilesList getFilesList(path, opts)
@@ -193,14 +206,15 @@ Get all files and folders within a folder
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -238,6 +252,8 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](FolderApi.md#FolderApi)
+
 <a name="moveFolder"></a>
 # **moveFolder**
 > moveFolder(srcPath, destPath, opts)
@@ -248,14 +264,15 @@ Move folder
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -297,3 +314,5 @@ null (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+ 
+[&#8593;UP&#8593;](FolderApi.md#FolderApi)

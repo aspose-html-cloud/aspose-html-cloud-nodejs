@@ -1,6 +1,7 @@
+<a name="FileApi"></a>
 # Asposehtmlcloud.FileApi
 
-All URIs are relative to *https://localhost:5000/v3.0*
+All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,14 +22,15 @@ Copy file
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -73,6 +75,8 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](FileApi.md#FileApi)
+
 <a name="deleteFile"></a>
 # **deleteFile**
 > deleteFile(path, opts)
@@ -83,14 +87,15 @@ Delete file
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -130,6 +135,8 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](FileApi.md#FileApi)
+
 <a name="downloadFile"></a>
 # **downloadFile**
 > File downloadFile(path, opts)
@@ -140,14 +147,15 @@ Download file
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -187,6 +195,8 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
 
+[&#8593;UP&#8593;](FileApi.md#FileApi)
+
 <a name="moveFile"></a>
 # **moveFile**
 > moveFile(srcPath, destPath, opts)
@@ -197,14 +207,15 @@ Move file
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -249,6 +260,8 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](FileApi.md#FileApi)
+
 <a name="uploadFile"></a>
 # **uploadFile**
 > FilesUploadResult uploadFile(path, file, opts)
@@ -259,22 +272,19 @@ Upload file
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
-<<<<<<< HEAD
-var apiInstance = new Asposehtmlcloud.StorageApi();
-=======
 var apiInstance = new Asposehtmlcloud.StorageApi(conf);
->>>>>>> multipart
 
 var path = "path_example"; // String | Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.             
 
@@ -310,3 +320,5 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
+
+[&#8593;UP&#8593;](FileApi.md#FileApi)

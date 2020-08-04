@@ -1,6 +1,7 @@
+<a name="StorageApi"></a>
 # Asposehtmlcloud.StorageApi
 
-All URIs are relative to *https://localhost:5000/v3.0*
+All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,14 +21,15 @@ Get disc usage
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -62,6 +64,8 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](StorageApi.md#StorageApi)
+
 <a name="getFileVersions"></a>
 # **getFileVersions**
 > FileVersions getFileVersions(path, opts)
@@ -72,14 +76,15 @@ Get file versions
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -117,6 +122,8 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](StorageApi.md#StorageApi)
+
 <a name="objectExists"></a>
 # **objectExists**
 > ObjectExist objectExists(path, opts)
@@ -127,21 +134,17 @@ Check if file or folder exists
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
-<<<<<<< HEAD
-
-var apiInstance = new Asposehtmlcloud.StorageApi(conf);
-=======
->>>>>>> multipart
 
 var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
@@ -179,6 +182,8 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](StorageApi.md#StorageApi)
+
 <a name="storageExists"></a>
 # **storageExists**
 > StorageExist storageExists(storageName)
@@ -189,21 +194,17 @@ Check if storage exists
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
-<<<<<<< HEAD
-
-var apiInstance = new Asposehtmlcloud.StorageApi(conf);
-=======
->>>>>>> multipart
 
 var apiInstance = new Asposehtmlcloud.StorageApi(conf);
 
@@ -234,3 +235,5 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+[&#8593;UP&#8593;](StorageApi.md#StorageApi)

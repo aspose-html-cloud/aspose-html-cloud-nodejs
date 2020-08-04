@@ -1,7 +1,7 @@
 {
-  "name": "asposehtmlcloud",
-  "version": "19.7.0",
-  "description": "Aspose.HTML Cloud SDK for Javascript source code.",
+  "name": "@asposecloud/aspose-html-cloud",
+  "version": "20.8.0",
+  "description": "Aspose.Html Cloud Node.js SDK",
   "license": "MIT",
   "main": "./src/index.js",
   "scripts": {
@@ -10,6 +10,13 @@
   },
   "keywords": [
     "Aspose",
+    "convert2",
+    "html2",
+    "Markdown2",
+    "html2image",
+    "html2pdf",
+    "html2xps",
+    "md2html",
     "Cloud",
     "HTML",
     "Conversion",
@@ -27,7 +34,7 @@
   },
   "devDependencies": {
     "expect.js": "~0.3.1",
-    "mocha": "^6.2.0",
+    "mocha": "^8.1.0",
     "sinon": "1.17.3"
   },
   "directories": {
@@ -37,11 +44,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aspose-html-cloud/aspose-html-cloud-nodejs"
+    "url": "https://github.com/aspose-html-cloud/aspose-html-cloud-nodejs.git"
   },
   "author": {
-    "name": "Alexander Makogon",
-    "email": "aleksander.makogon@aspose.com",
-    "url": "https://apireference.aspose.cloud/html/"
+    "name": "Aspose HTML Cloud",
+    "url": "https://github.com/aspose-html-cloud"
   }
 }

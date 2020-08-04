@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="DocumentApi.spec.js">
-*   Copyright (c) 2019 Aspose.HTML for Cloud
+*   Copyright (c) 2020 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -50,7 +50,7 @@ var helper = require('./helper');
         var name = "test_doc.zip";
         var name1 = "test_doc_images.zip";
 
-        // Upload test document to serverx`
+        // Upload test document to server`
         helper.uploadFileToStorage(name, null, function (err, data, res) {
             expect(200).to.be(res.status);
             helper.uploadFileToStorage(name1, null, function (err, data, res) {
@@ -122,6 +122,21 @@ var helper = require('./helper');
                     if (err) throw err;
                     expect(200).to.be(res.status);
                     helper.saveToTestFolder('GetXPathDocByUrl.html', data);
+                    done();
+                });
+            });
+        });
+        describe('GetDocumentFragmentByXPathByUrl1', function () {
+            it('should call GetDocumentFragmentByXPathByUrl1 successfully', function (done) {
+
+                var sourceUrl = "https://google.com";
+                var xPath = "//body";
+                var outFormat = "json";
+
+                instance.GetDocumentFragmentByXPathByUrl(sourceUrl, xPath, outFormat, function (err, data, res) {
+                    if (err) throw err;
+                    expect(200).to.be(res.status);
+                    helper.saveToTestFolder('GetXPathDocByUrl1.html', data);
                     done();
                 });
             });

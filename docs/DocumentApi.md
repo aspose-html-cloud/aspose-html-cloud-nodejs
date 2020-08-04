@@ -1,3 +1,4 @@
+<a name="DocumentApi"></a>
 # Asposehtmlcloud.DocumentApi
 
 All URIs are relative to *https://api.aspose.cloud/v3.0*
@@ -23,14 +24,15 @@ Return all HTML page with linked resources packaged as a ZIP archive by the sour
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -63,6 +65,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/zip
 
+[&#8593;UP&#8593;](DocumentApi.md#DocumentApi)
 
 <a name="GetDocumentFragmentByXPath"></a>
 # **GetDocumentFragmentByXPath**
@@ -74,14 +77,15 @@ Return list of HTML fragments matching the specified XPath query.
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -127,6 +131,8 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
 
+[&#8593;UP&#8593;](DocumentApi.md#DocumentApi)
+
 <a name="GetDocumentFragmentByXPathByUrl"></a>
 # **GetDocumentFragmentByXPathByUrl**
 > File GetDocumentFragmentByXPathByUrl(sourceUrl, xPath, outFormat)
@@ -137,14 +143,15 @@ Return list of HTML fragments matching the specified XPath query by the source p
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -183,6 +190,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
 
+[&#8593;UP&#8593;](DocumentApi.md#DocumentApi)
 
 <a name="GetDocumentFragmentsByCSSSelector"></a>
 # **GetDocumentFragmentsByCSSSelector**
@@ -194,14 +202,15 @@ Return list of HTML fragments matching the specified CSS selector.
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -247,6 +256,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
 
+[&#8593;UP&#8593;](DocumentApi.md#DocumentApi)
 
 <a name="GetDocumentFragmentsByCSSSelectorByUrl"></a>
 # **GetDocumentFragmentsByCSSSelectorByUrl**
@@ -258,14 +268,15 @@ Return list of HTML fragments matching the specified CSS selector by the source 
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -304,6 +315,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
 
+[&#8593;UP&#8593;](DocumentApi.md#DocumentApi)
 
 <a name="GetDocumentImages"></a>
 # **GetDocumentImages**
@@ -315,14 +327,15 @@ Return all HTML document images packaged as a ZIP archive.
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -362,6 +375,8 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/zip
 
+[&#8593;UP&#8593;](DocumentApi.md#DocumentApi)
+
 <a name="GetDocumentImagesByUrl"></a>
 # **GetDocumentImagesByUrl**
 > File GetDocumentImagesByUrl(sourceUrl)
@@ -372,14 +387,15 @@ Return all HTML page images packaged as a ZIP archive by the source page URL.
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -412,3 +428,4 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/zip
 
+[&#8593;UP&#8593;](DocumentApi.md#DocumentApi)

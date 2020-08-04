@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="FileUploadResult.js">
-*   Copyright (c) 2019 Aspose.HTML for Cloud
+*   Copyright (c) 2020 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,7 +45,7 @@
   /**
    * The FilesUploadResult model module.
    * @module model/FilesUploadResult
-   * @version 19.6.2
+   * @version 20.8.0
    */
 
   /**

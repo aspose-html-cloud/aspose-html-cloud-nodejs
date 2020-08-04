@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="TemplateMergeApi.js">
-*   Copyright (c) 2019 Aspose.HTML for Cloud
+*   Copyright (c) 2020 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,14 +52,14 @@
     /**
      * TemplateMerge service.
      * @module api/TemplateMergeApi
-     * @version 19.6.2
+     * @version 20.8.0
      */
 
     /**
      * Constructs a new StorageApi.
      * @alias module:api/StorageApi
      * @class
-     * @param {conf}  API client configuration implementation to use,
+     * @param {Object} conf API client configuration implementation to use,
      */
     var exports = function(conf) {
         this.apiClient = ApiClient.instance;

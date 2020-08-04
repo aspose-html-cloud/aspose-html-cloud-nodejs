@@ -1,3 +1,4 @@
+<a name="ImportApi"></a>
 # Asposehtmlcloud.ImportApi
 
 All URIs are relative to *https://api.aspose.cloud/v3.0*
@@ -18,14 +19,15 @@ Converts the Markdown document (located on storage) to HTML and returns resultin
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -65,6 +67,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
 
+[&#8593;UP&#8593;](ImportApi.md#ImportApi)
  
 <a name="PostConvertMarkdownInRequestToHtml"></a>
 # **PostConvertMarkdownInRequestToHtml**
@@ -77,14 +80,15 @@ Converts the Markdown document (in request content) to HTML and uploads resultin
 var Asposehtmlcloud = require('asposehtmlcloud');
 var path = require('path');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -92,7 +96,7 @@ var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
 var outPath = "outPath_example"; // String | Full resulting filename in the storage (ex. /folder1/folder2/result.html)
 
-var file = fs.createReadStream(path.normalize(/path/to/file.md)); // File | A file to be converted.
+var file = fs.createReadStream(path.normalize('/path/to/file.md')); // File | A file to be converted.
 
 var opts = { 
   'folder': "folder_example", // String | Source document folder.
@@ -127,6 +131,8 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
+[&#8593;UP&#8593;](ImportApi.md#ImportApi)
+
 <a name="PutConvertMarkdownToHtml"></a>
 # **PutConvertMarkdownToHtml**
 > File PutConvertMarkdownToHtml(name, outPath, opts)
@@ -137,14 +143,15 @@ Converts the Markdown document (located on storage) to HTML and uploads resultin
 ```javascript
 var Asposehtmlcloud = require('asposehtmlcloud');
 
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
     "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
     "defaultUserAgent":"Webkit"
 };
 
@@ -186,3 +193,5 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+[&#8593;UP&#8593;](ImportApi.md#ImportApi)

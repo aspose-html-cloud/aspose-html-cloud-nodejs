@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="index.js">
-*   Copyright (c) 2019 Aspose.HTML for Cloud
+*   Copyright (c) 2020 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,6 +33,7 @@
 			'api/ImportApi',
             'api/DocumentApi',
             'api/TemplateMergeApi',
+            'api/SeoApi',
             'api/StorageApi'], factory);
     } else if (typeof module === 'object' && module.exports) {
         // CommonJS-like environments that support module.exports, like Node.
@@ -41,10 +42,11 @@
             require('./api/ImportApi'),
             require('./api/DocumentApi'),
             require('./api/TemplateMergeApi'),
+            require('./api/SeoApi'),
             require('./api/StorageApi')
         );
     }
-}(function (ApiClient, ConversionApi, ImportApi, DocumentApi, TemplateMergeApi, StorageApi) {
+}(function (ApiClient, ConversionApi, ImportApi, DocumentApi, TemplateMergeApi, SeoApi, StorageApi) {
     'use strict';
 
     /**
@@ -76,7 +78,7 @@
      * </pre>
      * </p>
      * @module index
-     * @version 19.6.2
+     * @version 20.8.0
      */
     var exports = {
         /**
@@ -108,6 +110,12 @@
          * @property {module:api/TemplateMergeApi}
          */
         TemplateMergeApi: TemplateMergeApi,
+
+        /**
+         * The TemplateMergeApi service constructor.
+         * @property {module:api/SeoApi}
+         */
+        SeoApi: SeoApi,
 
         /**
          * The StorageApi service constructor.

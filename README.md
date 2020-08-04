@@ -2,12 +2,12 @@
 
 Asposehtmlcloud - JavaScript client for asposehtmlcloud
 
-- API version: 19.7.0
-- Package version: 19.7.0
+- API version: 20.8.0
+- Package version: 20.8.0
 
 ## Installation
 
-# Aspose.HTML Cloud SDK for Node.js
+## Aspose.HTML Cloud SDK for Node.js
 This repository contains Aspose.HTML Cloud SDK for Node.js source code. 
 This SDK allows you to work with Aspose.HTML Cloud REST APIs in your Node.js applications quickly and easily.
 
@@ -18,7 +18,7 @@ The complete source code is available in this repository folder, you can either 
 it in your project via npm package manager.
 
 ### Prerequisites
-To use Aspose HTML for Cloud Node.js SDK you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
+To use Aspose HTML for Cloud Node.js SDK you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is a free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
 ### Installation
 
@@ -26,100 +26,21 @@ To use Aspose HTML for Cloud Node.js SDK you need to register an account with [A
 ### For [Node.js](https://nodejs.org/)
 
 #### npm
-To publish the library as a [npm](https://www.npmjs.com/),
-please follow the procedure in ["Publishing npm packages"](https://docs.npmjs.com/getting-started/publishing-npm-packages).
-
-Then install it via:
-
 ```shell
 npm install asposehtmlcloud --save
-```
-
-##### Local development
-
-To use the library locally without publishing to a remote npm registry, first install the dependencies by changing 
-into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
-
-```shell
-npm install
-```
-
-Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the following, also from `JAVASCRIPT_CLIENT_DIR`:
-
-```shell
-npm link
-```
-
-Finally, switch to the directory you want to use your asposehtmlcloud from, and run:
-
-```shell
-npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
-```
-
-You should now be able to `require('asposehtmlcloud')` in javascript files from the directory you ran the last 
-command above from.
-
-#### git
-If the library is hosted at a git repository, e.g.
-https://github.com/GIT_USER_ID/GIT_REPO_ID
-then install it via:
-
-```shell
-    npm install GIT_USER_ID/GIT_REPO_ID --save
-```
-
-### For browser
-The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
-the above steps with Node.js and installing browserify with `npm install -g browserify`,
-perform the following (assuming *main.js* is your entry file, that's to say your javascript file where you actually 
-use this library):
-
-```shell
-browserify main.js > bundle.js
-```
-
-Then include *bundle.js* in the HTML pages.
-
-### Webpack Configuration
-Using Webpack you may encounter the following error: "Module not found: Error:
-Cannot resolve module", most certainly you should disable AMD loader. Add/merge
-the following section to your webpack config:
-
-```javascript
-module: {
-  rules: [
-    {
-      parser: {
-        amd: false
-      }
-    }
-  ]
-}
-```
-
-### Sample usage
-Before fill all fields in configuration object (see tests)   
-
-Example:   
-```json
-var conf = {
-    "basePath":"https://api.aspose.cloud/v3.0",
-    "authPath":"https://api.aspose.cloud/connect/token",
-    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
-    "defaultUserAgent":"Webkit"
-}
 ```
 
 ## Getting Started
 Please follow the [installation](#installation) instruction and execute the following JS code:   
 
-NOTE: Use the helper from /test/helper.js for upload and save data.
+NOTE: Use the helper from /test/helper.js for an upload and save data.
 
 ```javascript
+
+    // Get keys from aspose site.
+    // There is free quota available. 
+    // For more details, see https://purchase.aspose.cloud/pricing
+	
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
@@ -127,7 +48,7 @@ var conf = {
     "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "testResult":"/testresult/",
     "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc/",
+    "remoteFolder":"HtmlTestDoc",
     "defaultUserAgent":"Webkit"
 };
 
@@ -179,13 +100,89 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    var dst = local_dst_folder + "/" + "ResultConvertToPng.png";
+    var dst = local_dst_folder + "/" + "ResultConvertToPng.zip";
     var fd = fs.openSync(dst, 'w');
     var len = fs.writeSync(fd, data);
   }
 };
 conversionApi.GetConvertDocumentToImage(filename, outFormat, opts, callback);
 
+```
+
+##### Local development
+
+To use the library locally without publishing to a remote npm registry, first install the dependencies by changing 
+into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
+
+```shell
+npm install
+```
+
+Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the following, also from `JAVASCRIPT_CLIENT_DIR`:
+
+```shell
+npm link
+```
+
+Finally, switch to the directory you want to use your asposehtmlcloud from, and run:
+
+```shell
+npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
+```
+
+You should now be able to `require('asposehtmlcloud')` in javascript files from the directory you ran the last 
+command above from.
+
+#### git
+Install it via:
+```shell
+    git install https://github.com/aspose-html-cloud/aspose-html-cloud-nodejs --save
+```
+
+### For browser
+The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
+the above steps with Node.js and installing browserify with `npm install -g browserify`,
+perform the following (assuming *main.js* is your entry file, that's to say your javascript file where you actually 
+use this library):
+
+```shell
+browserify main.js > bundle.js
+```
+
+Then include *bundle.js* in the HTML pages.
+
+### Webpack Configuration
+Using Webpack you may encounter the following error: "Module not found: Error:
+Cannot resolve module", most certainly you should disable AMD loader. Add/merge
+the following section to your webpack config:
+
+```javascript
+module: {
+  rules: [
+    {
+      parser: {
+        amd: false
+      }
+    }
+  ]
+}
+```
+
+### Sample usage
+Before fill all fields in configuration object (see tests)   
+
+Example:   
+```javascript
+var conf = {
+    "basePath":"https://api.aspose.cloud/v3.0",
+    "authPath":"https://api.aspose.cloud/connect/token",
+    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "testResult":"/testresult/",
+    "testData":"/testdata/",
+    "remoteFolder":"HtmlTestDoc",
+    "defaultUserAgent":"Webkit"
+}
 ```
 
 ## Documentation for API Endpoints

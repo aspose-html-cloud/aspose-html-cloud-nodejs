@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="ConversionApi.js">
-*   Copyright (c) 2019 Aspose.HTML for Cloud
+*   Copyright (c) 2020 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,14 +45,14 @@
     /**
      * Conversion service.
      * @module api/ConversionApi
-     * @version 19.6.2
+     * @version 20.8.0
      */
 
     /**
      * Constructs a new StorageApi.
      * @alias module:api/StorageApi
      * @class
-     * @param {conf}  API client configuration implementation to use,
+     * @param {Object} conf  API client configuration implementation to use
      */
     var exports = function(conf) {
         this.apiClient = ApiClient.instance;
@@ -422,7 +422,7 @@
          * Converts the HTML document (in request content) to the specified image format and uploads resulting file to storage.
          * @param {String} outPath Full resulting filename (ex. /folder1/folder2/result.jpg)
          * @param {String} outFormat
-         * @param {String} File path to be converted.
+         * @param {String} file path to be converted.
          * @param {Object} opts Optional parameters
          * @param {Number} opts.width Resulting document page width in points (1/96 inch).
          * @param {Number} opts.height Resulting document page height in points (1/96 inch).
@@ -489,7 +489,7 @@
         /**
          * Converts the HTML document (in request content) to PDF and uploads resulting file to storage.
          * @param {String} outPath Full resulting filename (ex. /folder1/folder2/result.pdf)
-         * @param {String} File path to be converted.
+         * @param {String} file path to be converted.
          * @param {Object} opts Optional parameters
          * @param {Number} opts.width Resulting document page width in points (1/96 inch).
          * @param {Number} opts.height Resulting document page height in points (1/96 inch).
@@ -547,7 +547,7 @@
         /**
          * Converts the HTML document (in request content) to XPS and uploads resulting file to storage.
          * @param {String} outPath Full resulting filename (ex. /folder1/folder2/result.xps)
-         * @param {String} File path to be converted.
+         * @param {String} file path to be converted.
          * @param {Object} opts Optional parameters
          * @param {Number} opts.width Resulting document page width in points (1/96 inch).
          * @param {Number} opts.height Resulting document page height in points (1/96 inch).
@@ -813,7 +813,7 @@
         this.GetConvertDocumentToMHTMLByUrl = function(sourceUrl, callback) {
             var postBody = null;
             // verify the required parameter 'sourceUrl' is set
-            if (sourceUrl == undefined || sourceUrl == null) {
+            if (sourceUrl === undefined || sourceUrl === null) {
                 throw "Missing the required parameter 'sourceUrl' when calling GetConvertDocumentToMHTMLByUrl";
             }
             var pathParams = {};
@@ -855,7 +855,7 @@
             opts = opts || {};
             var postBody = null;
             // verify the required parameter 'name' is set
-            if (name == undefined || name == null) {
+            if (name === undefined || name === null) {
                 throw "Missing the required parameter 'name' when calling GetConvertDocumentToMarkdown";
             }
             var pathParams = {
@@ -900,11 +900,11 @@
             opts = opts || {};
             var postBody = null;
             // verify the required parameter 'outPath' is set
-            if (outPath == undefined || outPath == null) {
+            if (outPath === undefined || outPath === null) {
                 throw "Missing the required parameter 'outPath' when calling PostConvertDocumentInRequestToMarkdown";
             }
             // verify the required parameter 'file' is set
-            if (file == undefined || file == null) {
+            if (file === undefined || file === null) {
                 throw "Missing the required parameter 'file' when calling PostConvertDocumentInRequestToMarkdown";
             }
             var pathParams = {};
@@ -950,11 +950,11 @@
             opts = opts || {};
             var postBody = null;
             // verify the required parameter 'name' is set
-            if (name == undefined || name == null) {
+            if (name === undefined || name === null) {
                 throw "Missing the required parameter 'name' when calling PutConvertDocumentToMarkdown";
             }
             // verify the required parameter 'outPath' is set
-            if (outPath == undefined || outPath == null) {
+            if (outPath === undefined || outPath === null) {
                 throw "Missing the required parameter 'outPath' when calling PutConvertDocumentToMarkdown";
             }
             var pathParams = {

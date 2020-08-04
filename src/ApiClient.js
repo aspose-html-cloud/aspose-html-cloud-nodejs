@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="ApiClient.js">
-*   Copyright (c) 2019 Aspose.HTML for Cloud
+*   Copyright (c) 2020 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,7 +44,7 @@
 
   /**
    * @module ApiClient
-   * @version 19.6.2
+   * @version 20.8.0
    */
 
   /**
@@ -97,7 +97,7 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default https://api-qa.aspose.cloud/v3.0
+     * @default https://api.aspose.cloud/v3.0
      */
     this.basePath = conf.basePath.replace(/\/+$/, '');
     this.authPath = conf.authPath.replace(/\/+$/, '');
@@ -106,7 +106,7 @@
     var req = require('sync-request');
     var res = req('POST', this.authPath, {
       headers:
-          {   "Accept":"application/json",
+          { "Accept":"application/json",
             "Content-Type": "application/x-www-form-urlencoded"
           },
       body:"client_id=" + conf['appSID'] + "&client_secret=" + conf['apiKey'] + "&grant_type=client_credentials"
@@ -117,12 +117,14 @@
 
       /**
        * The default HTTP headers to be included for all API calls.
-       * @type {Array.<String>}
+       * @type {Object}
        * @default {}
        */
       this.defaultHeaders = {
           "User-Agent":conf['defaultUserAgent'],
-          "Authorization":"Bearer " + this.accessToken
+          "Authorization":"Bearer " + this.accessToken,
+          "x-aspose-client":"aspose.html-cloud nodejs sdk",
+          "x-aspose-client-version":"20.8.0"
       };
   };
 
@@ -132,7 +134,7 @@
    * @returns {String} The string representation of <code>param</code>.
    */
   exports.prototype.paramToString = function(param) {
-    if (param == undefined || param == null) {
+    if (param === undefined || param === null) {
       return '';
     }
     if (param instanceof Date) {
@@ -154,7 +156,7 @@
     }
     var url = this.basePath + path;
     var _this = this;
-    url = url.replace(/\{([\w-]+)\}/g, function(fullMatch, key) {
+    url = url.replace(/{([\w-]+)}/g, function(fullMatch, key) {
       var value;
       if (pathParams.hasOwnProperty(key)) {
         value = _this.paramToString(pathParams[key]);
@@ -239,7 +241,7 @@
   exports.prototype.normalizeParams = function(params) {
     var newParams = {};
     for (var key in params) {
-      if (params.hasOwnProperty(key) && params[key] != undefined && params[key] != null) {
+      if (params.hasOwnProperty(key) && params[key] !== undefined && params[key] !== null) {
         var value = params[key];
         if (this.isFileParam(value) || Array.isArray(value)) {
           newParams[key] = value;
@@ -391,7 +393,7 @@
     var contentType = this.jsonPreferredMime(contentTypes);
     if (contentType) {
       // Issue with superagent and multipart/form-data (https://github.com/visionmedia/superagent/issues/746)
-      if(contentType != 'multipart/form-data') {
+      if(contentType !== 'multipart/form-data') {
         request.type(contentType);
       }
     } else if (!request.header['Content-Type']) {
@@ -400,7 +402,7 @@
 
     if (contentType === 'application/x-www-form-urlencoded') {
       request.send(querystring.stringify(this.normalizeParams(formParams)));
-    } else if (contentType == 'multipart/form-data') {
+    } else if (contentType === 'multipart/form-data') {
       var _formParams = this.normalizeParams(formParams);
       for (var key in _formParams) {
         if (_formParams.hasOwnProperty(key)) {
@@ -517,11 +519,10 @@
             }
           }
           var result = {};
-          for (var k in data) {
-            if (data.hasOwnProperty(k)) {
-              var key = exports.convertToType(k, keyType);
-              var value = exports.convertToType(data[k], valueType);
-              result[key] = value;
+          for (var k1 in data) {
+            if (data.hasOwnProperty(k1)) {
+              var key = exports.convertToType(k1, keyType);
+              result[key] = exports.convertToType(data[k1], valueType);
             }
           }
           return result;
@@ -534,8 +535,9 @@
 
   /**
    * Constructs a new map or array model from REST data.
-   * @param data {Object|Array} The REST data.
-   * @param obj {Object|Array} The target object or array.
+   * @param {Object|Array} data  The REST data.
+   * @param {Object|Array} obj The target object or array.
+   * @param {Object|Array} itemType Type of item.
    */
   exports.constructFromObject = function(data, obj, itemType) {
     if (Array.isArray(data)) {

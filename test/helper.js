@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="helper.js">
-*   Copyright (c) 2019 Aspose.HTML for Cloud
+*   Copyright (c) 2020 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,14 +40,17 @@
 
 'use strict';
     var conf = {
-        "basePath":"https://api-qa.aspose.cloud/v3.0",
-        //"basePath":"http://localhost:5000/v3.0",
+ //       "basePath":"https://api.aspose.cloud/v3.0",
+        "basePath":"http://localhost:5000/v3.0",
+        // "authPath":"https://api.aspose.cloud/connect/token",
         "authPath":"https://api-qa.aspose.cloud/connect/token",
-        "apiKey":"60487a72d6325241191177e37ae52146",
-        "appSID":"80e32ca5-a828-46a4-9d54-7199dfd3764a",
+        // "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        // "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "apiKey":"html.cloud",
+        "appSID":"html.cloud",
         "testResult":"/testresult/",
         "testData":"/testdata/",
-        "remoteFolder":"HtmlTestDoc/",
+        "remoteFolder":"HtmlTestDoc",
         "defaultUserAgent":"Webkit"
     };
 
@@ -65,8 +68,7 @@ exports.saveToTestFolder = function (filename, buffer){
 
     var dst = local_dst_folder + "/" + filename;
     var fd = fs.openSync(dst, 'w');
-    var len = fs.writeSync(fd, buffer);
-    return len;
+    return fs.writeSync(fd, buffer);
 };
 
 exports.uploadFileToStorage = function(filename, uploadFolder, callback){

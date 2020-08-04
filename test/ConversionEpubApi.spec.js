@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="ConversionEpubApi.spec.js">
-*   Copyright (c) 2019 Aspose.HTML for Cloud
+*   Copyright (c) 2020 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -265,7 +265,7 @@ var helper = require('./helper');
         describe('PutConvertEpubToImage', function () {
             it('should call PutConvertDocumentToImage successfully (epub)', function (done) {
 
-                var outPath = helper.conf['remoteFolder'] + "/" + "putEpubToImgJS.tiff";
+                var outPath = helper.conf['remoteFolder'] + "/" + "putEpubToImgJS.zip";
                 var outFormat = "tiff";
                 var opts = {
                     'width': 800,
