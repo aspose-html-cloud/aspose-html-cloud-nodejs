@@ -29,6 +29,12 @@ To use Aspose HTML for Cloud Node.js SDK you need to register an account with [A
 npm install @asposecloud/aspose-html-cloud --save
 ```
 
+#### git
+Install it via:
+```shell
+    npm install https://github.com/aspose-html-cloud/aspose-html-cloud-nodejs --save
+```
+
 ## Getting Started
 
 1. **Sign Up**. Before you begin, you need to sign up for an account on our [Dashboard](https://dashboard.aspose.cloud/) and retrieve your [credentials](https://dashboard.aspose.cloud/#/apps).
@@ -146,11 +152,6 @@ npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 You should now be able to `require('@asposecloud/aspose-html-cloud')` in javascript files from the directory you ran the last 
 command above from.
 
-#### git
-Install it via:
-```shell
-    git install https://github.com/aspose-html-cloud/aspose-html-cloud-nodejs --save
-```
 
 ### For browser
 The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
