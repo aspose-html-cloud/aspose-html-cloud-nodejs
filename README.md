@@ -238,6 +238,9 @@ Class | Method | HTTP request | Description
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentImagesByUrl**](docs/DocumentApi.md#GetDocumentImagesByUrl) | **GET** /html/images/all | Return all HTML page images packaged as a ZIP archive by the source page URL.
 *Asposehtmlcloud.TemplateMergeApi* | [**GetMergeHtmlTemplate**](docs/TemplateMergeApi.md#GetMergeHtmlTemplate) | **GET** /html/{templateName}/merge | Populate HTML document template with data located as a file in the storage.
 *Asposehtmlcloud.TemplateMergeApi* | [**PostMergeHtmlTemplate**](docs/TemplateMergeApi.md#PostMergeHtmlTemplate) | **POST** /html/{templateName}/merge | Populate HTML document template with data from the request body. Result document will be saved to storage.
+*Asposehtmlcloud.SeoApi* | [**GetSeoWarning**](docs/SeoApi.md#GetSeoWarning) | **GET** /html/seo | Page analysis and return SEO warnings in json format.
+*Asposehtmlcloud.SeoApi* | [**GetHtmlWarning**](docs/SeoApi.md#GetHtmlWarning) | **GET** /html/validator | Checks the markup validity of Web documents in HTML, XHTML, etc.and return in json format.
+
 
 <a name="storage_api"></a>
 ### STORAGE API   
