@@ -1,19 +1,47 @@
-# Aspose.Html Cloud Node.js SDK
-[Aspose.Html Cloud](https://products.aspose.cloud/html) is a true [REST API](https://apireference.aspose.cloud/html/) that enables you to perform a wide range of html processing operations including manipulation and conversion in the cloud, with zero initial costs. Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process html pages in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights. 
+![](https://img.shields.io/badge/api-v3.0-lightgrey) ![npm (scoped)](https://img.shields.io/npm/v/@asposecloud/aspose-html-cloud) ![npm bundle size](https://img.shields.io/bundlephobia/min/@asposecloud/aspose-html-cloud) [![GitHub license](https://img.shields.io/github/license/aspose-html-cloud/aspose-html-cloud-nodejs)](LICENSE) ![GitHub last commit](https://img.shields.io/github/last-commit/Aspose-html-Cloud/aspose-html-cloud-nodejs)
+# HTML Rendering & Conversion Node.js Cloud REST API
+Aspose.HTML Cloud for Node.js is a programming SDK that allows software developers to manipulate and convert HTML documents from within their own applications. A Wrapper of RESTful APIs, Aspose.HTML Cloud for Node.js speeds up HTML programming and conversion.
+This cloud SDK assists to develop cloud-based [HTML page rendering, processing, translation & conversion](https://products.aspose.cloud/html/nodejs) apps in Node.js via REST API.
 
-- API version: 20.8.1
-- Package version: 20.8.1
+## HTML Processing Features
+- Fetch the HTML page along with its resources as a ZIP archive by providing the page URL.
+- Based on page URL, retrieve all images of an HTML page as a ZIP package.
+- Load data from a local file to populate the HTML document template.
+- Use the request body to populate the HTML document template.
+- Convert HTML page to numerous other file formats.
+
+## Read & Write HTML Formats
+HTML, XHTML, zipped HTML, zipped XHTML, MHTML, HTML containing SVG markup, Markdown, JSON
+
+## Save HTML As
+*Fixed Layout*: PDF, XPS
+*Images*: TIFF, JPEG, PNG, BMP, GIF
+*Other*: TXT, ZIP (images)
+
+## Read HTML Formats
+*eBook*: EPUB
+*Other*: XML, SVG
+
+## Enhancements Version 20.11
+
+- New generation of Aspose.HTML Cloud SDK for .NET (C#) is provided.
+- This version of SDK has been redesigned from scratch being based on the new Aspose.HTML Cloud REST API (v3.0).
+- Currently, it provides only the conversion feature. Other features that are still available in the versions up to v.20.08 are planned to be implemented in this SDK later.
+- Conversion interface provides a more flexible conversion parameters setup.
+- Redesigned storage access is provided using SDK entry point HtmlApi.Storage.
+- Availability of synchronous and asynchronous file upload and download methods.
+- Asynchronous download provides the ability to get progress data for the longer downloads.
 
 ## Installation
 
 ## Aspose.HTML Cloud SDK for Node.js
-This repository contains Aspose.HTML Cloud SDK for Node.js source code. 
+This repository contains Aspose.HTML Cloud SDK for Node.js source code.
 This SDK allows you to work with Aspose.HTML Cloud REST APIs in your Node.js applications quickly and easily.
 
 See [API Reference](https://apireference.aspose.cloud/html/) for full API specification.
 
 ## How to use the SDK?
-The complete source code is available in this repository folder, you can either directly use 
+The complete source code is available in this repository folder, you can either directly use
 it in your project via npm package manager.
 
 ### Prerequisites
@@ -21,7 +49,7 @@ To use Aspose HTML for Cloud Node.js SDK you need to register an account with [A
 
 ### Installation
 
-#### Install Aspose.HTML Cloud 
+#### Install Aspose.HTML Cloud
 ### For [Node.js](https://nodejs.org/)
 
 #### npm
@@ -57,9 +85,9 @@ NOTE: Use the helper from /test/helper.js for an upload and save data.
 ```javascript
 
     // Get keys from aspose site.
-    // There is free quota available. 
+    // There is free quota available.
     // For more details, see https://purchase.aspose.cloud/pricing
-	
+
 var conf = {
     "basePath":"https://api.aspose.cloud/v3.0",
     "authPath":"https://api.aspose.cloud/connect/token",
@@ -130,7 +158,7 @@ conversionApi.GetConvertDocumentToImage(filename, outFormat, opts, callback);
 
 ##### Local development
 
-To use the library locally without publishing to a remote npm registry, first install the dependencies by changing 
+To use the library locally without publishing to a remote npm registry, first install the dependencies by changing
 into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
 
 ```shell
@@ -149,14 +177,14 @@ Finally, switch to the directory you want to use your package from, and run:
 npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 ```
 
-You should now be able to `require('@asposecloud/aspose-html-cloud')` in javascript files from the directory you ran the last 
+You should now be able to `require('@asposecloud/aspose-html-cloud')` in javascript files from the directory you ran the last
 command above from.
 
 
 ### For browser
 The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
 the above steps with Node.js and installing browserify with `npm install -g browserify`,
-perform the following (assuming *main.js* is your entry file, that's to say your javascript file where you actually 
+perform the following (assuming *main.js* is your entry file, that's to say your javascript file where you actually
 use this library):
 
 ```shell
@@ -230,7 +258,7 @@ Class | Method | HTTP request | Description
 *Asposehtmlcloud.ImportApi* | [**PostConvertMarkdownInRequestToHtml**](docs/ImportApi.md#PostConvertMarkdownInRequestToHtml) | **POST** /html/import/md | Converts the Markdown document (in request content) to HTML and uploads resulting file to storage by specified path.
 *Asposehtmlcloud.ImportApi* | [**PutConvertMarkdownToHtml**](docs/ImportApi.md#PutConvertMarkdownToHtml) | **PUT** /html/{name}/import/md | Converts the Markdown document (located on storage) to HTML and uploads resulting file to storage by specified path.
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentByUrl**](docs/DocumentApi.md#GetDocumentByUrl) | **GET** /html/download | Return all HTML page with linked resources packaged as a ZIP archive by the source page URL.
-*Asposehtmlcloud.DocumentApi* | [**GetDocumentFragmentByXPath**](docs/DocumentApi.md#GetDocumentFragmentByXPath) | **GET** /html/{name}/fragments/{outFormat} | Return list of HTML fragments matching the specified XPath query. 
+*Asposehtmlcloud.DocumentApi* | [**GetDocumentFragmentByXPath**](docs/DocumentApi.md#GetDocumentFragmentByXPath) | **GET** /html/{name}/fragments/{outFormat} | Return list of HTML fragments matching the specified XPath query.
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentFragmentByXPathByUrl**](docs/DocumentApi.md#GetDocumentFragmentByXPathByUrl) | **GET** /html/fragments/{outFormat} | Return list of HTML fragments matching the specified XPath query by the source page URL.
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentFragmentsByCSSSelector**](docs/DocumentApi.md#GetDocumentFragmentsByCSSSelector) | **GET** /html/{name}/fragments/css/{outFormat} | Return list of HTML fragments matching the specified CSS selector.
 *Asposehtmlcloud.DocumentApi* | [**GetDocumentFragmentsByCSSSelectorByUrl**](docs/DocumentApi.md#GetDocumentFragmentsByCSSSelectorByUrl) | **GET** /html/fragments/css/{outFormat} | Return list of HTML fragments matching the specified CSS selector by the source page URL.
@@ -280,7 +308,11 @@ Class | Method | HTTP request | Description
 node.exe ./node_modules/mocha/bin/_mocha --ui bdd ./test
 ```
 
+## Aspose.HTML Cloud SDKs in Popular Languages
 
-## Documentation for Authorization
+| .NET | Java | PHP | Python | Ruby | Node.js | Android | Swift|C++|Go|
+|---|---|---|---|---|---|---|--|--|--|
+| [GitHub](https://github.com/aspose-html-cloud/aspose-html-cloud-dotnet) | [GitHub](https://github.com/aspose-html-cloud/aspose-html-cloud-java) | [GitHub](https://github.com/aspose-html-cloud/aspose-html-cloud-php) | [GitHub](https://github.com/aspose-html-cloud/aspose-html-cloud-python) | [GitHub](https://github.com/aspose-html-cloud/aspose-html-cloud-ruby)  | [GitHub](https://github.com/aspose-html-cloud/aspose-html-cloud-nodejs) | [GitHub](https://github.com/aspose-html-cloud/aspose-html-cloud-android) | [GitHub](https://github.com/aspose-html-cloud/aspose-html-cloud-swift)|[GitHub](https://github.com/aspose-html-cloud/aspose-html-cloud-cpp) |[GitHub](https://github.com/aspose-html-cloud/aspose-html-cloud-go) |
+| [NuGet](https://www.nuget.org/packages/Aspose.html-Cloud/) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-html-cloud) | [Composer](https://packagist.org/packages/aspose/aspose-html-cloud-php) | [PIP](https://pypi.org/project/asposehtmlcloud/) | [GEM](https://rubygems.org/gems/aspose_html_cloud)  | [NPM](https://www.npmjs.com/package/@asposecloud/aspose-html-cloud) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-html-cloud) | [Cocoapods](https://cocoapods.org/pods/AsposeHtmlCloud)|[NuGet](https://www.nuget.org/packages/Aspose.Html-Cloud.Cpp/) | [Go.Dev](#) |
 
-Please follow the [installation](#installation) instruction for write config file:
+[Product Page](https://products.aspose.cloud/html/nodejs) | [Documentation](https://docs.aspose.cloud/display/htmlcloud/Home) | [API Reference](https://apireference.aspose.cloud/html/) | [Code Samples](https://github.com/aspose-html-cloud/aspose-html-cloud-nodejs) | [Blog](https://blog.aspose.cloud/category/html/) | [Free Support](https://forum.aspose.cloud/c/html) | [Free Trial](https://dashboard.aspose.cloud/#/apps)
