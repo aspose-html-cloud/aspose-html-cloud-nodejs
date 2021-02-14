@@ -81,79 +81,51 @@ Please, add the following [nmp package](https://www.npmjs.com/package/@asposeclo
 Please follow the [installation](#installation) instruction and execute the following JS code:   
 
 NOTE: Use the helper from /test/helper.js for an upload and save data.
+## Convert HTML to PNG in Node.Js
 
-```javascript
+```js
+	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
 
-    // Get keys from aspose site.
-    // There is free quota available.
-    // For more details, see https://purchase.aspose.cloud/pricing
+	var conf = {
+		"appSID":"MY_CLIENT_ID",
+		"apiKey":"MY_CLIENT_SECRET",
+		"basePath":"https://api.aspose.cloud/v3.0",
+		"authPath":"https://api.aspose.cloud/connect/token",
+		"testResult":"/testresult/",
+		"testData":"/testdata/",
+		"remoteFolder":"HtmlTestDoc",
+		"defaultUserAgent":"Webkit"
+	};
 
-var conf = {
-    "basePath":"https://api.aspose.cloud/v3.0",
-    "authPath":"https://api.aspose.cloud/connect/token",
-    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc",
-    "defaultUserAgent":"Webkit"
-};
+	var api = require('@asposecloud/aspose-html-cloud');
+	var conversionApi = new api.ConversionApi(conf);
+	
+	var filename = "sample.html";
+	var outFormat = "png"; // {String} Resulting image format.
+	//Setup various option for result image
+	var opts = {
+	  'width': 800, // {Number} Resulting image width.
+	  'height': 1000, // {Number} Resulting image height.
+	  'leftMargin': 10, // {Number} Left resulting image margin.
+	  'rightMargin': 10, // {Number} Right resulting image margin.
+	  'topMargin': 20, // {Number} Top resulting image margin.
+	  'bottomMargin': 20, // {Number} Bottom resulting image margin.
+	  'resolution': 300, // {Number} Resolution of resulting image.
+	  'folder': 'My_Folder', // {String} The source document folder.
+	  'storage': 'My_Storage_Name' // {String} The source document storage.
+	};
+	
+	var callback = function(error, data, response) {
+	if (error) {
+	console.error(error);
+	} else {
+			var dst = local_dst_folder + "/" + "ResultConvertToPng.zip";
+			var fd = fs.openSync(dst, 'w');
+			var len = fs.writeSync(fd, data);
+		}
+	};
 
-//Create storage api for upload to server
-var api = require('@asposecloud/aspose-html-cloud');
-var fs = require('fs');
-var storageApi = new api.StorageApi(conf);
-
-
-// Setup local folder for source and result
-var local_dst_folder = __dirname + "/../"+ conf['testResult'];
-var local_src_folder = __dirname + "/../"+ conf['testData'];
-
-// Create Conversion Api object
-var conversionApi = new api.ConversionApi(conf);
-
-
-var filename = "test_data.html"; // {String} Document name.
-
-// Get upload folder from config (or write manually)
-var folder = conf['remoteFolder'];
-var versionId = null;
-var storage=null;
-
-var file = local_src_folder + "/" + filename;
-
-//Upload file to storage
-var opts = {versionId:versionId, storage:null};
-
-storageApi.uploadFile(folder + "/" + filename, file, opts, callback);
-
-//Setup output format
-var outFormat = "png"; // {String} Resulting image format.
-
-//Setup various option for result image
-var opts = {
-  'width': 800, // {Number} Resulting image width.
-  'height': 1000, // {Number} Resulting image height.
-  'leftMargin': 10, // {Number} Left resulting image margin.
-  'rightMargin': 10, // {Number} Right resulting image margin.
-  'topMargin': 20, // {Number} Top resulting image margin.
-  'bottomMargin': 20, // {Number} Bottom resulting image margin.
-  'resolution': 300, // {Number} Resolution of resulting image.
-  'folder': folder, // {String} The source document folder.
-  'storage': storage // {String} The source document storage.
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    var dst = local_dst_folder + "/" + "ResultConvertToPng.zip";
-    var fd = fs.openSync(dst, 'w');
-    var len = fs.writeSync(fd, data);
-  }
-};
-conversionApi.GetConvertDocumentToImage(filename, outFormat, opts, callback);
-
+	conversionApi.GetConvertDocumentToImage(filename, outFormat, opts, callback);
 ```
 
 ##### Local development
@@ -207,23 +179,6 @@ module: {
       }
     }
   ]
-}
-```
-
-### Sample usage
-Before fill all fields in configuration object (see tests)   
-
-Example:   
-```javascript
-var conf = {
-    "basePath":"https://api.aspose.cloud/v3.0",
-    "authPath":"https://api.aspose.cloud/connect/token",
-    "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-    "testResult":"/testresult/",
-    "testData":"/testdata/",
-    "remoteFolder":"HtmlTestDoc",
-    "defaultUserAgent":"Webkit"
 }
 ```
 
