@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="FolderApi.spec.js">
-*   Copyright (c) 2020 Aspose.HTML for Cloud
+*   Copyright (c) 2022 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -106,56 +106,6 @@ var helper = require('./helper');
           expect(200).to.be(res.status);
           console.log(data);
           done();
-        });
-      });
-    });
-
-    describe('copyFolder', function() {
-      it('should call copyFolder successfully', function(done) {
-        var srcPath = "HtmlTestDoc/Copy_Folder";
-        var destPath = "HtmlTestDoc/Copied_Folder"
-        var opts = { 'storageName': null };
-
-        //Create folder
-        instance.createFolder( srcPath, opts, function(err, data, res) {
-          if (err) throw err;
-          expect(200).to.be(res.status);
-
-          // Copy folder
-          var opts_copy = {
-            'srcStorageName': null,
-            'destStorageName': null
-          };
-          instance.copyFolder(srcPath, destPath, opts_copy, function(err, data, res){
-            if(err) throw err;
-            expect(200).to.be(res.status);
-            done();
-          });
-        });
-      });
-    });
-
-    describe('moveFolder', function() {
-      it('should call moveFolder successfully', function(done) {
-        var srcPath = "HtmlTestDoc/New_Folder";
-        var destPath = "HtmlTestDoc/Moved_Folder"
-        var opts = { 'storageName': null };
-
-        //Create folder
-        instance.createFolder( srcPath, opts, function(err, data, res) {
-          if (err) throw err;
-          expect(200).to.be(res.status);
-
-          // Move folder
-          var opts_move = {
-            'srcStorageName': null,
-            'destStorageName': null
-          };
-          instance.moveFolder(srcPath, destPath, opts_move, function(err, data, res){
-            if(err) throw err;
-            expect(200).to.be(res.status);
-            done();
-          });
         });
       });
     });

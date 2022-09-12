@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="ObjectExist.js">
-*   Copyright (c) 2020 Aspose.HTML for Cloud
+*   Copyright (c) 2022 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,7 +45,7 @@
   /**
    * The ObjectExist model module.
    * @module model/ObjectExist
-   * @version 20.8.1
+   * @version 22.9.1
    */
 
   /**

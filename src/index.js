@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="index.js">
-*   Copyright (c) 2020 Aspose.HTML for Cloud
+*   Copyright (c) 2022 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,23 +30,15 @@
         // AMD. Register as an anonymous module.
         define(['ApiClient',
             'api/ConversionApi',
-			'api/ImportApi',
-            'api/DocumentApi',
-            'api/TemplateMergeApi',
-            'api/SeoApi',
             'api/StorageApi'], factory);
     } else if (typeof module === 'object' && module.exports) {
         // CommonJS-like environments that support module.exports, like Node.
         module.exports = factory(require('./ApiClient'),
             require('./api/ConversionApi'),
-            require('./api/ImportApi'),
-            require('./api/DocumentApi'),
-            require('./api/TemplateMergeApi'),
-            require('./api/SeoApi'),
             require('./api/StorageApi')
         );
     }
-}(function (ApiClient, ConversionApi, ImportApi, DocumentApi, TemplateMergeApi, SeoApi, StorageApi) {
+}(function (ApiClient, ConversionApi, StorageApi) {
     'use strict';
 
     /**
@@ -78,7 +70,7 @@
      * </pre>
      * </p>
      * @module index
-     * @version 20.8.1
+     * @version 22.9.1
      */
     var exports = {
         /**
@@ -92,30 +84,6 @@
          * @property {module:api/ConversionApi}
          */
         ConversionApi: ConversionApi,
-
-        /**
-         * The ImportApi service constructor.
-         * @property {module:api/ImportApi}
-         */
-        ImportApi: ImportApi,
-
-        /**
-         * The DocumentApi service constructor.
-         * @property {module:api/DocumentApi}
-         */
-        DocumentApi: DocumentApi,
-
-        /**
-         * The TemplateMergeApi service constructor.
-         * @property {module:api/TemplateMergeApi}
-         */
-        TemplateMergeApi: TemplateMergeApi,
-
-        /**
-         * The TemplateMergeApi service constructor.
-         * @property {module:api/SeoApi}
-         */
-        SeoApi: SeoApi,
 
         /**
          * The StorageApi service constructor.

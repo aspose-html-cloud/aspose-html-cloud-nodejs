@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="FileApi.spec.js">
-*   Copyright (c) 2020 Aspose.HTML for Cloud
+*   Copyright (c) 2022 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -78,12 +78,12 @@ var helper = require('./helper');
       it('should call upload file successfully', function(done) {
         var name = 'test_put_create.png';
         var local_path = local_src_folder + "/" + name;
-        var path_in_storage = "HtmlTestDoc/" +  name;
+        var folder = "HtmlTestDoc";
         var file = fs.createReadStream(path.normalize(local_path));
         var file_size = fs.statSync(local_path).size;
         var opts = { 'storageName': null };
 
-        instance.uploadFile(path_in_storage, file, opts, function(err, data, res) {
+        instance.uploadFile(folder, file, opts, function(err, data, res) {
           if (err) throw err;
 
           expect(200).to.be(res.status);
@@ -95,7 +95,7 @@ var helper = require('./helper');
             'versionId' : null,
             'storageName': null
           };
-          instance.downloadFile(path_in_storage, options, function(err, data, res) {
+          instance.downloadFile(folder + "/" + name, options, function(err, data, res) {
             if (err) throw err;
             expect(200).to.be(res.status);
             var dst = local_dst_folder + "test_put_create.png";
@@ -111,12 +111,12 @@ var helper = require('./helper');
     describe('deleteFile', function() {
       it('should call deleteFile successfully', function(done) {
         var name = "file_to_delete.html";
-        var path_in_storage = "HtmlTestDoc/" + name;
+        var folder = "HtmlTestDoc";
         var file = fs.createReadStream(path.normalize(local_src_folder + "/" + name));
         var opts = { 'storageName': null };
 
         //Upload file to storage for test
-        instance.uploadFile(path_in_storage, file, opts, function(err, data, res) {
+        instance.uploadFile(folder, file, opts, function(err, data, res) {
           if (err) throw err;
 
           expect(200).to.be(res.status);
@@ -129,7 +129,7 @@ var helper = require('./helper');
           };
 
           //Delete file
-          instance.deleteFile(path_in_storage, options, function (err, data, res) {
+          instance.deleteFile(folder + "/" + name, options, function (err, data, res) {
             if (err) throw err;
             expect(200).to.be(res.status);
             done();
@@ -141,13 +141,13 @@ var helper = require('./helper');
     describe('downloadFile', function() {
       it('should call downloadFile successfully', function(done) {
         var name = 'test_get_download.jpg';
-        var path_in_storage = "HtmlTestDoc/" +  name;
+        var folder = "HtmlTestDoc";
         var file = fs.createReadStream(path.normalize(local_src_folder + "/" + name));
         var opts = { 'storageName': null };
         var file_size = fs.statSync(local_src_folder + "/" + name).size;
 
         //Upload file for test
-        instance.uploadFile(path_in_storage, file, opts, function(err, data, res) {
+        instance.uploadFile(folder, file, opts, function(err, data, res) {
           if (err) throw err;
 
           expect(200).to.be(res.status);
@@ -159,7 +159,7 @@ var helper = require('./helper');
             'versionId' : null,
             'storageName': null
           };
-          instance.downloadFile(path_in_storage, options, function(err, data, res) {
+          instance.downloadFile(folder + "/" + name, options, function(err, data, res) {
             if (err) throw err;
             expect(200).to.be(res.status);
             var dst = local_dst_folder + "test_get_download.jpg";
@@ -167,101 +167,6 @@ var helper = require('./helper');
             var len = fs.writeSync(fd, data);
             expect(file_size).to.be(len);
             done();
-          });
-        });
-      });
-    });
-
-    describe('copyFile', function() {
-      it('should call copyFile successfully', function(done) {
-        var name = 'test_copy_file.html';
-        var src = "HtmlTestDoc/" +  name;
-        var dest = "HtmlTestDoc/copied_test_file.html";
-        var file = fs.createReadStream(path.normalize(local_src_folder + "/" + name));
-        var file_size = fs.statSync(local_src_folder + "/" + name).size;
-        var opts = { 'storageName': null };
-
-        //Upload file for test
-        instance.uploadFile(src, file, opts, function(err, data, res) {
-          if (err) throw err;
-
-          expect(200).to.be(res.status);
-          expect(0).to.be(res.body.errors.length);
-          expect(1).to.be(res.body.uploaded.length);
-
-          var options = {
-            'versionId': null,
-            'srcStorageName': null,
-            'destStorageName': null
-          };
-
-          //Move file
-          instance.copyFile(src, dest, options, function(err, data, res) {
-            if (err) throw err;
-            expect(200).to.be(res.status);
-
-            var opts_download = {
-              'versionId': null,
-              'storageName': null
-            };
-            //Download moved file and compare size
-            instance.downloadFile(dest, opts_download, function(err, data, res) {
-              if (err) throw err;
-              expect(200).to.be(res.status);
-              var dst = local_dst_folder + "copied_test_file.html";
-              var fd = fs.openSync(dst, 'w');
-              var len = fs.writeSync(fd, data);
-              expect(file_size).to.be(len);
-              done();
-            });
-          });
-        });
-      });
-    });
-
-    describe('moveFile', function() {
-      it('should call moveFile successfully', function(done) {
-        var name = 'test_move_file.html';
-        var src = "HtmlTestDoc/" +  name;
-        var dest = "HtmlTestDoc/moved_test_file.html";
-        var file = fs.createReadStream(path.normalize(local_src_folder + "/" + name));
-        var file_size = fs.statSync(local_src_folder + "/" + name).size;
-        var opts = { 'storageName': null };
-
-        //Upload file for test
-        instance.uploadFile(src, file, opts, function(err, data, res) {
-          if (err) throw err;
-
-          expect(200).to.be(res.status);
-          expect(0).to.be(res.body.errors.length);
-          expect(1).to.be(res.body.uploaded.length);
-
-          var options = {
-            'versionId': null,
-            'srcStorageName': null,
-            'destStorageName': null
-          };
-
-          //Move file
-          instance.moveFile(src, dest, options, function(err, data, res) {
-            if (err) throw err;
-            expect(200).to.be(res.status);
-
-            var opts_download = {
-              'versionId': null,
-              'storageName': null
-            };
-            //Download moved file and compare size
-            instance.downloadFile(dest, opts_download, function(err, data, res) {
-              if (err) throw err;
-              expect(200).to.be(res.status);
-
-              var dst = local_dst_folder + "moved_test_file.html";
-              var fd = fs.openSync(dst, 'w');
-              var len = fs.writeSync(fd, data);
-              expect(file_size).to.be(len);
-              done();
-            });
           });
         });
       });

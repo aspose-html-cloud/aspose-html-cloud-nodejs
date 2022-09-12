@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="helper.js">
-*   Copyright (c) 2020 Aspose.HTML for Cloud
+*   Copyright (c) 2022 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,10 +40,10 @@
 
 'use strict';
     var conf = {
-        "basePath":"https://api.aspose.cloud/v3.0",
+        "basePath":"https://api.aspose.cloud/v4.0",
         "authPath":"https://api.aspose.cloud/connect/token",
-        "apiKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        "appSID":"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "apiKey":"c8dda7d6445d82635b8797d1c8edd153",
+        "appSID":"2225baa2-097b-4731-9831-d0d56c28230f",
         "testResult":"/testresult/",
         "testData":"/testdata/",
         "remoteFolder":"HtmlTestDoc",
@@ -71,7 +71,7 @@ exports.uploadFileToStorage = function(filename, uploadFolder, callback){
     var folder = uploadFolder || conf['remoteFolder'];
     var opts = { 'storageName': null };
     var file = fs.createReadStream(path.normalize(local_src_folder + "/" + filename));
-    api.uploadFile(folder + "/" + filename, file, opts, callback);
+    api.uploadFile(folder, file, opts, callback);
 };
 
 exports.getFileSize = function(filename){

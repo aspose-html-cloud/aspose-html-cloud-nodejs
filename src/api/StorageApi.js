@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="StorageApi.js">
-*   Copyright (c) 2020 Aspose.HTML for Cloud
+*   Copyright (c) 2022 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -76,7 +76,7 @@
   /**
    * Storage service.
    * @module api/StorageApi
-   * @version 20.8.1
+   * @version 22.9.1
    */
 
   /**
@@ -122,52 +122,7 @@
       var returnType = DiscUsage;
 
       return this.apiClient.callApi(
-          '/html/storage/disc', 'GET',
-          pathParams, queryParams, headerParams, formParams, postBody,
-          contentTypes, accepts, returnType, callback
-      );
-    };
-
-    /**
-     * Callback function to receive the result of the getFileVersions operation.
-     * @callback module:api/StorageApi~getFileVersionsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/FileVersions} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get file versions
-     * @param {String} path File path e.g. &#39;/file.ext&#39;
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.storageName Storage name
-     * @param {module:api/StorageApi~getFileVersionsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/FileVersions}
-     */
-    this.getFileVersions = function(path, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw "Missing the required parameter 'path' when calling getFileVersions";
-      }
-
-      var pathParams = {
-        'path': path
-      };
-      var queryParams = {
-        'storageName': opts['storageName']
-      };
-      var headerParams = {};
-      var formParams = {};
-
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = FileVersions;
-
-      return this.apiClient.callApi(
-          '/html/storage/version/{path}', 'GET',
+          '/html/storage/disc/usage', 'GET',
           pathParams, queryParams, headerParams, formParams, postBody,
           contentTypes, accepts, returnType, callback
       );
@@ -199,10 +154,10 @@
         throw "Missing the required parameter 'path' when calling objectExists";
       }
 
-      var pathParams = {
-        'path': path
-      };
+      var pathParams = {};
+
       var queryParams = {
+        'path': path,
         'storageName': opts['storageName'],
         'versionId': opts['versionId']
       };
@@ -214,7 +169,7 @@
       var returnType = ObjectExist;
 
       return this.apiClient.callApi(
-          '/html/storage/exist/{path}', 'GET',
+          '/html/storage/exist', 'GET',
           pathParams, queryParams, headerParams, formParams, postBody,
           contentTypes, accepts, returnType, callback
       );
@@ -242,10 +197,10 @@
         throw "Missing the required parameter 'storageName' when calling storageExists";
       }
 
-      var pathParams = {
+      var pathParams = {};
+      var queryParams = {
         'storageName': storageName
       };
-      var queryParams = {};
       var headerParams = {};
       var formParams = {};
 
@@ -254,68 +209,13 @@
       var returnType = StorageExist;
 
       return this.apiClient.callApi(
-          '/html/storage/{storageName}/exist', 'GET',
+          '/html/storage/exist/storage', 'GET',
           pathParams, queryParams, headerParams, formParams, postBody,
           contentTypes, accepts, returnType, callback
       );
     };
 
     //FILE API
-    /**
-     * Callback function to receive the result of the copyFile operation.
-     * @callback module:api/FileApi~copyFileCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Copy file
-     * @param {String} srcPath Source file path e.g. &#39;/folder/file.ext&#39;
-     * @param {String} destPath Destination file path
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.srcStorageName Source storage name
-     * @param {String} opts.destStorageName Destination storage name
-     * @param {String} opts.versionId File version ID to copy
-     * @param {module:api/FileApi~copyFileCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    this.copyFile = function(srcPath, destPath, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'srcPath' is set
-      if (srcPath === undefined || srcPath === null) {
-        throw "Missing the required parameter 'srcPath' when calling copyFile";
-      }
-
-      // verify the required parameter 'destPath' is set
-      if (destPath === undefined || destPath === null) {
-        throw "Missing the required parameter 'destPath' when calling copyFile";
-      }
-
-      var pathParams = {
-        'srcPath': srcPath
-      };
-      var queryParams = {
-        'destPath': destPath,
-        'srcStorageName': opts['srcStorageName'],
-        'destStorageName': opts['destStorageName'],
-        'versionId': opts['versionId']
-      };
-      var headerParams = {};
-      var formParams = {};
-
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = null;
-
-      return this.apiClient.callApi(
-          '/html/storage/file/copy/{srcPath}', 'PUT',
-          pathParams, queryParams, headerParams, formParams, postBody,
-          contentTypes, accepts, returnType, callback
-      );
-    };
-
     /**
      * Callback function to receive the result of the deleteFile operation.
      * @callback module:api/FileApi~deleteFileCallback
@@ -341,10 +241,9 @@
         throw "Missing the required parameter 'path' when calling deleteFile";
       }
 
-      var pathParams = {
-        'path': path
-      };
+      var pathParams = {};
       var queryParams = {
+        'path': path,
         'storageName': opts['storageName'],
         'versionId': opts['versionId']
       };
@@ -356,7 +255,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-          '/html/storage/file/{path}', 'DELETE',
+          '/html/file', 'DELETE',
           pathParams, queryParams, headerParams, formParams, postBody,
           contentTypes, accepts, returnType, callback
       );
@@ -388,10 +287,9 @@
         throw "Missing the required parameter 'path' when calling downloadFile";
       }
 
-      var pathParams = {
-        'path': path
-      };
+      var pathParams = {};
       var queryParams = {
+        'path': path,
         'storageName': opts['storageName'],
         'versionId': opts['versionId']
       };
@@ -403,62 +301,7 @@
       var returnType = "Blob";
 
       return this.apiClient.callApi(
-          '/html/storage/file/{path}', 'GET',
-          pathParams, queryParams, headerParams, formParams, postBody,
-          contentTypes, accepts, returnType, callback
-      );
-    };
-
-    /**
-     * Callback function to receive the result of the moveFile operation.
-     * @callback module:api/FileApi~moveFileCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Move file
-     * @param {String} srcPath Source file path e.g. &#39;/src.ext&#39;
-     * @param {String} destPath Destination file path e.g. &#39;/dest.ext&#39;
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.srcStorageName Source storage name
-     * @param {String} opts.destStorageName Destination storage name
-     * @param {String} opts.versionId File version ID to move
-     * @param {module:api/FileApi~moveFileCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    this.moveFile = function(srcPath, destPath, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'srcPath' is set
-      if (srcPath === undefined || srcPath === null) {
-        throw "Missing the required parameter 'srcPath' when calling moveFile";
-      }
-
-      // verify the required parameter 'destPath' is set
-      if (destPath === undefined || destPath === null) {
-        throw "Missing the required parameter 'destPath' when calling moveFile";
-      }
-
-      var pathParams = {
-        'srcPath': srcPath
-      };
-      var queryParams = {
-        'destPath': destPath,
-        'srcStorageName': opts['srcStorageName'],
-        'destStorageName': opts['destStorageName'],
-        'versionId': opts['versionId']
-      };
-      var headerParams = {};
-      var formParams = {};
-
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = null;
-
-      return this.apiClient.callApi(
-          '/html/storage/file/move/{srcPath}', 'PUT',
+          '/html/file', 'GET',
           pathParams, queryParams, headerParams, formParams, postBody,
           contentTypes, accepts, returnType, callback
       );
@@ -474,7 +317,7 @@
 
     /**
      * Upload file
-     * @param {String} path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext  If the content is multipart and path does not contains the file name it tries to get them from filename parameter from Content-Disposition header.
+     * @param {String} path Path where to upload excluding filename e.g. / or /Folder.
      * @param {File} file File to upload
      * @param {Object} opts Optional parameters
      * @param {String} opts.storageName Storage name
@@ -496,9 +339,9 @@
       }
 
       var pathParams = {
-        'path': path
       };
       var queryParams = {
+        'path': path,
         'storageName': opts['storageName']
       };
       var headerParams = {};
@@ -508,68 +351,16 @@
 
       var contentTypes = ['multipart/form-data'];
       var accepts = ['application/json'];
-      var returnType = FilesUploadResult;
+      var returnType = 'FilesUploadResult';
 
       return this.apiClient.callApi(
-          '/html/storage/file/{path}', 'PUT',
+          '/html/file', 'POST',
           pathParams, queryParams, headerParams, formParams, postBody,
           contentTypes, accepts, returnType, callback
       );
     };
 
     // FOLDER API
-    /**
-     * Callback function to receive the result of the copyFolder operation.
-     * @callback module:api/FolderApi~copyFolderCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Copy folder
-     * @param {String} srcPath Source folder path e.g. &#39;/src&#39;
-     * @param {String} destPath Destination folder path e.g. &#39;/dst&#39;
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.srcStorageName Source storage name
-     * @param {String} opts.destStorageName Destination storage name
-     * @param {module:api/FolderApi~copyFolderCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    this.copyFolder = function(srcPath, destPath, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'srcPath' is set
-      if (srcPath === undefined || srcPath === null) {
-        throw "Missing the required parameter 'srcPath' when calling copyFolder";
-      }
-
-      // verify the required parameter 'destPath' is set
-      if (destPath === undefined || destPath === null) {
-        throw "Missing the required parameter 'destPath' when calling copyFolder";
-      }
-
-      var pathParams = {
-        'srcPath': srcPath
-      };
-      var queryParams = {
-        'destPath': destPath,
-        'srcStorageName': opts['srcStorageName'],
-        'destStorageName': opts['destStorageName']
-      };
-      var headerParams = {};
-      var formParams = {};
-
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = null;
-
-      return this.apiClient.callApi(
-          '/html/storage/folder/copy/{srcPath}', 'PUT',
-          pathParams, queryParams, headerParams, formParams, postBody,
-          contentTypes, accepts, returnType, callback
-      );
-    };
 
     /**
      * Callback function to receive the result of the createFolder operation.
@@ -595,10 +386,9 @@
         throw "Missing the required parameter 'path' when calling createFolder";
       }
 
-      var pathParams = {
-        'path': path
-      };
+      var pathParams = {};
       var queryParams = {
+        'path': path,
         'storageName': opts['storageName']
       };
       var headerParams = {};
@@ -609,7 +399,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-          '/html/storage/folder/{path}', 'PUT',
+          '/html/folder', 'POST',
           pathParams, queryParams, headerParams, formParams, postBody,
           contentTypes, accepts, returnType, callback
       );
@@ -640,10 +430,9 @@
         throw "Missing the required parameter 'path' when calling deleteFolder";
       }
 
-      var pathParams = {
-        'path': path
-      };
+      var pathParams = {};
       var queryParams = {
+        'path': path,
         'storageName': opts['storageName'],
         'recursive': opts['recursive']
       };
@@ -655,7 +444,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-          '/html/storage/folder/{path}', 'DELETE',
+          '/html/folder', 'DELETE',
           pathParams, queryParams, headerParams, formParams, postBody,
           contentTypes, accepts, returnType, callback
       );
@@ -686,10 +475,9 @@
         throw "Missing the required parameter 'path' when calling getFilesList";
       }
 
-      var pathParams = {
-        'path': path
-      };
+      var pathParams = { };
       var queryParams = {
+        'path': path,
         'storageName': opts['storageName']
       };
       var headerParams = {};
@@ -700,60 +488,7 @@
       var returnType = FilesList;
 
       return this.apiClient.callApi(
-          '/html/storage/folder/{path}', 'GET',
-          pathParams, queryParams, headerParams, formParams, postBody,
-          contentTypes, accepts, returnType, callback
-      );
-    };
-
-    /**
-     * Callback function to receive the result of the moveFolder operation.
-     * @callback module:api/FolderApi~moveFolderCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Move folder
-     * @param {String} srcPath Folder path to move e.g. &#39;/folder&#39;
-     * @param {String} destPath Destination folder path to move to e.g &#39;/dst&#39;
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.srcStorageName Source storage name
-     * @param {String} opts.destStorageName Destination storage name
-     * @param {module:api/FolderApi~moveFolderCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    this.moveFolder = function(srcPath, destPath, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'srcPath' is set
-      if (srcPath === undefined || srcPath === null) {
-        throw "Missing the required parameter 'srcPath' when calling moveFolder";
-      }
-
-      // verify the required parameter 'destPath' is set
-      if (destPath === undefined || destPath === null) {
-        throw "Missing the required parameter 'destPath' when calling moveFolder";
-      }
-
-      var pathParams = {
-        'srcPath': srcPath
-      };
-      var queryParams = {
-        'destPath': destPath,
-        'srcStorageName': opts['srcStorageName'],
-        'destStorageName': opts['destStorageName']
-      };
-      var headerParams = {};
-      var formParams = {};
-
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = null;
-
-      return this.apiClient.callApi(
-          '/html/storage/folder/move/{srcPath}', 'PUT',
+          '/html/folder', 'GET',
           pathParams, queryParams, headerParams, formParams, postBody,
           contentTypes, accepts, returnType, callback
       );

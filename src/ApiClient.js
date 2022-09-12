@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="ApiClient.js">
-*   Copyright (c) 2020 Aspose.HTML for Cloud
+*   Copyright (c) 2022 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,7 +44,7 @@
 
   /**
    * @module ApiClient
-   * @version 20.8.1
+   * @version 22.9.1
    */
 
   /**
@@ -97,7 +97,7 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default https://api.aspose.cloud/v3.0
+     * @default https://api.aspose.cloud/v4.0
      */
     this.basePath = conf.basePath.replace(/\/+$/, '');
     this.authPath = conf.authPath.replace(/\/+$/, '');
@@ -124,7 +124,7 @@
           "User-Agent":conf['defaultUserAgent'],
           "Authorization":"Bearer " + this.accessToken,
           "x-aspose-client":"aspose.html-cloud nodejs sdk",
-          "x-aspose-client-version":"20.8.1"
+          "x-aspose-client-version":"22.9.1"
       };
   };
 

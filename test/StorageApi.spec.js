@@ -1,7 +1,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="StorageApi.spec.js">
-*   Copyright (c) 2020 Aspose.HTML for Cloud
+*   Copyright (c) 2022 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -128,20 +128,6 @@ var helper = require('./helper');
             console.log(data);
             done();
           });
-        });
-      });
-    });
-
-    describe('getFileVersions', function() {
-      it('should call getFileVersions successfully', function(done) {
-        var path = "HtmlTestDoc/test_en.html";
-        var opts = {'storageName': null };
-
-        instance.getFileVersions(path, opts, function(err, data, res) {
-          if (err) throw err;
-          expect(200).to.be(res.status);
-          console.log(data);
-          done();
         });
       });
     });
