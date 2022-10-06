@@ -170,13 +170,13 @@ var helper = require('./helper');
                 var toUpload = local_src_folder + "test_data.html";
                 var src = "FolderInStorage/test_data.html";
                 var dst = "FolderInStorage/StorageToStorage.pdf";
-                var opts = {
-                    'width': 600,
-                    'height': 800,
-                    'leftMargin': 10,
-                    'rightMargin': 20,
-                    'topMargin': 30,
-                    'bottomMargin': 40
+                var opts_A4 = {
+                    'width': 8.3,
+                    'height': 11.7,
+                    'leftMargin': 0.2,
+                    'rightMargin': 0.2,
+                    'topMargin': 0.2,
+                    'bottomMargin': 0.2
                 };
 
                 var file = fs.createReadStream(path.normalize(toUpload));
@@ -188,7 +188,7 @@ var helper = require('./helper');
                     expect(0).to.be(data.errors.length);
                     expect(1).to.be(data.uploaded.length);
 
-                    convert_api.convertStorageToStorage(src, dst, "", opts, function (err, data, res) {
+                    convert_api.convertStorageToStorage(src, dst, "", opts_A4, function (err, data, res) {
                         if (err) throw err;
                         expect(200).to.be(res.status);
                         opts = {
@@ -212,16 +212,16 @@ var helper = require('./helper');
 
                 var src = "https://stallman.org/articles/anonymous-payments-thru-phones.html";
                 var dst = local_dst_folder + "WebsiteToLocal.pdf";
-                var opts = {
-                    'width': 600,
-                    'height': 800,
-                    'leftMargin': 10,
-                    'rightMargin': 20,
-                    'topMargin': 30,
-                    'bottomMargin': 40
+                var opts_A3 = {
+                    'width': 11.7,
+                    'height': 16.5,
+                    'leftMargin': 0.2,
+                    'rightMargin': 0.2,
+                    'topMargin': 0.2,
+                    'bottomMargin': 0.2
                 };
 
-                convert_api.convertUrlToLocal(src, dst, opts, function (err, data, res) {
+                convert_api.convertUrlToLocal(src, dst, opts_A3, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
                     expect(fs.existsSync(data.file)).to.be(true);
@@ -236,16 +236,16 @@ var helper = require('./helper');
                 var src = "https://stallman.org/articles/anonymous-payments-thru-phones.html";
                 var dst = "FolderInStorage/WebsiteToStorage.pdf";
                 var storage = null;
-                var opts = {
-                    'width': 600,
-                    'height': 800,
-                    'leftMargin': 10,
-                    'rightMargin': 20,
-                    'topMargin': 30,
-                    'bottomMargin': 40
+                var opts_A4 = {
+                    'width': 8.3,
+                    'height': 11.7,
+                    'leftMargin': 0.2,
+                    'rightMargin': 0.2,
+                    'topMargin': 0.2,
+                    'bottomMargin': 0.2
                 };
 
-                convert_api.convertUrlToStorage(src, dst, storage, opts, function (err, data, res) {
+                convert_api.convertUrlToStorage(src, dst, storage, opts_A4, function (err, data, res) {
                     if (err) throw err;
                     expect(200).to.be(res.status);
 

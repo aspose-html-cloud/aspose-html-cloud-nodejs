@@ -58,17 +58,17 @@ apiInstance.convertLocalToLocal(src, dst, opts, function (err, data, res) {
 ```
 
 ### Parameters
-| Name             | Type         | Description                       | Notes      |
-|------------------|--------------|-----------------------------------|------------|
-| **src**          | **String**   | Full path to the source file.     | html, epub |
-| **dst**          | **String**   | Full path to the result file.     |            |
-| **options**      | **Object**   | Option for conversion.            | [optional] |
-| **width**        | **Number**   | Resulting width in pixel.         | [optional] |
-| **height**       | **Number**   | Resulting height in pixel.        | [optional] |
-| **leftMargin**   | **Number**   | Left resulting margin in pixel.   | [optional] |
-| **rightMargin**  | **Number**   | Right resulting margin in pixel.  | [optional] |
-| **topMargin**    | **Number**   | Top resulting margin in pixel.    | [optional] |
-| **bottomMargin** | **Number**   | Bottom resulting margin in pixel. | [optional] |
+| Name             | Type         | Description                                                  | Notes      |
+|------------------|--------------|--------------------------------------------------------------|------------|
+| **src**          | **String**   | Full path to the source file.                                | html, epub |
+| **dst**          | **String**   | Full path to the result file.                                |            |
+| **options**      | **Object**   | Option for conversion.                                       | [optional] |
+| **width**        | **Number**   | Resulting width in pixels (PDF, XPS, DOCX in inches).        | [optional] |
+| **height**       | **Number**   | Resulting height in pixel (PDF, XPS, DOCX in inches).        | [optional] |
+| **leftMargin**   | **Number**   | Left resulting margin in pixel (PDF, XPS, DOCX in inches).   | [optional] |
+| **rightMargin**  | **Number**   | Right resulting margin in pixel (PDF, XPS, DOCX in inches).  | [optional] |
+| **topMargin**    | **Number**   | Top resulting margin in pixel (PDF, XPS, DOCX in inches).    | [optional] |
+| **bottomMargin** | **Number**   | Bottom resulting margin in pixel (PDF, XPS, DOCX in inches). | [optional] |
 
 ### Return type
 
@@ -131,18 +131,18 @@ apiInstance.convertLocalToStorage(src, dst, storage, opts, function (err, data, 
 ```
 
 ### Parameters
-| Name             | Type         | Description                                            | Notes      |
-|------------------|--------------|--------------------------------------------------------|------------|
-| **src**          | **String**   | Full path to the source file on the local disk.        | html, epub |
-| **dst**          | **String**   | Full path to the result file on the storage.           |            |
-| **storage**      | **String**   | Storage name. Empty string or null is default storage. |            |
-| **options**      | **Object**   | Option for conversion.                                 | [optional] |
-| **width**        | **Number**   | Resulting width in pixel.                              | [optional] |
-| **height**       | **Number**   | Resulting height in pixel.                             | [optional] |
-| **leftMargin**   | **Number**   | Left resulting margin in pixel.                        | [optional] |
-| **rightMargin**  | **Number**   | Right resulting margin in pixel.                       | [optional] |
-| **topMargin**    | **Number**   | Top resulting margin in pixel.                         | [optional] |
-| **bottomMargin** | **Number**   | Bottom resulting margin in pixel.                      | [optional] |
+| Name             | Type         | Description                                                  | Notes      |
+|------------------|--------------|--------------------------------------------------------------|------------|
+| **src**          | **String**   | Full path to the source file on the local disk.              | html, epub |
+| **dst**          | **String**   | Full path to the result file on the storage.                 |            |
+| **storage**      | **String**   | Storage name. Empty string or null is default storage.       |            |
+| **options**      | **Object**   | Option for conversion.                                       | [optional] |
+| **width**        | **Number**   | Resulting width in pixels (PDF, XPS, DOCX in inches).        | [optional] |
+| **height**       | **Number**   | Resulting height in pixel (PDF, XPS, DOCX in inches).        | [optional] |
+| **leftMargin**   | **Number**   | Left resulting margin in pixel (PDF, XPS, DOCX in inches).   | [optional] |
+| **rightMargin**  | **Number**   | Right resulting margin in pixel (PDF, XPS, DOCX in inches).  | [optional] |
+| **topMargin**    | **Number**   | Top resulting margin in pixel (PDF, XPS, DOCX in inches).    | [optional] |
+| **bottomMargin** | **Number**   | Bottom resulting margin in pixel (PDF, XPS, DOCX in inches). | [optional] |
 
 ### Return type
 
@@ -187,17 +187,17 @@ var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
 var src = "/FolderInStorage/source.html";
 var dst = "/localPath/result.pdf";
-var opts = {
-    'width': 600,
-    'height': 800,
-    'leftMargin': 10,
-    'rightMargin': 20,
-    'topMargin': 30,
-    'bottomMargin': 40
+var opts_A4 = {
+    'width': 8.3,
+    'height': 11.7,
+    'leftMargin': 0.2,
+    'rightMargin': 0.2,
+    'topMargin': 0.2,
+    'bottomMargin': 0.2
 };
 var storage = "";
 
-apiInstance.convertStorageToLocal(src, dst, storage, opts, function (err, data, res) {
+apiInstance.convertStorageToLocal(src, dst, storage, opts_A4, function (err, data, res) {
     if (error) {
         console.error(error);
     } else {
@@ -206,18 +206,18 @@ apiInstance.convertStorageToLocal(src, dst, storage, opts, function (err, data, 
 ```
 
 ### Parameters
-| Name             | Type         | Description                                            | Notes      |
-|------------------|--------------|--------------------------------------------------------|------------|
-| **src**          | **String**   | Full path to the source file on the storage.           | html, epub |
-| **dst**          | **String**   | Full path to the result file on the local disk.        |            |
-| **storage**      | **String**   | Storage name. Empty string or null is default storage. |            |
-| **options**      | **Object**   | Option for conversion.                                 | [optional] |
-| **width**        | **Number**   | Resulting width in pixel.                              | [optional] |
-| **height**       | **Number**   | Resulting height in pixel.                             | [optional] |
-| **leftMargin**   | **Number**   | Left resulting margin in pixel.                        | [optional] |
-| **rightMargin**  | **Number**   | Right resulting margin in pixel.                       | [optional] |
-| **topMargin**    | **Number**   | Top resulting margin in pixel.                         | [optional] |
-| **bottomMargin** | **Number**   | Bottom resulting margin in pixel.                      | [optional] |
+| Name             | Type         | Description                                                  | Notes      |
+|------------------|--------------|--------------------------------------------------------------|------------|
+| **src**          | **String**   | Full path to the source file on the storage.                 | html, epub |
+| **dst**          | **String**   | Full path to the result file on the local disk.              |            |
+| **storage**      | **String**   | Storage name. Empty string or null is default storage.       |            |
+| **options**      | **Object**   | Option for conversion.                                       | [optional] |
+| **width**        | **Number**   | Resulting width in pixels (PDF, XPS, DOCX in inches).        | [optional] |
+| **height**       | **Number**   | Resulting height in pixel (PDF, XPS, DOCX in inches).        | [optional] |
+| **leftMargin**   | **Number**   | Left resulting margin in pixel (PDF, XPS, DOCX in inches).   | [optional] |
+| **rightMargin**  | **Number**   | Right resulting margin in pixel (PDF, XPS, DOCX in inches).  | [optional] |
+| **topMargin**    | **Number**   | Top resulting margin in pixel (PDF, XPS, DOCX in inches).    | [optional] |
+| **bottomMargin** | **Number**   | Bottom resulting margin in pixel (PDF, XPS, DOCX in inches). | [optional] |
 
 ### Return type
 
@@ -261,18 +261,18 @@ var conf = {
 var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
 var src = "/FolderOnStorage/source.html";
-var dst = "/FolderOnStorage/result.epub";
-var opts = {
-    'width': 600,
-    'height': 800,
-    'leftMargin': 10,
-    'rightMargin': 20,
-    'topMargin': 30,
-    'bottomMargin': 40
+var dst = "/FolderOnStorage/result.xps";
+var opts_A5 = {
+    'width': 5.8,
+    'height': 8.3,
+    'leftMargin': 0.2,
+    'rightMargin': 0.2,
+    'topMargin': 0.2,
+    'bottomMargin': 0.2
 };
 var storage = "";
 
-apiInstance.convertStorageToStorage(src, dst, storage, opts, function (err, data, res) {
+apiInstance.convertStorageToStorage(src, dst, storage, opts_A5, function (err, data, res) {
     if (error) {
         console.error(error);
     } else {
@@ -281,18 +281,18 @@ apiInstance.convertStorageToStorage(src, dst, storage, opts, function (err, data
 ```
 
 ### Parameters
-| Name             | Type         | Description                                            | Notes      |
-|------------------|--------------|--------------------------------------------------------|------------|
-| **src**          | **String**   | Full path to the source file on the storage.           | html, epub |
-| **dst**          | **String**   | Full path to the result file on the storage.           |            |
-| **storage**      | **String**   | Storage name. Empty string or null is default storage. |            |
-| **options**      | **Object**   | Option for conversion.                                 | [optional] |
-| **width**        | **Number**   | Resulting width in pixel.                              | [optional] |
-| **height**       | **Number**   | Resulting height in pixel.                             | [optional] |
-| **leftMargin**   | **Number**   | Left resulting margin in pixel.                        | [optional] |
-| **rightMargin**  | **Number**   | Right resulting margin in pixel.                       | [optional] |
-| **topMargin**    | **Number**   | Top resulting margin in pixel.                         | [optional] |
-| **bottomMargin** | **Number**   | Bottom resulting margin in pixel.                      | [optional] |
+| Name             | Type         | Description                                                  | Notes      |
+|------------------|--------------|--------------------------------------------------------------|------------|
+| **src**          | **String**   | Full path to the source file on the storage.                 | html, epub |
+| **dst**          | **String**   | Full path to the result file on the storage.                 |            |
+| **storage**      | **String**   | Storage name. Empty string or null is default storage.       |            |
+| **options**      | **Object**   | Option for conversion.                                       | [optional] |
+| **width**        | **Number**   | Resulting width in pixels (PDF, XPS, DOCX in inches).        | [optional] |
+| **height**       | **Number**   | Resulting height in pixel (PDF, XPS, DOCX in inches).        | [optional] |
+| **leftMargin**   | **Number**   | Left resulting margin in pixel (PDF, XPS, DOCX in inches).   | [optional] |
+| **rightMargin**  | **Number**   | Right resulting margin in pixel (PDF, XPS, DOCX in inches).  | [optional] |
+| **topMargin**    | **Number**   | Top resulting margin in pixel (PDF, XPS, DOCX in inches).    | [optional] |
+| **bottomMargin** | **Number**   | Bottom resulting margin in pixel (PDF, XPS, DOCX in inches). | [optional] |
 
 ### Return type
 
@@ -337,16 +337,16 @@ var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
 var src = "https://stallman.org/articles/anonymous-payments-thru-phones.html";
 var dst = "/localPath/result.pdf";
-var opts = {
-    'width': 600,
-    'height': 800,
-    'leftMargin': 10,
-    'rightMargin': 20,
-    'topMargin': 30,
-    'bottomMargin': 40
+var opts_letter = {
+    'width': 8.5,
+    'height': 11.0,
+    'leftMargin': 0.2,
+    'rightMargin': 0.2,
+    'topMargin': 0.2,
+    'bottomMargin': 0.2
 };
 
-apiInstance.convertUrlToLocal(src, dst, opts, function (err, data, res) {
+apiInstance.convertUrlToLocal(src, dst, opts_letter, function (err, data, res) {
     if (error) {
         console.error(error);
     } else {
@@ -355,17 +355,17 @@ apiInstance.convertUrlToLocal(src, dst, opts, function (err, data, res) {
 ```
 
 ### Parameters
-| Name             | Type         | Description                                     | Notes                    |
-|------------------|--------------|-------------------------------------------------|--------------------------|
-| **src**          | **String**   | Website's address.                              | With http:// or https:// |
-| **dst**          | **String**   | Full path to the result file on the local disk. |                          |
-| **options**      | **Object**   | Option for conversion.                          | [optional]               |
-| **width**        | **Number**   | Resulting width in pixel.                       | [optional]               |
-| **height**       | **Number**   | Resulting height in pixel.                      | [optional]               |
-| **leftMargin**   | **Number**   | Left resulting margin in pixel.                 | [optional]               |
-| **rightMargin**  | **Number**   | Right resulting margin in pixel.                | [optional]               |
-| **topMargin**    | **Number**   | Top resulting margin in pixel.                  | [optional]               |
-| **bottomMargin** | **Number**   | Bottom resulting margin in pixel.               | [optional]               |
+| Name             | Type         | Description                                                  | Notes                    |
+|------------------|--------------|--------------------------------------------------------------|--------------------------|
+| **src**          | **String**   | Website's address.                                           | With http:// or https:// |
+| **dst**          | **String**   | Full path to the result file on the local disk.              |                          |
+| **options**      | **Object**   | Option for conversion.                                       | [optional]               |
+| **width**        | **Number**   | Resulting width in pixels (PDF, XPS, DOCX in inches).        | [optional]               |
+| **height**       | **Number**   | Resulting height in pixel (PDF, XPS, DOCX in inches).        | [optional]               |
+| **leftMargin**   | **Number**   | Left resulting margin in pixel (PDF, XPS, DOCX in inches).   | [optional]               |
+| **rightMargin**  | **Number**   | Right resulting margin in pixel (PDF, XPS, DOCX in inches).  | [optional]               |
+| **topMargin**    | **Number**   | Top resulting margin in pixel (PDF, XPS, DOCX in inches).    | [optional]               |
+| **bottomMargin** | **Number**   | Bottom resulting margin in pixel (PDF, XPS, DOCX in inches). | [optional]               |
 
 ### Return type
 
@@ -408,18 +408,18 @@ var conf = {
 var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
 var src = "https://stallman.org/articles/anonymous-payments-thru-phones.html";
-var dst = "/FolderOnStorage/result.epub";
-var opts = {
-    'width': 600,
-    'height': 800,
-    'leftMargin': 10,
-    'rightMargin': 20,
-    'topMargin': 30,
-    'bottomMargin': 40
+var dst = "/FolderOnStorage/result.xps";
+var opts_A4 = {
+    'width': 8.3,
+    'height': 11.7,
+    'leftMargin': 0.2,
+    'rightMargin': 0.2,
+    'topMargin': 0.2,
+    'bottomMargin': 0.2
 };
 var storage = "";
 
-apiInstance.convertUrlToStorage(src, dst, storage, opts, function (err, data, res) {
+apiInstance.convertUrlToStorage(src, dst, storage, opts_A4, function (err, data, res) {
     if (error) {
         console.error(error);
     } else {
@@ -428,18 +428,18 @@ apiInstance.convertUrlToStorage(src, dst, storage, opts, function (err, data, re
 ```
 
 ### Parameters
-| Name             | Type         | Description                                            | Notes                     |
-|------------------|--------------|--------------------------------------------------------|---------------------------|
-| **src**          | **String**   | Website's address.                                     | With http:// or https://  |
-| **dst**          | **String**   | Full path to the result file on the storage.           |                           |
-| **storage**      | **String**   | Storage name. Empty string or null is default storage. |                           |
-| **options**      | **Object**   | Option for conversion.                                 | [optional]                |
-| **width**        | **Number**   | Resulting width in pixel.                              | [optional]                |
-| **height**       | **Number**   | Resulting height in pixel.                             | [optional]                |
-| **leftMargin**   | **Number**   | Left resulting margin in pixel.                        | [optional]                |
-| **rightMargin**  | **Number**   | Right resulting margin in pixel.                       | [optional]                |
-| **topMargin**    | **Number**   | Top resulting margin in pixel.                         | [optional]                |
-| **bottomMargin** | **Number**   | Bottom resulting margin in pixel.                      | [optional]                |
+| Name             | Type         | Description                                                  | Notes                    |
+|------------------|--------------|--------------------------------------------------------------|--------------------------|
+| **src**          | **String**   | Website's address.                                           | With http:// or https:// |
+| **dst**          | **String**   | Full path to the result file on the storage.                 |                          |
+| **storage**      | **String**   | Storage name. Empty string or null is default storage.       |                          |
+| **options**      | **Object**   | Option for conversion.                                       | [optional]               |
+| **width**        | **Number**   | Resulting width in pixels (PDF, XPS, DOCX in inches).        | [optional]               |
+| **height**       | **Number**   | Resulting height in pixel (PDF, XPS, DOCX in inches).        | [optional]               |
+| **leftMargin**   | **Number**   | Left resulting margin in pixel (PDF, XPS, DOCX in inches).   | [optional]               |
+| **rightMargin**  | **Number**   | Right resulting margin in pixel (PDF, XPS, DOCX in inches).  | [optional]               |
+| **topMargin**    | **Number**   | Top resulting margin in pixel (PDF, XPS, DOCX in inches).    | [optional]               |
+| **bottomMargin** | **Number**   | Bottom resulting margin in pixel (PDF, XPS, DOCX in inches). | [optional]               |
 
 ### Return type
 
@@ -482,18 +482,18 @@ var conf = {
 var apiInstance = new Asposehtmlcloud.ConversionApi(conf);
 
 var src = "https://stallman.org/articles/anonymous-payments-thru-phones.html";
-var dst = "/FolderOnStorage/result.epub";
-var opts = {
-    'width': 600,
-    'height': 800,
-    'leftMargin': 10,
-    'rightMargin': 20,
-    'topMargin': 30,
-    'bottomMargin': 40
+var dst = "/FolderOnStorage/result.pdf";
+var opts_A3 = {
+    'width': 11.7,
+    'height': 16.5,
+    'leftMargin': 0.5,
+    'rightMargin': 0.5,
+    'topMargin': 0.5,
+    'bottomMargin': 0.5
 };
 var storage = "";
 
-apiInstance.convert(src, dst, false, false, true, opts, storage, function (err, data, res) {
+apiInstance.convert(src, dst, false, false, true, opts_A3, storage, function (err, data, res) {
     if (error) {
         console.error(error);
     } else {
@@ -502,21 +502,21 @@ apiInstance.convert(src, dst, false, false, true, opts, storage, function (err, 
 ```
 
 ### Parameters
-| Name             | Type         | Description                                            | Notes                     |
-|------------------|--------------|--------------------------------------------------------|---------------------------|
-| **src**          | **String**   | Full path to the source.                               | With http:// or https://  |
-| **dst**          | **String**   | Full path to the result.                               |                           |
-| **srcInLocal**   | **Boolean**  | Source on the local disk.                              |                           |
-| **dstInLocal**   | **Boolean**  | Save result on the local disk.                         |                           |
-| **isUrl**        | **Boolean**  | Source is url.                                         |                           |
-| **storage**      | **String**   | Storage name. Empty string or null is default storage. |                           |
-| **options**      | **Object**   | Option for conversion.                                 | [optional]                |
-| **width**        | **Number**   | Resulting width in pixel.                              | [optional]                |
-| **height**       | **Number**   | Resulting height in pixel.                             | [optional]                |
-| **leftMargin**   | **Number**   | Left resulting margin in pixel.                        | [optional]                |
-| **rightMargin**  | **Number**   | Right resulting margin in pixel.                       | [optional]                |
-| **topMargin**    | **Number**   | Top resulting margin in pixel.                         | [optional]                |
-| **bottomMargin** | **Number**   | Bottom resulting margin in pixel.                      | [optional]                |
+| Name             | Type         | Description                                                  | Notes                    |
+|------------------|--------------|--------------------------------------------------------------|--------------------------|
+| **src**          | **String**   | Full path to the source.                                     | With http:// or https:// |
+| **dst**          | **String**   | Full path to the result.                                     |                          |
+| **srcInLocal**   | **Boolean**  | Source on the local disk.                                    |                          |
+| **dstInLocal**   | **Boolean**  | Save result on the local disk.                               |                          |
+| **isUrl**        | **Boolean**  | Source is url.                                               |                          |
+| **storage**      | **String**   | Storage name. Empty string or null is default storage.       |                          |
+| **options**      | **Object**   | Option for conversion.                                       | [optional]               |
+| **width**        | **Number**   | Resulting width in pixels (PDF, XPS, DOCX in inches).        | [optional]               |
+| **height**       | **Number**   | Resulting height in pixel (PDF, XPS, DOCX in inches).        | [optional]               |
+| **leftMargin**   | **Number**   | Left resulting margin in pixel (PDF, XPS, DOCX in inches).   | [optional]               |
+| **rightMargin**  | **Number**   | Right resulting margin in pixel (PDF, XPS, DOCX in inches).  | [optional]               |
+| **topMargin**    | **Number**   | Top resulting margin in pixel (PDF, XPS, DOCX in inches).    | [optional]               |
+| **bottomMargin** | **Number**   | Bottom resulting margin in pixel (PDF, XPS, DOCX in inches). | [optional]               |
 
 ### Return type
 
