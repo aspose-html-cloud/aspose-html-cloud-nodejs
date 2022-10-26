@@ -46,7 +46,7 @@ const helper = require("../../test/helper");
     /**
      * Conversion service.
      * @module api/ConversionApi
-     * @version 22.9.1
+     * @version 22.10.1
      */
 
     /**

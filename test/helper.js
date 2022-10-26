@@ -40,10 +40,15 @@
 
 'use strict';
     var conf = {
-        "basePath":"https://api.aspose.cloud/v4.0",
-        "authPath":"https://api.aspose.cloud/connect/token",
-        "apiKey":"c8dda7d6445d82635b8797d1c8edd153",
-        "appSID":"2225baa2-097b-4731-9831-d0d56c28230f",
+        // "basePath":"https://api.aspose.cloud/v4.0",
+        // "authPath":"https://api.aspose.cloud/connect/token",
+        // "apiKey":"c8dda7d6445d82635b8797d1c8edd153",
+        // "appSID":"2225baa2-097b-4731-9831-d0d56c28230f",
+        "basePath":"http://localhost:5000/v4.0",
+        "authPath":"https://api-qa.aspose.cloud/connect/token",
+        "apiKey":"html.cloud",
+        "appSID":"html.cloud",
+
         "testResult":"/testresult/",
         "testData":"/testdata/",
         "remoteFolder":"HtmlTestDoc",

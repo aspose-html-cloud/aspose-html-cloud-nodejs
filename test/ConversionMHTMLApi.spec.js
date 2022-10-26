@@ -1,6 +1,6 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="ConversionHtmlApi.spec.js">
+* <copyright company="Aspose" file="ConversionMHTMLApi.spec.js">
 *   Copyright (c) 2022 Aspose.HTML for Cloud
 * </copyright>
 * <summary>
@@ -72,14 +72,14 @@ var helper = require('./helper');
             object[property] = value;
     };
 
-    describe('ConversionHtmlApi', function () {
+    describe('ConversionMHTMLApi', function () {
         this.timeout(1800000);
 
-        describe('convertLocalToLocal', function () {
-            it('should call convert local to local file successfully (html)', function (done) {
+        describe('LocalToLocalMHTML', function () {
+            it('should call convert local to local file successfully (mhtml)', function (done) {
 
-                var src = local_src_folder + "test_data.html";
-                var dst = local_dst_folder + "LocalToLocal.jpeg";
+                var src = local_src_folder + "fileformatinfo.mht";
+                var dst = local_dst_folder + "LocalToLocalMHTML.jpeg";
                 var opts = {
                     'width': 600,
                     'height': 800,
@@ -98,11 +98,11 @@ var helper = require('./helper');
             });
         });
 
-        describe('convertLocalToStorage', function () {
-            it('should call convert local to storage file successfully (html)', function (done) {
+        describe('LocalToStorageMHTML', function () {
+            it('should call convert local to storage file successfully (mhtml)', function (done) {
 
-                var src = local_src_folder + "test_data.html";
-                var dst = "FolderInStorage/LocalToStorage.tif";
+                var src = local_src_folder + "fileformatinfo.mht";
+                var dst = "FolderInStorage/LocalToStorageMHTML.tif";
                 var opts = {
                     'width': 600,
                     'height': 800,
@@ -131,12 +131,12 @@ var helper = require('./helper');
             });
         });
 
-        describe('convertStorageToLocal', function () {
-            it('should call convert storage to local file successfully (html)', function (done) {
+        describe('StorageToLocalMHTML', function () {
+            it('should call convert storage to local file successfully (mhtml)', function (done) {
 
-                var toUpload = local_src_folder + "test_data.html";
-                var src = "FolderInStorage/test_data.html";
-                var dst = local_dst_folder + "StorageToLocal.jpeg";
+                var toUpload = local_src_folder + "fileformatinfo.mht";
+                var src = "FolderInStorage/fileformatinfo.mht";
+                var dst = local_dst_folder + "StorageToLocalMHTML.jpeg";
                 var opts = {
                     'width': 600,
                     'height': 800,
@@ -164,12 +164,12 @@ var helper = require('./helper');
             });
         });
 
-        describe('convertStorageToStorage', function () {
-            it('should call convert storage to storage file successfully (html)', function (done) {
+        describe('StorageToStorageMHTML', function () {
+            it('should call convert storage to storage file successfully (mhtml)', function (done) {
 
-                var toUpload = local_src_folder + "test_data.html";
-                var src = "FolderInStorage/test_data.html";
-                var dst = "FolderInStorage/StorageToStorage.pdf";
+                var toUpload = local_src_folder + "fileformatinfo.mht";
+                var src = "FolderInStorage/fileformatinfo.mht";
+                var dst = "FolderInStorage/StorageToStorageMHTML.pdf";
                 var opts_A4 = {
                     'width': 8.3,
                     'height': 11.7,
@@ -207,68 +207,11 @@ var helper = require('./helper');
             });
         });
 
-        describe('convertUrlToLocal', function () {
-            it('should call convert website to local file successfully (html)', function (done) {
+        describe('convertMHTML', function () {
+            it('should call convert successfully (mhtml)', function (done) {
 
-                var src = "https://stallman.org/articles/anonymous-payments-thru-phones.html";
-                var dst = local_dst_folder + "WebsiteToLocal.pdf";
-                var opts_A3 = {
-                    'width': 11.7,
-                    'height': 16.5,
-                    'leftMargin': 0.2,
-                    'rightMargin': 0.2,
-                    'topMargin': 0.2,
-                    'bottomMargin': 0.2
-                };
-
-                convert_api.convertUrlToLocal(src, dst, opts_A3, function (err, data, res) {
-                    if (err) throw err;
-                    expect(200).to.be(res.status);
-                    expect(fs.existsSync(data.file)).to.be(true);
-                    done();
-                });
-            });
-        });
-
-        describe('convertUrlToStorage', function () {
-            it('should call convert website to storage successfully (html)', function (done) {
-
-                var src = "https://stallman.org/articles/anonymous-payments-thru-phones.html";
-                var dst = "FolderInStorage/WebsiteToStorage.pdf";
-                var storage = null;
-                var opts_A4 = {
-                    'width': 8.3,
-                    'height': 11.7,
-                    'leftMargin': 0.2,
-                    'rightMargin': 0.2,
-                    'topMargin': 0.2,
-                    'bottomMargin': 0.2
-                };
-
-                convert_api.convertUrlToStorage(src, dst, storage, opts_A4, function (err, data, res) {
-                    if (err) throw err;
-                    expect(200).to.be(res.status);
-
-                    var opts = {
-                        'versionId': null,
-                        'storageName': null
-                    };
-
-                    storage_api.objectExists(data.file, opts, (err, data, resp) => {
-                        expect(200).to.be(resp.status);
-                        expect(data.exists).to.be.ok();
-                        expect(data.isFolder).to.not.be.ok();
-                        done();
-                    });
-                });
-            });
-        });
-
-        describe('convert', function () {
-            it('should call convert successfully (html)', function (done) {
-
-                var src = local_src_folder + "test_data.html";
-                var dst = local_dst_folder + "GeneralConvert.jpeg";
+                var src = local_src_folder + "fileformatinfo.mht";
+                var dst = local_dst_folder + "GeneralConvertMHTML.jpeg";
                 var storage = null;
                 var opts = {
                     'width': 600,
