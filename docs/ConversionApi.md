@@ -7,16 +7,29 @@ All URIs are relative to *https://api.aspose.cloud/v4.0*
 - EPUB -> PDF, XPS, DOCX, JPEG, BMP, PNG, TIFF, GIF
 - MD -> PDF, XPS, DOCX, HTML, MHTML, JPEG, BMP, PNG, TIFF, GIF
 - MHTML -> PDF, XPS, DOCX, JPEG, BMP, PNG, TIFF, GIF
+- SVG -> PDF, XPS, JPEG, BMP, PNG, TIFF, GIF
+- JPEG, BMP, PNG, TIFF, GIF -> SVG
 
-| Method                                                  | Description                                                              |
-|---------------------------------------------------------|--------------------------------------------------------------------------|
-| [**convertLocalToLocal**](#convertlocaltolocal)         | Convert the HTML or EPUB document from local disk to a local disk.       |
-| [**convertLocalToStorage**](#convertlocaltostorage)     | Convert the HTML or EPUB document from local disk to user's storage.     |
-| [**convertStorageToLocal**](#convertstoragetolocal)     | Convert the HTML or EPUB document from user's storage to local disk.     |
-| [**convertStorageToStorage**](#convertstoragetostorage) | Convert the HTML or EPUB document from user's storage to user's storage. |
-| [**convertUrlToLocal**](#converturltolocal)             | Convert the HTML document by URL to local disk.                          |
-| [**convertUrlToStorage**](#converturltostorage)         | Convert the HTML document by URL to user's storage.                      |
-| [**convert**](#convert)                                 | Convert the HTML, EPUB or URL to the specified format.                   |
+
+| Method                                                  | Description                                               |
+|---------------------------------------------------------|-----------------------------------------------------------|
+| [**convertLocalToLocal**](#convertlocaltolocal)         | Convert a document from local disk to a local disk.       |
+| [**convertLocalToStorage**](#convertlocaltostorage)     | Convert a document from local disk to user's storage.     |
+| [**convertStorageToLocal**](#convertstoragetolocal)     | Convert a document from user's storage to local disk.     |
+| [**convertStorageToStorage**](#convertstoragetostorage) | Convert a document from user's storage to user's storage. |
+| [**convertUrlToLocal**](#converturltolocal)             | Convert the HTML document by URL to local disk.           |
+| [**convertUrlToStorage**](#converturltostorage)         | Convert the HTML document by URL to user's storage.       |
+| [**convert**](#convert)                                 | Convert  a document to the specified format.              |
+
+## conversionOptions
+| Options                                                     | Description                                       |
+|-------------------------------------------------------------|---------------------------------------------------|
+| [**PDFOptions**](ConversionOptions.md#PDFOptions)           | Convert to the PDF format.                        |
+| [**ImageOptions**](ConversionOptions.md#ImageOptions)       | Convert to images (JPEG, PNG, GIF, TIFF, BMP).    |
+| [**XPSOptions**](ConversionOptions.md#XPSOptions)           | Convert to the XPS format.                        |
+| [**DocOptions**](ConversionOptions.md#DocOptions)           | Convert to the DOCX format.                       |
+| [**SvgOptions**](ConversionOptions.md#SvgOptions)           | Trace images to the SVG format.                   |
+| [**MarkdownOptions**](ConversionOptions.md#MarkdownOptions) | Convert the HTML document to the markdown format. |
 
 ## convertLocalToLocal
 > convertLocalToLocal(src, dst, opts, function (err, data, res);

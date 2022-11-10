@@ -286,6 +286,12 @@ const helper = require("../../test/helper");
                     case 'mhtml':
                         inputFormat = 'mhtml';
                         break;
+                    case 'jpg':
+                        inputFormat ='jpeg';
+                        break;
+                    case 'tif':
+                        inputFormat = 'tiff';
+                        break;
                     default:
                         inputFormat = ext;
                 }
