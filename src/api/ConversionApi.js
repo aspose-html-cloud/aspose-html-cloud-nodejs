@@ -46,7 +46,7 @@ const helper = require("../../test/helper");
     /**
      * Conversion service.
      * @module api/ConversionApi
-     * @version 22.10.1
+     * @version 22.11.1
      */
 
     /**
@@ -285,6 +285,12 @@ const helper = require("../../test/helper");
                     case 'mht':
                     case 'mhtml':
                         inputFormat = 'mhtml';
+                        break;
+                    case 'jpg':
+                        inputFormat ='jpeg';
+                        break;
+                    case 'tif':
+                        inputFormat = 'tiff';
                         break;
                     default:
                         inputFormat = ext;

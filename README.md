@@ -1,8 +1,8 @@
 # Aspose.Html Cloud Node.js SDK
 [Aspose.Html Cloud](https://products.aspose.cloud/html) is a true [REST API](https://apireference.aspose.cloud/html/) that enables you to perform a wide range of html processing operations including manipulation and conversion in the cloud, with zero initial costs. Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process html pages in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights. 
 
-- API version: 22.10.1
-- Package version: 22.10.1
+- API version: 22.11.1
+- Package version: 22.11.1
 
 
 ### Possible conversions: 
@@ -10,6 +10,8 @@
 - EPUB -> PDF, XPS, DOCX, JPEG, BMP, PNG, TIFF, GIF
 - MD -> PDF, XPS, DOCX, HTML, MHTML, JPEG, BMP, PNG, TIFF, GIF
 - MHTML -> PDF, XPS, DOCX, JPEG, BMP, PNG, TIFF, GIF
+- SVG -> PDF, XPS, JPEG, BMP, PNG, TIFF, GIF
+- JPEG, BMP, PNG, TIFF, GIF -> SVG
 
 ## Installation
 
@@ -50,7 +52,7 @@ Please, add the following [nmp package](https://www.npmjs.com/package/@asposeclo
 ```json
 {
   "dependencies": {
-    "@asposecloud/aspose-html-cloud":"^22.10.1"
+    "@asposecloud/aspose-html-cloud":"^22.11.1"
   }
 }
 ```
@@ -183,15 +185,15 @@ All URIs are relative to *https://api.aspose.cloud/v4.0*
 ### HTML API
 - For conversion to images allowed formats is jpeg, png, bmp, tiff, gif. Input formats are html, epub, svg.
 
-| Class                           | Method                                                                       | Description                                                              |
-|---------------------------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| *Asposehtmlcloud.ConversionApi* | [**convertLocalToLocal**](docs/ConversionApi.md#convertlocaltolocal)         | Convert the HTML or EPUB document from local disk to a local disk.       |
-| *Asposehtmlcloud.ConversionApi* | [**convertLocalToStorage**](docs/ConversionApi.md#convertlocaltostorage)     | Convert the HTML or EPUB document from local disk to user's storage.     |
-| *Asposehtmlcloud.ConversionApi* | [**convertStorageToLocal**](docs/ConversionApi.md#convertstoragetolocal)     | Convert the HTML or EPUB document from user's storage to local disk.     |
-| *Asposehtmlcloud.ConversionApi* | [**convertStorageToStorage**](docs/ConversionApi.md#convertstoragetostorage) | Convert the HTML or EPUB document from user's storage to user's storage. |
-| *Asposehtmlcloud.ConversionApi* | [**convertUrlToLocal**](docs/ConversionApi.md#converturltolocal)             | Convert the HTML document by URL to local disk.                          |
-| *Asposehtmlcloud.ConversionApi* | [**convertUrlToStorage**](docs/ConversionApi.md#converturltostorage)         | Convert the HTML document by URL to user's storage.                      |
-| *Asposehtmlcloud.ConversionApi* | [**convert**](docs/ConversionApi.md#convert)                                 | Convert the HTML, EPUB or URL to the specified format.                   |
+| Class                           | Method                                                                       | Description                                               |
+|---------------------------------|------------------------------------------------------------------------------|-----------------------------------------------------------|
+| *Asposehtmlcloud.ConversionApi* | [**convertLocalToLocal**](docs/ConversionApi.md#convertlocaltolocal)         | Convert a document from local disk to a local disk.       |
+| *Asposehtmlcloud.ConversionApi* | [**convertLocalToStorage**](docs/ConversionApi.md#convertlocaltostorage)     | Convert a document from local disk to user's storage.     |
+| *Asposehtmlcloud.ConversionApi* | [**convertStorageToLocal**](docs/ConversionApi.md#convertstoragetolocal)     | Convert a document from user's storage to local disk.     |
+| *Asposehtmlcloud.ConversionApi* | [**convertStorageToStorage**](docs/ConversionApi.md#convertstoragetostorage) | Convert a document from user's storage to user's storage. |
+| *Asposehtmlcloud.ConversionApi* | [**convertUrlToLocal**](docs/ConversionApi.md#converturltolocal)             | Convert the HTML document by URL to local disk.           |
+| *Asposehtmlcloud.ConversionApi* | [**convertUrlToStorage**](docs/ConversionApi.md#converturltostorage)         | Convert the HTML document by URL to user's storage.       |
+| *Asposehtmlcloud.ConversionApi* | [**convert**](docs/ConversionApi.md#convert)                                 | Convert a document to the specified format.               |
 
 <a name="storage_api"></a>
 ## STORAGE API   
