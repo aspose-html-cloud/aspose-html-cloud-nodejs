@@ -45,7 +45,7 @@
   /**
    * The FileVersions model module.
    * @module model/FileVersions
-   * @version 22.11.1
+   * @version 22.11.2
    */
   /**
    * Constructs a new <code>FileVersions</code>.

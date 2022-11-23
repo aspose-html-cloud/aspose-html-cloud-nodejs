@@ -46,7 +46,7 @@
   /**
    * The StorageExist model module.
    * @module model/StorageExist
-   * @version 22.11.1
+   * @version 22.11.2
    */
 
   /**

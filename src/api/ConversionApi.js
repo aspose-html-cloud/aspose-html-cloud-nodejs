@@ -25,7 +25,6 @@
 * --------------------------------------------------------------------------------------------------------------------
 */
 
-const helper = require("../../test/helper");
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
@@ -46,7 +45,7 @@ const helper = require("../../test/helper");
     /**
      * Conversion service.
      * @module api/ConversionApi
-     * @version 22.11.1
+     * @version 22.11.2
      */
 
     /**

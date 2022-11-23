@@ -46,7 +46,7 @@
   /**
    * The FileVersion model module.
    * @module model/FileVersion
-   * @version 22.11.1
+   * @version 22.11.2
    */
 
   /**
