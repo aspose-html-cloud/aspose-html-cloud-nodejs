@@ -45,7 +45,7 @@
   /**
    * The StorageFile model module.
    * @module model/StorageFile
-   * @version 22.11.2
+   * @version 22.12.1
    */
 
   /**

@@ -45,7 +45,7 @@
   /**
    * The FilesList model module.
    * @module model/FilesList
-   * @version 22.11.2
+   * @version 22.12.1
    */
 
   /**

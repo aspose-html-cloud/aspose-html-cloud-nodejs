@@ -1,8 +1,8 @@
 # Aspose.Html Cloud Node.js SDK
 [Aspose.Html Cloud](https://products.aspose.cloud/html) is a true [REST API](https://apireference.aspose.cloud/html/) that enables you to perform a wide range of html processing operations including manipulation and conversion in the cloud, with zero initial costs. Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process html pages in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights. 
 
-- API version: 22.11.2
-- Package version: 22.11.2
+- API version: 22.12.1
+- Package version: 22.12.1
 
 
 ### Possible conversions: 
@@ -12,6 +12,7 @@
 - MHTML -> PDF, XPS, DOCX, JPEG, BMP, PNG, TIFF, GIF
 - SVG -> PDF, XPS, JPEG, BMP, PNG, TIFF, GIF
 - JPEG, BMP, PNG, TIFF, GIF -> SVG
+
 
 ## Installation
 
@@ -52,7 +53,7 @@ Please, add the following [nmp package](https://www.npmjs.com/package/@asposeclo
 ```json
 {
   "dependencies": {
-    "@asposecloud/aspose-html-cloud":"^22.11.2"
+    "@asposecloud/aspose-html-cloud":"^22.12.1"
   }
 }
 ```
@@ -181,8 +182,8 @@ All URIs are relative to *https://api.aspose.cloud/v4.0*
 
 [Tests](./test/) contain various examples of using the Aspose.HTML SDK.
 
-<a name="html_api"></a>
-### HTML API
+<a name="conversion_api"></a>
+### CONVERSION API
 - For conversion to images allowed formats is jpeg, png, bmp, tiff, gif. Input formats are html, epub, svg.
 
 | Class                           | Method                                                                       | Description                                               |
@@ -194,6 +195,18 @@ All URIs are relative to *https://api.aspose.cloud/v4.0*
 | *Asposehtmlcloud.ConversionApi* | [**convertUrlToLocal**](docs/ConversionApi.md#converturltolocal)             | Convert the HTML document by URL to local disk.           |
 | *Asposehtmlcloud.ConversionApi* | [**convertUrlToStorage**](docs/ConversionApi.md#converturltostorage)         | Convert the HTML document by URL to user's storage.       |
 | *Asposehtmlcloud.ConversionApi* | [**convert**](docs/ConversionApi.md#convert)                                 | Convert a document to the specified format.               |
+
+
+<a name="vectorization_api"></a>
+### VECTORIZATION API
+
+| Class                              | Method                                                                              | Description                                                   |
+|------------------------------------|-------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| *Asposehtmlcloud.VectorizationApi* | [**vectorizeLocalToLocal**](docs/VectorizationApi.md#vectorizelocaltolocal)         | Vectorization an image from local disk to a local disk.       |
+| *Asposehtmlcloud.VectorizationApi* | [**vectorizeLocalToStorage**](docs/VectorizationApi.md#vectorizelocaltostorage)     | Vectorization an image from local disk to user's storage.     |
+| *Asposehtmlcloud.VectorizationApi* | [**vectorizeStorageToLocal**](docs/VectorizationApi.md#vectorizestoragetolocal)     | Vectorization an image from user's storage to local disk.     |
+| *Asposehtmlcloud.VectorizationApi* | [**vectorizeStorageToStorage**](docs/VectorizationApi.md#vectorizestoragetostorage) | Vectorization an image from user's storage to user's storage. |
+| *Asposehtmlcloud.VectorizationApi* | [**vectorize**](docs/VectorizationApi.md#vectorize)                                 | Vectorization an image to the specified format.               |
 
 <a name="storage_api"></a>
 ## STORAGE API   
@@ -212,7 +225,7 @@ All URIs are relative to *https://api.aspose.cloud/v4.0*
 
 ## Documentation for Models
 
- - [Asposehtmlcloud.ConversionResult](docs/ConversionResult.md)
+ - [Asposehtmlcloud.OperationResult](docs/OperationResult.md)
  - [Asposehtmlcloud.DiscUsage](docs/DiscUsage.md)
  - [Asposehtmlcloud.Error](docs/Error.md)
  - [Asposehtmlcloud.ErrorDetails](docs/ErrorDetails.md)

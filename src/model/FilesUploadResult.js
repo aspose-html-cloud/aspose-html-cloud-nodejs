@@ -45,7 +45,7 @@
   /**
    * The FilesUploadResult model module.
    * @module model/FilesUploadResult
-   * @version 22.11.2
+   * @version 22.12.1
    */
 
   /**

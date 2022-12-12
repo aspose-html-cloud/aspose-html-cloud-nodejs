@@ -1,8 +1,8 @@
 # Aspose.Html Cloud Node.js SDK
 [Aspose.Html Cloud](https://products.aspose.cloud/html) is a true [REST API](https://apireference.aspose.cloud/html/) that enables you to perform a wide range of html processing operations including manipulation and conversion in the cloud, with zero initial costs. Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process html pages in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights. 
 
-- API version: 22.11.2
-- Package version: 22.11.2
+- API version: 22.12.1
+- Package version: 22.12.1
 
 
 ### Possible conversions: 
@@ -50,7 +50,7 @@ Please, add the following [nmp package](https://www.npmjs.com/package/@asposeclo
 ```json
 {
   "dependencies": {
-    "@asposecloud/aspose-html-cloud":"^22.11.2"
+    "@asposecloud/aspose-html-cloud":"^22.12.1"
   }
 }
 ```
@@ -210,7 +210,7 @@ All URIs are relative to *https://api.aspose.cloud/v4.0*
 
 ## Documentation for Models
 
- - [Asposehtmlcloud.ConversionResult](docs/ConversionResult.md)
+ - [Asposehtmlcloud.OperationResult](docs/OperationResult.md)
  - [Asposehtmlcloud.DiscUsage](docs/DiscUsage.md)
  - [Asposehtmlcloud.Error](docs/Error.md)
  - [Asposehtmlcloud.ErrorDetails](docs/ErrorDetails.md)

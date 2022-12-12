@@ -30,15 +30,17 @@
         // AMD. Register as an anonymous module.
         define(['ApiClient',
             'api/ConversionApi',
+            'api/VectorizationApi',
             'api/StorageApi'], factory);
     } else if (typeof module === 'object' && module.exports) {
         // CommonJS-like environments that support module.exports, like Node.
         module.exports = factory(require('./ApiClient'),
             require('./api/ConversionApi'),
+            require('./api/VectorizationApi'),
             require('./api/StorageApi')
         );
     }
-}(function (ApiClient, ConversionApi, StorageApi) {
+}(function (ApiClient, ConversionApi, VectorizationApi, StorageApi) {
     'use strict';
 
     /**
@@ -70,7 +72,7 @@
      * </pre>
      * </p>
      * @module index
-     * @version 22.11.2
+     * @version 22.12.1
      */
     var exports = {
         /**
@@ -84,6 +86,12 @@
          * @property {module:api/ConversionApi}
          */
         ConversionApi: ConversionApi,
+
+        /**
+         * The VectorizationApi service constructor.
+         * @property {module:api/VectorizationApi}
+         */
+        VectorizationApi: VectorizationApi,
 
         /**
          * The StorageApi service constructor.

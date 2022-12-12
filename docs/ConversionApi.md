@@ -90,11 +90,11 @@ apiInstance.convertLocalToLocal(src, dst, opts, function (err, data, res) {
 
 **(err, data, res)**
 
-| Name     | Type                                        | Description                      |
-|----------|---------------------------------------------|----------------------------------|
-| **err**  | **String**                                  | Error if conversion is failed    |
-| **data** | **[ConversionResult](ConversionResult.md)** | Result of conversion             |
-| **res**  | **Object**                                  | Http response for conversion API |
+| Name     | Type                                      | Description                      |
+|----------|-------------------------------------------|----------------------------------|
+| **err**  | **String**                                | Error if conversion is failed    |
+| **data** | **[OperationResult](OperationResult.md)** | Result of conversion             |
+| **res**  | **Object**                                | Http response for conversion API |
 
 ### HTTP request headers
 
@@ -164,11 +164,11 @@ apiInstance.convertLocalToStorage(src, dst, storage, opts, function (err, data, 
 
 **(err, data, res)**
 
-| Name     | Type                                        | Description                      |
-|----------|---------------------------------------------|----------------------------------|
-| **err**  | **String**                                  | Error if conversion is failed    |
-| **data** | **[ConversionResult](ConversionResult.md)** | Result of conversion             |
-| **res**  | **Object**                                  | Http response for conversion API |
+| Name     | Type                                      | Description                      |
+|----------|-------------------------------------------|----------------------------------|
+| **err**  | **String**                                | Error if conversion is failed    |
+| **data** | **[OperationResult](OperationResult.md)** | Result of conversion             |
+| **res**  | **Object**                                | Http response for conversion API |
 
 ### HTTP request headers
 
@@ -239,11 +239,11 @@ apiInstance.convertStorageToLocal(src, dst, storage, opts_A4, function (err, dat
 
 **(err, data, res)**
 
-| Name     | Type                                        | Description                      |
-|----------|---------------------------------------------|----------------------------------|
-| **err**  | **String**                                  | Error if conversion is failed    |
-| **data** | **[ConversionResult](ConversionResult.md)** | Result of conversion             |
-| **res**  | **Object**                                  | Http response for conversion API |
+| Name     | Type                                      | Description                      |
+|----------|-------------------------------------------|----------------------------------|
+| **err**  | **String**                                | Error if conversion is failed    |
+| **data** | **[OperationResult](OperationResult.md)** | Result of conversion             |
+| **res**  | **Object**                                | Http response for conversion API |
 
 ### HTTP request headers
 
@@ -314,11 +314,11 @@ apiInstance.convertStorageToStorage(src, dst, storage, opts_A5, function (err, d
 
 **(err, data, res)**
 
-| Name     | Type                                        | Description                      |
-|----------|---------------------------------------------|----------------------------------|
-| **err**  | **String**                                  | Error if conversion is failed    |
-| **data** | **[ConversionResult](ConversionResult.md)** | Result of conversion             |
-| **res**  | **Object**                                  | Http response for conversion API |
+| Name     | Type                                      | Description                      |
+|----------|-------------------------------------------|----------------------------------|
+| **err**  | **String**                                | Error if conversion is failed    |
+| **data** | **[OperationResult](OperationResult.md)** | Result of conversion             |
+| **res**  | **Object**                                | Http response for conversion API |
 
 ### HTTP request headers
 
@@ -387,11 +387,11 @@ apiInstance.convertUrlToLocal(src, dst, opts_letter, function (err, data, res) {
 
 **(err, data, res)**
 
-| Name     | Type                                        | Description                      |
-|----------|---------------------------------------------|----------------------------------|
-| **err**  | **String**                                  | Error if conversion is failed    |
-| **data** | **[ConversionResult](ConversionResult.md)** | Result of conversion             |
-| **res**  | **Object**                                  | Http response for conversion API |
+| Name     | Type                                      | Description                      |
+|----------|-------------------------------------------|----------------------------------|
+| **err**  | **String**                                | Error if conversion is failed    |
+| **data** | **[OperationResult](OperationResult.md)** | Result of conversion             |
+| **res**  | **Object**                                | Http response for conversion API |
 
 ### HTTP request headers
 
@@ -461,11 +461,11 @@ apiInstance.convertUrlToStorage(src, dst, storage, opts_A4, function (err, data,
 
 **(err, data, res)**
 
-| Name     | Type                                        | Description                      |
-|----------|---------------------------------------------|----------------------------------|
-| **err**  | **String**                                  | Error if conversion is failed    |
-| **data** | **[ConversionResult](ConversionResult.md)** | Result of conversion             |
-| **res**  | **Object**                                  | Http response for conversion API |
+| Name     | Type                                      | Description                      |
+|----------|-------------------------------------------|----------------------------------|
+| **err**  | **String**                                | Error if conversion is failed    |
+| **data** | **[OperationResult](OperationResult.md)** | Result of conversion             |
+| **res**  | **Object**                                | Http response for conversion API |
 
 ### HTTP request headers
 
@@ -538,11 +538,11 @@ apiInstance.convert(src, dst, false, false, true, opts_A3, storage, function (er
 
 **(err, data, res)**
 
-| Name     | Type                                        | Description                      |
-|----------|---------------------------------------------|----------------------------------|
-| **err**  | **String**                                  | Error if conversion is failed    |
-| **data** | **[ConversionResult](ConversionResult.md)** | Result of conversion             |
-| **res**  | **Object**                                  | Http response for conversion API |
+| Name     | Type                                      | Description                      |
+|----------|-------------------------------------------|----------------------------------|
+| **err**  | **String**                                | Error if conversion is failed    |
+| **data** | **[OperationResult](OperationResult.md)** | Result of conversion             |
+| **res**  | **Object**                                | Http response for conversion API |
 
 ### HTTP request headers
 

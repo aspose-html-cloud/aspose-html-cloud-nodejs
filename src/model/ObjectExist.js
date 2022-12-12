@@ -45,7 +45,7 @@
   /**
    * The ObjectExist model module.
    * @module model/ObjectExist
-   * @version 22.11.2
+   * @version 22.12.1
    */
 
   /**

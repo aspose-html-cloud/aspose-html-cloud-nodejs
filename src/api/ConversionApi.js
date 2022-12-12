@@ -45,7 +45,7 @@
     /**
      * Conversion service.
      * @module api/ConversionApi
-     * @version 22.11.2
+     * @version 22.12.1
      */
 
     /**
@@ -61,14 +61,13 @@
         this.storageApi = new StorageApi(conf);
         this.fs = require('fs');
         this.path = require('path');
-        this.synReq = require('sync-request');
 
 
         /**
          * Callback function to receive the result of the convert operation.
          * @callback module:api/ConversionApi~convertLocalToLocal
          * @param {String} error Error message, if any.
-         * @param {ConversionResult} data The ConversionResult object with results of conversion.
+         * @param {OperationResult} data The OperationResult object with results of conversion.
          * @param {String} response The complete HTTP response.
          */
 
@@ -84,7 +83,7 @@
          * @param {Number} options.topMargin Top resulting margin in pixels. (optional)
          * @param {Number} options.bottomMargin Bottom resulting margin in pixels. (optional)
          * @param {module:api/ConversionApi~convert} callback The callback function, accepting three arguments: error, data, response
-         * data is of type: {@link ConversionResult}
+         * data is of type: {@link OperationResult}
          */
         this.convertLocalToLocal = function(src, dst, options, callback){
             this.convert(src, dst, true, true, false, options, "", callback);
@@ -94,7 +93,7 @@
          * Callback function to receive the result of the convert operation.
          * @callback module:api/ConversionApi~convert
          * @param {String} error Error message, if any.
-         * @param {ConversionResult} data The ConversionResult object with results of conversion.
+         * @param {OperationResult} data The OperationResult object with results of conversion.
          * @param {String} response The complete HTTP response.
          */
 
@@ -111,7 +110,7 @@
          * @param {Number} options.topMargin Top resulting margin in pixels. (optional)
          * @param {Number} options.bottomMargin Bottom resulting margin in pixels. (optional)
          * @param {module:api/ConversionApi~convert} callback The callback function, accepting three arguments: error, data, response
-         * data is of type: {@link ConversionResult}
+         * data is of type: {@link OperationResult}
          */
         this.convertLocalToStorage = function(src, dst, storage, options, callback){
             this.convert(src, dst, true, false, false, options, storage, callback);
@@ -121,7 +120,7 @@
          * Callback function to receive the result of the convert operation.
          * @callback module:api/ConversionApi~convert
          * @param {String} error Error message, if any.
-         * @param {ConversionResult} data The ConversionResult object with results of conversion.
+         * @param {OperationResult} data The OperationResult object with results of conversion.
          * @param {String} response The complete HTTP response.
          */
 
@@ -138,7 +137,7 @@
          * @param {Number} options.topMargin Top resulting margin in pixels. (optional)
          * @param {Number} options.bottomMargin Bottom resulting margin in pixels. (optional)
          * @param {module:api/ConversionApi~convert} callback The callback function, accepting three arguments: error, data, response
-         * data is of type: {@link ConversionResult}
+         * data is of type: {@link OperationResult}
          */
         this.convertStorageToLocal = function(src, dst, storage, options, callback){
             this.convert(src, dst, false, true, false, options, storage, callback);
@@ -148,7 +147,7 @@
          * Callback function to receive the result of the convert operation.
          * @callback module:api/ConversionApi~convert
          * @param {String} error Error message, if any.
-         * @param {ConversionResult} data The ConversionResult object with results of conversion.
+         * @param {OperationResult} data The OperationResult object with results of conversion.
          * @param {String} response The complete HTTP response.
          */
 
@@ -165,7 +164,7 @@
          * @param {Number} options.topMargin Top resulting margin in pixels. (optional)
          * @param {Number} options.bottomMargin Bottom resulting margin in pixels. (optional)
          * @param {module:api/ConversionApi~convert} callback The callback function, accepting three arguments: error, data, response
-         * data is of type: {@link ConversionResult}
+         * data is of type: {@link OperationResult}
          */
         this.convertStorageToStorage = function(src, dst, storage, options, callback){
             this.convert(src, dst, false, false, false, options, storage, callback);
@@ -175,7 +174,7 @@
          * Callback function to receive the result of the convert operation.
          * @callback module:api/ConversionApi~convert
          * @param {String} error Error message, if any.
-         * @param {ConversionResult} data The ConversionResult object with results of conversion.
+         * @param {OperationResult} data The OperationResult object with results of conversion.
          * @param {String} response The complete HTTP response.
          */
 
@@ -192,7 +191,7 @@
          * @param {Number} options.topMargin Top resulting margin in pixels. (optional)
          * @param {Number} options.bottomMargin Bottom resulting margin in pixels. (optional)
          * @param {module:api/ConversionApi~convert} callback The callback function, accepting three arguments: error, data, response
-         * data is of type: {@link ConversionResult}
+         * data is of type: {@link OperationResult}
          */
         this.convertUrlToLocal = function(src, dst, options, callback){
             this.convert(src, dst, false, true, true, options, "", callback);
@@ -202,7 +201,7 @@
          * Callback function to receive the result of the convert operation.
          * @callback module:api/ConversionApi~convert
          * @param {String} error Error message, if any.
-         * @param {ConversionResult} data The ConversionResult object with results of conversion.
+         * @param {OperationResult} data The OperationResult object with results of conversion.
          * @param {String} response The complete HTTP response.
          */
 
@@ -219,7 +218,7 @@
          * @param {Number} options.topMargin Top resulting margin in pixels. (optional)
          * @param {Number} options.bottomMargin Bottom resulting margin in pixels. (optional)
          * @param {module:api/ConversionApi~convert} callback The callback function, accepting three arguments: error, data, response
-         * data is of type: {@link ConversionResult}
+         * data is of type: {@link OperationResult}
          */
         this.convertUrlToStorage = function(src, dst, storage, options, callback){
             this.convert(src, dst, false, false, true, options, storage, callback);
@@ -229,7 +228,7 @@
          * Callback function to receive the result of the convert operation.
          * @callback module:api/ConversionApi~convert
          * @param {String} error Error message, if any.
-         * @param {ConversionResult} data The ConversionResult object with results of conversion.
+         * @param {OperationResult} data The OperationResult object with results of conversion.
          * @param {String} response The complete HTTP response.
          */
 
@@ -249,7 +248,7 @@
          * @param {Number} options.bottomMargin Bottom resulting margin in pixels. (optional)
          * @param {String} storage Name of the storage. (optional)
          * @param {module:api/ConversionApi~convert} callback The callback function, accepting three arguments: error, data, response
-         * data is of type: {@link ConversionResult}
+         * data is of type: {@link OperationResult}
          */
         this.convert = function (src, dst, srcInLocal, dstInLocal, isUrl, options, storage, callback) {
             options = options || {};
@@ -346,7 +345,7 @@
             this.apiClient.callApi(
                 '/html/conversion/{from}-{to}', 'POST',
                 pathParams, {}, {}, {}, postBody,
-                ['application/json'], ['application/json'], 'ConversionResult', (err, data, resp) =>
+                ['application/json'], ['application/json'], 'OperationResult', (err, data, resp) =>
                 {
                     if(err || resp.status !== 200) {
                         throw new Error("Unable to create a conversion task");
@@ -380,7 +379,7 @@
             this.apiClient.callApi(
                 'html/conversion/{id}', 'GET',
                 {id: id}, {}, {}, {}, "",
-                ['application/json'], ['application/json'], 'ConversionResult', (err, data, resp) =>
+                ['application/json'], ['application/json'], 'OperationResult', (err, data, resp) =>
                 {
                     if(!err || resp.status !== 200) {
                         switch (data.status) {
